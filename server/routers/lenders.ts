@@ -82,6 +82,143 @@ export const lendersRouter = router({
     }),
 
   /**
+   * Test Ping — fires a single ping to a lender using a fake lead profile.
+   * Does NOT create a real lead in the database.
+   * Returns the raw HTTP response, bid amount, and acceptance status.
+   */
+  testPing: protectedProcedure
+    .input(
+      z.object({
+        lenderId: z.number(),
+        creditScore: z.enum(["no_credit", "below_500", "500_549", "550_599", "600_649", "650_699", "700_plus"]),
+        vehicleType: z.enum(["new", "used", "refinance", "unsure"]),
+        estimatedPrice: z.number().min(1000).max(100000).default(15000),
+        monthlyIncome: z.number().min(0).max(50000).default(3000),
+        state: z.string().length(2).default("WA"),
+        hasBankruptcy: z.boolean().default(false),
+        hasRepossession: z.boolean().default(false),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      adminOnly(ctx.user.role);
+      const lender = await getLenderById(input.lenderId);
+      if (!lender) throw new Error("Lender not found");
+
+      const startTime = Date.now();
+
+      if (!lender.pingUrl) {
+        // Mock mode — simulate the response
+        const CREDIT_APR_MAP: Record<string, { aprMin: number; aprMax: number; confidence: string }> = {
+          no_credit:  { aprMin: 18.9, aprMax: 24.9, confidence: "fair" },
+          below_500:  { aprMin: 16.9, aprMax: 22.9, confidence: "fair" },
+          "500_549":  { aprMin: 14.9, aprMax: 19.9, confidence: "fair" },
+          "550_599":  { aprMin: 12.9, aprMax: 17.9, confidence: "good" },
+          "600_649":  { aprMin: 10.9, aprMax: 14.9, confidence: "good" },
+          "650_699":  { aprMin: 7.9,  aprMax: 11.9, confidence: "high" },
+          "700_plus": { aprMin: 4.9,  aprMax: 8.9,  confidence: "high" },
+        };
+        const aprData = CREDIT_APR_MAP[input.creditScore] ?? CREDIT_APR_MAP["below_500"]!;
+        let acceptChance = 0.85;
+        if (input.hasBankruptcy) acceptChance -= 0.15;
+        if (input.hasRepossession) acceptChance -= 0.10;
+        if (input.creditScore === "no_credit" || input.creditScore === "below_500") acceptChance -= 0.10;
+        acceptChance = Math.max(0.4, acceptChance);
+        const accepted = Math.random() < acceptChance;
+        const bid = accepted ? Math.round((input.estimatedPrice * 0.012 + Math.random() * 20) * 100) / 100 : 0;
+        const responseMs = Date.now() - startTime;
+        return {
+          lenderName: lender.name,
+          isMock: true,
+          accepted,
+          bid,
+          responseMs,
+          rawResponse: {
+            mock: true,
+            accepted,
+            bid,
+            aprMin: aprData.aprMin,
+            aprMax: aprData.aprMax,
+            approvalConfidence: aprData.confidence,
+            note: "This is a simulated response. Configure a Ping URL to test a real endpoint.",
+          },
+          pingPayload: {
+            creditScore: input.creditScore,
+            vehicleType: input.vehicleType,
+            state: input.state,
+            estimatedPrice: input.estimatedPrice,
+            monthlyIncome: input.monthlyIncome,
+            hasBankruptcy: input.hasBankruptcy,
+            hasRepossession: input.hasRepossession,
+          },
+        };
+      }
+
+      // Real ping
+      const fieldMap = (lender.pingFieldMap ?? {}) as Record<string, string>;
+      const map = (key: string) => fieldMap[key] ?? key;
+      const pingPayload: Record<string, unknown> = {
+        [map("creditScore")]: input.creditScore,
+        [map("vehicleType")]: input.vehicleType,
+        [map("state")]: input.state,
+        [map("zipCode")]: "98201", // test zip
+        [map("monthlyIncome")]: input.monthlyIncome,
+        [map("estimatedPrice")]: input.estimatedPrice,
+        [map("hasBankruptcy")]: input.hasBankruptcy,
+        [map("hasRepossession")]: input.hasRepossession,
+      };
+
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 5000);
+
+      try {
+        const resp = await fetch(lender.pingUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${lender.apiKey}`,
+          },
+          body: JSON.stringify(pingPayload),
+          signal: controller.signal,
+        });
+        clearTimeout(timer);
+        // Safely parse response — some lenders return non-JSON on error
+        let rawResponse: unknown;
+        try {
+          rawResponse = await resp.json();
+        } catch {
+          const text = await resp.text().catch(() => "(unreadable body)");
+          rawResponse = { parseError: "Response was not valid JSON", rawText: text.substring(0, 500) };
+        }
+        const accepted = resp.ok && (rawResponse as Record<string, unknown>).accepted === true;
+        const bid = Number((rawResponse as Record<string, unknown>).bid ?? 0);
+        const responseMs = Date.now() - startTime;
+        return {
+          lenderName: lender.name,
+          isMock: false,
+          accepted,
+          bid,
+          responseMs,
+          rawResponse,
+          pingPayload,
+          httpStatus: resp.status,
+        };
+      } catch (err: unknown) {
+        clearTimeout(timer);
+        const responseMs = Date.now() - startTime;
+        return {
+          lenderName: lender.name,
+          isMock: false,
+          accepted: false,
+          bid: 0,
+          responseMs,
+          rawResponse: { error: err instanceof Error ? err.message : "timeout_or_network_error" },
+          pingPayload,
+          httpStatus: 0,
+        };
+      }
+    }),
+
+  /**
    * Seed mock lenders for demo/testing purposes.
    * Only works when no lenders exist yet.
    */

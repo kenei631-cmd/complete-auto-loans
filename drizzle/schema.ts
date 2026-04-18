@@ -163,6 +163,9 @@ export const leads = mysqlTable("leads", {
   /** Webhook secret used to verify the incoming purchase notification */
   webhookToken: varchar("webhookToken", { length: 64 }),
 
+  /** Whether this lead was created as a test (won't be included in real analytics) */
+  isTest: boolean("isTest").default(false).notNull(),
+
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });

@@ -5,6 +5,8 @@ import type { TrpcContext } from "./_core/context";
 // Mock db helpers so tests don't need a real database
 vi.mock("./db", () => ({
   createLead: vi.fn().mockResolvedValue(undefined),
+  updateLead: vi.fn().mockResolvedValue(undefined),
+  deleteLead: vi.fn().mockResolvedValue(undefined),
   updateLeadByToken: vi.fn().mockResolvedValue(undefined),
   getLeadByToken: vi.fn().mockResolvedValue(null),
   getLenderOffersByToken: vi.fn().mockResolvedValue([]),
@@ -16,6 +18,10 @@ vi.mock("./db", () => ({
   getLenderById: vi.fn().mockResolvedValue(null),
   createLender: vi.fn().mockResolvedValue(undefined),
   updateLender: vi.fn().mockResolvedValue(undefined),
+  deleteLender: vi.fn().mockResolvedValue(undefined),
+  listLeads: vi.fn().mockResolvedValue([]),
+  markOfferSelected: vi.fn().mockResolvedValue(undefined),
+  getOffersByLeadId: vi.fn().mockResolvedValue([]),
   getLeadsAdmin: vi.fn().mockResolvedValue([]),
 }));
 
@@ -195,5 +201,137 @@ describe("lenders.list (protected)", () => {
 
     const result = await caller.lenders.list();
     expect(Array.isArray(result)).toBe(true);
+  });
+});
+
+describe("leads.markAsTest (admin only)", () => {
+  it("throws UNAUTHORIZED for unauthenticated user", async () => {
+    const ctx = createPublicCtx();
+    const caller = appRouter.createCaller(ctx);
+    await expect(caller.leads.markAsTest({ id: 1, isTest: true })).rejects.toThrow();
+  });
+
+  it("calls updateLead with isTest flag for admin user", async () => {
+    const { updateLead } = await import("./db");
+    vi.mocked(updateLead).mockResolvedValueOnce(undefined);
+
+    const ctx = createAdminCtx();
+    const caller = appRouter.createCaller(ctx);
+
+    const result = await caller.leads.markAsTest({ id: 5, isTest: true });
+    expect(result).toEqual({ success: true });
+    expect(vi.mocked(updateLead)).toHaveBeenCalledWith(5, { isTest: true });
+  });
+
+  it("can unmark a test lead", async () => {
+    const { updateLead } = await import("./db");
+    vi.mocked(updateLead).mockResolvedValueOnce(undefined);
+
+    const ctx = createAdminCtx();
+    const caller = appRouter.createCaller(ctx);
+
+    const result = await caller.leads.markAsTest({ id: 5, isTest: false });
+    expect(result).toEqual({ success: true });
+    expect(vi.mocked(updateLead)).toHaveBeenCalledWith(5, { isTest: false });
+  });
+});
+
+describe("leads.deleteLead (admin only)", () => {
+  it("throws UNAUTHORIZED for unauthenticated user", async () => {
+    const ctx = createPublicCtx();
+    const caller = appRouter.createCaller(ctx);
+    await expect(caller.leads.deleteLead({ id: 1 })).rejects.toThrow();
+  });
+
+  it("calls deleteLead helper for admin user", async () => {
+    const { deleteLead } = await import("./db");
+    vi.mocked(deleteLead).mockResolvedValueOnce(undefined);
+
+    const ctx = createAdminCtx();
+    const caller = appRouter.createCaller(ctx);
+
+    const result = await caller.leads.deleteLead({ id: 7 });
+    expect(result).toEqual({ success: true });
+    expect(vi.mocked(deleteLead)).toHaveBeenCalledWith(7);
+  });
+});
+
+describe("lenders.testPing (admin only)", () => {
+  it("throws UNAUTHORIZED for unauthenticated user", async () => {
+    const ctx = createPublicCtx();
+    const caller = appRouter.createCaller(ctx);
+    await expect(
+      caller.lenders.testPing({
+        lenderId: 1,
+        creditScore: "500_549",
+        vehicleType: "used",
+        estimatedPrice: 15000,
+        monthlyIncome: 3000,
+        state: "WA",
+        hasBankruptcy: false,
+        hasRepossession: false,
+      })
+    ).rejects.toThrow();
+  });
+
+  it("returns mock result when lender has no pingUrl", async () => {
+    const { getLenderById } = await import("./db");
+    vi.mocked(getLenderById).mockResolvedValueOnce({
+      id: 1,
+      name: "Mock Lender",
+      slug: "mock-lender",
+      pingUrl: null,
+      postUrl: null,
+      apiKey: null,
+      pingFieldMap: null,
+      postFieldMap: null,
+      isActive: true,
+      priority: 10,
+      maxBid: null,
+      notes: null,
+      logoUrl: null,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+
+    const ctx = createAdminCtx();
+    const caller = appRouter.createCaller(ctx);
+
+    const result = await caller.lenders.testPing({
+      lenderId: 1,
+      creditScore: "600_649",
+      vehicleType: "used",
+      estimatedPrice: 20000,
+      monthlyIncome: 4000,
+      state: "TX",
+      hasBankruptcy: false,
+      hasRepossession: false,
+    });
+
+    expect(result.isMock).toBe(true);
+    expect(result.lenderName).toBe("Mock Lender");
+    expect(typeof result.accepted).toBe("boolean");
+    expect(typeof result.responseMs).toBe("number");
+  });
+
+  it("throws if lender not found", async () => {
+    const { getLenderById } = await import("./db");
+    vi.mocked(getLenderById).mockResolvedValueOnce(null);
+
+    const ctx = createAdminCtx();
+    const caller = appRouter.createCaller(ctx);
+
+    await expect(
+      caller.lenders.testPing({
+        lenderId: 999,
+        creditScore: "500_549",
+        vehicleType: "used",
+        estimatedPrice: 15000,
+        monthlyIncome: 3000,
+        state: "WA",
+        hasBankruptcy: false,
+        hasRepossession: false,
+      })
+    ).rejects.toThrow("Lender not found");
   });
 });

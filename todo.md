@@ -56,3 +56,10 @@
 - [x] Add leadSoldAt and saleValue columns to leads table schema
 - [x] Build /api/webhooks/lead-purchased endpoint with HMAC verification and CAPI Purchase event
 - [x] Write vitest tests for the webhook endpoint (7 tests, all passing)
+
+## Admin Panel Improvements
+
+- [x] Admin Test Ping tool: form to fire a live ping to a single lender without creating a real lead
+- [x] Lead management: Mark as Test + Delete buttons on leads in admin panel
+- [x] isTest column added to leads schema (DB migrated)
+- [x] Mega menu hover gap bug fix (useRef timer + paddingTop bridge in Layout.tsx)

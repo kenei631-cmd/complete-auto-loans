@@ -5,10 +5,12 @@ import { z } from "zod";
 import { publicProcedure, protectedProcedure, router } from "../_core/trpc";
 import {
   createLead,
+  deleteLead,
   getLeadByToken,
   getOffersByLeadId,
   listLeads,
   markOfferSelected,
+  updateLead,
   updateLeadByToken,
 } from "../db";
 import { runPingPost } from "../pingPost";
@@ -229,6 +231,28 @@ export const leadsRouter = router({
     .input(z.object({ offerId: z.number() }))
     .mutation(async ({ input }) => {
       await markOfferSelected(input.offerId);
+      return { success: true };
+    }),
+
+  /**
+   * Admin: mark a lead as test (won't appear in real analytics)
+   */
+  markAsTest: protectedProcedure
+    .input(z.object({ id: z.number(), isTest: z.boolean() }))
+    .mutation(async ({ ctx, input }) => {
+      if (ctx.user.role !== "admin") throw new Error("Forbidden");
+      await updateLead(input.id, { isTest: input.isTest });
+      return { success: true };
+    }),
+
+  /**
+   * Admin: delete a lead (and its associated offers)
+   */
+  deleteLead: protectedProcedure
+    .input(z.object({ id: z.number() }))
+    .mutation(async ({ ctx, input }) => {
+      if (ctx.user.role !== "admin") throw new Error("Forbidden");
+      await deleteLead(input.id);
       return { success: true };
     }),
 

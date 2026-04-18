@@ -98,6 +98,14 @@ export async function updateLeadByToken(token: string, data: Partial<InsertLead>
   await db.update(leads).set(data).where(eq(leads.token, token));
 }
 
+export async function deleteLead(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  // Delete associated offers first to avoid FK constraint issues
+  await db.delete(lenderOffers).where(eq(lenderOffers.leadId, id));
+  await db.delete(leads).where(eq(leads.id, id));
+}
+
 export async function listLeads(limit = 50, offset = 0) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
