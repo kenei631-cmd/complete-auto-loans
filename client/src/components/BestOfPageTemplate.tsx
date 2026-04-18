@@ -395,6 +395,81 @@ export default function BestOfPageTemplate({
           </div>
         </div>
       </div>
+      {/* ── Cities We Serve ── */}
+      <div
+        className="py-14"
+        style={{ background: "oklch(0.311 0.065 251)" }}
+      >
+        <div className="container">
+          <div className="text-center mb-10">
+            <h2
+              className="text-white mb-2"
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.75rem", fontWeight: 700 }}
+            >
+              Cities We Serve
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem" }}>
+              Find local lenders and dealerships in your city
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            {[
+              { city: "Phoenix, AZ", href: "/phoenix-az" },
+              { city: "Dallas, TX", href: "/dallas-tx" },
+              { city: "Fort Worth, TX", href: "/fort-worth-tx" },
+              { city: "Chicago, IL", href: "/chicago-il" },
+              { city: "Charlotte, NC", href: "/charlotte-nc" },
+              { city: "Columbus, OH", href: "/columbus-oh" },
+              { city: "San Antonio, TX", href: "/san-antonio-tx" },
+              { city: "Detroit, MI", href: "/detroit-mi" },
+              { city: "Tulsa, OK", href: "/tulsa-ok" },
+              { city: "Colorado Springs, CO", href: "/colorado-springs-co" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block rounded-xl p-4 text-center transition-all"
+                style={{
+                  background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255,255,255,0.10)",
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: "0.82rem",
+                  fontWeight: 600,
+                  color: "rgba(255,255,255,0.75)",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.12)";
+                  (e.currentTarget as HTMLElement).style.color = "white";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)";
+                  (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.75)";
+                }}
+              >
+                {item.city}
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/locations">
+              <button
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all"
+                style={{
+                  background: "oklch(0.76 0.16 75)",
+                  color: "oklch(0.15 0.04 251)",
+                  fontFamily: "'DM Sans', sans-serif",
+                  boxShadow: "0 4px 16px oklch(0.76 0.16 75 / 0.4)",
+                }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; }}
+              >
+                View All Locations
+                <ChevronRight size={14} />
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </Layout>
   );
 }
