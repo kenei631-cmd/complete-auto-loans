@@ -53,3 +53,6 @@
 - [ ] Add CAPI Purchase event webhook endpoint (fires when lead is sold to lender — needed for value optimization)
 - [ ] Create Meta Ads campaign (Objective: Leads, Budget: $30-50/day, Advantage+ Audience)
 - [ ] Verify pixel events in Meta Events Manager (check PageView + Lead firing correctly)
+- [ ] Add leadSoldAt and saleValue columns to leads table schema
+- [ ] Build /api/webhooks/lead-purchased endpoint with HMAC verification and CAPI Purchase event
+- [ ] Write vitest tests for the webhook endpoint

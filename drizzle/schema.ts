@@ -143,14 +143,25 @@ export const leads = mysqlTable("leads", {
   /** Which step the user reached before abandoning (null = completed) */
   abandonedAtStep: int("abandonedAtStep"),
 
-  // ── Status ───────────────────────────────────────────────────────────────
+    // ── Status ───────────────────────────────────────────────────────────
   status: mysqlEnum("status", [
     "partial",     // form started but not completed
     "submitted",   // form completed, ping/post in progress
     "matched",     // at least one lender accepted
     "no_match",    // no lender accepted
     "contacted",   // lender has contacted the borrower
+    "sold",        // lead was purchased by a lender (triggers CAPI Purchase)
   ]).default("partial").notNull(),
+
+  // ── Sale / Revenue tracking (for CAPI Purchase event) ────────────────
+  /** Timestamp when the lender confirmed purchase of this lead */
+  leadSoldAt: timestamp("leadSoldAt"),
+  /** Amount paid by the lender for this lead in USD */
+  saleValue: decimal("saleValue", { precision: 8, scale: 2 }),
+  /** Which lender purchased this lead */
+  soldToLenderId: int("soldToLenderId"),
+  /** Webhook secret used to verify the incoming purchase notification */
+  webhookToken: varchar("webhookToken", { length: 64 }),
 
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
