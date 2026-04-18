@@ -278,6 +278,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             >
               How It Works
             </Link>
+
+            <Link
+              href="/blog"
+              className="px-3.5 py-2 rounded-md text-sm font-medium transition-all"
+              style={{ color: "rgba(255,255,255,0.8)", fontFamily: "'DM Sans', sans-serif" }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "white"; (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.8)"; (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+            >
+              Blog
+            </Link>
+
+            <Link
+              href="/about"
+              className="px-3.5 py-2 rounded-md text-sm font-medium transition-all"
+              style={{ color: "rgba(255,255,255,0.8)", fontFamily: "'DM Sans', sans-serif" }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "white"; (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.8)"; (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+            >
+              About
+            </Link>
           </nav>
 
           {/* CTA + Mobile Toggle */}
@@ -328,6 +348,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", marginTop: "0.75rem", paddingTop: "0.75rem" }}>
                 <Link href="/how-it-works" className="block px-3 py-2.5 text-sm font-medium" style={{ color: "rgba(255,255,255,0.75)" }}>
                   How It Works
+                </Link>
+                <Link href="/blog" className="block px-3 py-2.5 text-sm font-medium" style={{ color: "rgba(255,255,255,0.75)" }}>
+                  Blog
+                </Link>
+                <Link href="/about" className="block px-3 py-2.5 text-sm font-medium" style={{ color: "rgba(255,255,255,0.75)" }}>
+                  About
                 </Link>
                 <Link href="/apply">
                   <button className="mt-3 w-full py-3 rounded-md font-bold text-sm" style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.15 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>

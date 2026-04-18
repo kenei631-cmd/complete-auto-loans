@@ -118,6 +118,9 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import OfferResults from "@/pages/OfferResults";
 import AdminPanel from "@/pages/AdminPanel";
+import BlogIndex from "@/pages/BlogIndex";
+import BlogPost from "@/pages/BlogPost";
+import About from "@/pages/About";
 
 function SiteSchemas() {
   useEffect(() => {
@@ -252,6 +255,11 @@ function Router() {
       <Route path="/offers/:token" component={OfferResults} />
       {/* Admin Panel */}
       <Route path="/admin" component={AdminPanel} />
+      {/* Blog */}
+      <Route path="/blog" component={BlogIndex} />
+      <Route path="/blog/:slug" component={BlogPost} />
+      {/* About */}
+      <Route path="/about" component={About} />
       {/* Utility Pages */}
       <Route path="/locations" component={Locations} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />

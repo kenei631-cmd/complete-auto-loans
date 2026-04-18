@@ -33,8 +33,13 @@
 
 ## Content / Growth (pending)
 
-- [ ] Blog section: 5-10 AEO-optimized articles at /blog/[slug]/
+- [x] Blog infrastructure: /blog index page, /blog/:slug post page, nav wiring, sitemap update
+- [x] Blog article 1: "What Credit Score Do You Need to Buy a Car?" (/blog/what-credit-score-do-you-need-to-buy-a-car)
+- [x] Blog article 2: "How to Get a Car Loan After Bankruptcy" (/blog/how-to-get-a-car-loan-after-bankruptcy)
+- [x] Blog article 3: "Can I Get a Car Loan with a 500 Credit Score?" (/blog/car-loan-with-500-credit-score)
+- [x] Blog article 4: "Buy Here Pay Here vs Traditional Auto Loans" (/blog/buy-here-pay-here-vs-traditional-auto-loans)
+- [x] Blog article 5: "How to Get Approved for a Car Loan with No Credit History" (/blog/car-loan-no-credit-history)
+- [x] About / Team page (/about) with founder story, Everett WA address, E-E-A-T schema, nav wiring
 - [ ] Refinance Bad Credit national pillar + 10 city pages
-- [ ] About / Team page for E-E-A-T
 - [ ] Submit all URLs to Google Search Console + RapidURL Indexer
 - [ ] Sticky mobile CTA bar on Best-Of pages
