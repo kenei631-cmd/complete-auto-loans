@@ -327,3 +327,30 @@ export function buildServiceSchema({
     },
   };
 }
+
+// ── SpeakableSpecification (for voice search / AEO) ──────────────────────────
+/**
+ * Marks specific CSS selectors as speakable content for voice assistants
+ * (Google Assistant, Alexa, etc.) and LLM citation engines.
+ * Wire to pages that have a clear answer-first structure.
+ *
+ * @param url  The canonical path (e.g. "/best-bad-credit-auto-loans")
+ * @param cssSelectors  Array of CSS selectors pointing to the speakable content
+ */
+export function buildSpeakableSchema({
+  url,
+  cssSelectors = ["h1", ".page-summary", ".faq-answer", ".hero-description"],
+}: {
+  url: string;
+  cssSelectors?: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    url: `${BASE_URL}${url}/`,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: cssSelectors,
+    },
+  };
+}

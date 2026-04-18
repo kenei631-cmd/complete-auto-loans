@@ -10,12 +10,14 @@ import Layout from "./Layout";
 import LenderCard, { Lender } from "./LenderCard";
 import { Link } from "wouter";
 import { ArrowRight, Shield, ChevronRight, CheckCircle2 } from "lucide-react";
+import LoanCalculator from "./LoanCalculator";
 import { useSEO } from "@/hooks/useSEO";
 import {
   buildFinancialProductSchema,
   buildFAQSchema,
   buildBreadcrumbSchema,
   buildAggregateRatingSchema,
+  buildSpeakableSchema,
 } from "@/lib/schema";
 
 interface RealStory {
@@ -77,6 +79,10 @@ export default function BestOfPageTemplate({
       { name: "Home", path: "/" },
       { name: title, path: canonicalPath ?? "/" },
     ]),
+    buildSpeakableSchema({
+      url: canonicalPath ?? "/",
+      cssSelectors: ["h1", ".page-summary", ".faq-answer", ".hero-description"],
+    }),
   ];
 
   useSEO({
@@ -244,6 +250,108 @@ export default function BestOfPageTemplate({
                 </div>
               </div>
             )}
+
+            {/* ── What to Expect Timeline ── */}
+            <div className="mb-12">
+              <div style={{ borderTop: "1px solid oklch(0.90 0.006 80)", marginBottom: "2rem" }} />
+              <h2 className="mb-2" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "oklch(0.18 0.04 251)" }}>
+                What to Expect After You Apply
+              </h2>
+              <p className="text-sm mb-6" style={{ color: "oklch(0.50 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
+                Most borrowers go from application to driving away in a single day. Here is what the process looks like.
+              </p>
+              <div className="relative">
+                {/* Vertical connector line */}
+                <div
+                  className="absolute left-5 top-8 bottom-8 w-px hidden sm:block"
+                  style={{ background: "linear-gradient(to bottom, oklch(0.578 0.098 186), oklch(0.578 0.098 186 / 0.15))" }}
+                />
+                <div className="flex flex-col gap-5">
+                  {[
+                    { step: "1", title: "Submit Your Application", time: "2 minutes", desc: "Fill out our secure 2-minute form. We ask for basic income and vehicle info — no SSN required at this stage. Soft credit check only." },
+                    { step: "2", title: "Get Matched with Lenders", time: "Under 60 seconds", desc: "Our system matches your profile with lenders most likely to approve you. You receive real offers — not estimates — from lenders in our network." },
+                    { step: "3", title: "Review & Accept an Offer", time: "Same day", desc: "Compare your offers side by side. When you accept, the lender runs a hard credit check (this is normal and expected at this stage)." },
+                    { step: "4", title: "Sign & Pick Up Your Vehicle", time: "Same day or next day", desc: "Sign your loan documents — often electronically. Then visit the dealership, verify insurance, and drive away. Funding typically occurs within 24 hours." },
+                  ].map((item) => (
+                    <div key={item.step} className="flex items-start gap-4 sm:gap-6 p-5 rounded-2xl" style={{ background: "white", border: "1px solid oklch(0.90 0.006 80)" }}>
+                      <div
+                        className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0"
+                        style={{ background: "oklch(0.578 0.098 186)", fontFamily: "'DM Sans', sans-serif", zIndex: 1 }}
+                      >
+                        {item.step}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                          <p className="font-bold text-sm" style={{ color: "oklch(0.18 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>{item.title}</p>
+                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: "oklch(0.578 0.098 186 / 0.10)", color: "oklch(0.38 0.12 185)", fontFamily: "'DM Sans', sans-serif", fontWeight: 600 }}>{item.time}</span>
+                        </div>
+                        <p className="text-sm leading-relaxed" style={{ color: "oklch(0.40 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* ── Soft Pull vs Hard Pull Explainer ── */}
+            <div className="mb-12">
+              <div style={{ borderTop: "1px solid oklch(0.90 0.006 80)", marginBottom: "2rem" }} />
+              <h2 className="mb-2" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "oklch(0.18 0.04 251)" }}>
+                Soft Pull vs. Hard Pull: What's the Difference?
+              </h2>
+              <p className="text-sm mb-6" style={{ color: "oklch(0.50 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
+                Many borrowers worry that applying for a car loan will hurt their credit score. Here is exactly what happens — and when.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="p-5 rounded-2xl" style={{ background: "oklch(0.97 0.004 80)", border: "1px solid oklch(0.90 0.006 80)" }}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="w-2 h-2 rounded-full shrink-0" style={{ background: "oklch(0.578 0.098 186)" }} />
+                    <p className="font-bold text-sm" style={{ color: "oklch(0.18 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>Soft Credit Pull</p>
+                    <span className="ml-auto text-xs px-2 py-0.5 rounded-full font-semibold" style={{ background: "oklch(0.578 0.098 186 / 0.12)", color: "oklch(0.38 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}>Won't affect score</span>
+                  </div>
+                  <ul className="space-y-2">
+                    {["Happens when you apply through Complete Auto Loans", "Lenders use it to pre-qualify you for offers", "Does not appear on your credit report", "Can be done unlimited times with no impact"].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm" style={{ color: "oklch(0.35 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
+                        <CheckCircle2 size={12} className="mt-0.5 shrink-0" style={{ color: "oklch(0.578 0.098 186)" }} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="p-5 rounded-2xl" style={{ background: "oklch(0.97 0.004 80)", border: "1px solid oklch(0.90 0.006 80)" }}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="w-2 h-2 rounded-full shrink-0" style={{ background: "oklch(0.65 0.12 30)" }} />
+                    <p className="font-bold text-sm" style={{ color: "oklch(0.18 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>Hard Credit Pull</p>
+                    <span className="ml-auto text-xs px-2 py-0.5 rounded-full font-semibold" style={{ background: "oklch(0.65 0.12 30 / 0.10)", color: "oklch(0.45 0.10 30)", fontFamily: "'DM Sans', sans-serif" }}>Minimal impact</span>
+                  </div>
+                  <ul className="space-y-2">
+                    {["Only happens when you formally accept a loan offer", "Lender verifies your full credit report before funding", "Typically reduces your score by fewer than 5 points", "Multiple auto inquiries within 14 days count as one"].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm" style={{ color: "oklch(0.35 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
+                        <CheckCircle2 size={12} className="mt-0.5 shrink-0" style={{ color: "oklch(0.65 0.12 30)" }} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="mt-4 p-4 rounded-xl" style={{ background: "oklch(0.311 0.065 251 / 0.04)", border: "1px solid oklch(0.311 0.065 251 / 0.10)" }}>
+                <p className="text-sm" style={{ color: "oklch(0.32 0.04 251)", fontFamily: "'DM Sans', sans-serif", lineHeight: 1.6 }}>
+                  <strong>Bottom line:</strong> Applying through Complete Auto Loans is completely safe for your credit score. The soft pull we use to match you with lenders has zero impact. Only the final hard pull — which you authorize when accepting an offer — can affect your score, and that impact is minimal and temporary.
+                </p>
+              </div>
+            </div>
+
+            {/* ── Loan Calculator ── */}
+            <div className="mb-12">
+              <div style={{ borderTop: "1px solid oklch(0.90 0.006 80)", marginBottom: "2rem" }} />
+              <h2 className="mb-2" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "oklch(0.18 0.04 251)" }}>
+                Auto Loan Payment Calculator
+              </h2>
+              <p className="text-sm mb-6" style={{ color: "oklch(0.50 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
+                Estimate your monthly payment before you apply. Adjust the loan amount, interest rate, and term to see how each affects your payment.
+              </p>
+              <LoanCalculator />
+            </div>
 
             {/* Real Stories */}
             {realStories.length > 0 && (

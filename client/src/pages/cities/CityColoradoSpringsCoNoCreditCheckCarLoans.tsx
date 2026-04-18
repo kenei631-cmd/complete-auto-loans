@@ -5,14 +5,13 @@
 import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
-import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
+import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema , buildSpeakableSchema } from "@/lib/schema";
 
 const lenders: CityLender[] = [
   {
     name: "Complete Auto Loans",
     badge: "Editor's Choice",
     rating: 4.9,
-    reviews: 2847,
     minScore: "300+",
     aprRange: "3.9% – 29.9%",
     down: "$0 – $500",
@@ -26,7 +25,6 @@ const lenders: CityLender[] = [
     name: "Auto Credit Express",
     badge: null,
     rating: 4.6,
-    reviews: 1203,
     minScore: "400+",
     aprRange: "5.9% – 35.9%",
     down: "$500+",
@@ -40,7 +38,6 @@ const lenders: CityLender[] = [
     name: "MyAutoLoan",
     badge: null,
     rating: 4.4,
-    reviews: 876,
     minScore: "500+",
     aprRange: "4.9% – 28.9%",
     down: "$0+",
@@ -54,7 +51,6 @@ const lenders: CityLender[] = [
     name: "DriveTime",
     badge: null,
     rating: 4.1,
-    reviews: 654,
     minScore: "No minimum",
     aprRange: "10.9% – 39.9%",
     down: "$500+",
@@ -68,7 +64,6 @@ const lenders: CityLender[] = [
     name: "Carvana",
     badge: null,
     rating: 4.0,
-    reviews: 432,
     minScore: "450+",
     aprRange: "7.9% – 32.9%",
     down: "$0+",
@@ -82,7 +77,6 @@ const lenders: CityLender[] = [
     name: "Perkins Motors",
     badge: null,
     rating: 4.2,
-    reviews: 180,
     minScore: "300+",
     aprRange: "8.9% – 34.9%",
     down: "$500+",
@@ -96,7 +90,6 @@ const lenders: CityLender[] = [
     name: "Wilcoxson GMC",
     badge: null,
     rating: 4.2,
-    reviews: 225,
     minScore: "300+",
     aprRange: "8.9% – 34.9%",
     down: "$500+",
@@ -135,6 +128,10 @@ export default function CityColoradoSpringsCoNoCreditCheckCarLoans() {
         { name: "No Credit Check Car Loans in Colorado Springs, CO", path: "/colorado-springs-co/no-credit-check-car-loans/" },
       ]),
       buildFAQSchema(faqs),
+      buildSpeakableSchema({
+        url: "/colorado-springs-co/no-credit-check-car-loans",
+        cssSelectors: ["h1", ".faq-answer", ".hero-description"],
+      }),
     ],
   });
 

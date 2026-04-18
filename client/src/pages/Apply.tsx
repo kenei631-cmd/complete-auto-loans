@@ -9,6 +9,7 @@ import Layout from "../components/Layout";
 import { Shield, CheckCircle2, Star, ArrowLeft, ArrowRight, Users, Award, Zap } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
 import { buildWebPageSchema, buildBreadcrumbSchema, buildServiceSchema } from "@/lib/schema";
+import LoanCalculator from "@/components/LoanCalculator";
 
 const steps = [
   { id: 1, label: "Vehicle", title: "What type of vehicle are you looking for?" },
@@ -531,6 +532,23 @@ export default function Apply() {
               )}
             </div>
           </div>
+        </div>
+      </div>
+      {/* ── Loan Calculator Section ── */}
+      <div className="py-16" style={{ background: "oklch(0.97 0.004 80)", borderTop: "1px solid oklch(0.90 0.006 80)" }}>
+        <div className="container max-w-3xl mx-auto">
+          <div className="text-center mb-8">
+            <h2
+              className="mb-2"
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 700, color: "oklch(0.18 0.04 251)" }}
+            >
+              Estimate Your Monthly Payment
+            </h2>
+            <p style={{ color: "oklch(0.50 0.04 251)", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem" }}>
+              Use our calculator to see how loan amount, rate, and term affect your payment before you apply.
+            </p>
+          </div>
+          <LoanCalculator />
         </div>
       </div>
     </Layout>

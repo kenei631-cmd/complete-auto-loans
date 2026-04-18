@@ -31,7 +31,6 @@ export interface CityLender {
   name: string;
   badge: string | null;
   rating: number;
-  reviews: number;
   minScore: string;
   aprRange: string;
   down: string;
@@ -379,7 +378,7 @@ export default function CityServicePageTemplate({
                             color: lender.isTop ? "rgba(255,255,255,0.40)" : "oklch(0.55 0.03 251)",
                           }}
                         >
-                          · {lender.reviews} reviews
+                          verified lender
                         </span>
                       </div>
                     </div>
