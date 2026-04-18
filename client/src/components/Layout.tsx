@@ -15,17 +15,17 @@ const LOGO_URL = "/manus-storage/logo_white_text_35e3a1a6.png";
 const bestOfLinks = [
   { label: "Bad Credit Auto Loans", href: "/best-bad-credit-auto-loans" },
   { label: "Buy Here Pay Here", href: "/best-buy-here-pay-here-dealerships" },
-  { label: "No Money Down", href: "/best-no-money-down-car-loans" },
+  { label: "No Money Down", href: "/best-no-money-down-car-loans-bad-credit" },
   { label: "Guaranteed Approval", href: "/best-guaranteed-approval-auto-loans" },
   { label: "No Credit Check", href: "/best-no-credit-check-car-loans" },
-  { label: "Pre-Approved Loans", href: "/best-pre-approved-car-loans" },
-  { label: "First-Time Buyers", href: "/best-first-time-car-buyer-loans" },
+  { label: "Pre-Approved Loans", href: "/best-pre-approved-car-loans-bad-credit" },
+  { label: "First-Time Buyers", href: "/best-first-time-car-buyer-loans-no-credit" },
   { label: "After Bankruptcy", href: "/best-car-loans-after-bankruptcy" },
   { label: "After Repossession", href: "/best-auto-loans-after-repossession" },
   { label: "Second Chance", href: "/best-second-chance-auto-loans" },
   { label: "ITIN Auto Loans", href: "/best-itin-auto-loans" },
-  { label: "Refinance Bad Credit", href: "/best-refinance-bad-credit" },
-  { label: "Low Income Buyers", href: "/best-low-income-car-loans" },
+  { label: "Refinance Bad Credit", href: "/best-auto-refinance-bad-credit" },
+  { label: "Low Income Buyers", href: "/best-car-loans-low-income" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -235,7 +235,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 {[
                   ["Bad Credit Auto Loans", "/best-bad-credit-auto-loans"],
                   ["Buy Here Pay Here", "/best-buy-here-pay-here-dealerships"],
-                  ["No Money Down", "/best-no-money-down-car-loans"],
+                  ["No Money Down", "/best-no-money-down-car-loans-bad-credit"],
                   ["Guaranteed Approval", "/best-guaranteed-approval-auto-loans"],
                   ["No Credit Check", "/best-no-credit-check-car-loans"],
                 ].map(([label, href]) => (
@@ -257,7 +257,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   ["After Repossession", "/best-auto-loans-after-repossession"],
                   ["Second Chance", "/best-second-chance-auto-loans"],
                   ["ITIN Auto Loans", "/best-itin-auto-loans"],
-                  ["First-Time Buyers", "/best-first-time-car-buyer-loans"],
+                  ["First-Time Buyers", "/best-first-time-car-buyer-loans-no-credit"],
                 ].map(([label, href]) => (
                   <li key={href}>
                     <Link href={href} className="text-sm transition-colors" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}
@@ -272,7 +272,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.65 0.085 186)", fontFamily: "'DM Sans', sans-serif" }}>Company</h4>
               <ul className="space-y-2.5">
-                {[["How It Works", "/how-it-works"], ["Get Pre-Approved", "/apply"]].map(([label, href]) => (
+                {[
+                  ["How It Works", "/how-it-works"],
+                  ["Get Pre-Approved", "/apply"],
+                  ["Locations", "/locations"],
+                  ["Privacy Policy", "/privacy-policy"],
+                  ["Terms of Service", "/terms-of-service"],
+                ].map(([label, href]) => (
                   <li key={href}>
                     <Link href={href} className="text-sm transition-colors" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}
                       onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.85)"}

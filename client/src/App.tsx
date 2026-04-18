@@ -103,6 +103,19 @@ import CityColoradoSpringsCoNoMoneyDownCarLoans from "@/pages/cities/CityColorad
 import CityColoradoSpringsCoSecondChanceAutoLoans from "@/pages/cities/CityColoradoSpringsCoSecondChanceAutoLoans";
 import CityColoradoSpringsCoCarLoansAfterBankruptcy from "@/pages/cities/CityColoradoSpringsCoCarLoansAfterBankruptcy";
 import CityColoradoSpringsCoAutoLoansAfterRepossession from "@/pages/cities/CityColoradoSpringsCoAutoLoansAfterRepossession";
+import CityHubPhoenixAz from "@/pages/cities/CityHubPhoenixAz";
+import CityHubColoradoSpringsCo from "@/pages/cities/CityHubColoradoSpringsCo";
+import CityHubFortWorthTx from "@/pages/cities/CityHubFortWorthTx";
+import CityHubDallasTx from "@/pages/cities/CityHubDallasTx";
+import CityHubDetroitMi from "@/pages/cities/CityHubDetroitMi";
+import CityHubTulsaOk from "@/pages/cities/CityHubTulsaOk";
+import CityHubColumbusOh from "@/pages/cities/CityHubColumbusOh";
+import CityHubCharlotteNc from "@/pages/cities/CityHubCharlotteNc";
+import CityHubSanAntonioTx from "@/pages/cities/CityHubSanAntonioTx";
+import CityHubChicagoIl from "@/pages/cities/CityHubChicagoIl";
+import Locations from "@/pages/Locations";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService";
 
 function SiteSchemas() {
   useEffect(() => {
@@ -222,6 +235,21 @@ function Router() {
       <Route path="/colorado-springs-co/second-chance-auto-loans" component={CityColoradoSpringsCoSecondChanceAutoLoans} />
       <Route path="/colorado-springs-co/car-loans-after-bankruptcy" component={CityColoradoSpringsCoCarLoansAfterBankruptcy} />
       <Route path="/colorado-springs-co/auto-loans-after-repossession" component={CityColoradoSpringsCoAutoLoansAfterRepossession} />
+      {/* City Hub Pages */}
+      <Route path="/phoenix-az" component={CityHubPhoenixAz} />
+      <Route path="/colorado-springs-co" component={CityHubColoradoSpringsCo} />
+      <Route path="/fort-worth-tx" component={CityHubFortWorthTx} />
+      <Route path="/dallas-tx" component={CityHubDallasTx} />
+      <Route path="/detroit-mi" component={CityHubDetroitMi} />
+      <Route path="/tulsa-ok" component={CityHubTulsaOk} />
+      <Route path="/columbus-oh" component={CityHubColumbusOh} />
+      <Route path="/charlotte-nc" component={CityHubCharlotteNc} />
+      <Route path="/san-antonio-tx" component={CityHubSanAntonioTx} />
+      <Route path="/chicago-il" component={CityHubChicagoIl} />
+      {/* Utility Pages */}
+      <Route path="/locations" component={Locations} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
