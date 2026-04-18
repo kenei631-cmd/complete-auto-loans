@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Car Loans After Bankruptcy in Colorado Springs, CO (2026)";
 const H1 = "Best Car Loans After Bankruptcy in Colorado Springs, CO";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityColoradoSpringsCoCarLoansAfterBankruptcy() {
+  useSEO({
+    title: "Best Car Loans After Bankruptcy in Colorado Springs, CO (2026) | Complete Auto Loans",
+    description: "Car loans after bankruptcy in Colorado Springs, CO. Chapter 7 or Chapter 13 \u2014 discharged or active. Lenders in El Paso County that approve post-bankruptcy borrowers.",
+    canonical: "/colorado-springs-co/car-loans-after-bankruptcy",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Colorado Springs",
+        state: "CO",
+        serviceType: "Car Loans After Bankruptcy",
+        url: "/colorado-springs-co/car-loans-after-bankruptcy",
+        description: "Car loans after bankruptcy in Colorado Springs, CO. Chapter 7 or Chapter 13 \u2014 discharged or active. Lenders in El Paso County that approve post-bankruptcy borrowers.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Colorado Springs, CO", path: "/colorado-springs-co" },
+        { name: "Car Loans After Bankruptcy", path: "/colorado-springs-co/car-loans-after-bankruptcy" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

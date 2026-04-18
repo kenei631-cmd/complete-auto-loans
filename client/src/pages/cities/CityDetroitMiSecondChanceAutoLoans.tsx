@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Second Chance Auto Loans in Detroit, MI (2026)";
 const H1 = "Best Second Chance Auto Loans in Detroit, MI";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityDetroitMiSecondChanceAutoLoans() {
+  useSEO({
+    title: "Best Second Chance Auto Loans in Detroit, MI (2026) | Complete Auto Loans",
+    description: "Second chance auto loans in Detroit, MI for borrowers with bankruptcy, repossession, or collections. Fresh start financing specialists.",
+    canonical: "/detroit-mi/second-chance-auto-loans",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Detroit",
+        state: "MI",
+        serviceType: "Second Chance Auto Loans",
+        url: "/detroit-mi/second-chance-auto-loans",
+        description: "Second chance auto loans in Detroit, MI for borrowers with bankruptcy, repossession, or collections. Fresh start financing specialists.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Detroit, MI", path: "/detroit-mi" },
+        { name: "Second Chance Auto Loans", path: "/detroit-mi/second-chance-auto-loans" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

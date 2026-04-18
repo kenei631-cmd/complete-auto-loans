@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Second Chance Auto Loans in Columbus, OH (2026)";
 const H1 = "Best Second Chance Auto Loans in Columbus, OH";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityColumbusOhSecondChanceAutoLoans() {
+  useSEO({
+    title: "Best Second Chance Auto Loans in Columbus, OH (2026) | Complete Auto Loans",
+    description: "Second chance auto loans in Columbus, OH for borrowers with bankruptcy, repossession, or collections. Fresh start financing specialists.",
+    canonical: "/columbus-oh/second-chance-auto-loans",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Columbus",
+        state: "OH",
+        serviceType: "Second Chance Auto Loans",
+        url: "/columbus-oh/second-chance-auto-loans",
+        description: "Second chance auto loans in Columbus, OH for borrowers with bankruptcy, repossession, or collections. Fresh start financing specialists.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Columbus, OH", path: "/columbus-oh" },
+        { name: "Second Chance Auto Loans", path: "/columbus-oh/second-chance-auto-loans" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

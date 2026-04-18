@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Auto Loans After Repossession in Colorado Springs, CO (2026)";
 const H1 = "Best Auto Loans After Repossession in Colorado Springs, CO";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityColoradoSpringsCoAutoLoansAfterRepossession() {
+  useSEO({
+    title: "Best Auto Loans After Repossession in Colorado Springs, CO (2026) | Complete Auto Loans",
+    description: "Auto loans after repossession in Colorado Springs, CO. Previous repo on record? Lenders in El Paso County that specialize in post-repossession financing.",
+    canonical: "/colorado-springs-co/auto-loans-after-repossession",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Colorado Springs",
+        state: "CO",
+        serviceType: "Auto Loans After Repossession",
+        url: "/colorado-springs-co/auto-loans-after-repossession",
+        description: "Auto loans after repossession in Colorado Springs, CO. Previous repo on record? Lenders in El Paso County that specialize in post-repossession financing.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Colorado Springs, CO", path: "/colorado-springs-co" },
+        { name: "Auto Loans After Repossession", path: "/colorado-springs-co/auto-loans-after-repossession" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

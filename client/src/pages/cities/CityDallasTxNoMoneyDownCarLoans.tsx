@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best No Money Down Car Loans in Dallas, TX (2026)";
 const H1 = "Best No Money Down Car Loans in Dallas, TX";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityDallasTxNoMoneyDownCarLoans() {
+  useSEO({
+    title: "Best No Money Down Car Loans in Dallas, TX (2026) | Complete Auto Loans",
+    description: "No money down car loans in Dallas, TX for bad credit. Drive away with $0 down. Lenders that work with subprime borrowers in Dallas County.",
+    canonical: "/dallas-tx/no-money-down-car-loans",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Dallas",
+        state: "TX",
+        serviceType: "No Money Down Car Loans",
+        url: "/dallas-tx/no-money-down-car-loans",
+        description: "No money down car loans in Dallas, TX for bad credit. Drive away with $0 down. Lenders that work with subprime borrowers in Dallas County.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Dallas, TX", path: "/dallas-tx" },
+        { name: "No Money Down Car Loans", path: "/dallas-tx/no-money-down-car-loans" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

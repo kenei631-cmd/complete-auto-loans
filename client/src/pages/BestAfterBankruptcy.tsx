@@ -6,6 +6,9 @@ const lenders: Lender[] = [{"rank": 1, "name": "Complete Auto Loans", "tagline":
 export default function BestAfterBankruptcy() {
   return (
     <BestOfPageTemplate
+      seoTitle="Best Car Loans After Bankruptcy of 2026 — Reviewed & Ranked"
+      seoDescription="Compare the best auto loans after bankruptcy in 2026. Get approved after Chapter 7 or Chapter 13. Lenders that work with discharged and active BK."
+      canonicalPath="/best-car-loans-after-bankruptcy"
       title="Best Car Loans After Bankruptcy (2026)"
       subtitle="Bankruptcy doesn't end your ability to get a car loan. These lenders specialize in post-bankruptcy financing."
       intro="Getting a car loan after bankruptcy is possible — and often easier than people expect. Lenders know that a bankruptcy discharge means your debt slate is clean and you legally can't file again for several years, which actually makes you a lower risk."

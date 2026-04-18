@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Bad Credit Auto Loans in San Antonio, TX (2026)";
 const H1 = "Best Bad Credit Auto Loans in San Antonio, TX";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CitySanAntonioTxBadCreditAutoLoans() {
+  useSEO({
+    title: "Best Bad Credit Auto Loans in San Antonio, TX (2026) | Complete Auto Loans",
+    description: "Compare the best bad credit auto loans in San Antonio, TX. Lenders that approve credit scores 300\u2013600 with $500 down and proof of income.",
+    canonical: "/san-antonio-tx/bad-credit-auto-loans",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "San Antonio",
+        state: "TX",
+        serviceType: "Bad Credit Auto Loans",
+        url: "/san-antonio-tx/bad-credit-auto-loans",
+        description: "Compare the best bad credit auto loans in San Antonio, TX. Lenders that approve credit scores 300\u2013600 with $500 down and proof of income.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "San Antonio, TX", path: "/san-antonio-tx" },
+        { name: "Bad Credit Auto Loans", path: "/san-antonio-tx/bad-credit-auto-loans" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

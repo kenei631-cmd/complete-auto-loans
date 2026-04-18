@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Guaranteed Approval Auto Loans in Tulsa, OK (2026)";
 const H1 = "Best Guaranteed Approval Auto Loans in Tulsa, OK";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityTulsaOkGuaranteedApprovalAutoLoans() {
+  useSEO({
+    title: "Best Guaranteed Approval Auto Loans in Tulsa, OK (2026) | Complete Auto Loans",
+    description: "Guaranteed approval auto loans in Tulsa, OK for credit scores under 500. Steady income + down payment = approval. No exceptions.",
+    canonical: "/tulsa-ok/guaranteed-approval-auto-loans",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Tulsa",
+        state: "OK",
+        serviceType: "Guaranteed Approval Auto Loans",
+        url: "/tulsa-ok/guaranteed-approval-auto-loans",
+        description: "Guaranteed approval auto loans in Tulsa, OK for credit scores under 500. Steady income + down payment = approval. No exceptions.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Tulsa, OK", path: "/tulsa-ok" },
+        { name: "Guaranteed Approval Auto Loans", path: "/tulsa-ok/guaranteed-approval-auto-loans" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

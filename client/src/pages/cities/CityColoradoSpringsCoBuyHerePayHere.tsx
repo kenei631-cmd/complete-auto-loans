@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Buy Here Pay Here Dealerships in Colorado Springs, CO (2026)";
 const H1 = "Best Buy Here Pay Here Dealerships in Colorado Springs, CO";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityColoradoSpringsCoBuyHerePayHere() {
+  useSEO({
+    title: "Best Buy Here Pay Here Dealerships in Colorado Springs, CO (2026) | Complete Auto Loans",
+    description: "Find the best buy here pay here dealerships in Colorado Springs, CO. No bank required \u2014 dealer finances directly. Approvals for any credit score.",
+    canonical: "/colorado-springs-co/buy-here-pay-here",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Colorado Springs",
+        state: "CO",
+        serviceType: "Buy Here Pay Here Financing",
+        url: "/colorado-springs-co/buy-here-pay-here",
+        description: "Find the best buy here pay here dealerships in Colorado Springs, CO. No bank required \u2014 dealer finances directly. Approvals for any credit score.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Colorado Springs, CO", path: "/colorado-springs-co" },
+        { name: "Buy Here Pay Here Financing", path: "/colorado-springs-co/buy-here-pay-here" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Guaranteed Approval Auto Loans in San Antonio, TX (2026)";
 const H1 = "Best Guaranteed Approval Auto Loans in San Antonio, TX";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CitySanAntonioTxGuaranteedApprovalAutoLoans() {
+  useSEO({
+    title: "Best Guaranteed Approval Auto Loans in San Antonio, TX (2026) | Complete Auto Loans",
+    description: "Guaranteed approval auto loans in San Antonio, TX for credit scores under 500. Steady income + down payment = approval. No exceptions.",
+    canonical: "/san-antonio-tx/guaranteed-approval-auto-loans",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "San Antonio",
+        state: "TX",
+        serviceType: "Guaranteed Approval Auto Loans",
+        url: "/san-antonio-tx/guaranteed-approval-auto-loans",
+        description: "Guaranteed approval auto loans in San Antonio, TX for credit scores under 500. Steady income + down payment = approval. No exceptions.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "San Antonio, TX", path: "/san-antonio-tx" },
+        { name: "Guaranteed Approval Auto Loans", path: "/san-antonio-tx/guaranteed-approval-auto-loans" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

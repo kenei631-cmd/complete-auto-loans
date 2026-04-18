@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Car Loans After Bankruptcy in Columbus, OH (2026)";
 const H1 = "Best Car Loans After Bankruptcy in Columbus, OH";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityColumbusOhCarLoansAfterBankruptcy() {
+  useSEO({
+    title: "Best Car Loans After Bankruptcy in Columbus, OH (2026) | Complete Auto Loans",
+    description: "Car loans after bankruptcy in Columbus, OH. Chapter 7 or Chapter 13 \u2014 discharged or active. Lenders in Franklin County that approve post-bankruptcy borrowers.",
+    canonical: "/columbus-oh/car-loans-after-bankruptcy",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Columbus",
+        state: "OH",
+        serviceType: "Car Loans After Bankruptcy",
+        url: "/columbus-oh/car-loans-after-bankruptcy",
+        description: "Car loans after bankruptcy in Columbus, OH. Chapter 7 or Chapter 13 \u2014 discharged or active. Lenders in Franklin County that approve post-bankruptcy borrowers.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Columbus, OH", path: "/columbus-oh" },
+        { name: "Car Loans After Bankruptcy", path: "/columbus-oh/car-loans-after-bankruptcy" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

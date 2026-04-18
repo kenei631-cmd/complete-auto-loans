@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Car Loans After Bankruptcy in Dallas, TX (2026)";
 const H1 = "Best Car Loans After Bankruptcy in Dallas, TX";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityDallasTxCarLoansAfterBankruptcy() {
+  useSEO({
+    title: "Best Car Loans After Bankruptcy in Dallas, TX (2026) | Complete Auto Loans",
+    description: "Car loans after bankruptcy in Dallas, TX. Chapter 7 or Chapter 13 \u2014 discharged or active. Lenders in Dallas County that approve post-bankruptcy borrowers.",
+    canonical: "/dallas-tx/car-loans-after-bankruptcy",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Dallas",
+        state: "TX",
+        serviceType: "Car Loans After Bankruptcy",
+        url: "/dallas-tx/car-loans-after-bankruptcy",
+        description: "Car loans after bankruptcy in Dallas, TX. Chapter 7 or Chapter 13 \u2014 discharged or active. Lenders in Dallas County that approve post-bankruptcy borrowers.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Dallas, TX", path: "/dallas-tx" },
+        { name: "Car Loans After Bankruptcy", path: "/dallas-tx/car-loans-after-bankruptcy" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

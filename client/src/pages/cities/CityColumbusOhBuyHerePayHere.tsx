@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Buy Here Pay Here Dealerships in Columbus, OH (2026)";
 const H1 = "Best Buy Here Pay Here Dealerships in Columbus, OH";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityColumbusOhBuyHerePayHere() {
+  useSEO({
+    title: "Best Buy Here Pay Here Dealerships in Columbus, OH (2026) | Complete Auto Loans",
+    description: "Find the best buy here pay here dealerships in Columbus, OH. No bank required \u2014 dealer finances directly. Approvals for any credit score.",
+    canonical: "/columbus-oh/buy-here-pay-here",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Columbus",
+        state: "OH",
+        serviceType: "Buy Here Pay Here Financing",
+        url: "/columbus-oh/buy-here-pay-here",
+        description: "Find the best buy here pay here dealerships in Columbus, OH. No bank required \u2014 dealer finances directly. Approvals for any credit score.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Columbus, OH", path: "/columbus-oh" },
+        { name: "Buy Here Pay Here Financing", path: "/columbus-oh/buy-here-pay-here" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

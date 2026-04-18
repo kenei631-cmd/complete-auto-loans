@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Buy Here Pay Here Dealerships in Fort Worth, TX (2026)";
 const H1 = "Best Buy Here Pay Here Dealerships in Fort Worth, TX";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityFortWorthTxBuyHerePayHere() {
+  useSEO({
+    title: "Best Buy Here Pay Here Dealerships in Fort Worth, TX (2026) | Complete Auto Loans",
+    description: "Find the best buy here pay here dealerships in Fort Worth, TX. No bank required \u2014 dealer finances directly. Approvals for any credit score.",
+    canonical: "/fort-worth-tx/buy-here-pay-here",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Fort Worth",
+        state: "TX",
+        serviceType: "Buy Here Pay Here Financing",
+        url: "/fort-worth-tx/buy-here-pay-here",
+        description: "Find the best buy here pay here dealerships in Fort Worth, TX. No bank required \u2014 dealer finances directly. Approvals for any credit score.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Fort Worth, TX", path: "/fort-worth-tx" },
+        { name: "Buy Here Pay Here Financing", path: "/fort-worth-tx/buy-here-pay-here" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

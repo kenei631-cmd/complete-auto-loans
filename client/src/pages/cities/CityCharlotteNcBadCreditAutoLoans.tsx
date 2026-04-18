@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Bad Credit Auto Loans in Charlotte, NC (2026)";
 const H1 = "Best Bad Credit Auto Loans in Charlotte, NC";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityCharlotteNcBadCreditAutoLoans() {
+  useSEO({
+    title: "Best Bad Credit Auto Loans in Charlotte, NC (2026) | Complete Auto Loans",
+    description: "Compare the best bad credit auto loans in Charlotte, NC. Lenders that approve credit scores 300\u2013600 with $500 down and proof of income.",
+    canonical: "/charlotte-nc/bad-credit-auto-loans",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Charlotte",
+        state: "NC",
+        serviceType: "Bad Credit Auto Loans",
+        url: "/charlotte-nc/bad-credit-auto-loans",
+        description: "Compare the best bad credit auto loans in Charlotte, NC. Lenders that approve credit scores 300\u2013600 with $500 down and proof of income.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Charlotte, NC", path: "/charlotte-nc" },
+        { name: "Bad Credit Auto Loans", path: "/charlotte-nc/bad-credit-auto-loans" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

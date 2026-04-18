@@ -1,5 +1,8 @@
 import { Toaster } from "@/components/ui/sonner";
+import { useEffect } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import TrailingSlashRedirect from "./components/TrailingSlashRedirect";
+import { buildOrganizationSchema, buildWebSiteSchema } from "./lib/schema";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -101,9 +104,28 @@ import CityColoradoSpringsCoSecondChanceAutoLoans from "@/pages/cities/CityColor
 import CityColoradoSpringsCoCarLoansAfterBankruptcy from "@/pages/cities/CityColoradoSpringsCoCarLoansAfterBankruptcy";
 import CityColoradoSpringsCoAutoLoansAfterRepossession from "@/pages/cities/CityColoradoSpringsCoAutoLoansAfterRepossession";
 
+function SiteSchemas() {
+  useEffect(() => {
+    // Inject sitewide Organization + WebSite JSON-LD once at app mount
+    const schemas = [buildOrganizationSchema(), buildWebSiteSchema()];
+    schemas.forEach((s) => {
+      const existing = document.querySelector(`script[data-schema-type="${s['@type']}"]`);
+      if (existing) return;
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.setAttribute("data-schema-type", s["@type"]);
+      script.textContent = JSON.stringify(s);
+      document.head.appendChild(script);
+    });
+  }, []);
+  return null;
+}
+
 function Router() {
   return (
-    <Switch>
+    <>
+      <TrailingSlashRedirect />
+      <Switch>
       <Route path="/" component={Home} />
       <Route path="/apply" component={Apply} />
       <Route path="/how-it-works" component={HowItWorks} />
@@ -203,6 +225,7 @@ function Router() {
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
+    </>
   );
 }
 
@@ -212,6 +235,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
+          <SiteSchemas />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

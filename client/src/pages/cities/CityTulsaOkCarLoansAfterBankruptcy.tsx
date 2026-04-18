@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Car Loans After Bankruptcy in Tulsa, OK (2026)";
 const H1 = "Best Car Loans After Bankruptcy in Tulsa, OK";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityTulsaOkCarLoansAfterBankruptcy() {
+  useSEO({
+    title: "Best Car Loans After Bankruptcy in Tulsa, OK (2026) | Complete Auto Loans",
+    description: "Car loans after bankruptcy in Tulsa, OK. Chapter 7 or Chapter 13 \u2014 discharged or active. Lenders in Tulsa County that approve post-bankruptcy borrowers.",
+    canonical: "/tulsa-ok/car-loans-after-bankruptcy",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Tulsa",
+        state: "OK",
+        serviceType: "Car Loans After Bankruptcy",
+        url: "/tulsa-ok/car-loans-after-bankruptcy",
+        description: "Car loans after bankruptcy in Tulsa, OK. Chapter 7 or Chapter 13 \u2014 discharged or active. Lenders in Tulsa County that approve post-bankruptcy borrowers.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Tulsa, OK", path: "/tulsa-ok" },
+        { name: "Car Loans After Bankruptcy", path: "/tulsa-ok/car-loans-after-bankruptcy" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

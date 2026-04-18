@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Auto Loans After Repossession in Phoenix, AZ (2026)";
 const H1 = "Best Auto Loans After Repossession in Phoenix, AZ";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityPhoenixAzAutoLoansAfterRepossession() {
+  useSEO({
+    title: "Best Auto Loans After Repossession in Phoenix, AZ (2026) | Complete Auto Loans",
+    description: "Auto loans after repossession in Phoenix, AZ. Previous repo on record? Lenders in Maricopa County that specialize in post-repossession financing.",
+    canonical: "/phoenix-az/auto-loans-after-repossession",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Phoenix",
+        state: "AZ",
+        serviceType: "Auto Loans After Repossession",
+        url: "/phoenix-az/auto-loans-after-repossession",
+        description: "Auto loans after repossession in Phoenix, AZ. Previous repo on record? Lenders in Maricopa County that specialize in post-repossession financing.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Phoenix, AZ", path: "/phoenix-az" },
+        { name: "Auto Loans After Repossession", path: "/phoenix-az/auto-loans-after-repossession" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

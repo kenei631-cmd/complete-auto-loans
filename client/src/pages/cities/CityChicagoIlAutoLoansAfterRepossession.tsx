@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Auto Loans After Repossession in Chicago, IL (2026)";
 const H1 = "Best Auto Loans After Repossession in Chicago, IL";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityChicagoIlAutoLoansAfterRepossession() {
+  useSEO({
+    title: "Best Auto Loans After Repossession in Chicago, IL (2026) | Complete Auto Loans",
+    description: "Auto loans after repossession in Chicago, IL. Previous repo on record? Lenders in Cook County that specialize in post-repossession financing.",
+    canonical: "/chicago-il/auto-loans-after-repossession",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Chicago",
+        state: "IL",
+        serviceType: "Auto Loans After Repossession",
+        url: "/chicago-il/auto-loans-after-repossession",
+        description: "Auto loans after repossession in Chicago, IL. Previous repo on record? Lenders in Cook County that specialize in post-repossession financing.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Chicago, IL", path: "/chicago-il" },
+        { name: "Auto Loans After Repossession", path: "/chicago-il/auto-loans-after-repossession" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

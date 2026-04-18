@@ -6,6 +6,9 @@ const lenders: Lender[] = [{"rank": 1, "name": "Complete Auto Loans", "tagline":
 export default function BestSecondChance() {
   return (
     <BestOfPageTemplate
+      seoTitle="Best Second Chance Auto Loans of 2026 — Reviewed & Ranked"
+      seoDescription="Compare the best second chance auto loans of 2026. Designed for borrowers with past credit problems. Get a fresh start with lenders that look beyond your score."
+      canonicalPath="/best-second-chance-auto-loans"
       title="Best Second Chance Auto Loans of 2026"
       subtitle="Second chance lenders specialize in borrowers who have been rejected elsewhere. Here's who gives real second chances."
       intro="Second chance auto loans are designed for borrowers who have been turned down by traditional lenders. These lenders look at your current situation — income, stability, and ability to pay — rather than your past mistakes."

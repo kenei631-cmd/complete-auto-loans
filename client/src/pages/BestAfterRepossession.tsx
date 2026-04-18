@@ -6,6 +6,9 @@ const lenders: Lender[] = [{"rank": 1, "name": "Complete Auto Loans", "tagline":
 export default function BestAfterRepossession() {
   return (
     <BestOfPageTemplate
+      seoTitle="Best Auto Loans After Repossession of 2026 — Reviewed & Ranked"
+      seoDescription="Find the best auto loans after a repossession in 2026. Get approved even with a recent repo on your record. Compare lenders with second-chance programs."
+      canonicalPath="/best-auto-loans-after-repossession"
       title="Best Auto Loans After Repossession (2026)"
       subtitle="A repossession on your record doesn't have to mean no car. These lenders work with repo borrowers every day."
       intro="A repossession is one of the hardest credit events to recover from, but it doesn't make getting a car loan impossible. The lenders on this list specifically work with borrowers who have a repo on their record."

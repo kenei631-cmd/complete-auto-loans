@@ -6,6 +6,9 @@ const lenders: Lender[] = [{"rank": 1, "name": "Complete Auto Loans", "tagline":
 export default function BestBuyHerePayHere() {
   return (
     <BestOfPageTemplate
+      seoTitle="Best Buy Here Pay Here Dealerships of 2026 — Reviewed & Ranked"
+      seoDescription="Find the best buy here pay here dealerships of 2026. In-house financing with guaranteed approval for deep subprime borrowers. No minimum credit score."
+      canonicalPath="/best-buy-here-pay-here-dealerships"
       title="Best Buy Here Pay Here Dealerships of 2026"
       subtitle="BHPH dealerships offer in-house financing with no bank required — ideal for deep subprime borrowers who can't qualify anywhere else."
       intro="Buy Here Pay Here dealerships act as both the seller and the lender, which means they can approve borrowers that banks and traditional lenders won't touch. The trade-off is typically higher interest rates and a smaller vehicle selection."

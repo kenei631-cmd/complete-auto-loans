@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best No Credit Check Car Loans in San Antonio, TX (2026)";
 const H1 = "Best No Credit Check Car Loans in San Antonio, TX";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CitySanAntonioTxNoCreditCheckCarLoans() {
+  useSEO({
+    title: "Best No Credit Check Car Loans in San Antonio, TX (2026) | Complete Auto Loans",
+    description: "No credit check car loans in San Antonio, TX. Income-based approval only. No SSN required for some lenders. Drive today.",
+    canonical: "/san-antonio-tx/no-credit-check-car-loans",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "San Antonio",
+        state: "TX",
+        serviceType: "No Credit Check Car Loans",
+        url: "/san-antonio-tx/no-credit-check-car-loans",
+        description: "No credit check car loans in San Antonio, TX. Income-based approval only. No SSN required for some lenders. Drive today.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "San Antonio, TX", path: "/san-antonio-tx" },
+        { name: "No Credit Check Car Loans", path: "/san-antonio-tx/no-credit-check-car-loans" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

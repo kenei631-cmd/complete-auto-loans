@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Auto Loans After Repossession in Fort Worth, TX (2026)";
 const H1 = "Best Auto Loans After Repossession in Fort Worth, TX";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityFortWorthTxAutoLoansAfterRepossession() {
+  useSEO({
+    title: "Best Auto Loans After Repossession in Fort Worth, TX (2026) | Complete Auto Loans",
+    description: "Auto loans after repossession in Fort Worth, TX. Previous repo on record? Lenders in Tarrant County that specialize in post-repossession financing.",
+    canonical: "/fort-worth-tx/auto-loans-after-repossession",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Fort Worth",
+        state: "TX",
+        serviceType: "Auto Loans After Repossession",
+        url: "/fort-worth-tx/auto-loans-after-repossession",
+        description: "Auto loans after repossession in Fort Worth, TX. Previous repo on record? Lenders in Tarrant County that specialize in post-repossession financing.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Fort Worth, TX", path: "/fort-worth-tx" },
+        { name: "Auto Loans After Repossession", path: "/fort-worth-tx/auto-loans-after-repossession" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

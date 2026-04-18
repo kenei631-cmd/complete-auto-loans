@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best No Credit Check Car Loans in Detroit, MI (2026)";
 const H1 = "Best No Credit Check Car Loans in Detroit, MI";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityDetroitMiNoCreditCheckCarLoans() {
+  useSEO({
+    title: "Best No Credit Check Car Loans in Detroit, MI (2026) | Complete Auto Loans",
+    description: "No credit check car loans in Detroit, MI. Income-based approval only. No SSN required for some lenders. Drive today.",
+    canonical: "/detroit-mi/no-credit-check-car-loans",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Detroit",
+        state: "MI",
+        serviceType: "No Credit Check Car Loans",
+        url: "/detroit-mi/no-credit-check-car-loans",
+        description: "No credit check car loans in Detroit, MI. Income-based approval only. No SSN required for some lenders. Drive today.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Detroit, MI", path: "/detroit-mi" },
+        { name: "No Credit Check Car Loans", path: "/detroit-mi/no-credit-check-car-loans" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

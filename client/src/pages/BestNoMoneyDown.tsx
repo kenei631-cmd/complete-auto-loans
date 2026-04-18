@@ -6,6 +6,9 @@ const lenders: Lender[] = [{"rank": 1, "name": "Complete Auto Loans", "tagline":
 export default function BestNoMoneyDown() {
   return (
     <BestOfPageTemplate
+      seoTitle="Best No Money Down Car Loans for Bad Credit (2026) — Reviewed"
+      seoDescription="Compare the best $0 down car loans for bad credit in 2026. Get approved with no down payment even with a low credit score. 500+ lender network."
+      canonicalPath="/best-no-money-down-car-loans-bad-credit"
       title="Best No Money Down Car Loans for Bad Credit (2026)"
       subtitle="You don't always need a down payment to get approved. Here are the lenders most likely to approve you with $0 down."
       intro="No money down auto loans are possible even with bad credit, but they require the right lender. These lenders prioritize income and employment stability over credit scores and down payments."

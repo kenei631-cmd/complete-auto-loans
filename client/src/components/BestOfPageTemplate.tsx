@@ -10,6 +10,12 @@ import Layout from "./Layout";
 import LenderCard, { Lender } from "./LenderCard";
 import { Link } from "wouter";
 import { ArrowRight, Shield, ChevronRight, CheckCircle2 } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import {
+  buildFinancialProductSchema,
+  buildFAQSchema,
+  buildBreadcrumbSchema,
+} from "@/lib/schema";
 
 interface RealStory {
   name: string;
@@ -35,6 +41,10 @@ interface BestOfPageProps {
   relatedPages?: { label: string; href: string }[];
   updatedDate?: string;
   keyTakeaways?: string[];
+  // SEO props
+  seoTitle?: string;
+  seoDescription?: string;
+  canonicalPath?: string;
 }
 
 export default function BestOfPageTemplate({
@@ -47,7 +57,30 @@ export default function BestOfPageTemplate({
   relatedPages = [],
   updatedDate = "April 2026",
   keyTakeaways = [],
+  seoTitle,
+  seoDescription,
+  canonicalPath,
 }: BestOfPageProps) {
+  const schemas = [
+    buildFinancialProductSchema({
+      name: seoTitle ?? title,
+      description: seoDescription ?? subtitle,
+      url: canonicalPath ?? "/",
+    }),
+    ...(faqs.length > 0 ? [buildFAQSchema(faqs)] : []),
+    buildBreadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: title, path: canonicalPath ?? "/" },
+    ]),
+  ];
+
+  useSEO({
+    title: seoTitle ?? `${title} | Complete Auto Loans`,
+    description: seoDescription ?? subtitle,
+    canonical: canonicalPath,
+    schema: schemas,
+  });
+
   return (
     <Layout>
       {/* ── Dark Page Header ── */}

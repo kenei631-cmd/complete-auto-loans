@@ -15,6 +15,8 @@ import { Link } from "wouter";
 import { ArrowRight, CheckCircle2, Star, Shield, Zap, Clock, ChevronRight, Users, Award, TrendingUp } from "lucide-react";
 import Layout from "@/components/Layout";
 import CreditScoreWidget from "@/components/CreditScoreWidget";
+import { useSEO } from "@/hooks/useSEO";
+import { buildWebPageSchema, buildBreadcrumbSchema } from "@/lib/schema";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/hero_premium-3w25pnkm7XPeSZaaGkqMXo.webp";
 const CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/cta_bg-PDasKWDRcQeYKLEiLA7yk9.webp";
@@ -111,6 +113,20 @@ const steps = [
 ];
 
 export default function Home() {
+  useSEO({
+    title: "Complete Auto Loans — Bad Credit Auto Loans | Get Approved Today",
+    description: "Get approved for a bad credit auto loan today. Complete Auto Loans matches you with 500+ lenders. No minimum credit score. Soft credit check only.",
+    canonical: "/",
+    schema: [
+      buildWebPageSchema({
+        title: "Complete Auto Loans — Bad Credit Auto Loans | Get Approved Today",
+        description: "Get approved for a bad credit auto loan today. Complete Auto Loans matches you with 500+ lenders. No minimum credit score. Soft credit check only.",
+        url: "/",
+      }),
+      buildBreadcrumbSchema([{ name: "Home", path: "/" }]),
+    ],
+  });
+
   return (
     <Layout>
       {/* ══════════════════════════════════════════

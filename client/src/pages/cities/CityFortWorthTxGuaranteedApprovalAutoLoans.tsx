@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Guaranteed Approval Auto Loans in Fort Worth, TX (2026)";
 const H1 = "Best Guaranteed Approval Auto Loans in Fort Worth, TX";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityFortWorthTxGuaranteedApprovalAutoLoans() {
+  useSEO({
+    title: "Best Guaranteed Approval Auto Loans in Fort Worth, TX (2026) | Complete Auto Loans",
+    description: "Guaranteed approval auto loans in Fort Worth, TX for credit scores under 500. Steady income + down payment = approval. No exceptions.",
+    canonical: "/fort-worth-tx/guaranteed-approval-auto-loans",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Fort Worth",
+        state: "TX",
+        serviceType: "Guaranteed Approval Auto Loans",
+        url: "/fort-worth-tx/guaranteed-approval-auto-loans",
+        description: "Guaranteed approval auto loans in Fort Worth, TX for credit scores under 500. Steady income + down payment = approval. No exceptions.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Fort Worth, TX", path: "/fort-worth-tx" },
+        { name: "Guaranteed Approval Auto Loans", path: "/fort-worth-tx/guaranteed-approval-auto-loans" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

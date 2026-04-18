@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Guaranteed Approval Auto Loans in Chicago, IL (2026)";
 const H1 = "Best Guaranteed Approval Auto Loans in Chicago, IL";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityChicagoIlGuaranteedApprovalAutoLoans() {
+  useSEO({
+    title: "Best Guaranteed Approval Auto Loans in Chicago, IL (2026) | Complete Auto Loans",
+    description: "Guaranteed approval auto loans in Chicago, IL for credit scores under 500. Steady income + down payment = approval. No exceptions.",
+    canonical: "/chicago-il/guaranteed-approval-auto-loans",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Chicago",
+        state: "IL",
+        serviceType: "Guaranteed Approval Auto Loans",
+        url: "/chicago-il/guaranteed-approval-auto-loans",
+        description: "Guaranteed approval auto loans in Chicago, IL for credit scores under 500. Steady income + down payment = approval. No exceptions.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Chicago, IL", path: "/chicago-il" },
+        { name: "Guaranteed Approval Auto Loans", path: "/chicago-il/guaranteed-approval-auto-loans" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

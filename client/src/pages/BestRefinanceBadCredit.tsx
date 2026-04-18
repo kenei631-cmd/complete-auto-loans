@@ -6,6 +6,9 @@ const lenders: Lender[] = [{"rank": 1, "name": "Complete Auto Loans", "tagline":
 export default function BestRefinanceBadCredit() {
   return (
     <BestOfPageTemplate
+      seoTitle="Best Auto Refinance Loans for Bad Credit (2026) — Reviewed & Ranked"
+      seoDescription="Find the best auto refinance options for bad credit in 2026. Lower your monthly payment or interest rate even with a score under 600."
+      canonicalPath="/best-auto-refinance-bad-credit"
       title="Best Auto Refinance Loans for Bad Credit (2026)"
       subtitle="Already have a high-rate car loan? These lenders can refinance it — even with bad credit."
       intro="If you got a car loan at a high rate due to bad credit, refinancing after 12–18 months of on-time payments can save you hundreds per year. These lenders specialize in refinancing subprime borrowers."

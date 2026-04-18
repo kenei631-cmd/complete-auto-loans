@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Guaranteed Approval Auto Loans in Dallas, TX (2026)";
 const H1 = "Best Guaranteed Approval Auto Loans in Dallas, TX";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityDallasTxGuaranteedApprovalAutoLoans() {
+  useSEO({
+    title: "Best Guaranteed Approval Auto Loans in Dallas, TX (2026) | Complete Auto Loans",
+    description: "Guaranteed approval auto loans in Dallas, TX for credit scores under 500. Steady income + down payment = approval. No exceptions.",
+    canonical: "/dallas-tx/guaranteed-approval-auto-loans",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Dallas",
+        state: "TX",
+        serviceType: "Guaranteed Approval Auto Loans",
+        url: "/dallas-tx/guaranteed-approval-auto-loans",
+        description: "Guaranteed approval auto loans in Dallas, TX for credit scores under 500. Steady income + down payment = approval. No exceptions.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Dallas, TX", path: "/dallas-tx" },
+        { name: "Guaranteed Approval Auto Loans", path: "/dallas-tx/guaranteed-approval-auto-loans" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

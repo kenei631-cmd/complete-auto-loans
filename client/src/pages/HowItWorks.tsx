@@ -5,6 +5,8 @@
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Zap, Users, Award, ChevronRight, Shield, CheckCircle2 } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildWebPageSchema, buildBreadcrumbSchema } from "@/lib/schema";
 
 const steps = [
   {
@@ -58,6 +60,23 @@ const faqs = [
 ];
 
 export default function HowItWorks() {
+  useSEO({
+    title: "How It Works — Get a Bad Credit Auto Loan in 3 Steps | Complete Auto Loans",
+    description: "Learn how Complete Auto Loans works. Answer 4 questions, get matched with 500+ lenders, and drive away approved — often same day. No hard credit pull.",
+    canonical: "/how-it-works",
+    schema: [
+      buildWebPageSchema({
+        title: "How It Works — Get a Bad Credit Auto Loan in 3 Steps | Complete Auto Loans",
+        description: "Learn how Complete Auto Loans works. Answer 4 questions, get matched with 500+ lenders, and drive away approved — often same day. No hard credit pull.",
+        url: "/how-it-works",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "How It Works", path: "/how-it-works" },
+      ]),
+    ],
+  });
+
   return (
     <Layout>
       {/* Dark Header */}

@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Auto Loans After Repossession in Charlotte, NC (2026)";
 const H1 = "Best Auto Loans After Repossession in Charlotte, NC";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CityCharlotteNcAutoLoansAfterRepossession() {
+  useSEO({
+    title: "Best Auto Loans After Repossession in Charlotte, NC (2026) | Complete Auto Loans",
+    description: "Auto loans after repossession in Charlotte, NC. Previous repo on record? Lenders in Mecklenburg County that specialize in post-repossession financing.",
+    canonical: "/charlotte-nc/auto-loans-after-repossession",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "Charlotte",
+        state: "NC",
+        serviceType: "Auto Loans After Repossession",
+        url: "/charlotte-nc/auto-loans-after-repossession",
+        description: "Auto loans after repossession in Charlotte, NC. Previous repo on record? Lenders in Mecklenburg County that specialize in post-repossession financing.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Charlotte, NC", path: "/charlotte-nc" },
+        { name: "Auto Loans After Repossession", path: "/charlotte-nc/auto-loans-after-repossession" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

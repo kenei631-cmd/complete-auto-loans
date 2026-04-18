@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Star, CheckCircle2, Shield, ChevronDown, ChevronUp, ArrowRight, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema } from "@/lib/schema";
+
 
 const TITLE = "Best Auto Loans After Repossession in San Antonio, TX (2026)";
 const H1 = "Best Auto Loans After Repossession in San Antonio, TX";
@@ -119,12 +122,30 @@ const faqs = [
 ];
 
 export default function CitySanAntonioTxAutoLoansAfterRepossession() {
+  useSEO({
+    title: "Best Auto Loans After Repossession in San Antonio, TX (2026) | Complete Auto Loans",
+    description: "Auto loans after repossession in San Antonio, TX. Previous repo on record? Lenders in Bexar County that specialize in post-repossession financing.",
+    canonical: "/san-antonio-tx/auto-loans-after-repossession",
+    schema: [
+      buildLocalBusinessSchema({
+        city: "San Antonio",
+        state: "TX",
+        serviceType: "Auto Loans After Repossession",
+        url: "/san-antonio-tx/auto-loans-after-repossession",
+        description: "Auto loans after repossession in San Antonio, TX. Previous repo on record? Lenders in Bexar County that specialize in post-repossession financing.",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "San Antonio, TX", path: "/san-antonio-tx" },
+        { name: "Auto Loans After Repossession", path: "/san-antonio-tx/auto-loans-after-repossession" },
+      ]),
+    ],
+  });
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <Layout>
-      <title>{TITLE}</title>
-
       {/* ── Dark Hero Header ── */}
       <section
         className="relative py-16 overflow-hidden"

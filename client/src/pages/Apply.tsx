@@ -7,6 +7,8 @@
 import { useState } from "react";
 import Layout from "../components/Layout";
 import { Shield, CheckCircle2, Star, ArrowLeft, ArrowRight, Users, Award, Zap } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildWebPageSchema, buildBreadcrumbSchema } from "@/lib/schema";
 
 const steps = [
   { id: 1, label: "Vehicle", title: "What type of vehicle are you looking for?" },
@@ -75,6 +77,23 @@ const labelStyle: React.CSSProperties = {
 };
 
 export default function Apply() {
+  useSEO({
+    title: "Apply for a Bad Credit Auto Loan | Complete Auto Loans",
+    description: "Apply for a bad credit auto loan in 2 minutes. Answer 4 quick questions and get matched with 500+ lenders. No hard credit pull. Same-day approval available.",
+    canonical: "/apply",
+    schema: [
+      buildWebPageSchema({
+        title: "Apply for a Bad Credit Auto Loan | Complete Auto Loans",
+        description: "Apply for a bad credit auto loan in 2 minutes. Answer 4 quick questions and get matched with 500+ lenders. No hard credit pull. Same-day approval available.",
+        url: "/apply",
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Apply", path: "/apply" },
+      ]),
+    ],
+  });
+
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     vehicle: "", credit: "", income: "",
