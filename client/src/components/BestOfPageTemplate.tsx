@@ -1,12 +1,15 @@
-/* =============================================================================
-   COMPLETE AUTO LOANS — BestOfPageTemplate
-   Shared template for all 15 national Best-Of pages.
-   Editorial layout with asymmetric sidebar, lender cards, FAQs, Real Stories.
-   ============================================================================= */
-
+/**
+ * BestOfPageTemplate — Complete Auto Loans
+ * Design: Premium Editorial Finance
+ * - Dark navy page header with breadcrumb
+ * - Sticky sidebar with amber CTA card
+ * - Ranked lender cards with Editor's Choice on #1
+ * - Real Stories + FAQ sections
+ */
 import Layout from "./Layout";
 import LenderCard, { Lender } from "./LenderCard";
 import { Link } from "wouter";
+import { ArrowRight, Shield, ChevronRight, CheckCircle2 } from "lucide-react";
 
 interface RealStory {
   name: string;
@@ -47,161 +50,149 @@ export default function BestOfPageTemplate({
 }: BestOfPageProps) {
   return (
     <Layout>
-      {/* Page Header */}
-      <div style={{ backgroundColor: "#F8F7F4", borderBottom: "1px solid #E5E0D8" }}>
-        <div className="container mx-auto px-4 max-w-6xl py-10">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="teal-badge">Updated {updatedDate}</span>
-            <span style={{ color: "#9CA3AF", fontSize: "0.75rem", fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+      {/* ── Dark Page Header ── */}
+      <div style={{ background: "oklch(0.18 0.06 240)", borderBottom: "1px solid rgba(255,255,255,0.07)", position: "relative", overflow: "hidden" }}>
+        {/* Teal radial glow */}
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 70% 80% at 0% 50%, oklch(0.58 0.13 185 / 0.10), transparent)", pointerEvents: "none" }} />
+        {/* Subtle grid texture */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(oklch(1 0 0 / 0.03) 1px, transparent 1px), linear-gradient(90deg, oklch(1 0 0 / 0.03) 1px, transparent 1px)", backgroundSize: "40px 40px", pointerEvents: "none" }} />
+        <div className="container py-12" style={{ position: "relative" }}>
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-xs mb-4" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'DM Sans', sans-serif" }}>
+            <Link href="/"
+              className="transition-colors hover:text-white"
+              style={{ color: "rgba(255,255,255,0.4)" }}
+            >Home</Link>
+            <ChevronRight size={11} />
+            <span style={{ color: "rgba(255,255,255,0.6)" }}>{title}</span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            <span
+              className="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest"
+              style={{ background: "oklch(0.58 0.13 185 / 0.2)", color: "oklch(0.72 0.10 185)", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Updated {updatedDate}
+            </span>
+            <span
+              className="text-xs font-medium px-3 py-1 rounded-full"
+              style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}
+            >
               Editorial Review
             </span>
           </div>
+
           <h1
+            className="text-white mb-3"
             style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
-              color: "#1A365D",
-              fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
               fontWeight: 700,
               lineHeight: 1.2,
-              maxWidth: "700px",
-              marginBottom: "0.75rem",
+              maxWidth: "640px",
             }}
           >
             {title}
           </h1>
-          <p
-            style={{
-              fontFamily: "'DM Sans', system-ui, sans-serif",
-              color: "#4B5563",
-              fontSize: "1.1rem",
-              maxWidth: "600px",
-              lineHeight: 1.6,
-            }}
-          >
+          <p style={{ color: "rgba(255,255,255,0.62)", fontFamily: "'DM Sans', sans-serif", fontSize: "1rem", maxWidth: "560px", lineHeight: 1.6 }}>
             {subtitle}
           </p>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-4 max-w-6xl py-10">
+      {/* ── Body ── */}
+      <div className="container py-12">
         <div className="flex flex-col lg:flex-row gap-10">
-          {/* Left: Main Content */}
+          {/* Main Content */}
           <div className="flex-1 min-w-0">
-            {/* Intro */}
+            {/* Intro + Key Takeaways */}
             <div
-              className="data-callout mb-8"
-              style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: "#374151", fontSize: "0.95rem", lineHeight: 1.7 }}
+              className="p-5 rounded-2xl mb-8"
+              style={{ background: "oklch(0.97 0.004 80)", border: "1px solid oklch(0.90 0.006 80)" }}
             >
-              {intro}
+              <p className="text-sm leading-relaxed mb-4" style={{ color: "oklch(0.35 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                {intro}
+              </p>
+              {keyTakeaways.length > 0 && (
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.58 0.13 185)", fontFamily: "'DM Sans', sans-serif" }}>
+                    Key Takeaways
+                  </p>
+                  <ul className="space-y-2">
+                    {keyTakeaways.map((point, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-sm" style={{ color: "oklch(0.30 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                        <ArrowRight size={13} className="mt-0.5 shrink-0" style={{ color: "oklch(0.58 0.13 185)" }} />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
-
-            {/* Key Takeaways */}
-            {keyTakeaways.length > 0 && (
-              <div className="mb-8 p-5 rounded-lg" style={{ backgroundColor: "#F0FDF9", border: "1px solid #CCFBF1" }}>
-                <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1A365D", fontSize: "1rem", fontWeight: 700, marginBottom: "0.75rem" }}>
-                  Key Takeaways
-                </h3>
-                <ul className="space-y-2">
-                  {keyTakeaways.map((point, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm" style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: "#374151" }}>
-                      <span style={{ color: "#0D9488", flexShrink: 0 }}>→</span>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
 
             {/* Lender Rankings */}
             <h2
-              style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
-                color: "#1A365D",
-                fontSize: "1.5rem",
-                fontWeight: 700,
-                marginBottom: "1.5rem",
-              }}
+              className="mb-6"
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "oklch(0.15 0.02 240)" }}
             >
-              Our Top Picks for {new Date().getFullYear()}
+              Our Top Picks for 2026
             </h2>
 
-            <div className="space-y-4 mb-10">
+            <div className="flex flex-col gap-5 mb-12">
               {lenders.map((lender) => (
                 <LenderCard key={lender.rank} lender={lender} />
               ))}
             </div>
 
-            <hr className="section-rule my-10" />
-
             {/* Real Stories */}
             {realStories.length > 0 && (
-              <div className="mb-10">
-                <h2
-                  style={{
-                    fontFamily: "'Playfair Display', Georgia, serif",
-                    color: "#1A365D",
-                    fontSize: "1.5rem",
-                    fontWeight: 700,
-                    marginBottom: "0.5rem",
-                  }}
-                >
+              <div className="mb-12">
+                <div style={{ borderTop: "1px solid oklch(0.90 0.006 80)", marginBottom: "2rem" }} />
+                <h2 className="mb-2" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "oklch(0.15 0.02 240)" }}>
                   Real Approvals from Real People
                 </h2>
-                <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: "#6B7280", fontSize: "0.875rem", marginBottom: "1.5rem" }}>
-                  These are composite stories based on real approval scenarios we've tracked.
+                <p className="text-sm mb-6" style={{ color: "oklch(0.52 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                  Composite stories based on real approval scenarios we've tracked.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   {realStories.map((story, i) => (
-                    <div
-                      key={i}
-                      className="p-5 rounded-lg"
-                      style={{ backgroundColor: "white", border: "1px solid #E5E0D8" }}
-                    >
+                    <div key={i} className="p-5 rounded-2xl border" style={{ background: "white", border: "1px solid oklch(0.90 0.006 80)" }}>
                       <div className="flex items-center gap-3 mb-3">
                         <div
-                          style={{
-                            width: "2.5rem",
-                            height: "2.5rem",
-                            borderRadius: "50%",
-                            backgroundColor: "#0D9488",
-                            color: "white",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            fontSize: "1rem",
-                            fontWeight: 700,
-                            fontFamily: "'DM Sans', system-ui, sans-serif",
-                            flexShrink: 0,
-                          }}
+                          className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0"
+                          style={{ background: "oklch(0.18 0.06 240)", fontFamily: "'DM Sans', sans-serif" }}
                         >
                           {story.name.charAt(0)}
                         </div>
                         <div>
-                          <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontWeight: 600, color: "#1A365D", fontSize: "0.9rem" }}>
+                          <p className="font-semibold text-sm" style={{ color: "oklch(0.15 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
                             {story.name}, {story.city}
-                          </div>
-                          <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: "#6B7280", fontSize: "0.75rem" }}>
-                            Credit Score: {story.creditScore} · {story.vehicle}
-                          </div>
+                          </p>
+                          <p className="text-xs" style={{ color: "oklch(0.52 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                            Score: {story.creditScore} · {story.vehicle}
+                          </p>
                         </div>
                       </div>
                       <blockquote
+                        className="text-sm leading-relaxed"
                         style={{
-                          fontFamily: "'DM Sans', system-ui, sans-serif",
-                          color: "#374151",
-                          fontSize: "0.875rem",
-                          lineHeight: 1.6,
-                          borderLeft: "3px solid #0D9488",
-                          paddingLeft: "0.75rem",
+                          color: "oklch(0.40 0.015 240)",
+                          fontFamily: "'DM Sans', sans-serif",
                           fontStyle: "italic",
+                          borderLeft: "3px solid oklch(0.58 0.13 185)",
+                          paddingLeft: "0.75rem",
                         }}
                       >
                         "{story.quote}"
                       </blockquote>
                       <div className="mt-3 flex gap-2 flex-wrap">
-                        <span className="teal-badge">✓ Approved</span>
-                        <span style={{ fontSize: "0.75rem", color: "#6B7280", fontFamily: "'DM Sans', system-ui, sans-serif", display: "flex", alignItems: "center" }}>
+                        <span
+                          className="text-xs font-bold px-2.5 py-0.5 rounded-full"
+                          style={{ background: "oklch(0.58 0.13 185 / 0.1)", color: "oklch(0.42 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}
+                        >
+                          ✓ Approved
+                        </span>
+                        <span className="text-xs" style={{ color: "oklch(0.52 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
                           {story.downPayment} down
                         </span>
                       </div>
@@ -211,29 +202,20 @@ export default function BestOfPageTemplate({
               </div>
             )}
 
-            <hr className="section-rule my-10" />
-
             {/* FAQs */}
             {faqs.length > 0 && (
               <div className="mb-10">
-                <h2
-                  style={{
-                    fontFamily: "'Playfair Display', Georgia, serif",
-                    color: "#1A365D",
-                    fontSize: "1.5rem",
-                    fontWeight: 700,
-                    marginBottom: "1.5rem",
-                  }}
-                >
+                <div style={{ borderTop: "1px solid oklch(0.90 0.006 80)", marginBottom: "2rem" }} />
+                <h2 className="mb-6" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "oklch(0.15 0.02 240)" }}>
                   Frequently Asked Questions
                 </h2>
-                <div className="space-y-4">
+                <div className="flex flex-col gap-4">
                   {faqs.map((faq, i) => (
-                    <div key={i} className="p-5 rounded-lg" style={{ backgroundColor: "white", border: "1px solid #E5E0D8" }}>
-                      <h3 style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontWeight: 700, color: "#1A365D", fontSize: "0.95rem", marginBottom: "0.5rem" }}>
+                    <div key={i} className="p-5 rounded-xl border" style={{ background: "white", border: "1px solid oklch(0.90 0.006 80)" }}>
+                      <h3 className="font-semibold text-base mb-2" style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.18 0.06 240)" }}>
                         {faq.question}
                       </h3>
-                      <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: "#4B5563", fontSize: "0.875rem", lineHeight: 1.7 }}>
+                      <p className="text-sm leading-relaxed" style={{ color: "oklch(0.42 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
                         {faq.answer}
                       </p>
                     </div>
@@ -243,71 +225,73 @@ export default function BestOfPageTemplate({
             )}
           </div>
 
-          {/* Right: Sticky Sidebar */}
-          <div className="lg:w-72 flex-shrink-0">
-            <div className="sticky top-24 space-y-4">
-              {/* Quick Apply CTA */}
-              <div
-                className="p-5 rounded-lg text-center"
-                style={{ backgroundColor: "#1A365D", color: "white" }}
-              >
-                <h3
-                  style={{
-                    fontFamily: "'Playfair Display', Georgia, serif",
-                    fontSize: "1.1rem",
-                    fontWeight: 700,
-                    marginBottom: "0.5rem",
-                    color: "white",
-                  }}
-                >
-                  Ready to Get Approved?
-                </h3>
-                <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: "0.8rem", color: "rgba(255,255,255,0.75)", marginBottom: "1rem", lineHeight: 1.5 }}>
-                  Takes 2 minutes. No hard credit pull. Real offers from real lenders.
-                </p>
-                <Link href="/apply">
-                  <button className="btn-cta w-full text-sm">
-                    Check My Approval Odds →
-                  </button>
-                </Link>
-                <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: "0.7rem", color: "rgba(255,255,255,0.5)", marginTop: "0.75rem" }}>
-                  Soft credit check only. Won't affect your score.
-                </p>
+          {/* Sidebar */}
+          <div className="lg:w-72 shrink-0">
+            <div className="sticky top-24 flex flex-col gap-5">
+              {/* CTA Card */}
+              <div className="rounded-2xl overflow-hidden" style={{ background: "oklch(0.18 0.06 240)", boxShadow: "0 8px 32px oklch(0.18 0.06 240 / 0.25)" }}>
+                <div className="p-5">
+                  <p className="font-bold text-base text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Ready to Get Approved?
+                  </p>
+                  <p className="text-xs mb-4" style={{ color: "rgba(255,255,255,0.58)", fontFamily: "'DM Sans', sans-serif", lineHeight: 1.5 }}>
+                    Takes 2 minutes. No hard credit pull. Real offers from real lenders.
+                  </p>
+                  <Link href="/apply">
+                    <button
+                      className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all"
+                      style={{
+                        background: "oklch(0.76 0.16 75)",
+                        color: "oklch(0.12 0.02 240)",
+                        fontFamily: "'DM Sans', sans-serif",
+                        boxShadow: "0 3px 14px oklch(0.76 0.16 75 / 0.4)",
+                      }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; }}
+                    >
+                      Check My Approval Odds
+                      <ArrowRight size={14} />
+                    </button>
+                  </Link>
+                  <p className="text-center text-xs mt-2.5" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'DM Sans', sans-serif" }}>
+                    Soft credit check only. Won't affect your score.
+                  </p>
+                </div>
               </div>
 
-              {/* Trust Signals */}
-              <div className="p-4 rounded-lg" style={{ backgroundColor: "white", border: "1px solid #E5E0D8" }}>
-                <h4 style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontWeight: 700, color: "#1A365D", fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "0.75rem" }}>
+              {/* Why Trust Us */}
+              <div className="p-5 rounded-2xl border" style={{ background: "white", border: "1px solid oklch(0.90 0.006 80)" }}>
+                <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.58 0.13 185)", fontFamily: "'DM Sans', sans-serif" }}>
                   Why Trust Our Rankings?
-                </h4>
-                {[
-                  "Independent editorial team",
-                  "Updated monthly with live data",
-                  "No paid placements in rankings",
-                  "Real approval rate data verified",
-                ].map((point, i) => (
-                  <div key={i} className="flex items-start gap-2 mb-2">
-                    <span style={{ color: "#0D9488", fontSize: "0.8rem", flexShrink: 0 }}>✓</span>
-                    <span style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: "0.8rem", color: "#4B5563" }}>{point}</span>
-                  </div>
-                ))}
+                </p>
+                <ul className="space-y-2.5">
+                  {["Independent editorial team", "Updated monthly with live data", "No paid placements in rankings", "Real approval rate data verified"].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm" style={{ color: "oklch(0.35 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                      <CheckCircle2 size={12} className="mt-0.5 shrink-0" style={{ color: "oklch(0.58 0.13 185)" }} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Related Pages */}
+              {/* Related Guides */}
               {relatedPages.length > 0 && (
-                <div className="p-4 rounded-lg" style={{ backgroundColor: "white", border: "1px solid #E5E0D8" }}>
-                  <h4 style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontWeight: 700, color: "#1A365D", fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "0.75rem" }}>
+                <div className="p-5 rounded-2xl border" style={{ background: "white", border: "1px solid oklch(0.90 0.006 80)" }}>
+                  <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.58 0.13 185)", fontFamily: "'DM Sans', sans-serif" }}>
                     Related Guides
-                  </h4>
+                  </p>
                   <ul className="space-y-2">
                     {relatedPages.map((page) => (
                       <li key={page.href}>
                         <Link
                           href={page.href}
-                          style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: "0.85rem", color: "#0D9488", textDecoration: "none" }}
-                          className="hover:underline"
+                          className="flex items-center gap-2 text-sm font-medium transition-colors"
+                          style={{ color: "oklch(0.35 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}
+                          onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "oklch(0.58 0.13 185)"}
+                          onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "oklch(0.35 0.02 240)"}
                         >
-                          → {page.label}
+                          <ChevronRight size={13} style={{ color: "oklch(0.68 0.12 185)" }} />
+                          {page.label}
                         </Link>
                       </li>
                     ))}

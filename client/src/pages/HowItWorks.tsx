@@ -1,154 +1,200 @@
-import Layout from "../components/Layout";
+/**
+ * HowItWorks — Complete Auto Loans
+ * Design: Premium Editorial Finance — dark navy header, warm off-white body, teal accents
+ */
 import { Link } from "wouter";
+import Layout from "@/components/Layout";
+import { Zap, Users, Award, ChevronRight, Shield, CheckCircle2 } from "lucide-react";
 
 const steps = [
   {
-    number: "01",
+    num: "01",
+    icon: <Zap size={24} />,
     title: "Answer 4 Quick Questions",
-    description: "Tell us about your vehicle preference, credit situation, and income. No hard credit pull — this is just to match you with the right lenders.",
-    icon: "📋",
+    desc: "Tell us what type of vehicle you want, your current credit situation, your monthly income, and your contact info. The whole process takes about 2 minutes. We never do a hard credit pull — your score stays safe.",
+    bullets: ["Vehicle type preference", "Credit score range or situation", "Monthly income (all sources)", "Name, email, phone, ZIP"],
   },
   {
-    number: "02",
-    title: "Get Matched Instantly",
-    description: "Our system matches your profile with lenders who specialize in your exact situation — whether that's bad credit, bankruptcy, repo, or no credit history.",
-    icon: "⚡",
+    num: "02",
+    icon: <Users size={24} />,
+    title: "We Match You Instantly",
+    desc: "Your profile is instantly matched against our network of 500+ lenders who specialize in bad credit, no credit, bankruptcy, repossession, and ITIN financing. Real offers come back in minutes — not days.",
+    bullets: ["500+ lenders in our network", "Specialists in every credit situation", "Real offers, not estimates", "No obligation to accept"],
   },
   {
-    number: "03",
-    title: "Review Your Offers",
-    description: "Receive real loan offers from real lenders within minutes. Compare rates, terms, and down payment requirements side by side.",
-    icon: "📊",
-  },
-  {
-    number: "04",
+    num: "03",
+    icon: <Award size={24} />,
     title: "Drive Away Approved",
-    description: "Choose your offer, visit the dealership, and drive away in your vehicle. Most approvals are finalized same day.",
-    icon: "🚗",
+    desc: "Review your offers, pick the best one, and visit the dealership. Most of our customers drive away in their new vehicle the same day they apply. A loan specialist will call you within 2 hours to walk you through everything.",
+    bullets: ["Same-day approval in most cases", "Loan specialist calls within 2 hours", "Bring driver's license + proof of income", "Drive home in your new car"],
   },
 ];
 
 const faqs = [
   {
-    q: "Will applying hurt my credit score?",
-    a: "No. We use a soft credit inquiry only, which does not affect your credit score. Only when you formally accept a loan offer from a lender will a hard inquiry be made.",
+    q: "Will applying affect my credit score?",
+    a: "No. We only do a soft credit inquiry to match you with lenders. A soft inquiry never appears on your credit report and has zero impact on your score. Only if you choose to proceed with a specific lender will a hard pull occur — and only with your explicit permission.",
   },
   {
     q: "What credit score do I need?",
-    a: "We work with all credit scores, including 300 and below. We specialize in matching borrowers who have been rejected elsewhere with lenders who understand their situation.",
+    a: "There is no minimum credit score. We work with borrowers from 300 all the way up. We also work with people who have no credit history, recent bankruptcies, repossessions, and ITIN-only applicants. If you have a job and can make payments, we can likely find a lender for you.",
   },
   {
     q: "How much do I need for a down payment?",
-    a: "Many of our lenders offer $0 down options. However, a down payment of $500–$1,000 significantly improves your approval odds and lowers your monthly payment.",
+    a: "Many of our lenders offer $0 down options, especially for first-time buyers or those with steady income. Others may require $500–$1,000 down depending on your credit situation. We'll show you all available options so you can choose what works for your budget.",
   },
   {
     q: "How long does the process take?",
-    a: "The application takes about 2 minutes. Most borrowers receive their first offers within 5–15 minutes. Same-day approvals are common.",
+    a: "The application itself takes about 2 minutes. Lender matching happens in real time — you'll typically see offers within minutes. A loan specialist will follow up within 2 hours during business hours (Mon–Sat, 8am–8pm). Most customers drive away same day.",
   },
   {
-    q: "Do I need a job to qualify?",
-    a: "You need verifiable income, but it doesn't have to be from a traditional job. SSI, disability, child support, self-employment, and gig income all qualify.",
+    q: "Is this service free?",
+    a: "Yes, completely free for borrowers. We're compensated by lenders when a match is made — similar to how comparison sites work. You never pay us anything, and there's no obligation to accept any offer.",
+  },
+  {
+    q: "What documents will I need?",
+    a: "When you visit the dealership, bring your driver's license, proof of income (recent pay stubs or bank statements), proof of residence (utility bill or lease), and proof of insurance. Your loan specialist will tell you exactly what's needed.",
   },
 ];
 
 export default function HowItWorks() {
   return (
     <Layout>
-      {/* Hero */}
-      <div style={{ backgroundColor: "#1A365D", color: "white" }} className="py-16 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <span className="teal-badge mb-4 inline-block">Simple Process</span>
-          <h1
-            style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
-              fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-              fontWeight: 700,
-              color: "white",
-              marginBottom: "1rem",
-              lineHeight: 1.2,
-            }}
+      {/* Dark Header */}
+      <div style={{ background: "oklch(0.18 0.06 240)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <div className="container py-14 text-center">
+          <div
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5"
+            style={{ background: "oklch(0.58 0.13 185 / 0.18)", border: "1px solid oklch(0.68 0.12 185 / 0.35)", color: "oklch(0.82 0.09 185)", fontFamily: "'DM Sans', sans-serif" }}
           >
-            Getting Approved Is Easier Than You Think
+            Simple Process
+          </div>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", color: "white", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 700, marginBottom: "0.875rem", lineHeight: 1.1 }}>
+            How Complete Auto Loans Works
           </h1>
-          <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: "rgba(255,255,255,0.8)", fontSize: "1.1rem", lineHeight: 1.6 }}>
-            We've helped thousands of people with bad credit, bankruptcies, and repossessions get into reliable vehicles. Here's how it works.
+          <p style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(255,255,255,0.55)", fontSize: "1rem", maxWidth: "480px", margin: "0 auto", lineHeight: 1.65 }}>
+            From application to approval in 3 steps. No hard credit pull, no application fee, no obligation.
           </p>
         </div>
       </div>
 
       {/* Steps */}
-      <div className="max-w-4xl mx-auto px-4 py-16">
-        <div className="space-y-8">
-          {steps.map((step, i) => (
-            <div
-              key={i}
-              className="flex flex-col md:flex-row gap-6 p-6 rounded-xl"
-              style={{ backgroundColor: "white", border: "1px solid #E5E0D8" }}
-            >
-              <div className="flex items-start gap-4 flex-1">
-                <div
-                  style={{
-                    width: "3.5rem",
-                    height: "3.5rem",
-                    borderRadius: "50%",
-                    backgroundColor: "#F0FDF9",
-                    border: "2px solid #0D9488",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "1.5rem",
-                    flexShrink: 0,
-                  }}
-                >
-                  {step.icon}
-                </div>
-                <div>
-                  <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: "0.75rem", color: "#0D9488", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.25rem" }}>
-                    Step {step.number}
+      <section className="py-20" style={{ background: "oklch(0.98 0.005 80)" }}>
+        <div className="container">
+          <div className="flex flex-col gap-0">
+            {steps.map((step, i) => (
+              <div
+                key={step.num}
+                className="flex flex-col md:flex-row gap-8 py-12"
+                style={{ borderBottom: i < steps.length - 1 ? "1px solid oklch(0.90 0.006 80)" : "none" }}
+              >
+                {/* Icon + Number */}
+                <div className="flex flex-col items-center md:items-start gap-3 md:w-44 shrink-0">
+                  <div
+                    className="flex items-center justify-center w-16 h-16 rounded-2xl"
+                    style={{
+                      background: i === 1 ? "oklch(0.58 0.13 185)" : "oklch(0.18 0.06 240)",
+                      color: "white",
+                      boxShadow: i === 1 ? "0 8px 28px oklch(0.58 0.13 185 / 0.35)" : "0 4px 16px oklch(0.18 0.06 240 / 0.18)",
+                    }}
+                  >
+                    {step.icon}
                   </div>
-                  <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1A365D", fontSize: "1.25rem", fontWeight: 700, marginBottom: "0.5rem" }}>
+                  <span style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.88 0.007 80)", fontSize: "3rem", fontWeight: 700, lineHeight: 1 }}>
+                    {step.num}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <h2 className="font-bold text-2xl mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.12 0.02 240)" }}>
                     {step.title}
-                  </h3>
-                  <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: "#4B5563", fontSize: "0.95rem", lineHeight: 1.7 }}>
-                    {step.description}
+                  </h2>
+                  <p className="text-sm leading-relaxed mb-5" style={{ color: "oklch(0.45 0.015 240)", fontFamily: "'DM Sans', sans-serif", maxWidth: "560px" }}>
+                    {step.desc}
                   </p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    {step.bullets.map((b) => (
+                      <li key={b} className="flex items-center gap-2 text-sm font-medium" style={{ color: "oklch(0.30 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                        <CheckCircle2 size={13} style={{ color: "oklch(0.58 0.13 185)", flexShrink: 0 }} />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* CTA */}
-        <div className="text-center mt-12">
+          <div className="mt-10 text-center">
+            <Link href="/apply">
+              <button
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all"
+                style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.10 0.02 240)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 20px oklch(0.76 0.16 75 / 0.40)" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
+              >
+                Start My Free Application
+                <ChevronRight size={16} />
+              </button>
+            </Link>
+            <p className="mt-3 text-xs" style={{ color: "oklch(0.58 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+              Soft credit check only · No application fee · No obligation
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-20" style={{ background: "oklch(0.96 0.006 80)" }}>
+        <div className="container">
+          <div className="max-w-2xl mx-auto">
+            <div className="section-label mb-3">Common Questions</div>
+            <h2 className="mb-10" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.75rem, 3vw, 2.25rem)", fontWeight: 700, color: "oklch(0.12 0.02 240)" }}>
+              Frequently Asked Questions
+            </h2>
+            <div className="flex flex-col gap-4">
+              {faqs.map((faq, i) => (
+                <div
+                  key={i}
+                  className="p-6 rounded-2xl border"
+                  style={{ background: "white", border: "1px solid oklch(0.90 0.006 80)", boxShadow: "0 2px 10px oklch(0.18 0.06 240 / 0.04)" }}
+                >
+                  <h3 className="font-semibold text-base mb-2" style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.15 0.02 240)" }}>
+                    {faq.q}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "oklch(0.42 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="py-16" style={{ background: "oklch(0.18 0.06 240)" }}>
+        <div className="container text-center">
+          <h2 className="text-white mb-4" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 700 }}>
+            Ready to Get Started?
+          </h2>
+          <p className="mb-8" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'DM Sans', sans-serif", fontSize: "0.95rem" }}>
+            Takes 2 minutes. No hard credit pull. Real offers from real lenders.
+          </p>
           <Link href="/apply">
-            <button className="btn-cta text-base px-8 py-4">
-              Start My Application — Takes 2 Minutes →
+            <button
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all"
+              style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.10 0.02 240)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 24px oklch(0.76 0.16 75 / 0.45)" }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
+            >
+              Check My Approval Odds — Free
+              <Shield size={15} />
             </button>
           </Link>
-          <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: "0.8rem", color: "#9CA3AF", marginTop: "0.75rem" }}>
-            Soft credit check only. Won't affect your score.
-          </p>
         </div>
-
-        <hr style={{ border: "none", borderTop: "1px solid #E5E0D8", margin: "4rem 0" }} />
-
-        {/* FAQs */}
-        <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1A365D", fontSize: "1.75rem", fontWeight: 700, marginBottom: "2rem", textAlign: "center" }}>
-          Common Questions
-        </h2>
-        <div className="space-y-4">
-          {faqs.map((faq, i) => (
-            <div key={i} className="p-5 rounded-lg" style={{ backgroundColor: "white", border: "1px solid #E5E0D8" }}>
-              <h3 style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontWeight: 700, color: "#1A365D", fontSize: "0.95rem", marginBottom: "0.5rem" }}>
-                {faq.q}
-              </h3>
-              <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: "#4B5563", fontSize: "0.875rem", lineHeight: 1.7 }}>
-                {faq.a}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+      </section>
     </Layout>
   );
 }

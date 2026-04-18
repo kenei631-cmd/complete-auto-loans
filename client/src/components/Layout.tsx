@@ -1,189 +1,295 @@
-/* =============================================================================
-   COMPLETE AUTO LOANS — Layout Component
-   Design: Editorial Finance — Playfair Display headings, DM Sans body
-   Navy (#1A365D) header, warm off-white (#F8F7F4) background
-   ============================================================================= */
-
-import { useState } from "react";
+/**
+ * Layout — Complete Auto Loans
+ * Design: Premium Editorial Finance
+ * - Dark navy header with teal accents and amber CTA
+ * - Scrolled state: adds shadow
+ * - Dropdown for Best-Of Guides
+ * - Rich 4-column footer
+ */
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import { Menu, X, ChevronDown, Shield, Phone, Star } from "lucide-react";
 
-const LOGO_URL = "/manus-storage/logo_final_d27ae39a.png";
-
-const navLinks = [
-  { label: "Best-Of Lists", href: "/best-bad-credit-auto-loans" },
-  { label: "How It Works", href: "/how-it-works" },
+const bestOfLinks = [
+  { label: "Bad Credit Auto Loans", href: "/best-bad-credit-auto-loans" },
   { label: "Buy Here Pay Here", href: "/best-buy-here-pay-here-dealerships" },
   { label: "No Money Down", href: "/best-no-money-down-car-loans" },
+  { label: "Guaranteed Approval", href: "/best-guaranteed-approval-auto-loans" },
+  { label: "No Credit Check", href: "/best-no-credit-check-car-loans" },
+  { label: "Pre-Approved Loans", href: "/best-pre-approved-car-loans" },
+  { label: "First-Time Buyers", href: "/best-first-time-car-buyer-loans" },
+  { label: "After Bankruptcy", href: "/best-car-loans-after-bankruptcy" },
+  { label: "After Repossession", href: "/best-auto-loans-after-repossession" },
+  { label: "Second Chance", href: "/best-second-chance-auto-loans" },
+  { label: "ITIN Auto Loans", href: "/best-itin-auto-loans" },
+  { label: "Refinance Bad Credit", href: "/best-refinance-bad-credit" },
+  { label: "Low Income Buyers", href: "/best-low-income-car-loans" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [location] = useLocation();
 
-  return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#F8F7F4", fontFamily: "'DM Sans', system-ui, sans-serif" }}>
-      {/* Header */}
-      <header style={{ backgroundColor: "#1A365D" }} className="sticky top-0 z-50 shadow-md">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link href="/">
-              <img
-                src={LOGO_URL}
-                alt="Complete Auto Loans"
-                className="h-10 w-auto"
-                style={{ filter: "brightness(0) invert(1)" }}
-              />
-            </Link>
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium transition-colors"
+  useEffect(() => {
+    setMobileOpen(false);
+    setDropdownOpen(false);
+  }, [location]);
+
+  return (
+    <div className="min-h-screen flex flex-col" style={{ background: "oklch(0.98 0.005 80)" }}>
+
+      {/* ── Top Bar ── */}
+      <div style={{ background: "oklch(0.14 0.05 240)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="container flex items-center justify-between" style={{ paddingTop: "0.4rem", paddingBottom: "0.4rem" }}>
+          <div className="flex items-center gap-5">
+            <span className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "rgba(255,255,255,0.55)" }}>
+              <Shield size={10} style={{ color: "oklch(0.68 0.12 185)" }} />
+              256-bit SSL Encrypted
+            </span>
+            <span className="hidden sm:flex items-center gap-1.5 text-xs font-medium" style={{ color: "rgba(255,255,255,0.55)" }}>
+              <span style={{ color: "oklch(0.68 0.12 185)", fontSize: "10px" }}>✓</span>
+              Soft Credit Check Only — Won't Affect Your Score
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "oklch(0.68 0.12 185)" }}>
+            <Star size={10} fill="currentColor" />
+            <span style={{ color: "rgba(255,255,255,0.55)" }}>4.8/5 from 2,400+ reviews</span>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Main Header ── */}
+      <header
+        className="sticky top-0 z-50 transition-all duration-300"
+        style={{
+          background: "oklch(0.18 0.06 240)",
+          boxShadow: scrolled ? "0 4px 24px oklch(0.10 0.05 240 / 0.5)" : "none",
+          borderBottom: "1px solid rgba(255,255,255,0.07)",
+        }}
+      >
+        <div className="container flex items-center justify-between h-[4.25rem]">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
+            <img
+              src="/manus-storage/logo_final_95e47a06.png"
+              alt="Complete Auto Loans"
+              style={{ height: "52px", width: "auto", objectFit: "contain", filter: "brightness(1.15) drop-shadow(0 0 8px oklch(0.58 0.13 185 / 0.35))" }}
+            />
+          </Link>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-0.5">
+            <div
+              className="relative"
+              onMouseEnter={() => setDropdownOpen(true)}
+              onMouseLeave={() => setDropdownOpen(false)}
+            >
+              <button
+                className="flex items-center gap-1 px-3.5 py-2 rounded-md text-sm font-medium transition-all"
+                style={{
+                  color: dropdownOpen ? "oklch(0.72 0.10 185)" : "rgba(255,255,255,0.8)",
+                  background: dropdownOpen ? "rgba(255,255,255,0.06)" : "transparent",
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+              >
+                Best-Of Guides
+                <ChevronDown size={13} className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              {dropdownOpen && (
+                <div
+                  className="absolute top-full left-0 mt-1.5 rounded-xl overflow-hidden z-50"
                   style={{
-                    fontFamily: "'DM Sans', system-ui, sans-serif",
-                    color: location === link.href ? "#0D9488" : "rgba(255,255,255,0.85)",
+                    background: "oklch(0.20 0.055 240)",
+                    border: "1px solid rgba(255,255,255,0.09)",
+                    boxShadow: "0 20px 60px oklch(0.10 0.05 240 / 0.7)",
+                    width: "230px",
                   }}
                 >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-
-            {/* CTA Button */}
-            <div className="hidden md:block">
-              <Link href="/apply">
-                <button className="btn-cta text-sm px-5 py-2.5">
-                  Get Pre-Approved
-                </button>
-              </Link>
+                  <div className="p-1.5">
+                    {bestOfLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all"
+                        style={{ color: "rgba(255,255,255,0.72)", fontFamily: "'DM Sans', sans-serif" }}
+                        onMouseEnter={(e) => {
+                          const el = e.currentTarget as HTMLElement;
+                          el.style.background = "rgba(255,255,255,0.06)";
+                          el.style.color = "oklch(0.72 0.10 185)";
+                        }}
+                        onMouseLeave={(e) => {
+                          const el = e.currentTarget as HTMLElement;
+                          el.style.background = "transparent";
+                          el.style.color = "rgba(255,255,255,0.72)";
+                        }}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <button
-              className="md:hidden text-white p-2"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
+            <Link
+              href="/how-it-works"
+              className="px-3.5 py-2 rounded-md text-sm font-medium transition-all"
+              style={{ color: "rgba(255,255,255,0.8)", fontFamily: "'DM Sans', sans-serif" }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "white"; (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.8)"; (e.currentTarget as HTMLElement).style.background = "transparent"; }}
             >
-              <div className="w-6 h-0.5 bg-white mb-1.5 transition-all" style={{ transform: menuOpen ? "rotate(45deg) translate(4px, 4px)" : "none" }} />
-              <div className="w-6 h-0.5 bg-white mb-1.5 transition-all" style={{ opacity: menuOpen ? 0 : 1 }} />
-              <div className="w-6 h-0.5 bg-white transition-all" style={{ transform: menuOpen ? "rotate(-45deg) translate(4px, -4px)" : "none" }} />
+              How It Works
+            </Link>
+          </nav>
+
+          {/* CTA + Mobile Toggle */}
+          <div className="flex items-center gap-3">
+            <Link href="/apply">
+              <button
+                className="hidden sm:inline-flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-md transition-all"
+                style={{
+                  background: "oklch(0.76 0.16 75)",
+                  color: "oklch(0.12 0.02 240)",
+                  fontFamily: "'DM Sans', sans-serif",
+                  boxShadow: "0 2px 12px oklch(0.76 0.16 75 / 0.35)",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)";
+                  (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
+                  (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 18px oklch(0.76 0.16 75 / 0.45)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)";
+                  (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                  (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 12px oklch(0.76 0.16 75 / 0.35)";
+                }}
+              >
+                Get Pre-Approved
+              </button>
+            </Link>
+            <button
+              className="lg:hidden p-2 rounded-md transition-colors"
+              style={{ color: "rgba(255,255,255,0.8)" }}
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
+        </div>
 
-          {/* Mobile Menu */}
-          {menuOpen && (
-            <div className="md:hidden py-4 border-t border-white/20">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="block py-2.5 text-sm text-white/85 hover:text-white"
-                  style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}
-                  onClick={() => setMenuOpen(false)}
-                >
+        {/* Mobile Menu */}
+        {mobileOpen && (
+          <div style={{ background: "oklch(0.15 0.055 240)", borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+            <div className="container py-4 flex flex-col gap-0.5">
+              <p className="text-xs font-bold uppercase tracking-widest px-3 pb-2" style={{ color: "oklch(0.68 0.12 185)" }}>Best-Of Guides</p>
+              {bestOfLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="block px-3 py-2.5 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'DM Sans', sans-serif" }}>
                   {link.label}
                 </Link>
               ))}
-              <Link href="/apply" onClick={() => setMenuOpen(false)}>
-                <button className="btn-cta w-full mt-3 text-sm">
-                  Get Pre-Approved
-                </button>
-              </Link>
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", marginTop: "0.75rem", paddingTop: "0.75rem" }}>
+                <Link href="/how-it-works" className="block px-3 py-2.5 text-sm font-medium" style={{ color: "rgba(255,255,255,0.75)" }}>
+                  How It Works
+                </Link>
+                <Link href="/apply">
+                  <button className="mt-3 w-full py-3 rounded-md font-bold text-sm" style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.12 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                    Get Pre-Approved — Free
+                  </button>
+                </Link>
+              </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </header>
 
-      {/* Main Content */}
-      <main className="flex-1">
-        {children}
-      </main>
+      {/* ── Main Content ── */}
+      <main className="flex-1">{children}</main>
 
-      {/* Footer */}
-      <footer style={{ backgroundColor: "#1A365D", color: "rgba(255,255,255,0.75)" }} className="mt-16">
-        <div className="container mx-auto px-4 max-w-6xl py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Brand */}
-            <div className="md:col-span-1">
-              <img
-                src={LOGO_URL}
-                alt="Complete Auto Loans"
-                className="h-9 w-auto mb-3"
-                style={{ filter: "brightness(0) invert(1)" }}
-              />
-              <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)", fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+      {/* ── Footer ── */}
+      <footer style={{ background: "oklch(0.13 0.05 240)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="container py-14">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+            <div className="col-span-2 md:col-span-1">
+              <div className="flex items-center gap-2.5 mb-4">
+                <div className="flex items-center justify-center w-8 h-8 rounded-md font-bold text-xs" style={{ background: "linear-gradient(135deg, oklch(0.58 0.13 185), oklch(0.48 0.13 185))", color: "white", fontFamily: "'Playfair Display', serif" }}>CA</div>
+                <div className="flex flex-col leading-none">
+                  <span className="text-white font-bold text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>Complete Auto Loans</span>
+                  <span className="text-xs" style={{ color: "oklch(0.68 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}>#1 Rated Bad Credit Network</span>
+                </div>
+              </div>
+              <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}>
                 Helping real people get approved for auto loans regardless of their credit history since 2010.
               </p>
             </div>
 
-            {/* Best-Of Pages */}
             <div>
-              <h4 className="text-white text-sm font-semibold mb-3 uppercase tracking-wider" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>Best-Of Lists</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.68 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}>Best-Of Lists</h4>
+              <ul className="space-y-2.5">
                 {[
-                  { label: "Bad Credit Auto Loans", href: "/best-bad-credit-auto-loans" },
-                  { label: "Buy Here Pay Here", href: "/best-buy-here-pay-here-dealerships" },
-                  { label: "No Money Down", href: "/best-no-money-down-car-loans" },
-                  { label: "Guaranteed Approval", href: "/best-guaranteed-approval-auto-loans" },
-                  { label: "No Credit Check", href: "/best-no-credit-check-car-loans" },
-                ].map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans', system-ui, sans-serif" }} className="hover:text-white transition-colors">
-                      {link.label}
-                    </Link>
+                  ["Bad Credit Auto Loans", "/best-bad-credit-auto-loans"],
+                  ["Buy Here Pay Here", "/best-buy-here-pay-here-dealerships"],
+                  ["No Money Down", "/best-no-money-down-car-loans"],
+                  ["Guaranteed Approval", "/best-guaranteed-approval-auto-loans"],
+                  ["No Credit Check", "/best-no-credit-check-car-loans"],
+                ].map(([label, href]) => (
+                  <li key={href}>
+                    <Link href={href} className="text-sm transition-colors" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}
+                      onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.85)"}
+                      onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.45)"}
+                    >{label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Specialty Loans */}
             <div>
-              <h4 className="text-white text-sm font-semibold mb-3 uppercase tracking-wider" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>Specialty Loans</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.68 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}>Specialty Loans</h4>
+              <ul className="space-y-2.5">
                 {[
-                  { label: "After Bankruptcy", href: "/best-car-loans-after-bankruptcy" },
-                  { label: "After Repossession", href: "/best-auto-loans-after-repossession" },
-                  { label: "Second Chance", href: "/best-second-chance-auto-loans" },
-                  { label: "ITIN Auto Loans", href: "/best-itin-auto-loans" },
-                  { label: "First-Time Buyers", href: "/best-first-time-car-buyer-loans" },
-                ].map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans', system-ui, sans-serif" }} className="hover:text-white transition-colors">
-                      {link.label}
-                    </Link>
+                  ["After Bankruptcy", "/best-car-loans-after-bankruptcy"],
+                  ["After Repossession", "/best-auto-loans-after-repossession"],
+                  ["Second Chance", "/best-second-chance-auto-loans"],
+                  ["ITIN Auto Loans", "/best-itin-auto-loans"],
+                  ["First-Time Buyers", "/best-first-time-car-buyer-loans"],
+                ].map(([label, href]) => (
+                  <li key={href}>
+                    <Link href={href} className="text-sm transition-colors" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}
+                      onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.85)"}
+                      onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.45)"}
+                    >{label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Company */}
             <div>
-              <h4 className="text-white text-sm font-semibold mb-3 uppercase tracking-wider" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>Company</h4>
-              <ul className="space-y-2 text-sm">
-                {[
-                  { label: "How It Works", href: "/how-it-works" },
-                  { label: "Get Pre-Approved", href: "/apply" },
-                ].map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'DM Sans', system-ui, sans-serif" }} className="hover:text-white transition-colors">
-                      {link.label}
-                    </Link>
+              <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.68 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}>Company</h4>
+              <ul className="space-y-2.5">
+                {[["How It Works", "/how-it-works"], ["Get Pre-Approved", "/apply"]].map(([label, href]) => (
+                  <li key={href}>
+                    <Link href={href} className="text-sm transition-colors" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}
+                      onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.85)"}
+                      onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.45)"}
+                    >{label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          <hr className="border-white/10 my-8" />
-
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', system-ui, sans-serif" }}>
-            <p>© 2026 Complete Auto Loans. All rights reserved.</p>
-            <p className="max-w-lg text-right leading-relaxed">
-              Complete Auto Loans is an independent comparison service, not a lender. We may receive compensation when you click on partner links. Our editorial rankings are independent of any commercial relationships.
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", marginTop: "3rem", paddingTop: "1.5rem" }} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <p className="text-xs" style={{ color: "rgba(255,255,255,0.28)", fontFamily: "'DM Sans', sans-serif" }}>© 2026 Complete Auto Loans. All rights reserved.</p>
+            <p className="text-xs max-w-lg sm:text-right leading-relaxed" style={{ color: "rgba(255,255,255,0.22)", fontFamily: "'DM Sans', sans-serif" }}>
+              Complete Auto Loans is a lead generation and comparison service, not a lender. Approval is not guaranteed. Rates and terms vary by lender.
             </p>
           </div>
         </div>

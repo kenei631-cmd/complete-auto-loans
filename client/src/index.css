@@ -1,14 +1,17 @@
-/* =============================================================================
-   COMPLETE AUTO LOANS — GLOBAL DESIGN SYSTEM
-   Design Philosophy: "Editorial Finance" — NerdWallet-meets-financial-magazine
-   - Background: #F8F7F4 (warm off-white), never pure white
-   - Headings: Playfair Display (serif, authoritative)
-   - Body: DM Sans (clean, readable sans-serif)
-   - Primary: Sage Teal (#0D9488) — icons, badges, borders, interactive elements
-   - Navy: Trust Navy (#1A365D) — all heading text, authority
-   - Orange: Action Orange (#F39C12) — CTA buttons ONLY
-   - Asymmetric editorial layouts, thin rule dividers, teal pill badges
-   ============================================================================= */
+/**
+ * Complete Auto Loans — Global Design System
+ * Design: Premium Editorial Finance
+ * 
+ * Color Philosophy:
+ *   - Navy oklch(0.18 0.06 240): Authority, trust, financial legitimacy
+ *   - Teal oklch(0.58 0.13 185): "Approved" / "Yes" — calm, forward-moving
+ *   - Amber oklch(0.76 0.16 75): Action, urgency, CTA only
+ *   - Warm Off-White oklch(0.98 0.005 80): Approachable, not clinical
+ * 
+ * Typography:
+ *   - Playfair Display: Headlines — editorial authority
+ *   - DM Sans: Body, UI — modern, readable
+ */
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -52,80 +55,73 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  /* Brand custom colors */
-  --color-teal: #0D9488;
-  --color-teal-light: #CCFBF1;
-  --color-teal-dark: #0F766E;
-  --color-navy: #1A365D;
-  --color-navy-light: #2D4A7A;
-  --color-orange: #F39C12;
-  --color-orange-dark: #D68910;
-  --color-warm-bg: #F8F7F4;
-  --color-warm-bg-dark: #F0EDE8;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.5rem;
-  /* Brand primary = Sage Teal */
-  --primary: oklch(0.55 0.12 178);
-  --primary-foreground: oklch(0.99 0 0);
-  /* Warm off-white background */
-  --background: oklch(0.985 0.005 80);
-  --foreground: oklch(0.2 0.03 240);
+
+  /* Brand colors as CSS vars */
+  --cal-navy: oklch(0.18 0.06 240);
+  --cal-teal: oklch(0.58 0.13 185);
+  --cal-teal-light: oklch(0.72 0.10 185);
+  --cal-amber: oklch(0.76 0.16 75);
+  --cal-warm-bg: oklch(0.98 0.005 80);
+  --cal-warm-bg-2: oklch(0.96 0.006 80);
+  --cal-border: oklch(0.90 0.006 80);
+  --cal-text: oklch(0.15 0.02 240);
+  --cal-text-muted: oklch(0.52 0.015 240);
+
+  /* shadcn tokens */
+  --background: oklch(0.98 0.005 80);
+  --foreground: oklch(0.15 0.02 240);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.03 240);
+  --card-foreground: oklch(0.15 0.02 240);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.03 240);
-  --secondary: oklch(0.96 0.005 80);
-  --secondary-foreground: oklch(0.3 0.05 240);
-  --muted: oklch(0.94 0.006 80);
-  --muted-foreground: oklch(0.52 0.02 240);
-  --accent: oklch(0.94 0.006 80);
-  --accent-foreground: oklch(0.2 0.03 240);
+  --popover-foreground: oklch(0.15 0.02 240);
+  --primary: oklch(0.58 0.13 185);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0.006 80);
+  --secondary-foreground: oklch(0.35 0.02 240);
+  --muted: oklch(0.96 0.006 80);
+  --muted-foreground: oklch(0.52 0.015 240);
+  --accent: oklch(0.96 0.006 80);
+  --accent-foreground: oklch(0.15 0.02 240);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.88 0.008 80);
-  --input: oklch(0.88 0.008 80);
-  --ring: oklch(0.55 0.12 178);
-  --chart-1: oklch(0.55 0.12 178);
-  --chart-2: oklch(0.45 0.1 240);
-  --chart-3: oklch(0.65 0.15 60);
-  --chart-4: oklch(0.7 0.12 178);
-  --chart-5: oklch(0.35 0.08 240);
-  --sidebar: oklch(0.985 0.005 80);
-  --sidebar-foreground: oklch(0.2 0.03 240);
-  --sidebar-primary: oklch(0.55 0.12 178);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.94 0.006 80);
-  --sidebar-accent-foreground: oklch(0.2 0.03 240);
-  --sidebar-border: oklch(0.88 0.008 80);
-  --sidebar-ring: oklch(0.55 0.12 178);
+  --border: oklch(0.90 0.006 80);
+  --input: oklch(0.90 0.006 80);
+  --ring: oklch(0.58 0.13 185);
+  --chart-1: oklch(0.58 0.13 185);
+  --chart-2: oklch(0.76 0.16 75);
+  --chart-3: oklch(0.18 0.06 240);
+  --chart-4: oklch(0.72 0.10 185);
+  --chart-5: oklch(0.48 0.10 185);
+  --sidebar: oklch(0.18 0.06 240);
+  --sidebar-foreground: oklch(0.85 0.005 65);
+  --sidebar-primary: oklch(0.58 0.13 185);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.22 0.05 240);
+  --sidebar-accent-foreground: oklch(0.85 0.005 65);
+  --sidebar-border: oklch(1 0 0 / 0.08);
+  --sidebar-ring: oklch(0.58 0.13 185);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    box-sizing: border-box;
   }
   body {
     @apply bg-background text-foreground;
     font-family: 'DM Sans', system-ui, sans-serif;
-    background-color: #F8F7F4;
-  }
-  h1, h2, h3, h4 {
-    font-family: 'Playfair Display', Georgia, serif;
-    color: #1A365D;
+    -webkit-font-smoothing: antialiased;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
   [type="submit"]:not(:disabled),
-  [type="reset"]:not(:disabled),
   a[href],
-  select:not(:disabled),
-  input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
+  select:not(:disabled) {
     @apply cursor-pointer;
   }
 }
@@ -137,6 +133,19 @@
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
+    max-width: 1200px;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 
   .flex {
@@ -144,95 +153,24 @@
     min-width: 0;
   }
 
-  @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-      max-width: 1280px;
-    }
-  }
-
-  /* Brand utility classes */
-  .font-display {
-    font-family: 'Playfair Display', Georgia, serif;
-  }
-  .font-body {
-    font-family: 'DM Sans', system-ui, sans-serif;
-  }
-  .text-navy {
-    color: #1A365D;
-  }
-  .text-teal {
-    color: #0D9488;
-  }
-  .bg-teal {
-    background-color: #0D9488;
-  }
-  .bg-navy {
-    background-color: #1A365D;
-  }
-  .bg-warm {
-    background-color: #F8F7F4;
-  }
-  .btn-cta {
-    background-color: #F39C12;
-    color: white;
-    font-family: 'DM Sans', system-ui, sans-serif;
-    font-weight: 700;
-    padding: 0.875rem 2rem;
-    border-radius: 0.375rem;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    border: none;
-    cursor: pointer;
-  }
-  .btn-cta:hover {
-    background-color: #D68910;
-    transform: translateY(-1px);
-  }
-  .teal-badge {
-    background-color: #CCFBF1;
-    color: #0D9488;
-    font-family: 'DM Sans', system-ui, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.625rem;
-    border-radius: 9999px;
+  /* ── Utility Classes ── */
+  .section-label {
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: oklch(0.58 0.13 185);
   }
-  .section-rule {
-    border: none;
-    border-top: 1px solid #E5E0D8;
-    margin: 0;
-  }
-  .data-callout {
-    border-left: 3px solid #0D9488;
-    padding: 0.75rem 1rem;
-    background-color: #F0FDF9;
-    border-radius: 0 0.375rem 0.375rem 0;
-  }
-  .lender-card {
-    background: white;
-    border: 1px solid #E5E0D8;
-    border-radius: 0.5rem;
-    padding: 1.5rem;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-  }
-  .lender-card:hover {
-    box-shadow: 0 4px 20px rgba(26, 54, 93, 0.1);
-    transform: translateY(-2px);
-  }
-  .lender-card.featured {
-    border-color: #0D9488;
-    border-width: 2px;
-    position: relative;
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 2px;
+    background: oklch(0.58 0.13 185);
+    border-radius: 1px;
   }
 }

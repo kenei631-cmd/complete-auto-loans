@@ -1,339 +1,314 @@
-/* =============================================================================
-   COMPLETE AUTO LOANS — Homepage
-   Design: Editorial Finance — Asymmetric layout, Playfair Display + DM Sans
-   Hero: Left-aligned headline + right-side lead form
-   Sections: Best-Of grid, 3 Personas, Real Stories, Trust signals
-   ============================================================================= */
-
+/**
+ * Home — Complete Auto Loans
+ * Design: Premium Editorial Finance
+ * 
+ * Sections:
+ * 1. Hero — cinematic full-bleed with asymmetric layout + floating stats card
+ * 2. Trust bar — social proof strip
+ * 3. Best-Of Editorial Grid — dark featured cards + white cards
+ * 4. How It Works — 3-step horizontal with connecting line
+ * 5. Persona Cards — photo + content with accent borders
+ * 6. Testimonials — 4-column quote cards
+ * 7. Dark CTA — full-bleed photo with amber button
+ */
 import { Link } from "wouter";
-import Layout from "../components/Layout";
+import { ArrowRight, CheckCircle2, Star, Shield, Zap, Clock, ChevronRight, Users, Award, TrendingUp } from "lucide-react";
+import Layout from "@/components/Layout";
 
-const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/hero_bg-oVPVgmra9xaHBkP26YKaVy.png";
-const REBUILDER_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/persona_rebuilder-M7ttUwdpT3JxVJvzHbfzwX.png";
-const FIRSTTIMER_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/persona_firsttimer-dFfXKAEt3AN4LkMEgH7vwb.png";
-const SURVIVOR_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/persona_survivor-Cix3tYVro9ycJeRWVMsUDD.png";
+const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/hero_premium-3w25pnkm7XPeSZaaGkqMXo.webp";
+const CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/cta_bg-PDasKWDRcQeYKLEiLA7yk9.webp";
 
-const bestOfPages = [
-  { label: "Bad Credit Auto Loans", href: "/best-bad-credit-auto-loans", volume: "39,700/mo", icon: "💳" },
-  { label: "Buy Here Pay Here", href: "/best-buy-here-pay-here-dealerships", volume: "222,780/mo", icon: "🏪" },
-  { label: "No Money Down", href: "/best-no-money-down-car-loans", volume: "5,890/mo", icon: "💰" },
-  { label: "Guaranteed Approval", href: "/best-guaranteed-approval-auto-loans", volume: "9,630/mo", icon: "✅" },
-  { label: "No Credit Check", href: "/best-no-credit-check-car-loans", volume: "11,470/mo", icon: "🔍" },
-  { label: "Pre-Approved Loans", href: "/best-pre-approved-car-loans-bad-credit", volume: "62,240/mo", icon: "📋" },
-  { label: "First-Time Buyers", href: "/best-first-time-car-buyer-loans", volume: "5,030/mo", icon: "🎓" },
-  { label: "After Bankruptcy", href: "/best-car-loans-after-bankruptcy", volume: "840/mo", icon: "⚖️" },
-  { label: "After Repossession", href: "/best-auto-loans-after-repossession", volume: "480/mo", icon: "🔄" },
-  { label: "Second Chance Loans", href: "/best-second-chance-auto-loans", volume: "2,550/mo", icon: "🌱" },
-  { label: "ITIN Auto Loans", href: "/best-itin-auto-loans", volume: "1,200/mo", icon: "📄" },
-  { label: "Low Income Buyers", href: "/best-car-loans-low-income", volume: "450/mo", icon: "🏠" },
+const bestOfGuides = [
+  { emoji: "💳", label: "Bad Credit Auto Loans", volume: "39,700/mo", href: "/best-bad-credit-auto-loans", featured: true },
+  { emoji: "🏪", label: "Buy Here Pay Here", volume: "222,780/mo", href: "/best-buy-here-pay-here-dealerships", featured: true },
+  { emoji: "📋", label: "Pre-Approved Loans", volume: "62,240/mo", href: "/best-pre-approved-car-loans", featured: true },
+  { emoji: "✅", label: "Guaranteed Approval", volume: "9,630/mo", href: "/best-guaranteed-approval-auto-loans" },
+  { emoji: "🔍", label: "No Credit Check", volume: "11,470/mo", href: "/best-no-credit-check-car-loans" },
+  { emoji: "💰", label: "No Money Down", volume: "5,890/mo", href: "/best-no-money-down-car-loans" },
+  { emoji: "🎓", label: "First-Time Buyers", volume: "5,030/mo", href: "/best-first-time-car-buyer-loans" },
+  { emoji: "⚖️", label: "After Bankruptcy", volume: "840/mo", href: "/best-car-loans-after-bankruptcy" },
+  { emoji: "🔄", label: "After Repossession", volume: "480/mo", href: "/best-auto-loans-after-repossession" },
+  { emoji: "🌱", label: "Second Chance", volume: "2,550/mo", href: "/best-second-chance-auto-loans" },
+  { emoji: "📄", label: "ITIN Auto Loans", volume: "1,200/mo", href: "/best-itin-auto-loans" },
+  { emoji: "🏠", label: "Low Income Buyers", volume: "450/mo", href: "/best-low-income-car-loans" },
 ];
 
 const personas = [
   {
-    image: REBUILDER_IMAGE,
-    type: "The Rebuilder",
-    description: "You've been through a financial setback — divorce, job loss, medical bills. Your credit took a hit but you're back on your feet and need reliable transportation.",
-    creditRange: "300–550",
-    href: "/best-second-chance-auto-loans",
+    tag: "Credit: 300–550",
+    title: "The Rebuilder",
+    desc: "You've been through a financial setback — divorce, job loss, medical bills. Your credit took a hit but you're back on your feet. We know lenders who see your recovery, not your past.",
+    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
+    href: "/best-bad-credit-auto-loans",
+    accentColor: "oklch(0.58 0.13 185)",
   },
   {
-    image: FIRSTTIMER_IMAGE,
-    type: "The First-Timer",
-    description: "You're just starting out. No credit history, no co-signer, maybe a new job. Traditional banks say no. We know lenders who say yes to first-time buyers every day.",
-    creditRange: "No Credit",
+    tag: "Credit: No History",
+    title: "The First-Timer",
+    desc: "No credit history, no co-signer, maybe a new job. Traditional banks say no. We match you with lenders who specialize in first-time buyers and look at your income, not just your score.",
+    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80",
     href: "/best-first-time-car-buyer-loans",
+    accentColor: "oklch(0.76 0.16 75)",
   },
   {
-    image: SURVIVOR_IMAGE,
-    type: "The Survivor",
-    description: "You've dealt with bankruptcy, repossession, or both. You need a car to get to work and take care of your family. There are lenders who specialize in exactly your situation.",
-    creditRange: "Any Score",
-    href: "/best-car-loans-after-bankruptcy",
+    tag: "Credit: Any Score",
+    title: "The Survivor",
+    desc: "Bankruptcy, repossession, or both. You need a car to get to work and take care of your family. There are lenders who specialize in exactly your situation — and they approve people every day.",
+    img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80",
+    href: "/best-second-chance-auto-loans",
+    accentColor: "oklch(0.52 0.10 240)",
   },
 ];
 
-const realStories = [
+const testimonials = [
   {
     name: "Marcus T.",
-    city: "Phoenix, AZ",
+    location: "Phoenix, AZ",
     score: "492",
     vehicle: "2019 Honda Civic",
-    down: "$500",
+    down: "$500 down",
     quote: "I had a repo from 2021 and thought no one would touch me. Complete Auto Loans matched me with a lender in 10 minutes. Drove home same day.",
+    initials: "MT",
+    color: "oklch(0.58 0.13 185)",
   },
   {
     name: "Jennifer R.",
-    city: "Dallas, TX",
+    location: "Dallas, TX",
     score: "No Credit",
     vehicle: "2020 Toyota Corolla",
     down: "$0 down",
     quote: "First car ever. No credit, new job. I was terrified. The process was so easy and the lender was actually nice about my situation.",
+    initials: "JR",
+    color: "oklch(0.76 0.16 75)",
   },
   {
     name: "David & Lisa M.",
-    city: "Chicago, IL",
+    location: "Chicago, IL",
     score: "538",
     vehicle: "2018 Ford Explorer",
-    down: "$1,000",
+    down: "$1,000 down",
     quote: "Chapter 7 bankruptcy discharged 8 months ago. We needed an SUV for our kids. Got approved for a rate we could actually afford.",
+    initials: "DM",
+    color: "oklch(0.52 0.10 240)",
   },
   {
     name: "Rosa V.",
-    city: "San Antonio, TX",
+    location: "San Antonio, TX",
     score: "ITIN",
     vehicle: "2021 Chevy Equinox",
-    down: "$800",
+    down: "$800 down",
     quote: "I don't have a Social Security number but I have an ITIN and steady income. Complete Auto Loans was the only site that had options for me.",
+    initials: "RV",
+    color: "oklch(0.58 0.13 185)",
   },
 ];
 
-const trustStats = [
-  { value: "98%", label: "Approval Rate" },
-  { value: "2 min", label: "Application Time" },
-  { value: "$0", label: "Application Fee" },
-  { value: "500+", label: "Lender Network" },
+const steps = [
+  { num: "01", icon: <Zap size={22} />, title: "Answer 4 Quick Questions", desc: "Tell us your vehicle type, credit situation, income, and contact info. Takes 2 minutes. No hard credit pull." },
+  { num: "02", icon: <Users size={22} />, title: "We Match You Instantly", desc: "Our network of 500+ lenders reviews your profile and returns real offers — not estimates, not guesses." },
+  { num: "03", icon: <Award size={22} />, title: "Drive Away Approved", desc: "Pick your best offer, visit the dealership, and drive home. Most approvals happen same day." },
 ];
 
 export default function Home() {
   return (
     <Layout>
-      {/* ===== HERO SECTION ===== */}
-      <section
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          minHeight: "520px",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        {/* Background Image */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: `url(${HERO_IMAGE})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center right",
-            zIndex: 0,
-          }}
-        />
-        {/* Overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(90deg, rgba(26,54,93,0.92) 0%, rgba(26,54,93,0.75) 50%, rgba(26,54,93,0.3) 100%)",
-            zIndex: 1,
-          }}
-        />
+      {/* ══════════════════════════════════════════
+          HERO
+      ══════════════════════════════════════════ */}
+      <section className="relative overflow-hidden" style={{ minHeight: "100svh" }}>
+        {/* Background */}
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_IMG})` }} />
+        {/* Gradient — strong left, fades right */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(110deg, oklch(0.08 0.05 240 / 0.97) 0%, oklch(0.10 0.05 240 / 0.88) 40%, oklch(0.10 0.05 240 / 0.35) 100%)" }} />
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: "linear-gradient(to top, oklch(0.98 0.005 80), transparent)" }} />
 
-        {/* Content */}
-        <div className="container mx-auto px-4 max-w-6xl relative z-10 py-16">
-          <div className="flex flex-col lg:flex-row items-center gap-10">
-            {/* Left: Headline */}
-            <div className="flex-1 max-w-xl">
-              <div className="mb-4">
-                <span
-                  style={{
-                    backgroundColor: "rgba(13,148,136,0.2)",
-                    color: "#5EEAD4",
-                    fontFamily: "'DM Sans', system-ui, sans-serif",
-                    fontSize: "0.75rem",
-                    fontWeight: 700,
-                    padding: "0.3rem 0.75rem",
-                    borderRadius: "9999px",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    border: "1px solid rgba(13,148,136,0.4)",
-                  }}
-                >
-                  ★ #1 Rated Bad Credit Auto Loan Comparison
-                </span>
-              </div>
-              <h1
-                style={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  color: "white",
-                  fontSize: "clamp(2rem, 5vw, 3.25rem)",
-                  fontWeight: 800,
-                  lineHeight: 1.15,
-                  marginBottom: "1.25rem",
-                }}
-              >
-                We Look at Your Future,<br />
-                <span style={{ color: "#5EEAD4" }}>Not Your Past.</span>
-              </h1>
-              <p
-                style={{
-                  fontFamily: "'DM Sans', system-ui, sans-serif",
-                  color: "rgba(255,255,255,0.85)",
-                  fontSize: "1.1rem",
-                  lineHeight: 1.65,
-                  marginBottom: "2rem",
-                }}
-              >
-                Bad credit, bankruptcy, repossession, or no credit at all — we match you with lenders who approve real people every day. 500+ lenders, 2-minute application, no hard credit pull.
-              </p>
+        <div className="relative container" style={{ minHeight: "100svh", display: "flex", flexDirection: "column", justifyContent: "center", paddingTop: "6rem", paddingBottom: "6rem" }}>
+          <div style={{ maxWidth: "640px" }}>
+            {/* Eyebrow */}
+            <div
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-7"
+              style={{ background: "oklch(0.58 0.13 185 / 0.18)", border: "1px solid oklch(0.68 0.12 185 / 0.35)", color: "oklch(0.82 0.09 185)", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              <Star size={10} fill="currentColor" />
+              #1 Rated Bad Credit Auto Loan Network
+            </div>
 
-              {/* Trust Stats Row */}
-              <div className="flex flex-wrap gap-6 mb-8">
-                {trustStats.map((stat) => (
-                  <div key={stat.label}>
-                    <div
-                      style={{
-                        fontFamily: "'Playfair Display', Georgia, serif",
-                        color: "#5EEAD4",
-                        fontSize: "1.5rem",
-                        fontWeight: 700,
-                        lineHeight: 1,
-                      }}
-                    >
-                      {stat.value}
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "'DM Sans', system-ui, sans-serif",
-                        color: "rgba(255,255,255,0.65)",
-                        fontSize: "0.75rem",
-                        marginTop: "0.2rem",
-                      }}
-                    >
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+            {/* Headline */}
+            <h1
+              className="text-white mb-6"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "clamp(2.75rem, 6vw, 4.75rem)",
+                fontWeight: 700,
+                lineHeight: 1.08,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              We Look at Your{" "}
+              <em style={{ color: "oklch(0.72 0.10 185)", fontStyle: "italic" }}>Future,</em>
+              <br />
+              Not Your Past.
+            </h1>
 
+            {/* Sub */}
+            <p
+              className="mb-10 leading-relaxed"
+              style={{ color: "rgba(255,255,255,0.72)", fontSize: "1.125rem", fontFamily: "'DM Sans', sans-serif", maxWidth: "500px" }}
+            >
+              Bad credit, bankruptcy, repossession, or no credit at all — we match you with lenders who approve real people every single day.
+            </p>
+
+            {/* CTA */}
+            <div className="flex flex-wrap items-center gap-4 mb-10">
               <Link href="/apply">
                 <button
-                  className="btn-cta text-base px-8 py-4"
-                  style={{ fontSize: "1rem" }}
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-base transition-all"
+                  style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.10 0.02 240)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 6px 28px oklch(0.76 0.16 75 / 0.50)", fontSize: "1.0625rem" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 36px oklch(0.76 0.16 75 / 0.55)"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 28px oklch(0.76 0.16 75 / 0.50)"; }}
                 >
-                  Check My Approval Odds — Free →
+                  Check My Approval Odds — Free
+                  <ArrowRight size={17} />
                 </button>
               </Link>
-              <p
-                style={{
-                  fontFamily: "'DM Sans', system-ui, sans-serif",
-                  color: "rgba(255,255,255,0.5)",
-                  fontSize: "0.75rem",
-                  marginTop: "0.75rem",
-                }}
-              >
-                🔒 Soft credit check only · Won't affect your score
-              </p>
+              <Link href="/how-it-works">
+                <button
+                  className="inline-flex items-center gap-2 px-5 py-4 rounded-xl font-semibold text-sm transition-all"
+                  style={{ background: "rgba(255,255,255,0.09)", color: "rgba(255,255,255,0.82)", border: "1px solid rgba(255,255,255,0.18)", fontFamily: "'DM Sans', sans-serif" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.15)"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.09)"; }}
+                >
+                  How It Works
+                </button>
+              </Link>
             </div>
 
-            {/* Right: Quick Form Teaser */}
-            <div
-              className="w-full lg:w-80 rounded-xl p-6 shadow-2xl"
-              style={{ backgroundColor: "white", flexShrink: 0 }}
-            >
-              <h3
-                style={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  color: "#1A365D",
-                  fontSize: "1.1rem",
-                  fontWeight: 700,
-                  marginBottom: "0.25rem",
-                }}
-              >
-                Get Pre-Approved in 2 Minutes
-              </h3>
-              <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: "#6B7280", fontSize: "0.8rem", marginBottom: "1.25rem" }}>
-                All credit situations welcome
-              </p>
-
-              {/* Mini Form */}
-              <div className="space-y-3">
-                {[
-                  { label: "Vehicle Type", placeholder: "Select vehicle type..." },
-                  { label: "Credit Situation", placeholder: "Select credit range..." },
-                  { label: "ZIP Code", placeholder: "Enter your ZIP..." },
-                ].map((field) => (
-                  <div key={field.label}>
-                    <label style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: "0.75rem", fontWeight: 600, color: "#374151", display: "block", marginBottom: "0.3rem" }}>
-                      {field.label}
-                    </label>
-                    <input
-                      type="text"
-                      placeholder={field.placeholder}
-                      className="w-full px-3 py-2.5 rounded-md text-sm"
-                      style={{ border: "1px solid #E5E0D8", fontFamily: "'DM Sans', system-ui, sans-serif", color: "#1A365D", outline: "none" }}
-                      readOnly
-                      onClick={() => window.location.href = "/apply"}
-                    />
-                  </div>
-                ))}
-                <Link href="/apply">
-                  <button className="btn-cta w-full text-sm mt-1">
-                    See My Options →
-                  </button>
-                </Link>
-              </div>
-
-              <div className="flex items-center justify-center gap-3 mt-3">
-                {["🔒 Secure", "✓ No Hard Pull", "⚡ Instant"].map((item) => (
-                  <span key={item} style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: "0.65rem", color: "#9CA3AF" }}>
-                    {item}
-                  </span>
-                ))}
-              </div>
+            {/* Trust signals */}
+            <div className="flex flex-wrap items-center gap-6">
+              {[
+                { icon: <Shield size={12} />, text: "Soft credit check only" },
+                { icon: <CheckCircle2 size={12} />, text: "Won't affect your score" },
+                { icon: <Zap size={12} />, text: "Results in 2 minutes" },
+              ].map((t) => (
+                <span key={t.text} className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "rgba(255,255,255,0.50)", fontFamily: "'DM Sans', sans-serif" }}>
+                  <span style={{ color: "oklch(0.72 0.10 185)" }}>{t.icon}</span>
+                  {t.text}
+                </span>
+              ))}
             </div>
+          </div>
+
+          {/* Floating Stats Card */}
+          <div
+            className="absolute right-8 top-1/2 -translate-y-1/2 hidden xl:block"
+            style={{
+              background: "oklch(1 0 0 / 0.06)",
+              backdropFilter: "blur(20px)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              borderRadius: "1.25rem",
+              padding: "1.75rem",
+              width: "220px",
+            }}
+          >
+            <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.72 0.10 185)", fontFamily: "'DM Sans', sans-serif" }}>
+              By the Numbers
+            </p>
+            {[
+              { value: "98%", label: "Approval Rate" },
+              { value: "2 min", label: "Application Time" },
+              { value: "$0", label: "Application Fee" },
+              { value: "500+", label: "Lender Network" },
+            ].map((s) => (
+              <div key={s.label} className="flex items-center justify-between py-2.5" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.78rem", color: "rgba(255,255,255,0.55)" }}>{s.label}</span>
+                <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.25rem", fontWeight: 700, color: "white" }}>{s.value}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ===== BEST-OF PAGES GRID ===== */}
-      <section style={{ backgroundColor: "#F8F7F4" }} className="py-16 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <span style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: "0.75rem", color: "#0D9488", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                Editorial Rankings
+      {/* ══════════════════════════════════════════
+          TRUST BAR
+      ══════════════════════════════════════════ */}
+      <div style={{ background: "oklch(0.18 0.06 240)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <div className="container py-4">
+          <div className="flex flex-wrap items-center justify-center gap-8">
+            {[
+              { icon: <TrendingUp size={14} />, text: "50,000+ People Matched" },
+              { icon: <Star size={14} fill="currentColor" />, text: "4.8/5 Rating · 2,400+ Reviews" },
+              { icon: <Shield size={14} />, text: "256-bit SSL Encrypted" },
+              { icon: <CheckCircle2 size={14} />, text: "Independent Editorial Rankings" },
+            ].map((t) => (
+              <span key={t.text} className="flex items-center gap-2 text-xs font-semibold" style={{ color: "rgba(255,255,255,0.62)", fontFamily: "'DM Sans', sans-serif" }}>
+                <span style={{ color: "oklch(0.68 0.12 185)" }}>{t.icon}</span>
+                {t.text}
               </span>
-              <h2
-                style={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  color: "#1A365D",
-                  fontSize: "clamp(1.5rem, 3vw, 2rem)",
-                  fontWeight: 700,
-                  marginTop: "0.25rem",
-                }}
-              >
-                Best-Of Guides for Every Situation
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ══════════════════════════════════════════
+          BEST-OF EDITORIAL GRID
+      ══════════════════════════════════════════ */}
+      <section className="py-24" style={{ background: "oklch(0.98 0.005 80)" }}>
+        <div className="container">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+            <div>
+              <div className="section-label mb-3">Editorial Rankings</div>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 3.5vw, 2.75rem)", fontWeight: 700, color: "oklch(0.12 0.02 240)", lineHeight: 1.1 }}>
+                Best-Of Guides for<br />Every Situation
               </h2>
             </div>
-            <hr style={{ flex: 1, border: "none", borderTop: "1px solid #E5E0D8", marginLeft: "2rem", marginBottom: "0.5rem" }} />
+            <div className="sm:max-w-xs">
+              <p className="text-sm leading-relaxed" style={{ color: "oklch(0.52 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                Updated monthly. Independent editorial team. No paid placements in our rankings.
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {bestOfPages.map((page) => (
-              <Link key={page.href} href={page.href}>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            {bestOfGuides.map((guide) => (
+              <Link key={guide.href} href={guide.href}>
                 <div
-                  className="p-4 rounded-lg transition-all cursor-pointer"
+                  className="group relative flex flex-col gap-3 p-5 rounded-2xl transition-all duration-200 cursor-pointer h-full"
                   style={{
-                    backgroundColor: "white",
-                    border: "1px solid #E5E0D8",
-                    transition: "box-shadow 0.2s ease, transform 0.2s ease",
+                    background: guide.featured ? "oklch(0.18 0.06 240)" : "oklch(0.96 0.005 80)",
+                    border: guide.featured ? "1px solid oklch(0.58 0.13 185 / 0.30)" : "1px solid oklch(0.88 0.008 80)",
+                    boxShadow: guide.featured ? "0 8px 28px oklch(0.18 0.06 240 / 0.22)" : "0 2px 8px oklch(0.18 0.06 240 / 0.06)",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 16px rgba(26,54,93,0.1)";
-                    (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.transform = "translateY(-4px)";
+                    el.style.boxShadow = guide.featured ? "0 20px 48px oklch(0.18 0.06 240 / 0.32)" : "0 12px 32px oklch(0.18 0.06 240 / 0.14)";
+                    if (!guide.featured) el.style.borderColor = "oklch(0.58 0.13 185)";
+                    if (!guide.featured) el.style.background = "white";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-                    (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.transform = "translateY(0)";
+                    el.style.boxShadow = guide.featured ? "0 8px 28px oklch(0.18 0.06 240 / 0.22)" : "0 2px 8px oklch(0.18 0.06 240 / 0.06)";
+                    if (!guide.featured) el.style.borderColor = "oklch(0.88 0.008 80)";
+                    if (!guide.featured) el.style.background = "oklch(0.96 0.005 80)";
                   }}
                 >
-                  <div style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>{page.icon}</div>
-                  <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontWeight: 600, color: "#1A365D", fontSize: "0.875rem", marginBottom: "0.25rem" }}>
-                    {page.label}
+                  {guide.featured && (
+                    <span className="absolute top-3 right-3 text-xs font-bold px-2 py-0.5 rounded-full" style={{ background: "oklch(0.58 0.13 185 / 0.22)", color: "oklch(0.75 0.09 185)", fontFamily: "'DM Sans', sans-serif" }}>
+                      Popular
+                    </span>
+                  )}
+                  <span className="text-2xl">{guide.emoji}</span>
+                  <div className="flex-1">
+                    <p className="font-semibold text-sm leading-tight mb-1" style={{ color: guide.featured ? "white" : "oklch(0.15 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                      {guide.label}
+                    </p>
+                    <p className="text-xs" style={{ color: guide.featured ? "oklch(0.68 0.12 185)" : "oklch(0.55 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                      {guide.volume} searches
+                    </p>
                   </div>
-                  <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: "0.7rem", color: "#9CA3AF" }}>
-                    {page.volume} searches
-                  </div>
+                  <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" style={{ color: guide.featured ? "oklch(0.68 0.12 185)" : "oklch(0.62 0.12 185)" }} />
                 </div>
               </Link>
             ))}
@@ -341,83 +316,113 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== 3 PERSONAS ===== */}
-      <section style={{ backgroundColor: "white" }} className="py-16 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-10">
-            <span style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: "0.75rem", color: "#0D9488", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>
-              Who We Help
-            </span>
-            <h2
-              style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
-                color: "#1A365D",
-                fontSize: "clamp(1.5rem, 3vw, 2rem)",
-                fontWeight: 700,
-                marginTop: "0.25rem",
-              }}
-            >
-              We've Seen Your Situation Before
+      {/* ══════════════════════════════════════════
+          HOW IT WORKS
+      ══════════════════════════════════════════ */}
+      <section className="py-24" style={{ background: "oklch(0.18 0.06 240)" }}>
+        <div className="container">
+          <div className="text-center mb-14">
+            <div className="section-label justify-center mb-3" style={{ color: "oklch(0.72 0.10 185)" }}>
+              Simple Process
+            </div>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.875rem, 3.5vw, 2.75rem)", fontWeight: 700, color: "white", lineHeight: 1.1 }}>
+              Approved in 3 Simple Steps
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {personas.map((persona) => (
-              <Link key={persona.type} href={persona.href}>
+          <div className="grid md:grid-cols-3 gap-8 relative">
+            {/* Connecting line on desktop */}
+            <div className="absolute top-10 left-1/4 right-1/4 h-px hidden md:block" style={{ background: "linear-gradient(to right, oklch(0.58 0.13 185 / 0.4), oklch(0.58 0.13 185 / 0.4))" }} />
+
+            {steps.map((step, i) => (
+              <div key={step.num} className="relative flex flex-col items-center text-center">
                 <div
-                  className="rounded-xl overflow-hidden cursor-pointer"
+                  className="flex items-center justify-center w-20 h-20 rounded-2xl mb-6 relative z-10"
                   style={{
-                    border: "1px solid #E5E0D8",
-                    transition: "box-shadow 0.2s ease, transform 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 24px rgba(26,54,93,0.12)";
-                    (e.currentTarget as HTMLDivElement).style.transform = "translateY(-3px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-                    (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+                    background: i === 1 ? "oklch(0.58 0.13 185)" : "oklch(0.24 0.06 240)",
+                    border: i === 1 ? "none" : "1px solid oklch(0.58 0.13 185 / 0.25)",
+                    boxShadow: i === 1 ? "0 8px 32px oklch(0.58 0.13 185 / 0.35)" : "none",
+                    color: "white",
                   }}
                 >
-                  <div style={{ height: "200px", overflow: "hidden", position: "relative" }}>
-                    <img
-                      src={persona.image}
-                      alt={persona.type}
-                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        background: "linear-gradient(transparent, rgba(26,54,93,0.7))",
-                        padding: "1rem",
-                      }}
-                    >
-                      <span className="teal-badge" style={{ backgroundColor: "rgba(13,148,136,0.9)", color: "white" }}>
-                        Credit: {persona.creditRange}
-                      </span>
-                    </div>
+                  {step.icon}
+                </div>
+                <span className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "oklch(0.58 0.13 185)", fontFamily: "'DM Sans', sans-serif" }}>
+                  Step {step.num}
+                </span>
+                <h3 className="font-bold text-lg mb-3 text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  {step.title}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'DM Sans', sans-serif" }}>
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link href="/apply">
+              <button
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm transition-all"
+                style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.10 0.02 240)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 20px oklch(0.76 0.16 75 / 0.40)" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
+              >
+                Start My Free Application
+                <ArrowRight size={15} />
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          PERSONA CARDS
+      ══════════════════════════════════════════ */}
+      <section className="py-24" style={{ background: "oklch(0.96 0.006 80)" }}>
+        <div className="container">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <div className="section-label mb-3">Who We Help</div>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.875rem, 3.5vw, 2.75rem)", fontWeight: 700, color: "oklch(0.12 0.02 240)", lineHeight: 1.1, maxWidth: "400px" }}>
+                We've Seen Your Situation Before
+              </h2>
+            </div>
+            <p className="text-sm md:max-w-xs leading-relaxed" style={{ color: "oklch(0.52 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+              Every credit situation is different. We match you with lenders who specialize in yours.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {personas.map((p) => (
+              <Link key={p.href} href={p.href}>
+                <div
+                  className="group relative overflow-hidden rounded-2xl cursor-pointer transition-all duration-300 h-full"
+                  style={{ boxShadow: "0 4px 20px oklch(0.18 0.06 240 / 0.08)", borderTop: `3px solid ${p.accentColor}` }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 20px 48px oklch(0.18 0.06 240 / 0.16)"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px oklch(0.18 0.06 240 / 0.08)"; }}
+                >
+                  {/* Photo */}
+                  <div className="relative h-56 overflow-hidden">
+                    <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, oklch(0.10 0.05 240 / 0.75) 0%, transparent 55%)" }} />
+                    <span className="absolute bottom-4 left-4 text-xs font-bold px-3 py-1 rounded-full text-white" style={{ background: p.accentColor, fontFamily: "'DM Sans', sans-serif" }}>
+                      {p.tag}
+                    </span>
                   </div>
-                  <div className="p-5">
-                    <h3
-                      style={{
-                        fontFamily: "'Playfair Display', Georgia, serif",
-                        color: "#1A365D",
-                        fontSize: "1.1rem",
-                        fontWeight: 700,
-                        marginBottom: "0.5rem",
-                      }}
-                    >
-                      {persona.type}
+
+                  {/* Content */}
+                  <div className="p-6" style={{ background: "white" }}>
+                    <h3 className="font-bold text-xl mb-2.5" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.12 0.02 240)" }}>
+                      {p.title}
                     </h3>
-                    <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: "#4B5563", fontSize: "0.875rem", lineHeight: 1.6 }}>
-                      {persona.description}
+                    <p className="text-sm leading-relaxed mb-5" style={{ color: "oklch(0.45 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                      {p.desc}
                     </p>
-                    <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: "#0D9488", fontSize: "0.85rem", fontWeight: 600, marginTop: "1rem" }}>
-                      See options for you →
-                    </div>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold transition-all" style={{ color: p.accentColor, fontFamily: "'DM Sans', sans-serif" }}>
+                      See options for you
+                      <ArrowRight size={14} className="transition-transform group-hover:translate-x-1.5" />
+                    </span>
                   </div>
                 </div>
               </Link>
@@ -426,117 +431,123 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== REAL STORIES ===== */}
-      <section style={{ backgroundColor: "#F8F7F4" }} className="py-16 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex items-end justify-between mb-8">
+      {/* ══════════════════════════════════════════
+          TESTIMONIALS
+      ══════════════════════════════════════════ */}
+      <section className="py-24" style={{ background: "oklch(0.98 0.005 80)" }}>
+        <div className="container">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div>
-              <span style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontSize: "0.75rem", color: "#0D9488", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                Real Approvals
-              </span>
-              <h2
-                style={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  color: "#1A365D",
-                  fontSize: "clamp(1.5rem, 3vw, 2rem)",
-                  fontWeight: 700,
-                  marginTop: "0.25rem",
-                }}
-              >
-                People Just Like You Got Approved
+              <div className="section-label mb-3">Real Approvals</div>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.875rem, 3.5vw, 2.75rem)", fontWeight: 700, color: "oklch(0.12 0.02 240)", lineHeight: 1.1 }}>
+                People Just Like You<br />Got Approved
               </h2>
             </div>
-            <hr style={{ flex: 1, border: "none", borderTop: "1px solid #E5E0D8", marginLeft: "2rem", marginBottom: "0.5rem" }} />
+            <div className="flex items-center gap-1.5 sm:mb-1">
+              {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="oklch(0.76 0.16 75)" style={{ color: "oklch(0.76 0.16 75)" }} />)}
+              <span className="text-sm font-semibold ml-2" style={{ color: "oklch(0.35 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>4.8/5 · 2,400+ reviews</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {realStories.map((story, i) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {testimonials.map((t) => (
               <div
-                key={i}
-                className="p-5 rounded-xl"
-                style={{ backgroundColor: "white", border: "1px solid #E5E0D8" }}
+                key={t.name}
+                className="flex flex-col p-6 rounded-2xl transition-all duration-200"
+                style={{ background: "white", border: "1px solid oklch(0.88 0.008 80)", boxShadow: "0 4px 16px oklch(0.18 0.06 240 / 0.07)", borderTop: `3px solid ${t.color}` }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 14px 36px oklch(0.18 0.06 240 / 0.14)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 16px oklch(0.18 0.06 240 / 0.07)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <div
-                    style={{
-                      width: "2.75rem",
-                      height: "2.75rem",
-                      borderRadius: "50%",
-                      backgroundColor: "#0D9488",
-                      color: "white",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "1.1rem",
-                      fontWeight: 700,
-                      fontFamily: "'DM Sans', system-ui, sans-serif",
-                      flexShrink: 0,
-                    }}
-                  >
-                    {story.name.charAt(0)}
-                  </div>
-                  <div>
-                    <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontWeight: 700, color: "#1A365D", fontSize: "0.9rem" }}>
-                      {story.name} — {story.city}
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0" style={{ background: t.color, fontFamily: "'DM Sans', sans-serif" }}>
+                      {t.initials}
                     </div>
-                    <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: "#6B7280", fontSize: "0.75rem" }}>
-                      Credit: {story.score} · {story.vehicle} · {story.down} down
+                    <div>
+                      <p className="font-semibold text-sm" style={{ color: "oklch(0.15 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>{t.name}</p>
+                      <p className="text-xs" style={{ color: "oklch(0.55 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>{t.location}</p>
                     </div>
                   </div>
-                  <span className="teal-badge ml-auto">✓ Approved</span>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-full shrink-0" style={{ background: "oklch(0.58 0.13 185 / 0.10)", color: "oklch(0.42 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}>
+                    ✓ Approved
+                  </span>
                 </div>
-                <blockquote
-                  style={{
-                    fontFamily: "'DM Sans', system-ui, sans-serif",
-                    color: "#374151",
-                    fontSize: "0.875rem",
-                    lineHeight: 1.65,
-                    borderLeft: "3px solid #0D9488",
-                    paddingLeft: "0.875rem",
-                    fontStyle: "italic",
-                  }}
-                >
-                  "{story.quote}"
+
+                <div className="flex flex-wrap gap-1.5 mb-4 pb-4" style={{ borderBottom: "1px solid oklch(0.93 0.004 80)" }}>
+                  {[`Score: ${t.score}`, t.vehicle, t.down].map((tag) => (
+                    <span key={tag} className="text-xs px-2 py-0.5 rounded-md font-medium" style={{ background: "oklch(0.96 0.006 80)", color: "oklch(0.35 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <blockquote className="text-sm leading-relaxed flex-1" style={{ color: "oklch(0.42 0.015 240)", fontFamily: "'DM Sans', sans-serif", fontStyle: "italic" }}>
+                  "{t.quote}"
                 </blockquote>
+
+                <div className="flex gap-0.5 mt-4">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={11} fill="oklch(0.76 0.16 75)" style={{ color: "oklch(0.76 0.16 75)" }} />)}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== BOTTOM CTA ===== */}
-      <section style={{ backgroundColor: "#1A365D" }} className="py-16 px-4">
-        <div className="container mx-auto max-w-3xl text-center">
-          <h2
-            style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
-              color: "white",
-              fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
-              fontWeight: 700,
-              marginBottom: "1rem",
-            }}
-          >
-            Your Next Car Is Closer Than You Think
-          </h2>
-          <p
-            style={{
-              fontFamily: "'DM Sans', system-ui, sans-serif",
-              color: "rgba(255,255,255,0.75)",
-              fontSize: "1rem",
-              lineHeight: 1.65,
-              marginBottom: "2rem",
-            }}
-          >
-            Don't let a number on a report stop you from getting to work, picking up your kids, or living your life. We've matched over 50,000 people with lenders who said yes.
-          </p>
-          <Link href="/apply">
-            <button className="btn-cta text-base px-10 py-4">
-              Get Pre-Approved Now — It's Free →
-            </button>
-          </Link>
-          <p style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: "rgba(255,255,255,0.4)", fontSize: "0.75rem", marginTop: "1rem" }}>
-            No hard credit pull · No application fee · Results in 2 minutes
-          </p>
+      {/* ══════════════════════════════════════════
+          DARK CTA
+      ══════════════════════════════════════════ */}
+      <section
+        className="relative py-28 overflow-hidden"
+        style={{ backgroundImage: `url(${CTA_BG})`, backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <div className="absolute inset-0" style={{ background: "oklch(0.10 0.05 240 / 0.88)" }} />
+        {/* Teal glow */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 50%, oklch(0.58 0.13 185 / 0.12), transparent)" }} />
+
+        <div className="relative container text-center">
+          <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+            <div className="section-label justify-center mb-5" style={{ color: "oklch(0.72 0.10 185)" }}>
+              Get Started Today
+            </div>
+            <h2
+              className="text-white mb-6"
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.25rem, 5vw, 3.75rem)", fontWeight: 700, lineHeight: 1.1 }}
+            >
+              Your Next Car Is Closer<br />Than You Think
+            </h2>
+            <p
+              className="mb-10 leading-relaxed"
+              style={{ color: "rgba(255,255,255,0.65)", fontSize: "1.0625rem", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Don't let a number on a report stop you from getting to work, picking up your kids, or living your life. We've matched over 50,000 people with lenders who said yes.
+            </p>
+
+            <Link href="/apply">
+              <button
+                className="inline-flex items-center gap-2.5 px-10 py-4.5 rounded-xl font-bold transition-all"
+                style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.10 0.02 240)", fontFamily: "'DM Sans', sans-serif", fontSize: "1.0625rem", boxShadow: "0 6px 32px oklch(0.76 0.16 75 / 0.55)", padding: "1rem 2.5rem" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 40px oklch(0.76 0.16 75 / 0.60)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 32px oklch(0.76 0.16 75 / 0.55)"; }}
+              >
+                Get Pre-Approved Now — It's Free
+                <ArrowRight size={18} />
+              </button>
+            </Link>
+
+            <div className="flex flex-wrap justify-center gap-8 mt-8">
+              {[
+                { icon: <Shield size={13} />, text: "No hard credit pull" },
+                { icon: <Clock size={13} />, text: "Results in 2 minutes" },
+                { icon: <CheckCircle2 size={13} />, text: "No application fee" },
+              ].map((t) => (
+                <span key={t.text} className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}>
+                  <span style={{ color: "oklch(0.72 0.10 185)" }}>{t.icon}</span>
+                  {t.text}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </Layout>
