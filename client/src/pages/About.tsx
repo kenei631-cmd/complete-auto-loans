@@ -274,12 +274,12 @@ export default function About() {
               }}
             >
               <div className="flex items-start gap-4 mb-4">
-                <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold text-white shrink-0"
-                  style={{ background: "oklch(0.578 0.098 186)", fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  JM
-                </div>
+                <img
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/james-mitchell-headshot-bnw2b4JcPE3BrZh9wS8vWe.webp"
+                  alt="James Mitchell — Auto Finance Editor"
+                  className="w-14 h-14 rounded-full object-cover object-top shrink-0"
+                  style={{ border: "2px solid oklch(0.578 0.098 186 / 0.35)" }}
+                />
                 <div>
                   <h3
                     className="font-bold text-base"

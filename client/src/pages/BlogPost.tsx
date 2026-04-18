@@ -253,12 +253,12 @@ export default function BlogPost() {
 
           {/* Author */}
           <div className="flex items-center gap-3 mt-7">
-            <div
-              className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold text-white"
-              style={{ background: "oklch(0.578 0.098 186)", fontFamily: "'DM Sans', sans-serif" }}
-            >
-              JM
-            </div>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/james-mitchell-headshot-bnw2b4JcPE3BrZh9wS8vWe.webp"
+              alt="James Mitchell"
+              className="w-9 h-9 rounded-full object-cover object-top shrink-0"
+              style={{ border: "2px solid oklch(0.578 0.098 186 / 0.5)" }}
+            />
             <div>
               <p className="text-sm font-semibold text-white" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 James Mitchell
