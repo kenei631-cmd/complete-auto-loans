@@ -116,6 +116,8 @@ import CityHubChicagoIl from "@/pages/cities/CityHubChicagoIl";
 import Locations from "@/pages/Locations";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
+import OfferResults from "@/pages/OfferResults";
+import AdminPanel from "@/pages/AdminPanel";
 
 function SiteSchemas() {
   useEffect(() => {
@@ -133,8 +135,8 @@ function SiteSchemas() {
   }, []);
   return null;
 }
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <>
       <TrailingSlashRedirect />
@@ -246,6 +248,10 @@ function Router() {
       <Route path="/charlotte-nc" component={CityHubCharlotteNc} />
       <Route path="/san-antonio-tx" component={CityHubSanAntonioTx} />
       <Route path="/chicago-il" component={CityHubChicagoIl} />
+      {/* Offer Results — post-form submission */}
+      <Route path="/offers/:token" component={OfferResults} />
+      {/* Admin Panel */}
+      <Route path="/admin" component={AdminPanel} />
       {/* Utility Pages */}
       <Route path="/locations" component={Locations} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />

@@ -5,11 +5,13 @@
  * 4-step quiz: Vehicle → Credit → Income → Contact
  */
 import { useState } from "react";
+import { useLocation } from "wouter";
 import Layout from "../components/Layout";
-import { Shield, CheckCircle2, Star, ArrowLeft, ArrowRight, Users, Award, Zap } from "lucide-react";
+import { Shield, CheckCircle2, Star, ArrowLeft, ArrowRight, Users, Award, Zap, Loader2 } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
 import { buildWebPageSchema, buildBreadcrumbSchema, buildServiceSchema } from "@/lib/schema";
 import LoanCalculator from "@/components/LoanCalculator";
+import { trpc } from "@/lib/trpc";
 
 const steps = [
   { id: 1, label: "Vehicle", title: "What type of vehicle are you looking for?" },
@@ -105,19 +107,102 @@ export default function Apply() {
     vehicle: "", credit: "", income: "",
     firstName: "", lastName: "", email: "", phone: "", zip: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [, navigate] = useLocation();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [leadToken, setLeadToken] = useState<string | null>(null);
+
+  const savePartial = trpc.leads.savePartial.useMutation();
+  const submitLead = trpc.leads.submit.useMutation();
+
+  // Map form credit value to API enum
+  const mapCredit = (v: string): "no_credit" | "below_500" | "500_549" | "550_599" | "600_649" | "650_699" | "700_plus" => {
+    if (v === "no_credit") return "no_credit";
+    if (v === "bad_300_500") return "below_500";
+    if (v === "fair_500_600") return "500_549";
+    if (v === "good_600_plus") return "600_649";
+    if (v === "bankruptcy") return "below_500";
+    if (v === "repo") return "below_500";
+    return "no_credit";
+  };
+
+  // Map form vehicle value to API enum
+  const mapVehicle = (v: string): "new" | "used" | "refinance" | "unsure" => {
+    if (v === "not_sure") return "unsure";
+    return "used";
+  };
+
+  // Map income string to monthly number
+  const mapIncome = (v: string): number => {
+    if (v === "under_1500") return 1200;
+    if (v === "1500_2500") return 2000;
+    if (v === "2500_4000") return 3200;
+    if (v === "over_4000") return 5000;
+    return 2000;
+  };
 
   const handleSelect = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     if (currentStep < 3) setTimeout(() => setCurrentStep((s) => s + 1), 280);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
+  // Called when advancing from step 3 to step 4 — save partial lead
+  const handleAdvanceToContact = async () => {
+    try {
+      const result = await savePartial.mutateAsync({
+        token: leadToken ?? undefined,
+        vehicleType: mapVehicle(formData.vehicle),
+        creditScore: mapCredit(formData.credit),
+        hasBankruptcy: formData.credit === "bankruptcy",
+        hasRepossession: formData.credit === "repo",
+        monthlyIncome: mapIncome(formData.income),
+        abandonedAtStep: 4,
+        landingPage: window.location.pathname,
+        utmSource: new URLSearchParams(window.location.search).get("utm_source") ?? undefined,
+        utmMedium: new URLSearchParams(window.location.search).get("utm_medium") ?? undefined,
+        utmCampaign: new URLSearchParams(window.location.search).get("utm_campaign") ?? undefined,
+      });
+      setLeadToken(result.token);
+      setCurrentStep(4);
+    } catch {
+      // Still advance even if partial save fails
+      setCurrentStep(4);
+    }
   };
 
-  if (submitted) {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(null);
+    try {
+      // Derive state from zip (simplified — use first 3 digits mapping or default)
+      const stateFromZip = "TX"; // TODO: wire a real zip→state lookup
+      const token = leadToken ?? (await savePartial.mutateAsync({
+        vehicleType: mapVehicle(formData.vehicle),
+        creditScore: mapCredit(formData.credit),
+        hasBankruptcy: formData.credit === "bankruptcy",
+        hasRepossession: formData.credit === "repo",
+        monthlyIncome: mapIncome(formData.income),
+        landingPage: window.location.pathname,
+      })).token;
+      const result = await submitLead.mutateAsync({
+        token,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        zipCode: formData.zip,
+        state: stateFromZip,
+      });
+      navigate(`/offers/${result.token}`);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Submission failed. Please try again.";
+      setSubmitError(msg);
+      setIsSubmitting(false);
+    }
+  };
+
+  if (false) {
     return (
       <Layout>
         <div className="min-h-screen flex items-center justify-center px-4 py-16" style={{ background: "oklch(0.98 0.005 80)" }}>
@@ -424,14 +509,16 @@ export default function Apply() {
                     ))}
                   </div>
                   <button
-                    onClick={() => setCurrentStep(4)}
+                    onClick={handleAdvanceToContact}
+                    disabled={!formData.income || savePartial.isPending}
                     className="w-full py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all"
-                    style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.15 0.04 251)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 18px oklch(0.76 0.16 75 / 0.38)" }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; }}
+                    style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.15 0.04 251)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 18px oklch(0.76 0.16 75 / 0.38)", opacity: savePartial.isPending ? 0.7 : 1 }}
+                    onMouseEnter={(e) => { if (!savePartial.isPending) { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; } }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
                   >
+                    {savePartial.isPending ? <Loader2 size={15} className="animate-spin" /> : null}
                     Continue
-                    <ArrowRight size={15} />
+                    {!savePartial.isPending && <ArrowRight size={15} />}
                   </button>
                 </div>
               )}
@@ -500,15 +587,22 @@ export default function Apply() {
                         />
                       </div>
                     </div>
+                    {submitError && (
+                      <div className="rounded-lg px-4 py-3 text-sm" style={{ background: "oklch(0.95 0.02 25)", border: "1px solid oklch(0.75 0.12 25)", color: "oklch(0.40 0.12 25)", fontFamily: "'DM Sans', sans-serif" }}>
+                        {submitError}
+                      </div>
+                    )}
                     <button
                       type="submit"
+                      disabled={isSubmitting}
                       className="w-full py-4 rounded-xl font-bold text-base transition-all flex items-center justify-center gap-2"
-                      style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.15 0.04 251)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 6px 24px oklch(0.76 0.16 75 / 0.42)", fontSize: "1rem" }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 32px oklch(0.76 0.16 75 / 0.48)"; }}
+                      style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.15 0.04 251)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 6px 24px oklch(0.76 0.16 75 / 0.42)", fontSize: "1rem", opacity: isSubmitting ? 0.7 : 1 }}
+                      onMouseEnter={(e) => { if (!isSubmitting) { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 32px oklch(0.76 0.16 75 / 0.48)"; } }}
                       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 24px oklch(0.76 0.16 75 / 0.42)"; }}
                     >
-                      Get My Approval Offers
-                      <ArrowRight size={16} />
+                      {isSubmitting ? <Loader2 size={16} className="animate-spin" /> : null}
+                      {isSubmitting ? "Finding Your Offers..." : "Get My Approval Offers"}
+                      {!isSubmitting && <ArrowRight size={16} />}
                     </button>
                     <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.68rem", color: "oklch(0.58 0.04 251)", textAlign: "center", lineHeight: 1.5 }}>
                       By submitting, you agree to our Terms and consent to be contacted by phone or email. Soft credit check only.

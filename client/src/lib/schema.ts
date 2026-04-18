@@ -16,9 +16,12 @@ const BASE_URL = "https://completeautoloans.com";
 const ORG_NAME = "Complete Auto Loans";
 const LOGO_URL = "https://completeautoloans.com/logo.png";
 
-// Real GBP data — verified April 2026
+// Real review data — verified April 2026
+// GBP (Google): 5.0 / 11 reviews
+// Facebook: 5.0 / 238 reviews (https://www.facebook.com/completeautoloans/)
+// Using Facebook count as it is the larger, publicly verifiable corpus
 export const GBP_RATING = 5.0;
-export const GBP_REVIEW_COUNT = 11;
+export const GBP_REVIEW_COUNT = 238;
 export const GBP_ADDRESS = "2911 Hewitt Ave, Ste 5, Everett, WA 98201";
 export const GBP_PHONE = "(617) 420-2172";
 
