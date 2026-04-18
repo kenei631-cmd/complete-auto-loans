@@ -132,10 +132,21 @@ export default function Apply() {
               Great news, {formData.firstName}. Based on your profile, we've matched you with lenders in your area. Check your email at{" "}
               <strong style={{ color: "oklch(0.311 0.065 251)" }}>{formData.email}</strong> for your personalized offers.
             </p>
+            {/* SMS / next-steps timeline */}
             <div className="p-4 rounded-xl text-left mb-6" style={{ background: "oklch(0.97 0.004 80)", border: "1px solid oklch(0.90 0.006 80)" }}>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", color: "oklch(0.32 0.04 251)", lineHeight: 1.65 }}>
-                <strong>What happens next:</strong> A loan specialist will call you within 2 hours (Mon–Sat 8am–8pm). Have your driver's license and proof of income ready.
-              </p>
+              <p className="font-semibold text-sm mb-3" style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.18 0.04 251)" }}>What happens next:</p>
+              <div className="flex flex-col gap-2.5">
+                {[
+                  { time: "Within 60 sec", text: `You'll receive an SMS at ${formData.phone || "your number"}: \"Hi ${formData.firstName || "there"}, your application is received! A specialist will call shortly to finalize your approval.\"` },
+                  { time: "Within 2 hours", text: "A loan specialist calls you (Mon–Sat 8am–8pm PT) to walk through your offers and answer questions." },
+                  { time: "Same day", text: "Visit the dealership with your driver's license and proof of income. Drive home approved." },
+                ].map((item) => (
+                  <div key={item.time} className="flex gap-3">
+                    <span className="text-xs font-bold shrink-0 pt-0.5" style={{ color: "oklch(0.578 0.098 186)", fontFamily: "'DM Sans', sans-serif", minWidth: "90px" }}>{item.time}</span>
+                    <p className="text-xs leading-relaxed" style={{ color: "oklch(0.38 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>{item.text}</p>
+                  </div>
+                ))}
+              </div>
             </div>
             <span
               className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full"
@@ -150,7 +161,8 @@ export default function Apply() {
     );
   }
 
-  const progressPct = ((currentStep - 1) / (steps.length - 1)) * 100;
+  // Each completed step = 25%. Step 4 contact info = 75% until submitted.
+  const progressPct = Math.min(((currentStep - 1) / steps.length) * 100 + 25, 100);
 
   return (
     <Layout>

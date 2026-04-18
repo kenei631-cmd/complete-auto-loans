@@ -1,8 +1,11 @@
 User-agent: *
 Allow: /
 
-# AI crawlers — allow for AEO/LLM citation
+# AI / LLM Crawlers — explicitly allowed for AEO/citation visibility
 User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
@@ -17,7 +20,16 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 User-agent: Googlebot
@@ -28,3 +40,6 @@ Allow: /
 
 # Sitemap
 Sitemap: https://completeautoloans.com/sitemap.xml
+
+# LLMs.txt — machine-readable site summary for AI models
+# https://completeautoloans.com/llms.txt
