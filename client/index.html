@@ -8,8 +8,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- TrustedForm: TCPA compliance certificate capture (ActiveProspect)
+         Sign up at activeprospect.com to activate. The script runs silently
+         and injects a hidden input (xxTrustedFormCertUrl) with a certificate
+         URL that is captured on form submit and stored with each lead. -->
+    <script type="text/javascript">
+      (function() {
+        var field = 'xxTrustedFormCertUrl';
+        var provideReferrer = false;
+        var invertFieldSensitivity = false;
+        var tf = document.createElement('script');
+        tf.type = 'text/javascript'; tf.async = true;
+        tf.src = 'http' + ('https:' == document.location.protocol ? 's' : '') +
+          '://api.trustedform.com/trustedform.js?provide_referrer=' + escape(provideReferrer) +
+          '&field=' + escape(field) + '&l=' + new Date().getTime() + Math.random() +
+          '&invert_field_sensitivity=' + invertFieldSensitivity;
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s);
+      })();
+    </script>
   </head>
   <body>
+    <noscript><img src="https://api.trustedform.com/ns.gif" /></noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script

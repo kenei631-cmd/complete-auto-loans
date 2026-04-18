@@ -12,6 +12,8 @@ import { useSEO } from "@/hooks/useSEO";
 import { buildWebPageSchema, buildBreadcrumbSchema, buildServiceSchema } from "@/lib/schema";
 import LoanCalculator from "@/components/LoanCalculator";
 import { trpc } from "@/lib/trpc";
+import { zipToState } from "@/lib/zipToState";
+import { track, identifyLead } from "@/lib/analytics";
 
 const steps = [
   { id: 1, label: "Vehicle", title: "What type of vehicle are you looking for?" },
@@ -143,7 +145,10 @@ export default function Apply() {
 
   const handleSelect = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
-    if (currentStep < 3) setTimeout(() => setCurrentStep((s) => s + 1), 280);
+    if (currentStep < 3) {
+      track(`apply_step_${currentStep}_completed`, { [field]: value });
+      setTimeout(() => setCurrentStep((s) => s + 1), 280);
+    }
   };
 
   // Called when advancing from step 3 to step 4 — save partial lead
@@ -163,9 +168,11 @@ export default function Apply() {
         utmCampaign: new URLSearchParams(window.location.search).get("utm_campaign") ?? undefined,
       });
       setLeadToken(result.token);
+      track('apply_step_3_completed', { income: formData.income });
       setCurrentStep(4);
     } catch {
       // Still advance even if partial save fails
+      track('apply_step_3_completed', { income: formData.income });
       setCurrentStep(4);
     }
   };
@@ -175,8 +182,24 @@ export default function Apply() {
     setIsSubmitting(true);
     setSubmitError(null);
     try {
-      // Derive state from zip (simplified — use first 3 digits mapping or default)
-      const stateFromZip = "TX"; // TODO: wire a real zip→state lookup
+      const stateFromZip = zipToState(formData.zip);
+      // Capture TrustedForm certificate URL (set by TrustedForm script in index.html)
+      const certInput = document.querySelector<HTMLInputElement>('input[name="xxTrustedFormCertUrl"]');
+      const trustedFormCertUrl = certInput?.value || undefined;
+      // PostHog: track form completion and identify the lead
+      track('apply_form_submitted', {
+        credit_score: formData.credit,
+        vehicle_type: formData.vehicle,
+        income_range: formData.income,
+        state: stateFromZip,
+      });
+      identifyLead(formData.email, {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        phone: formData.phone,
+        zip: formData.zip,
+        state: stateFromZip,
+      });
       const token = leadToken ?? (await savePartial.mutateAsync({
         vehicleType: mapVehicle(formData.vehicle),
         creditScore: mapCredit(formData.credit),
@@ -193,6 +216,7 @@ export default function Apply() {
         phone: formData.phone,
         zipCode: formData.zip,
         state: stateFromZip,
+        trustedFormCertUrl,
       });
       navigate(`/offers/${result.token}`);
     } catch (err: unknown) {
@@ -605,7 +629,7 @@ export default function Apply() {
                       {!isSubmitting && <ArrowRight size={16} />}
                     </button>
                     <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.68rem", color: "oklch(0.58 0.04 251)", textAlign: "center", lineHeight: 1.5 }}>
-                      By submitting, you agree to our Terms and consent to be contacted by phone or email. Soft credit check only.
+                      By submitting this form, you agree to be contacted by Complete Auto Loans and its lending partners via phone, email, and SMS regarding your auto loan inquiry. Message and data rates may apply. You may opt out at any time. Your information is protected by 256-bit SSL encryption. Soft credit check only — no impact to your score.
                     </p>
                   </form>
                 </div>

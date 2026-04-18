@@ -83,6 +83,27 @@ export const leadsRouter = router({
         });
       }
 
+      // Fire GHL abandonment webhook if abandonedAtStep is set and we have the env var
+      // This triggers the SMS/email recovery sequence in GoHighLevel
+      const ghlWebhookUrl = process.env.GHL_ABANDONMENT_WEBHOOK_URL;
+      if (ghlWebhookUrl && input.abandonedAtStep) {
+        fetch(ghlWebhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            token,
+            abandonedAtStep: input.abandonedAtStep,
+            vehicleType: input.vehicleType,
+            creditScore: input.creditScore,
+            monthlyIncome: input.monthlyIncome,
+            utmSource: input.utmSource,
+            utmMedium: input.utmMedium,
+            utmCampaign: input.utmCampaign,
+            resumeUrl: `${process.env.VITE_APP_URL ?? "https://completeautoloans.com"}/apply?token=${token}`,
+          }),
+        }).catch((err) => console.error("[GHL Webhook] Error:", err));
+      }
+
       return { token };
     }),
 

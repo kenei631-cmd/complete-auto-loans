@@ -12,12 +12,12 @@
 - [x] Offer Results page (/offers/:token) with ranked lender cards and loading state
 - [x] Admin Panel (/admin) with lender management and lead list
 - [x] Vitest tests for leads and lenders routers (8 tests passing)
-- [ ] Wire real lender API endpoints (replace mock in pingPost.ts when lender agreements signed)
-- [ ] Add zip→state lookup (currently hardcoded "TX" in Apply.tsx handleSubmit)
-- [ ] Add TrustedForm script to Apply page for TCPA compliance certificate capture
-- [ ] Add PostHog step-by-step funnel analytics to Apply form
-- [ ] Add GHL webhook for abandonment recovery (partial lead at step 3)
-- [ ] Add owner notification email on new lead submission
+- [ ] Wire real lender API endpoints (replace mock in pingPost.ts when lender agreements signed) — READY: add endpoint + apiKey to lenders table in Admin Panel
+- [x] Add zip→state lookup (zipToState.ts covers all 50 states + DC)
+- [x] Add TrustedForm script to index.html for TCPA compliance certificate capture (cert URL captured on submit)
+- [x] Add PostHog step-by-step funnel analytics to Apply form (trackStep helper, events: apply_step_1/2/3_completed, apply_form_submitted)
+- [x] Add GHL webhook for abandonment recovery (fires on savePartial when abandonedAtStep is set; requires GHL_ABANDONMENT_WEBHOOK_URL secret)
+- [x] Add owner notification on new lead submission (notifyOwner called in submit procedure)
 
 ## SEO / AEO Improvements (completed in prior sessions)
 
