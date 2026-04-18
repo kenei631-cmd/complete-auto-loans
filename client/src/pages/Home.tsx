@@ -246,7 +246,7 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-center gap-8">
             {[
               { icon: <TrendingUp size={14} />, text: "50,000+ People Matched" },
-              { icon: <Star size={14} fill="currentColor" />, text: "5.0/5 Rating · 11 Google Reviews" },
+              { icon: <Star size={14} fill="currentColor" />, text: "5.0/5 Rating · 238 Facebook Reviews" },
               { icon: <Shield size={14} />, text: "256-bit SSL Encrypted" },
               { icon: <CheckCircle2 size={14} />, text: "Independent Editorial Rankings" },
             ].map((t) => (
@@ -474,7 +474,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-1.5 sm:mb-1">
               {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="oklch(0.76 0.16 75)" style={{ color: "oklch(0.76 0.16 75)" }} />)}
-              <span className="text-sm font-semibold ml-2" style={{ color: "oklch(0.32 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>5.0/5 · 11 Google Reviews</span>
+              <span className="text-sm font-semibold ml-2" style={{ color: "oklch(0.32 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>5.0/5 · 238 Facebook Reviews</span>
             </div>
           </div>
 

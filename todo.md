@@ -79,3 +79,7 @@
 - [x] Rename /admin route to non-guessable URL with random suffix (/portal-avs6pzsw)
 - [x] Update ProtectedAdminRoute reference in App.tsx
 - [x] Save new admin URL to ADMIN_URL.md for reference
+
+## Review Count Update
+
+- [x] Replace all "11 Google Reviews" / "11 reviews" references with "238 Facebook Reviews" (5.0 rating) across all pages, schema, and components

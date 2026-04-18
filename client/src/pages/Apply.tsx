@@ -401,7 +401,7 @@ export default function Apply() {
             {[
               { icon: <Shield size={12} />, text: "256-bit SSL Encrypted" },
               { icon: <CheckCircle2 size={12} />, text: "Soft credit check only — won't affect your score" },
-              { icon: <Star size={12} fill="currentColor" />, text: "5.0/5 · 11 Verified Google Reviews" },
+              { icon: <Star size={12} fill="currentColor" />, text: "5.0/5 · 238 Facebook Reviews" },
             ].map((t) => (
               <span key={t.text} className="flex items-center gap-2 text-xs font-medium" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}>
                 <span style={{ color: "oklch(0.65 0.085 186)", flexShrink: 0 }}>{t.icon}</span>
