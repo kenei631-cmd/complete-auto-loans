@@ -61,11 +61,11 @@ export default function HowItWorks() {
   return (
     <Layout>
       {/* Dark Header */}
-      <div style={{ background: "oklch(0.18 0.06 240)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <div style={{ background: "oklch(0.311 0.065 251)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <div className="container py-14 text-center">
           <div
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5"
-            style={{ background: "oklch(0.58 0.13 185 / 0.18)", border: "1px solid oklch(0.68 0.12 185 / 0.35)", color: "oklch(0.82 0.09 185)", fontFamily: "'DM Sans', sans-serif" }}
+            style={{ background: "oklch(0.578 0.098 186 / 0.18)", border: "1px solid oklch(0.65 0.085 186 / 0.35)", color: "oklch(0.78 0.065 186)", fontFamily: "'DM Sans', sans-serif" }}
           >
             Simple Process
           </div>
@@ -93,9 +93,9 @@ export default function HowItWorks() {
                   <div
                     className="flex items-center justify-center w-16 h-16 rounded-2xl"
                     style={{
-                      background: i === 1 ? "oklch(0.58 0.13 185)" : "oklch(0.18 0.06 240)",
+                      background: i === 1 ? "oklch(0.578 0.098 186)" : "oklch(0.311 0.065 251)",
                       color: "white",
-                      boxShadow: i === 1 ? "0 8px 28px oklch(0.58 0.13 185 / 0.35)" : "0 4px 16px oklch(0.18 0.06 240 / 0.18)",
+                      boxShadow: i === 1 ? "0 8px 28px oklch(0.578 0.098 186 / 0.35)" : "0 4px 16px oklch(0.18 0.06 240 / 0.18)",
                     }}
                   >
                     {step.icon}
@@ -107,16 +107,16 @@ export default function HowItWorks() {
 
                 {/* Content */}
                 <div className="flex-1">
-                  <h2 className="font-bold text-2xl mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.12 0.02 240)" }}>
+                  <h2 className="font-bold text-2xl mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.15 0.04 251)" }}>
                     {step.title}
                   </h2>
-                  <p className="text-sm leading-relaxed mb-5" style={{ color: "oklch(0.45 0.015 240)", fontFamily: "'DM Sans', sans-serif", maxWidth: "560px" }}>
+                  <p className="text-sm leading-relaxed mb-5" style={{ color: "oklch(0.43 0.04 251)", fontFamily: "'DM Sans', sans-serif", maxWidth: "560px" }}>
                     {step.desc}
                   </p>
                   <ul className="grid sm:grid-cols-2 gap-2">
                     {step.bullets.map((b) => (
-                      <li key={b} className="flex items-center gap-2 text-sm font-medium" style={{ color: "oklch(0.30 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
-                        <CheckCircle2 size={13} style={{ color: "oklch(0.58 0.13 185)", flexShrink: 0 }} />
+                      <li key={b} className="flex items-center gap-2 text-sm font-medium" style={{ color: "oklch(0.28 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
+                        <CheckCircle2 size={13} style={{ color: "oklch(0.578 0.098 186)", flexShrink: 0 }} />
                         {b}
                       </li>
                     ))}
@@ -130,7 +130,7 @@ export default function HowItWorks() {
             <Link href="/apply">
               <button
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all"
-                style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.10 0.02 240)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 20px oklch(0.76 0.16 75 / 0.40)" }}
+                style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.12 0.04 251)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 20px oklch(0.76 0.16 75 / 0.40)" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
               >
@@ -150,7 +150,7 @@ export default function HowItWorks() {
         <div className="container">
           <div className="max-w-2xl mx-auto">
             <div className="section-label mb-3">Common Questions</div>
-            <h2 className="mb-10" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.75rem, 3vw, 2.25rem)", fontWeight: 700, color: "oklch(0.12 0.02 240)" }}>
+            <h2 className="mb-10" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.75rem, 3vw, 2.25rem)", fontWeight: 700, color: "oklch(0.15 0.04 251)" }}>
               Frequently Asked Questions
             </h2>
             <div className="flex flex-col gap-4">
@@ -160,10 +160,10 @@ export default function HowItWorks() {
                   className="p-6 rounded-2xl border"
                   style={{ background: "white", border: "1px solid oklch(0.90 0.006 80)", boxShadow: "0 2px 10px oklch(0.18 0.06 240 / 0.04)" }}
                 >
-                  <h3 className="font-semibold text-base mb-2" style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.15 0.02 240)" }}>
+                  <h3 className="font-semibold text-base mb-2" style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.18 0.04 251)" }}>
                     {faq.q}
                   </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "oklch(0.42 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                  <p className="text-sm leading-relaxed" style={{ color: "oklch(0.40 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                     {faq.a}
                   </p>
                 </div>
@@ -174,7 +174,7 @@ export default function HowItWorks() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16" style={{ background: "oklch(0.18 0.06 240)" }}>
+      <section className="py-16" style={{ background: "oklch(0.311 0.065 251)" }}>
         <div className="container text-center">
           <h2 className="text-white mb-4" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 700 }}>
             Ready to Get Started?
@@ -185,7 +185,7 @@ export default function HowItWorks() {
           <Link href="/apply">
             <button
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all"
-              style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.10 0.02 240)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 24px oklch(0.76 0.16 75 / 0.45)" }}
+              style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.12 0.04 251)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 24px oklch(0.76 0.16 75 / 0.45)" }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
             >

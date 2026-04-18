@@ -51,9 +51,9 @@ export default function BestOfPageTemplate({
   return (
     <Layout>
       {/* ── Dark Page Header ── */}
-      <div style={{ background: "oklch(0.18 0.06 240)", borderBottom: "1px solid rgba(255,255,255,0.07)", position: "relative", overflow: "hidden" }}>
+      <div style={{ background: "oklch(0.311 0.065 251)", borderBottom: "1px solid rgba(255,255,255,0.07)", position: "relative", overflow: "hidden" }}>
         {/* Teal radial glow */}
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 70% 80% at 0% 50%, oklch(0.58 0.13 185 / 0.10), transparent)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 70% 80% at 0% 50%, oklch(0.578 0.098 186 / 0.10), transparent)", pointerEvents: "none" }} />
         {/* Subtle grid texture */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(oklch(1 0 0 / 0.03) 1px, transparent 1px), linear-gradient(90deg, oklch(1 0 0 / 0.03) 1px, transparent 1px)", backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div className="container py-12" style={{ position: "relative" }}>
@@ -70,7 +70,7 @@ export default function BestOfPageTemplate({
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <span
               className="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest"
-              style={{ background: "oklch(0.58 0.13 185 / 0.2)", color: "oklch(0.72 0.10 185)", fontFamily: "'DM Sans', sans-serif" }}
+              style={{ background: "oklch(0.578 0.098 186 / 0.2)", color: "oklch(0.70 0.075 186)", fontFamily: "'DM Sans', sans-serif" }}
             >
               Updated {updatedDate}
             </span>
@@ -110,18 +110,18 @@ export default function BestOfPageTemplate({
               className="p-5 rounded-2xl mb-8"
               style={{ background: "oklch(0.97 0.004 80)", border: "1px solid oklch(0.90 0.006 80)" }}
             >
-              <p className="text-sm leading-relaxed mb-4" style={{ color: "oklch(0.35 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: "oklch(0.32 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                 {intro}
               </p>
               {keyTakeaways.length > 0 && (
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.58 0.13 185)", fontFamily: "'DM Sans', sans-serif" }}>
+                  <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.578 0.098 186)", fontFamily: "'DM Sans', sans-serif" }}>
                     Key Takeaways
                   </p>
                   <ul className="space-y-2">
                     {keyTakeaways.map((point, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-sm" style={{ color: "oklch(0.30 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
-                        <ArrowRight size={13} className="mt-0.5 shrink-0" style={{ color: "oklch(0.58 0.13 185)" }} />
+                      <li key={i} className="flex items-start gap-2.5 text-sm" style={{ color: "oklch(0.28 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
+                        <ArrowRight size={13} className="mt-0.5 shrink-0" style={{ color: "oklch(0.578 0.098 186)" }} />
                         {point}
                       </li>
                     ))}
@@ -133,7 +133,7 @@ export default function BestOfPageTemplate({
             {/* Lender Rankings */}
             <h2
               className="mb-6"
-              style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "oklch(0.15 0.02 240)" }}
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "oklch(0.18 0.04 251)" }}
             >
               Our Top Picks for 2026
             </h2>
@@ -148,10 +148,10 @@ export default function BestOfPageTemplate({
             {realStories.length > 0 && (
               <div className="mb-12">
                 <div style={{ borderTop: "1px solid oklch(0.90 0.006 80)", marginBottom: "2rem" }} />
-                <h2 className="mb-2" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "oklch(0.15 0.02 240)" }}>
+                <h2 className="mb-2" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "oklch(0.18 0.04 251)" }}>
                   Real Approvals from Real People
                 </h2>
-                <p className="text-sm mb-6" style={{ color: "oklch(0.52 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="text-sm mb-6" style={{ color: "oklch(0.50 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                   Composite stories based on real approval scenarios we've tracked.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -160,15 +160,15 @@ export default function BestOfPageTemplate({
                       <div className="flex items-center gap-3 mb-3">
                         <div
                           className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0"
-                          style={{ background: "oklch(0.18 0.06 240)", fontFamily: "'DM Sans', sans-serif" }}
+                          style={{ background: "oklch(0.311 0.065 251)", fontFamily: "'DM Sans', sans-serif" }}
                         >
                           {story.name.charAt(0)}
                         </div>
                         <div>
-                          <p className="font-semibold text-sm" style={{ color: "oklch(0.15 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                          <p className="font-semibold text-sm" style={{ color: "oklch(0.18 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                             {story.name}, {story.city}
                           </p>
-                          <p className="text-xs" style={{ color: "oklch(0.52 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                          <p className="text-xs" style={{ color: "oklch(0.50 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                             Score: {story.creditScore} · {story.vehicle}
                           </p>
                         </div>
@@ -176,10 +176,10 @@ export default function BestOfPageTemplate({
                       <blockquote
                         className="text-sm leading-relaxed"
                         style={{
-                          color: "oklch(0.40 0.015 240)",
+                          color: "oklch(0.38 0.04 251)",
                           fontFamily: "'DM Sans', sans-serif",
                           fontStyle: "italic",
-                          borderLeft: "3px solid oklch(0.58 0.13 185)",
+                          borderLeft: "3px solid oklch(0.578 0.098 186)",
                           paddingLeft: "0.75rem",
                         }}
                       >
@@ -188,11 +188,11 @@ export default function BestOfPageTemplate({
                       <div className="mt-3 flex gap-2 flex-wrap">
                         <span
                           className="text-xs font-bold px-2.5 py-0.5 rounded-full"
-                          style={{ background: "oklch(0.58 0.13 185 / 0.1)", color: "oklch(0.42 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}
+                          style={{ background: "oklch(0.578 0.098 186 / 0.1)", color: "oklch(0.42 0.085 186)", fontFamily: "'DM Sans', sans-serif" }}
                         >
                           ✓ Approved
                         </span>
-                        <span className="text-xs" style={{ color: "oklch(0.52 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                        <span className="text-xs" style={{ color: "oklch(0.50 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                           {story.downPayment} down
                         </span>
                       </div>
@@ -206,16 +206,16 @@ export default function BestOfPageTemplate({
             {faqs.length > 0 && (
               <div className="mb-10">
                 <div style={{ borderTop: "1px solid oklch(0.90 0.006 80)", marginBottom: "2rem" }} />
-                <h2 className="mb-6" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "oklch(0.15 0.02 240)" }}>
+                <h2 className="mb-6" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "oklch(0.18 0.04 251)" }}>
                   Frequently Asked Questions
                 </h2>
                 <div className="flex flex-col gap-4">
                   {faqs.map((faq, i) => (
                     <div key={i} className="p-5 rounded-xl border" style={{ background: "white", border: "1px solid oklch(0.90 0.006 80)" }}>
-                      <h3 className="font-semibold text-base mb-2" style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.18 0.06 240)" }}>
+                      <h3 className="font-semibold text-base mb-2" style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.311 0.065 251)" }}>
                         {faq.question}
                       </h3>
-                      <p className="text-sm leading-relaxed" style={{ color: "oklch(0.42 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                      <p className="text-sm leading-relaxed" style={{ color: "oklch(0.40 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                         {faq.answer}
                       </p>
                     </div>
@@ -229,7 +229,7 @@ export default function BestOfPageTemplate({
           <div className="lg:w-72 shrink-0">
             <div className="sticky top-24 flex flex-col gap-5">
               {/* CTA Card */}
-              <div className="rounded-2xl overflow-hidden" style={{ background: "oklch(0.18 0.06 240)", boxShadow: "0 8px 32px oklch(0.18 0.06 240 / 0.25)" }}>
+              <div className="rounded-2xl overflow-hidden" style={{ background: "oklch(0.311 0.065 251)", boxShadow: "0 8px 32px oklch(0.311 0.065 251 / 0.25)" }}>
                 <div className="p-5">
                   <p className="font-bold text-base text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
                     Ready to Get Approved?
@@ -242,7 +242,7 @@ export default function BestOfPageTemplate({
                       className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all"
                       style={{
                         background: "oklch(0.76 0.16 75)",
-                        color: "oklch(0.12 0.02 240)",
+                        color: "oklch(0.15 0.04 251)",
                         fontFamily: "'DM Sans', sans-serif",
                         boxShadow: "0 3px 14px oklch(0.76 0.16 75 / 0.4)",
                       }}
@@ -261,13 +261,13 @@ export default function BestOfPageTemplate({
 
               {/* Why Trust Us */}
               <div className="p-5 rounded-2xl border" style={{ background: "white", border: "1px solid oklch(0.90 0.006 80)" }}>
-                <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.58 0.13 185)", fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.578 0.098 186)", fontFamily: "'DM Sans', sans-serif" }}>
                   Why Trust Our Rankings?
                 </p>
                 <ul className="space-y-2.5">
                   {["Independent editorial team", "Updated monthly with live data", "No paid placements in rankings", "Real approval rate data verified"].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm" style={{ color: "oklch(0.35 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
-                      <CheckCircle2 size={12} className="mt-0.5 shrink-0" style={{ color: "oklch(0.58 0.13 185)" }} />
+                    <li key={item} className="flex items-start gap-2 text-sm" style={{ color: "oklch(0.32 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
+                      <CheckCircle2 size={12} className="mt-0.5 shrink-0" style={{ color: "oklch(0.578 0.098 186)" }} />
                       {item}
                     </li>
                   ))}
@@ -277,7 +277,7 @@ export default function BestOfPageTemplate({
               {/* Related Guides */}
               {relatedPages.length > 0 && (
                 <div className="p-5 rounded-2xl border" style={{ background: "white", border: "1px solid oklch(0.90 0.006 80)" }}>
-                  <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.58 0.13 185)", fontFamily: "'DM Sans', sans-serif" }}>
+                  <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.578 0.098 186)", fontFamily: "'DM Sans', sans-serif" }}>
                     Related Guides
                   </p>
                   <ul className="space-y-2">
@@ -286,11 +286,11 @@ export default function BestOfPageTemplate({
                         <Link
                           href={page.href}
                           className="flex items-center gap-2 text-sm font-medium transition-colors"
-                          style={{ color: "oklch(0.35 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}
-                          onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "oklch(0.58 0.13 185)"}
-                          onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "oklch(0.35 0.02 240)"}
+                          style={{ color: "oklch(0.32 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}
+                          onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "oklch(0.578 0.098 186)"}
+                          onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "oklch(0.32 0.04 251)"}
                         >
-                          <ChevronRight size={13} style={{ color: "oklch(0.68 0.12 185)" }} />
+                          <ChevronRight size={13} style={{ color: "oklch(0.65 0.085 186)" }} />
                           {page.label}
                         </Link>
                       </li>

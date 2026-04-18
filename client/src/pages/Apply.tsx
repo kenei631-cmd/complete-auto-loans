@@ -52,7 +52,7 @@ const inputStyle: React.CSSProperties = {
   border: "1px solid oklch(0.88 0.007 80)",
   fontFamily: "'DM Sans', sans-serif",
   fontSize: "0.9rem",
-  color: "oklch(0.15 0.02 240)",
+  color: "oklch(0.18 0.04 251)",
   background: "white",
   outline: "none",
   transition: "border-color 0.2s, box-shadow 0.2s",
@@ -63,7 +63,7 @@ const labelStyle: React.CSSProperties = {
   fontFamily: "'DM Sans', sans-serif",
   fontSize: "0.75rem",
   fontWeight: 700,
-  color: "oklch(0.35 0.02 240)",
+  color: "oklch(0.32 0.04 251)",
   marginBottom: "0.4rem",
   textTransform: "uppercase",
   letterSpacing: "0.06em",
@@ -93,29 +93,29 @@ export default function Apply() {
         <div className="min-h-screen flex items-center justify-center px-4 py-16" style={{ background: "oklch(0.98 0.005 80)" }}>
           <div
             className="max-w-lg w-full text-center p-10 rounded-2xl"
-            style={{ background: "white", border: "2px solid oklch(0.58 0.13 185)", boxShadow: "0 20px 60px oklch(0.58 0.13 185 / 0.18)" }}
+            style={{ background: "white", border: "2px solid oklch(0.578 0.098 186)", boxShadow: "0 20px 60px oklch(0.578 0.098 186 / 0.18)" }}
           >
             <div
               className="flex items-center justify-center w-20 h-20 rounded-full mx-auto mb-6"
-              style={{ background: "oklch(0.58 0.13 185)", color: "white", fontSize: "2rem" }}
+              style={{ background: "oklch(0.578 0.098 186)", color: "white", fontSize: "2rem" }}
             >
               ✓
             </div>
-            <h1 style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.15 0.02 240)", fontSize: "2rem", fontWeight: 700, marginBottom: "0.75rem" }}>
+            <h1 style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.04 251)", fontSize: "2rem", fontWeight: 700, marginBottom: "0.75rem" }}>
               You're Pre-Approved!
             </h1>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.42 0.015 240)", fontSize: "1rem", lineHeight: 1.65, marginBottom: "1.5rem" }}>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.40 0.04 251)", fontSize: "1rem", lineHeight: 1.65, marginBottom: "1.5rem" }}>
               Great news, {formData.firstName}. Based on your profile, we've matched you with lenders in your area. Check your email at{" "}
-              <strong style={{ color: "oklch(0.18 0.06 240)" }}>{formData.email}</strong> for your personalized offers.
+              <strong style={{ color: "oklch(0.311 0.065 251)" }}>{formData.email}</strong> for your personalized offers.
             </p>
             <div className="p-4 rounded-xl text-left mb-6" style={{ background: "oklch(0.97 0.004 80)", border: "1px solid oklch(0.90 0.006 80)" }}>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", color: "oklch(0.35 0.02 240)", lineHeight: 1.65 }}>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", color: "oklch(0.32 0.04 251)", lineHeight: 1.65 }}>
                 <strong>What happens next:</strong> A loan specialist will call you within 2 hours (Mon–Sat 8am–8pm). Have your driver's license and proof of income ready.
               </p>
             </div>
             <span
               className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full"
-              style={{ background: "oklch(0.58 0.13 185 / 0.1)", color: "oklch(0.42 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}
+              style={{ background: "oklch(0.578 0.098 186 / 0.1)", color: "oklch(0.42 0.085 186)", fontFamily: "'DM Sans', sans-serif" }}
             >
               <Shield size={11} />
               Soft credit check only — your score is safe
@@ -135,14 +135,14 @@ export default function Apply() {
         {/* ── Left Panel: Dark Social Proof ── */}
         <div
           className="lg:w-[420px] xl:w-[480px] shrink-0 flex flex-col justify-between p-8 lg:p-12"
-          style={{ background: "oklch(0.18 0.06 240)", minHeight: "100px" }}
+          style={{ background: "oklch(0.311 0.065 251)", minHeight: "100px" }}
         >
           <div>
             {/* Header */}
             <div className="mb-8">
               <div
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4"
-                style={{ background: "oklch(0.58 0.13 185 / 0.18)", border: "1px solid oklch(0.68 0.12 185 / 0.35)", color: "oklch(0.82 0.09 185)", fontFamily: "'DM Sans', sans-serif" }}
+                style={{ background: "oklch(0.578 0.098 186 / 0.18)", border: "1px solid oklch(0.65 0.085 186 / 0.35)", color: "oklch(0.78 0.065 186)", fontFamily: "'DM Sans', sans-serif" }}
               >
                 <Star size={9} fill="currentColor" />
                 Free · No Obligation
@@ -165,9 +165,9 @@ export default function Apply() {
                 <div
                   key={s.label}
                   className="flex flex-col items-center text-center p-3 rounded-xl"
-                  style={{ background: "oklch(0.24 0.06 240)", border: "1px solid rgba(255,255,255,0.07)" }}
+                  style={{ background: "oklch(0.24 0.05 251)", border: "1px solid rgba(255,255,255,0.07)" }}
                 >
-                  <span style={{ color: "oklch(0.68 0.12 185)", marginBottom: "0.25rem" }}>{s.icon}</span>
+                  <span style={{ color: "oklch(0.65 0.085 186)", marginBottom: "0.25rem" }}>{s.icon}</span>
                   <span style={{ fontFamily: "'Playfair Display', serif", color: "white", fontSize: "1.125rem", fontWeight: 700, lineHeight: 1 }}>{s.value}</span>
                   <span style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(255,255,255,0.45)", fontSize: "0.65rem", marginTop: "0.2rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>{s.label}</span>
                 </div>
@@ -184,7 +184,7 @@ export default function Apply() {
                 >
                   <div
                     className="flex items-center justify-center w-9 h-9 rounded-full text-xs font-bold text-white shrink-0"
-                    style={{ background: "oklch(0.58 0.13 185)", fontFamily: "'DM Sans', sans-serif" }}
+                    style={{ background: "oklch(0.578 0.098 186)", fontFamily: "'DM Sans', sans-serif" }}
                   >
                     {p.initials}
                   </div>
@@ -193,7 +193,7 @@ export default function Apply() {
                       <span style={{ fontFamily: "'DM Sans', sans-serif", color: "white", fontSize: "0.8rem", fontWeight: 600 }}>{p.name}</span>
                       <span
                         className="text-xs font-bold px-1.5 py-0.5 rounded-full shrink-0"
-                        style={{ background: "oklch(0.58 0.13 185 / 0.2)", color: "oklch(0.72 0.10 185)", fontFamily: "'DM Sans', sans-serif" }}
+                        style={{ background: "oklch(0.578 0.098 186 / 0.2)", color: "oklch(0.70 0.075 186)", fontFamily: "'DM Sans', sans-serif" }}
                       >
                         ✓ Approved
                       </span>
@@ -218,7 +218,7 @@ export default function Apply() {
               { icon: <Star size={12} fill="currentColor" />, text: "4.8/5 from 2,400+ verified reviews" },
             ].map((t) => (
               <span key={t.text} className="flex items-center gap-2 text-xs font-medium" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}>
-                <span style={{ color: "oklch(0.68 0.12 185)", flexShrink: 0 }}>{t.icon}</span>
+                <span style={{ color: "oklch(0.65 0.085 186)", flexShrink: 0 }}>{t.icon}</span>
                 {t.text}
               </span>
             ))}
@@ -232,17 +232,17 @@ export default function Apply() {
             {/* Progress Bar */}
             <div className="mb-8">
               <div className="flex items-center justify-between mb-2">
-                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", fontWeight: 700, color: "oklch(0.58 0.13 185)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", fontWeight: 700, color: "oklch(0.578 0.098 186)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
                   Step {currentStep} of {steps.length}
                 </span>
-                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", color: "oklch(0.55 0.015 240)" }}>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", color: "oklch(0.52 0.04 251)" }}>
                   {Math.round(progressPct)}% complete
                 </span>
               </div>
               <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "oklch(0.90 0.006 80)" }}>
                 <div
                   className="h-full rounded-full transition-all duration-500"
-                  style={{ width: `${progressPct + 25}%`, background: "oklch(0.58 0.13 185)" }}
+                  style={{ width: `${progressPct + 25}%`, background: "oklch(0.578 0.098 186)" }}
                 />
               </div>
               {/* Step Labels */}
@@ -254,7 +254,7 @@ export default function Apply() {
                       fontFamily: "'DM Sans', sans-serif",
                       fontSize: "0.65rem",
                       fontWeight: currentStep === step.id ? 700 : 500,
-                      color: currentStep >= step.id ? "oklch(0.58 0.13 185)" : "oklch(0.68 0.015 240)",
+                      color: currentStep >= step.id ? "oklch(0.578 0.098 186)" : "oklch(0.68 0.015 240)",
                       textTransform: "uppercase",
                       letterSpacing: "0.04em",
                     }}
@@ -268,12 +268,12 @@ export default function Apply() {
             {/* Form Card */}
             <div
               className="rounded-2xl p-6 md:p-8"
-              style={{ background: "white", border: "1px solid oklch(0.90 0.006 80)", boxShadow: "0 6px 32px oklch(0.18 0.06 240 / 0.08)" }}
+              style={{ background: "white", border: "1px solid oklch(0.90 0.006 80)", boxShadow: "0 6px 32px oklch(0.311 0.065 251 / 0.08)" }}
             >
               {/* Step 1: Vehicle */}
               {currentStep === 1 && (
                 <div>
-                  <h2 style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.15 0.02 240)", fontSize: "1.375rem", fontWeight: 700, marginBottom: "1.5rem", lineHeight: 1.2 }}>
+                  <h2 style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.04 251)", fontSize: "1.375rem", fontWeight: 700, marginBottom: "1.5rem", lineHeight: 1.2 }}>
                     {steps[0].title}
                   </h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -283,15 +283,15 @@ export default function Apply() {
                         onClick={() => handleSelect("vehicle", opt.value)}
                         className="p-4 rounded-xl text-center transition-all duration-200"
                         style={{
-                          border: formData.vehicle === opt.value ? "2px solid oklch(0.58 0.13 185)" : "1.5px solid oklch(0.88 0.007 80)",
-                          background: formData.vehicle === opt.value ? "oklch(0.58 0.13 185 / 0.07)" : "white",
+                          border: formData.vehicle === opt.value ? "2px solid oklch(0.578 0.098 186)" : "1.5px solid oklch(0.88 0.007 80)",
+                          background: formData.vehicle === opt.value ? "oklch(0.578 0.098 186 / 0.07)" : "white",
                           fontFamily: "'DM Sans', sans-serif",
                           transform: formData.vehicle === opt.value ? "scale(1.03)" : "scale(1)",
-                          boxShadow: formData.vehicle === opt.value ? "0 4px 16px oklch(0.58 0.13 185 / 0.15)" : "none",
+                          boxShadow: formData.vehicle === opt.value ? "0 4px 16px oklch(0.578 0.098 186 / 0.15)" : "none",
                         }}
                       >
                         <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>{opt.icon}</div>
-                        <div style={{ fontSize: "0.82rem", fontWeight: 600, color: "oklch(0.15 0.02 240)" }}>{opt.label}</div>
+                        <div style={{ fontSize: "0.82rem", fontWeight: 600, color: "oklch(0.18 0.04 251)" }}>{opt.label}</div>
                       </button>
                     ))}
                   </div>
@@ -301,10 +301,10 @@ export default function Apply() {
               {/* Step 2: Credit */}
               {currentStep === 2 && (
                 <div>
-                  <h2 style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.15 0.02 240)", fontSize: "1.375rem", fontWeight: 700, marginBottom: "0.5rem", lineHeight: 1.2 }}>
+                  <h2 style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.04 251)", fontSize: "1.375rem", fontWeight: 700, marginBottom: "0.5rem", lineHeight: 1.2 }}>
                     {steps[1].title}
                   </h2>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.52 0.015 240)", fontSize: "0.875rem", marginBottom: "1.5rem" }}>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.50 0.04 251)", fontSize: "0.875rem", marginBottom: "1.5rem" }}>
                     We work with all credit situations. Be honest — it helps us find the best match.
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -314,14 +314,14 @@ export default function Apply() {
                         onClick={() => handleSelect("credit", opt.value)}
                         className="p-4 rounded-xl text-left transition-all duration-200"
                         style={{
-                          border: formData.credit === opt.value ? "2px solid oklch(0.58 0.13 185)" : "1.5px solid oklch(0.88 0.007 80)",
-                          background: formData.credit === opt.value ? "oklch(0.58 0.13 185 / 0.07)" : "white",
+                          border: formData.credit === opt.value ? "2px solid oklch(0.578 0.098 186)" : "1.5px solid oklch(0.88 0.007 80)",
+                          background: formData.credit === opt.value ? "oklch(0.578 0.098 186 / 0.07)" : "white",
                           fontFamily: "'DM Sans', sans-serif",
-                          boxShadow: formData.credit === opt.value ? "0 4px 16px oklch(0.58 0.13 185 / 0.15)" : "none",
+                          boxShadow: formData.credit === opt.value ? "0 4px 16px oklch(0.578 0.098 186 / 0.15)" : "none",
                         }}
                       >
-                        <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "oklch(0.15 0.02 240)" }}>{opt.label}</div>
-                        <div style={{ fontSize: "0.75rem", color: "oklch(0.52 0.015 240)", marginTop: "0.2rem" }}>{opt.sub}</div>
+                        <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "oklch(0.18 0.04 251)" }}>{opt.label}</div>
+                        <div style={{ fontSize: "0.75rem", color: "oklch(0.50 0.04 251)", marginTop: "0.2rem" }}>{opt.sub}</div>
                       </button>
                     ))}
                   </div>
@@ -331,10 +331,10 @@ export default function Apply() {
               {/* Step 3: Income */}
               {currentStep === 3 && (
                 <div>
-                  <h2 style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.15 0.02 240)", fontSize: "1.375rem", fontWeight: 700, marginBottom: "0.5rem", lineHeight: 1.2 }}>
+                  <h2 style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.04 251)", fontSize: "1.375rem", fontWeight: 700, marginBottom: "0.5rem", lineHeight: 1.2 }}>
                     {steps[2].title}
                   </h2>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.52 0.015 240)", fontSize: "0.875rem", marginBottom: "1.5rem" }}>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.50 0.04 251)", fontSize: "0.875rem", marginBottom: "1.5rem" }}>
                     Include all income sources: job, benefits, child support, etc.
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
@@ -344,13 +344,13 @@ export default function Apply() {
                         onClick={() => handleSelect("income", opt.value)}
                         className="p-4 rounded-xl text-left transition-all duration-200"
                         style={{
-                          border: formData.income === opt.value ? "2px solid oklch(0.58 0.13 185)" : "1.5px solid oklch(0.88 0.007 80)",
-                          background: formData.income === opt.value ? "oklch(0.58 0.13 185 / 0.07)" : "white",
+                          border: formData.income === opt.value ? "2px solid oklch(0.578 0.098 186)" : "1.5px solid oklch(0.88 0.007 80)",
+                          background: formData.income === opt.value ? "oklch(0.578 0.098 186 / 0.07)" : "white",
                           fontFamily: "'DM Sans', sans-serif",
                           fontSize: "0.95rem",
                           fontWeight: 600,
-                          color: "oklch(0.15 0.02 240)",
-                          boxShadow: formData.income === opt.value ? "0 4px 16px oklch(0.58 0.13 185 / 0.15)" : "none",
+                          color: "oklch(0.18 0.04 251)",
+                          boxShadow: formData.income === opt.value ? "0 4px 16px oklch(0.578 0.098 186 / 0.15)" : "none",
                         }}
                       >
                         {opt.label}
@@ -360,7 +360,7 @@ export default function Apply() {
                   <button
                     onClick={() => setCurrentStep(4)}
                     className="w-full py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all"
-                    style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.12 0.02 240)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 18px oklch(0.76 0.16 75 / 0.38)" }}
+                    style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.15 0.04 251)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 18px oklch(0.76 0.16 75 / 0.38)" }}
                     onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
                   >
@@ -373,10 +373,10 @@ export default function Apply() {
               {/* Step 4: Contact */}
               {currentStep === 4 && (
                 <div>
-                  <h2 style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.15 0.02 240)", fontSize: "1.375rem", fontWeight: 700, marginBottom: "0.5rem", lineHeight: 1.2 }}>
+                  <h2 style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.04 251)", fontSize: "1.375rem", fontWeight: 700, marginBottom: "0.5rem", lineHeight: 1.2 }}>
                     {steps[3].title}
                   </h2>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.52 0.015 240)", fontSize: "0.875rem", marginBottom: "1.5rem" }}>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.50 0.04 251)", fontSize: "0.875rem", marginBottom: "1.5rem" }}>
                     We'll send your personalized offers here. No spam, ever.
                   </p>
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -387,7 +387,7 @@ export default function Apply() {
                           type="text" required value={formData.firstName}
                           onChange={(e) => setFormData((p) => ({ ...p, firstName: e.target.value }))}
                           style={inputStyle} placeholder="Maria"
-                          onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.58 0.13 185)"; (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px oklch(0.58 0.13 185 / 0.12)"; }}
+                          onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.578 0.098 186)"; (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px oklch(0.578 0.098 186 / 0.12)"; }}
                           onBlur={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.88 0.007 80)"; (e.target as HTMLInputElement).style.boxShadow = "none"; }}
                         />
                       </div>
@@ -397,7 +397,7 @@ export default function Apply() {
                           type="text" required value={formData.lastName}
                           onChange={(e) => setFormData((p) => ({ ...p, lastName: e.target.value }))}
                           style={inputStyle} placeholder="Garcia"
-                          onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.58 0.13 185)"; (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px oklch(0.58 0.13 185 / 0.12)"; }}
+                          onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.578 0.098 186)"; (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px oklch(0.578 0.098 186 / 0.12)"; }}
                           onBlur={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.88 0.007 80)"; (e.target as HTMLInputElement).style.boxShadow = "none"; }}
                         />
                       </div>
@@ -408,7 +408,7 @@ export default function Apply() {
                         type="email" required value={formData.email}
                         onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
                         style={inputStyle} placeholder="maria@email.com"
-                        onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.58 0.13 185)"; (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px oklch(0.58 0.13 185 / 0.12)"; }}
+                        onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.578 0.098 186)"; (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px oklch(0.578 0.098 186 / 0.12)"; }}
                         onBlur={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.88 0.007 80)"; (e.target as HTMLInputElement).style.boxShadow = "none"; }}
                       />
                     </div>
@@ -419,7 +419,7 @@ export default function Apply() {
                           type="tel" required value={formData.phone}
                           onChange={(e) => setFormData((p) => ({ ...p, phone: e.target.value }))}
                           style={inputStyle} placeholder="(555) 000-0000"
-                          onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.58 0.13 185)"; (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px oklch(0.58 0.13 185 / 0.12)"; }}
+                          onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.578 0.098 186)"; (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px oklch(0.578 0.098 186 / 0.12)"; }}
                           onBlur={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.88 0.007 80)"; (e.target as HTMLInputElement).style.boxShadow = "none"; }}
                         />
                       </div>
@@ -429,7 +429,7 @@ export default function Apply() {
                           type="text" required maxLength={5} value={formData.zip}
                           onChange={(e) => setFormData((p) => ({ ...p, zip: e.target.value }))}
                           style={inputStyle} placeholder="75001"
-                          onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.58 0.13 185)"; (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px oklch(0.58 0.13 185 / 0.12)"; }}
+                          onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.578 0.098 186)"; (e.target as HTMLInputElement).style.boxShadow = "0 0 0 3px oklch(0.578 0.098 186 / 0.12)"; }}
                           onBlur={(e) => { (e.target as HTMLInputElement).style.borderColor = "oklch(0.88 0.007 80)"; (e.target as HTMLInputElement).style.boxShadow = "none"; }}
                         />
                       </div>
@@ -437,14 +437,14 @@ export default function Apply() {
                     <button
                       type="submit"
                       className="w-full py-4 rounded-xl font-bold text-base transition-all flex items-center justify-center gap-2"
-                      style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.12 0.02 240)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 6px 24px oklch(0.76 0.16 75 / 0.42)", fontSize: "1rem" }}
+                      style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.15 0.04 251)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 6px 24px oklch(0.76 0.16 75 / 0.42)", fontSize: "1rem" }}
                       onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 32px oklch(0.76 0.16 75 / 0.48)"; }}
                       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 24px oklch(0.76 0.16 75 / 0.42)"; }}
                     >
                       Get My Approval Offers
                       <ArrowRight size={16} />
                     </button>
-                    <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.68rem", color: "oklch(0.62 0.015 240)", textAlign: "center", lineHeight: 1.5 }}>
+                    <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.68rem", color: "oklch(0.58 0.04 251)", textAlign: "center", lineHeight: 1.5 }}>
                       By submitting, you agree to our Terms and consent to be contacted by phone or email. Soft credit check only.
                     </p>
                   </form>
@@ -456,9 +456,9 @@ export default function Apply() {
                 <button
                   onClick={() => setCurrentStep((s) => s - 1)}
                   className="flex items-center gap-1.5 mt-5 text-sm transition-colors"
-                  style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.52 0.015 240)", background: "none", border: "none" }}
-                  onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "oklch(0.35 0.02 240)"}
-                  onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "oklch(0.52 0.015 240)"}
+                  style={{ fontFamily: "'DM Sans', sans-serif", color: "oklch(0.50 0.04 251)", background: "none", border: "none" }}
+                  onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "oklch(0.32 0.04 251)"}
+                  onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "oklch(0.50 0.04 251)"}
                 >
                   <ArrowLeft size={14} />
                   Back

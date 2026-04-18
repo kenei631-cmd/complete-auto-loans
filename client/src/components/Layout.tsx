@@ -51,15 +51,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container flex items-center justify-between" style={{ paddingTop: "0.4rem", paddingBottom: "0.4rem" }}>
           <div className="flex items-center gap-5">
             <span className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "rgba(255,255,255,0.55)" }}>
-              <Shield size={10} style={{ color: "oklch(0.68 0.12 185)" }} />
+              <Shield size={10} style={{ color: "oklch(0.65 0.085 186)" }} />
               256-bit SSL Encrypted
             </span>
             <span className="hidden sm:flex items-center gap-1.5 text-xs font-medium" style={{ color: "rgba(255,255,255,0.55)" }}>
-              <span style={{ color: "oklch(0.68 0.12 185)", fontSize: "10px" }}>✓</span>
+              <span style={{ color: "oklch(0.65 0.085 186)", fontSize: "10px" }}>✓</span>
               Soft Credit Check Only — Won't Affect Your Score
             </span>
           </div>
-          <div className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "oklch(0.68 0.12 185)" }}>
+          <div className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "oklch(0.65 0.085 186)" }}>
             <Star size={10} fill="currentColor" />
             <span style={{ color: "rgba(255,255,255,0.55)" }}>4.8/5 from 2,400+ reviews</span>
           </div>
@@ -70,7 +70,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header
         className="sticky top-0 z-50 transition-all duration-300"
         style={{
-          background: "oklch(0.18 0.06 240)",
+          background: "oklch(0.311 0.065 251)",
           boxShadow: scrolled ? "0 4px 24px oklch(0.10 0.05 240 / 0.5)" : "none",
           borderBottom: "1px solid rgba(255,255,255,0.07)",
         }}
@@ -81,7 +81,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <img
               src="/manus-storage/logo_final_95e47a06.png"
               alt="Complete Auto Loans"
-              style={{ height: "52px", width: "auto", objectFit: "contain", filter: "brightness(1.15) drop-shadow(0 0 8px oklch(0.58 0.13 185 / 0.35))" }}
+              style={{ height: "52px", width: "auto", objectFit: "contain", filter: "brightness(1.15) drop-shadow(0 0 8px oklch(0.578 0.098 186 / 0.35))" }}
             />
           </Link>
 
@@ -95,7 +95,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <button
                 className="flex items-center gap-1 px-3.5 py-2 rounded-md text-sm font-medium transition-all"
                 style={{
-                  color: dropdownOpen ? "oklch(0.72 0.10 185)" : "rgba(255,255,255,0.8)",
+                  color: dropdownOpen ? "oklch(0.70 0.075 186)" : "rgba(255,255,255,0.8)",
                   background: dropdownOpen ? "rgba(255,255,255,0.06)" : "transparent",
                   fontFamily: "'DM Sans', sans-serif",
                 }}
@@ -124,7 +124,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         onMouseEnter={(e) => {
                           const el = e.currentTarget as HTMLElement;
                           el.style.background = "rgba(255,255,255,0.06)";
-                          el.style.color = "oklch(0.72 0.10 185)";
+                          el.style.color = "oklch(0.70 0.075 186)";
                         }}
                         onMouseLeave={(e) => {
                           const el = e.currentTarget as HTMLElement;
@@ -158,7 +158,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 className="hidden sm:inline-flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-md transition-all"
                 style={{
                   background: "oklch(0.76 0.16 75)",
-                  color: "oklch(0.12 0.02 240)",
+                  color: "oklch(0.15 0.04 251)",
                   fontFamily: "'DM Sans', sans-serif",
                   boxShadow: "0 2px 12px oklch(0.76 0.16 75 / 0.35)",
                 }}
@@ -190,7 +190,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {mobileOpen && (
           <div style={{ background: "oklch(0.15 0.055 240)", borderTop: "1px solid rgba(255,255,255,0.07)" }}>
             <div className="container py-4 flex flex-col gap-0.5">
-              <p className="text-xs font-bold uppercase tracking-widest px-3 pb-2" style={{ color: "oklch(0.68 0.12 185)" }}>Best-Of Guides</p>
+              <p className="text-xs font-bold uppercase tracking-widest px-3 pb-2" style={{ color: "oklch(0.65 0.085 186)" }}>Best-Of Guides</p>
               {bestOfLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="block px-3 py-2.5 rounded-lg text-sm font-medium" style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'DM Sans', sans-serif" }}>
                   {link.label}
@@ -201,7 +201,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   How It Works
                 </Link>
                 <Link href="/apply">
-                  <button className="mt-3 w-full py-3 rounded-md font-bold text-sm" style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.12 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                  <button className="mt-3 w-full py-3 rounded-md font-bold text-sm" style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.15 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                     Get Pre-Approved — Free
                   </button>
                 </Link>
@@ -220,10 +220,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2.5 mb-4">
-                <div className="flex items-center justify-center w-8 h-8 rounded-md font-bold text-xs" style={{ background: "linear-gradient(135deg, oklch(0.58 0.13 185), oklch(0.48 0.13 185))", color: "white", fontFamily: "'Playfair Display', serif" }}>CA</div>
+                <div className="flex items-center justify-center w-8 h-8 rounded-md font-bold text-xs" style={{ background: "linear-gradient(135deg, oklch(0.578 0.098 186), oklch(0.48 0.13 185))", color: "white", fontFamily: "'Playfair Display', serif" }}>CA</div>
                 <div className="flex flex-col leading-none">
                   <span className="text-white font-bold text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>Complete Auto Loans</span>
-                  <span className="text-xs" style={{ color: "oklch(0.68 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}>#1 Rated Bad Credit Network</span>
+                  <span className="text-xs" style={{ color: "oklch(0.65 0.085 186)", fontFamily: "'DM Sans', sans-serif" }}>#1 Rated Bad Credit Network</span>
                 </div>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}>
@@ -232,7 +232,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
 
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.68 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}>Best-Of Lists</h4>
+              <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.65 0.085 186)", fontFamily: "'DM Sans', sans-serif" }}>Best-Of Lists</h4>
               <ul className="space-y-2.5">
                 {[
                   ["Bad Credit Auto Loans", "/best-bad-credit-auto-loans"],
@@ -252,7 +252,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
 
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.68 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}>Specialty Loans</h4>
+              <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.65 0.085 186)", fontFamily: "'DM Sans', sans-serif" }}>Specialty Loans</h4>
               <ul className="space-y-2.5">
                 {[
                   ["After Bankruptcy", "/best-car-loans-after-bankruptcy"],
@@ -272,7 +272,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
 
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.68 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}>Company</h4>
+              <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.65 0.085 186)", fontFamily: "'DM Sans', sans-serif" }}>Company</h4>
               <ul className="space-y-2.5">
                 {[["How It Works", "/how-it-works"], ["Get Pre-Approved", "/apply"]].map(([label, href]) => (
                   <li key={href}>

@@ -40,7 +40,7 @@ const personas = [
     desc: "You've been through a financial setback — divorce, job loss, medical bills. Your credit took a hit but you're back on your feet. We know lenders who see your recovery, not your past.",
     img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
     href: "/best-bad-credit-auto-loans",
-    accentColor: "oklch(0.58 0.13 185)",
+    accentColor: "oklch(0.578 0.098 186)",
   },
   {
     tag: "Credit: No History",
@@ -56,7 +56,7 @@ const personas = [
     desc: "Bankruptcy, repossession, or both. You need a car to get to work and take care of your family. There are lenders who specialize in exactly your situation — and they approve people every day.",
     img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80",
     href: "/best-second-chance-auto-loans",
-    accentColor: "oklch(0.52 0.10 240)",
+    accentColor: "oklch(0.50 0.07 251)",
   },
 ];
 
@@ -69,7 +69,7 @@ const testimonials = [
     down: "$500 down",
     quote: "I had a repo from 2021 and thought no one would touch me. Complete Auto Loans matched me with a lender in 10 minutes. Drove home same day.",
     initials: "MT",
-    color: "oklch(0.58 0.13 185)",
+    color: "oklch(0.578 0.098 186)",
   },
   {
     name: "Jennifer R.",
@@ -89,7 +89,7 @@ const testimonials = [
     down: "$1,000 down",
     quote: "Chapter 7 bankruptcy discharged 8 months ago. We needed an SUV for our kids. Got approved for a rate we could actually afford.",
     initials: "DM",
-    color: "oklch(0.52 0.10 240)",
+    color: "oklch(0.50 0.07 251)",
   },
   {
     name: "Rosa V.",
@@ -99,7 +99,7 @@ const testimonials = [
     down: "$800 down",
     quote: "I don't have a Social Security number but I have an ITIN and steady income. Complete Auto Loans was the only site that had options for me.",
     initials: "RV",
-    color: "oklch(0.58 0.13 185)",
+    color: "oklch(0.578 0.098 186)",
   },
 ];
 
@@ -119,7 +119,7 @@ export default function Home() {
         {/* Background */}
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_IMG})` }} />
         {/* Gradient — strong left, fades right */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(110deg, oklch(0.08 0.05 240 / 0.97) 0%, oklch(0.10 0.05 240 / 0.88) 40%, oklch(0.10 0.05 240 / 0.35) 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(110deg, oklch(0.08 0.05 240 / 0.97) 0%, oklch(0.12 0.04 251 / 0.88) 40%, oklch(0.10 0.05 240 / 0.35) 100%)" }} />
         {/* Bottom fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: "linear-gradient(to top, oklch(0.98 0.005 80), transparent)" }} />
 
@@ -128,7 +128,7 @@ export default function Home() {
             {/* Eyebrow */}
             <div
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-7"
-              style={{ background: "oklch(0.58 0.13 185 / 0.18)", border: "1px solid oklch(0.68 0.12 185 / 0.35)", color: "oklch(0.82 0.09 185)", fontFamily: "'DM Sans', sans-serif" }}
+              style={{ background: "oklch(0.578 0.098 186 / 0.18)", border: "1px solid oklch(0.65 0.085 186 / 0.35)", color: "oklch(0.78 0.065 186)", fontFamily: "'DM Sans', sans-serif" }}
             >
               <Star size={10} fill="currentColor" />
               #1 Rated Bad Credit Auto Loan Network
@@ -146,7 +146,7 @@ export default function Home() {
               }}
             >
               We Look at Your{" "}
-              <em style={{ color: "oklch(0.72 0.10 185)", fontStyle: "italic" }}>Future,</em>
+              <em style={{ color: "oklch(0.70 0.075 186)", fontStyle: "italic" }}>Future,</em>
               <br />
               Not Your Past.
             </h1>
@@ -164,7 +164,7 @@ export default function Home() {
               <Link href="/apply">
                 <button
                   className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-base transition-all"
-                  style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.10 0.02 240)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 6px 28px oklch(0.76 0.16 75 / 0.50)", fontSize: "1.0625rem" }}
+                  style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.12 0.04 251)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 6px 28px oklch(0.76 0.16 75 / 0.50)", fontSize: "1.0625rem" }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 36px oklch(0.76 0.16 75 / 0.55)"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 28px oklch(0.76 0.16 75 / 0.50)"; }}
                 >
@@ -192,7 +192,7 @@ export default function Home() {
                 { icon: <Zap size={12} />, text: "Results in 2 minutes" },
               ].map((t) => (
                 <span key={t.text} className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "rgba(255,255,255,0.50)", fontFamily: "'DM Sans', sans-serif" }}>
-                  <span style={{ color: "oklch(0.72 0.10 185)" }}>{t.icon}</span>
+                  <span style={{ color: "oklch(0.70 0.075 186)" }}>{t.icon}</span>
                   {t.text}
                 </span>
               ))}
@@ -211,7 +211,7 @@ export default function Home() {
               width: "220px",
             }}
           >
-            <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.72 0.10 185)", fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.70 0.075 186)", fontFamily: "'DM Sans', sans-serif" }}>
               By the Numbers
             </p>
             {[
@@ -232,7 +232,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           TRUST BAR
       ══════════════════════════════════════════ */}
-      <div style={{ background: "oklch(0.18 0.06 240)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <div style={{ background: "oklch(0.311 0.065 251)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <div className="container py-4">
           <div className="flex flex-wrap items-center justify-center gap-8">
             {[
@@ -242,7 +242,7 @@ export default function Home() {
               { icon: <CheckCircle2 size={14} />, text: "Independent Editorial Rankings" },
             ].map((t) => (
               <span key={t.text} className="flex items-center gap-2 text-xs font-semibold" style={{ color: "rgba(255,255,255,0.62)", fontFamily: "'DM Sans', sans-serif" }}>
-                <span style={{ color: "oklch(0.68 0.12 185)" }}>{t.icon}</span>
+                <span style={{ color: "oklch(0.65 0.085 186)" }}>{t.icon}</span>
                 {t.text}
               </span>
             ))}
@@ -258,12 +258,12 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div>
               <div className="section-label mb-3">Editorial Rankings</div>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 3.5vw, 2.75rem)", fontWeight: 700, color: "oklch(0.12 0.02 240)", lineHeight: 1.1 }}>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 3.5vw, 2.75rem)", fontWeight: 700, color: "oklch(0.15 0.04 251)", lineHeight: 1.1 }}>
                 Best-Of Guides for<br />Every Situation
               </h2>
             </div>
             <div className="sm:max-w-xs">
-              <p className="text-sm leading-relaxed" style={{ color: "oklch(0.52 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-sm leading-relaxed" style={{ color: "oklch(0.50 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                 Updated monthly. Independent editorial team. No paid placements in our rankings.
               </p>
             </div>
@@ -275,40 +275,40 @@ export default function Home() {
                 <div
                   className="group relative flex flex-col gap-3 p-5 rounded-2xl transition-all duration-200 cursor-pointer h-full"
                   style={{
-                    background: guide.featured ? "oklch(0.18 0.06 240)" : "oklch(0.96 0.005 80)",
+                    background: guide.featured ? "oklch(0.311 0.065 251)" : "oklch(0.96 0.005 80)",
                     border: guide.featured ? "1px solid oklch(0.58 0.13 185 / 0.30)" : "1px solid oklch(0.88 0.008 80)",
-                    boxShadow: guide.featured ? "0 8px 28px oklch(0.18 0.06 240 / 0.22)" : "0 2px 8px oklch(0.18 0.06 240 / 0.06)",
+                    boxShadow: guide.featured ? "0 8px 28px oklch(0.311 0.065 251 / 0.22)" : "0 2px 8px oklch(0.311 0.065 251 / 0.06)",
                   }}
                   onMouseEnter={(e) => {
                     const el = e.currentTarget as HTMLElement;
                     el.style.transform = "translateY(-4px)";
-                    el.style.boxShadow = guide.featured ? "0 20px 48px oklch(0.18 0.06 240 / 0.32)" : "0 12px 32px oklch(0.18 0.06 240 / 0.14)";
-                    if (!guide.featured) el.style.borderColor = "oklch(0.58 0.13 185)";
+                    el.style.boxShadow = guide.featured ? "0 20px 48px oklch(0.18 0.06 240 / 0.32)" : "0 12px 32px oklch(0.311 0.065 251 / 0.14)";
+                    if (!guide.featured) el.style.borderColor = "oklch(0.578 0.098 186)";
                     if (!guide.featured) el.style.background = "white";
                   }}
                   onMouseLeave={(e) => {
                     const el = e.currentTarget as HTMLElement;
                     el.style.transform = "translateY(0)";
-                    el.style.boxShadow = guide.featured ? "0 8px 28px oklch(0.18 0.06 240 / 0.22)" : "0 2px 8px oklch(0.18 0.06 240 / 0.06)";
+                    el.style.boxShadow = guide.featured ? "0 8px 28px oklch(0.311 0.065 251 / 0.22)" : "0 2px 8px oklch(0.311 0.065 251 / 0.06)";
                     if (!guide.featured) el.style.borderColor = "oklch(0.88 0.008 80)";
                     if (!guide.featured) el.style.background = "oklch(0.96 0.005 80)";
                   }}
                 >
                   {guide.featured && (
-                    <span className="absolute top-3 right-3 text-xs font-bold px-2 py-0.5 rounded-full" style={{ background: "oklch(0.58 0.13 185 / 0.22)", color: "oklch(0.75 0.09 185)", fontFamily: "'DM Sans', sans-serif" }}>
+                    <span className="absolute top-3 right-3 text-xs font-bold px-2 py-0.5 rounded-full" style={{ background: "oklch(0.58 0.13 185 / 0.22)", color: "oklch(0.72 0.070 186)", fontFamily: "'DM Sans', sans-serif" }}>
                       Popular
                     </span>
                   )}
                   <span className="text-2xl">{guide.emoji}</span>
                   <div className="flex-1">
-                    <p className="font-semibold text-sm leading-tight mb-1" style={{ color: guide.featured ? "white" : "oklch(0.15 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                    <p className="font-semibold text-sm leading-tight mb-1" style={{ color: guide.featured ? "white" : "oklch(0.18 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                       {guide.label}
                     </p>
-                    <p className="text-xs" style={{ color: guide.featured ? "oklch(0.68 0.12 185)" : "oklch(0.55 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                    <p className="text-xs" style={{ color: guide.featured ? "oklch(0.65 0.085 186)" : "oklch(0.52 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                       {guide.volume} searches
                     </p>
                   </div>
-                  <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" style={{ color: guide.featured ? "oklch(0.68 0.12 185)" : "oklch(0.62 0.12 185)" }} />
+                  <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" style={{ color: guide.featured ? "oklch(0.65 0.085 186)" : "oklch(0.62 0.12 185)" }} />
                 </div>
               </Link>
             ))}
@@ -319,10 +319,10 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           HOW IT WORKS
       ══════════════════════════════════════════ */}
-      <section className="py-24" style={{ background: "oklch(0.18 0.06 240)" }}>
+      <section className="py-24" style={{ background: "oklch(0.311 0.065 251)" }}>
         <div className="container">
           <div className="text-center mb-14">
-            <div className="section-label justify-center mb-3" style={{ color: "oklch(0.72 0.10 185)" }}>
+            <div className="section-label justify-center mb-3" style={{ color: "oklch(0.70 0.075 186)" }}>
               Simple Process
             </div>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.875rem, 3.5vw, 2.75rem)", fontWeight: 700, color: "white", lineHeight: 1.1 }}>
@@ -332,22 +332,22 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8 relative">
             {/* Connecting line on desktop */}
-            <div className="absolute top-10 left-1/4 right-1/4 h-px hidden md:block" style={{ background: "linear-gradient(to right, oklch(0.58 0.13 185 / 0.4), oklch(0.58 0.13 185 / 0.4))" }} />
+            <div className="absolute top-10 left-1/4 right-1/4 h-px hidden md:block" style={{ background: "linear-gradient(to right, oklch(0.578 0.098 186 / 0.4), oklch(0.578 0.098 186 / 0.4))" }} />
 
             {steps.map((step, i) => (
               <div key={step.num} className="relative flex flex-col items-center text-center">
                 <div
                   className="flex items-center justify-center w-20 h-20 rounded-2xl mb-6 relative z-10"
                   style={{
-                    background: i === 1 ? "oklch(0.58 0.13 185)" : "oklch(0.24 0.06 240)",
-                    border: i === 1 ? "none" : "1px solid oklch(0.58 0.13 185 / 0.25)",
-                    boxShadow: i === 1 ? "0 8px 32px oklch(0.58 0.13 185 / 0.35)" : "none",
+                    background: i === 1 ? "oklch(0.578 0.098 186)" : "oklch(0.24 0.05 251)",
+                    border: i === 1 ? "none" : "1px solid oklch(0.578 0.098 186 / 0.25)",
+                    boxShadow: i === 1 ? "0 8px 32px oklch(0.578 0.098 186 / 0.35)" : "none",
                     color: "white",
                   }}
                 >
                   {step.icon}
                 </div>
-                <span className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "oklch(0.58 0.13 185)", fontFamily: "'DM Sans', sans-serif" }}>
+                <span className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "oklch(0.578 0.098 186)", fontFamily: "'DM Sans', sans-serif" }}>
                   Step {step.num}
                 </span>
                 <h3 className="font-bold text-lg mb-3 text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -364,7 +364,7 @@ export default function Home() {
             <Link href="/apply">
               <button
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm transition-all"
-                style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.10 0.02 240)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 20px oklch(0.76 0.16 75 / 0.40)" }}
+                style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.12 0.04 251)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 20px oklch(0.76 0.16 75 / 0.40)" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
               >
@@ -384,11 +384,11 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <div className="section-label mb-3">Who We Help</div>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.875rem, 3.5vw, 2.75rem)", fontWeight: 700, color: "oklch(0.12 0.02 240)", lineHeight: 1.1, maxWidth: "400px" }}>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.875rem, 3.5vw, 2.75rem)", fontWeight: 700, color: "oklch(0.15 0.04 251)", lineHeight: 1.1, maxWidth: "400px" }}>
                 We've Seen Your Situation Before
               </h2>
             </div>
-            <p className="text-sm md:max-w-xs leading-relaxed" style={{ color: "oklch(0.52 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-sm md:max-w-xs leading-relaxed" style={{ color: "oklch(0.50 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
               Every credit situation is different. We match you with lenders who specialize in yours.
             </p>
           </div>
@@ -398,9 +398,9 @@ export default function Home() {
               <Link key={p.href} href={p.href}>
                 <div
                   className="group relative overflow-hidden rounded-2xl cursor-pointer transition-all duration-300 h-full"
-                  style={{ boxShadow: "0 4px 20px oklch(0.18 0.06 240 / 0.08)", borderTop: `3px solid ${p.accentColor}` }}
+                  style={{ boxShadow: "0 4px 20px oklch(0.311 0.065 251 / 0.08)", borderTop: `3px solid ${p.accentColor}` }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 20px 48px oklch(0.18 0.06 240 / 0.16)"; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px oklch(0.18 0.06 240 / 0.08)"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px oklch(0.311 0.065 251 / 0.08)"; }}
                 >
                   {/* Photo */}
                   <div className="relative h-56 overflow-hidden">
@@ -413,10 +413,10 @@ export default function Home() {
 
                   {/* Content */}
                   <div className="p-6" style={{ background: "white" }}>
-                    <h3 className="font-bold text-xl mb-2.5" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.12 0.02 240)" }}>
+                    <h3 className="font-bold text-xl mb-2.5" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.15 0.04 251)" }}>
                       {p.title}
                     </h3>
-                    <p className="text-sm leading-relaxed mb-5" style={{ color: "oklch(0.45 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                    <p className="text-sm leading-relaxed mb-5" style={{ color: "oklch(0.43 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                       {p.desc}
                     </p>
                     <span className="inline-flex items-center gap-1.5 text-sm font-semibold transition-all" style={{ color: p.accentColor, fontFamily: "'DM Sans', sans-serif" }}>
@@ -439,13 +439,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div>
               <div className="section-label mb-3">Real Approvals</div>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.875rem, 3.5vw, 2.75rem)", fontWeight: 700, color: "oklch(0.12 0.02 240)", lineHeight: 1.1 }}>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.875rem, 3.5vw, 2.75rem)", fontWeight: 700, color: "oklch(0.15 0.04 251)", lineHeight: 1.1 }}>
                 People Just Like You<br />Got Approved
               </h2>
             </div>
             <div className="flex items-center gap-1.5 sm:mb-1">
               {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="oklch(0.76 0.16 75)" style={{ color: "oklch(0.76 0.16 75)" }} />)}
-              <span className="text-sm font-semibold ml-2" style={{ color: "oklch(0.35 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>4.8/5 · 2,400+ reviews</span>
+              <span className="text-sm font-semibold ml-2" style={{ color: "oklch(0.32 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>4.8/5 · 2,400+ reviews</span>
             </div>
           </div>
 
@@ -454,9 +454,9 @@ export default function Home() {
               <div
                 key={t.name}
                 className="flex flex-col p-6 rounded-2xl transition-all duration-200"
-                style={{ background: "white", border: "1px solid oklch(0.88 0.008 80)", boxShadow: "0 4px 16px oklch(0.18 0.06 240 / 0.07)", borderTop: `3px solid ${t.color}` }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 14px 36px oklch(0.18 0.06 240 / 0.14)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 16px oklch(0.18 0.06 240 / 0.07)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
+                style={{ background: "white", border: "1px solid oklch(0.88 0.008 80)", boxShadow: "0 4px 16px oklch(0.311 0.065 251 / 0.07)", borderTop: `3px solid ${t.color}` }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 14px 36px oklch(0.311 0.065 251 / 0.14)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 16px oklch(0.311 0.065 251 / 0.07)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
@@ -464,24 +464,24 @@ export default function Home() {
                       {t.initials}
                     </div>
                     <div>
-                      <p className="font-semibold text-sm" style={{ color: "oklch(0.15 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>{t.name}</p>
-                      <p className="text-xs" style={{ color: "oklch(0.55 0.015 240)", fontFamily: "'DM Sans', sans-serif" }}>{t.location}</p>
+                      <p className="font-semibold text-sm" style={{ color: "oklch(0.18 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>{t.name}</p>
+                      <p className="text-xs" style={{ color: "oklch(0.52 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>{t.location}</p>
                     </div>
                   </div>
-                  <span className="text-xs font-bold px-2 py-0.5 rounded-full shrink-0" style={{ background: "oklch(0.58 0.13 185 / 0.10)", color: "oklch(0.42 0.12 185)", fontFamily: "'DM Sans', sans-serif" }}>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-full shrink-0" style={{ background: "oklch(0.578 0.098 186 / 0.10)", color: "oklch(0.42 0.085 186)", fontFamily: "'DM Sans', sans-serif" }}>
                     ✓ Approved
                   </span>
                 </div>
 
                 <div className="flex flex-wrap gap-1.5 mb-4 pb-4" style={{ borderBottom: "1px solid oklch(0.93 0.004 80)" }}>
                   {[`Score: ${t.score}`, t.vehicle, t.down].map((tag) => (
-                    <span key={tag} className="text-xs px-2 py-0.5 rounded-md font-medium" style={{ background: "oklch(0.96 0.006 80)", color: "oklch(0.35 0.02 240)", fontFamily: "'DM Sans', sans-serif" }}>
+                    <span key={tag} className="text-xs px-2 py-0.5 rounded-md font-medium" style={{ background: "oklch(0.96 0.006 80)", color: "oklch(0.32 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <blockquote className="text-sm leading-relaxed flex-1" style={{ color: "oklch(0.42 0.015 240)", fontFamily: "'DM Sans', sans-serif", fontStyle: "italic" }}>
+                <blockquote className="text-sm leading-relaxed flex-1" style={{ color: "oklch(0.40 0.04 251)", fontFamily: "'DM Sans', sans-serif", fontStyle: "italic" }}>
                   "{t.quote}"
                 </blockquote>
 
@@ -501,13 +501,13 @@ export default function Home() {
         className="relative py-28 overflow-hidden"
         style={{ backgroundImage: `url(${CTA_BG})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="absolute inset-0" style={{ background: "oklch(0.10 0.05 240 / 0.88)" }} />
+        <div className="absolute inset-0" style={{ background: "oklch(0.12 0.04 251 / 0.88)" }} />
         {/* Teal glow */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 50%, oklch(0.58 0.13 185 / 0.12), transparent)" }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 50%, oklch(0.578 0.098 186 / 0.12), transparent)" }} />
 
         <div className="relative container text-center">
           <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-            <div className="section-label justify-center mb-5" style={{ color: "oklch(0.72 0.10 185)" }}>
+            <div className="section-label justify-center mb-5" style={{ color: "oklch(0.70 0.075 186)" }}>
               Get Started Today
             </div>
             <h2
@@ -526,7 +526,7 @@ export default function Home() {
             <Link href="/apply">
               <button
                 className="inline-flex items-center gap-2.5 px-10 py-4.5 rounded-xl font-bold transition-all"
-                style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.10 0.02 240)", fontFamily: "'DM Sans', sans-serif", fontSize: "1.0625rem", boxShadow: "0 6px 32px oklch(0.76 0.16 75 / 0.55)", padding: "1rem 2.5rem" }}
+                style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.12 0.04 251)", fontFamily: "'DM Sans', sans-serif", fontSize: "1.0625rem", boxShadow: "0 6px 32px oklch(0.76 0.16 75 / 0.55)", padding: "1rem 2.5rem" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 40px oklch(0.76 0.16 75 / 0.60)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 32px oklch(0.76 0.16 75 / 0.55)"; }}
               >
@@ -542,7 +542,7 @@ export default function Home() {
                 { icon: <CheckCircle2 size={13} />, text: "No application fee" },
               ].map((t) => (
                 <span key={t.text} className="flex items-center gap-1.5 text-xs font-medium" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}>
-                  <span style={{ color: "oklch(0.72 0.10 185)" }}>{t.icon}</span>
+                  <span style={{ color: "oklch(0.70 0.075 186)" }}>{t.icon}</span>
                   {t.text}
                 </span>
               ))}

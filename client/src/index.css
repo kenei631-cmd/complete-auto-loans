@@ -3,8 +3,8 @@
  * Design: Premium Editorial Finance
  * 
  * Color Philosophy:
- *   - Navy oklch(0.18 0.06 240): Authority, trust, financial legitimacy
- *   - Teal oklch(0.58 0.13 185): "Approved" / "Yes" — calm, forward-moving
+ *   - Navy oklch(0.311 0.065 251): Authority, trust, financial legitimacy
+ *   - Teal oklch(0.578 0.098 186): "Approved" / "Yes" — calm, forward-moving
  *   - Amber oklch(0.76 0.16 75): Action, urgency, CTA only
  *   - Warm Off-White oklch(0.98 0.005 80): Approachable, not clinical
  * 
@@ -61,49 +61,49 @@
   --radius: 0.5rem;
 
   /* Brand colors as CSS vars */
-  --cal-navy: oklch(0.18 0.06 240);
-  --cal-teal: oklch(0.58 0.13 185);
-  --cal-teal-light: oklch(0.72 0.10 185);
+  --cal-navy: oklch(0.311 0.065 251);
+  --cal-teal: oklch(0.578 0.098 186);
+  --cal-teal-light: oklch(0.70 0.075 186);
   --cal-amber: oklch(0.76 0.16 75);
   --cal-warm-bg: oklch(0.98 0.005 80);
   --cal-warm-bg-2: oklch(0.96 0.006 80);
   --cal-border: oklch(0.90 0.006 80);
-  --cal-text: oklch(0.15 0.02 240);
-  --cal-text-muted: oklch(0.52 0.015 240);
+  --cal-text: oklch(0.18 0.04 251);
+  --cal-text-muted: oklch(0.50 0.04 251);
 
   /* shadcn tokens */
   --background: oklch(0.98 0.005 80);
-  --foreground: oklch(0.15 0.02 240);
+  --foreground: oklch(0.18 0.04 251);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.02 240);
+  --card-foreground: oklch(0.18 0.04 251);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.02 240);
-  --primary: oklch(0.58 0.13 185);
+  --popover-foreground: oklch(0.18 0.04 251);
+  --primary: oklch(0.578 0.098 186);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.96 0.006 80);
-  --secondary-foreground: oklch(0.35 0.02 240);
+  --secondary-foreground: oklch(0.32 0.04 251);
   --muted: oklch(0.96 0.006 80);
-  --muted-foreground: oklch(0.52 0.015 240);
+  --muted-foreground: oklch(0.50 0.04 251);
   --accent: oklch(0.96 0.006 80);
-  --accent-foreground: oklch(0.15 0.02 240);
+  --accent-foreground: oklch(0.18 0.04 251);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(0.90 0.006 80);
   --input: oklch(0.90 0.006 80);
-  --ring: oklch(0.58 0.13 185);
-  --chart-1: oklch(0.58 0.13 185);
+  --ring: oklch(0.578 0.098 186);
+  --chart-1: oklch(0.578 0.098 186);
   --chart-2: oklch(0.76 0.16 75);
-  --chart-3: oklch(0.18 0.06 240);
-  --chart-4: oklch(0.72 0.10 185);
+  --chart-3: oklch(0.311 0.065 251);
+  --chart-4: oklch(0.70 0.075 186);
   --chart-5: oklch(0.48 0.10 185);
-  --sidebar: oklch(0.18 0.06 240);
+  --sidebar: oklch(0.311 0.065 251);
   --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-primary: oklch(0.58 0.13 185);
+  --sidebar-primary: oklch(0.578 0.098 186);
   --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.22 0.05 240);
   --sidebar-accent-foreground: oklch(0.85 0.005 65);
   --sidebar-border: oklch(1 0 0 / 0.08);
-  --sidebar-ring: oklch(0.58 0.13 185);
+  --sidebar-ring: oklch(0.578 0.098 186);
 }
 
 @layer base {
@@ -163,14 +163,14 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: oklch(0.58 0.13 185);
+    color: oklch(0.578 0.098 186);
   }
   .section-label::before {
     content: '';
     display: inline-block;
     width: 1.5rem;
     height: 2px;
-    background: oklch(0.58 0.13 185);
+    background: oklch(0.578 0.098 186);
     border-radius: 1px;
   }
 }
