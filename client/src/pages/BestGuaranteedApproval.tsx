@@ -1,0 +1,19 @@
+import BestOfPageTemplate from "../components/BestOfPageTemplate";
+import type { Lender } from "../components/LenderCard";
+
+const lenders: Lender[] = [{"rank": 1, "name": "Complete Auto Loans", "tagline": "Our top-rated network for bad credit borrowers", "approvalRate": "98%", "minCreditScore": "Any Score", "minIncome": "$1,200/mo", "downPayment": "$0–$500", "bestFor": "Near-guaranteed approval", "pros": ["98% approval rate for qualified applicants", "Income-based approval system", "Any credit score considered", "Decision in under 5 minutes"], "featured": true, "ctaHref": "/apply", "ctaLabel": "Get Pre-Approved →"}, {"rank": 2, "name": "JD Byrider", "tagline": "BHPH chain with near-100% approval", "approvalRate": "99%", "minCreditScore": "Any", "minIncome": "$1,200/mo", "downPayment": "$500", "bestFor": "Guaranteed approval", "pros": ["Truly near-guaranteed", "150+ locations", "In-house financing"], "featured": false, "ctaHref": "/apply", "ctaLabel": "Get Pre-Approved →"}, {"rank": 3, "name": "DriveTime", "tagline": "Used car dealer with guaranteed financing", "approvalRate": "98%", "minCreditScore": "Any", "minIncome": "$1,500/mo", "downPayment": "$500", "bestFor": "No credit", "pros": ["Guaranteed financing", "Large inventory", "Online process"], "featured": false, "ctaHref": "/apply", "ctaLabel": "Get Pre-Approved →"}, {"rank": 4, "name": "CarHop", "tagline": "BHPH focused on credit building", "approvalRate": "97%", "minCreditScore": "Any", "minIncome": "$1,200/mo", "downPayment": "$0", "bestFor": "Credit building", "pros": ["Near-guaranteed", "Reports to bureaus", "Flexible terms"], "featured": false, "ctaHref": "/apply", "ctaLabel": "Get Pre-Approved →"}, {"rank": 5, "name": "Auto Credit Express", "tagline": "Subprime network with high approval", "approvalRate": "94%", "minCreditScore": "300+", "minIncome": "$1,500/mo", "downPayment": "$500", "bestFor": "Bad credit", "pros": ["Very high approval rate", "Multiple lender options", "Fast process"], "featured": false, "ctaHref": "/apply", "ctaLabel": "Get Pre-Approved →"}];
+
+export default function BestGuaranteedApproval() {
+  return (
+    <BestOfPageTemplate
+      title="Best Guaranteed Approval Auto Loans of 2026"
+      subtitle="Some lenders come as close to guaranteed approval as legally possible. Here's who they are and what they require."
+      intro="No lender can legally guarantee approval, but some come very close. These lenders have approval rates above 95% for applicants who meet their basic income requirements — regardless of credit score."
+      lenders={lenders}
+      realStories={[{"name": "Robert K.", "city": "Tulsa, OK", "creditScore": "412", "vehicle": "2016 Dodge Charger", "downPayment": "$500", "quote": "412 credit score, two charge-offs. I was told I'd never get approved. Wrong. Complete Auto Loans matched me with a lender that said yes in 8 minutes."}]}
+      faqs={[{"question": "Is guaranteed approval really possible?", "answer": "No lender can legally guarantee approval. However, BHPH dealers and some subprime lenders have approval rates above 97% for applicants with verifiable income of $1,200+/month."}, {"question": "What do I need to qualify for near-guaranteed approval?", "answer": "Verifiable income (pay stubs, bank statements, or tax returns), a valid driver's license, proof of residence, and a working phone number. That's typically it."}]}
+      relatedPages={[{"label": "Best Buy Here Pay Here Dealerships", "href": "/best-buy-here-pay-here-dealerships"}, {"label": "Best No Credit Check Car Loans", "href": "/best-no-credit-check-car-loans"}]}
+      keyTakeaways={["BHPH dealers offer the closest thing to guaranteed approval", "Income verification is the primary requirement, not credit score", "$1,200/month income is the typical minimum", "Approval rates above 97% are achievable with the right lender"]}
+    />
+  );
+}
