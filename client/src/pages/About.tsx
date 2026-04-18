@@ -43,7 +43,13 @@ function buildAboutPageSchema() {
           name: "James Mitchell",
           jobTitle: "Auto Finance Editor",
           description:
-            "James Mitchell has covered subprime auto lending and consumer finance for over 10 years. He reviews lender policies, rate data, and approval criteria to produce the editorial content on Complete Auto Loans.",
+            "James Mitchell has covered subprime auto lending and consumer finance for over 10 years. He came to this work after his own experience being turned down by traditional banks following a job loss — and finding his way back through a specialty lender. His goal with every guide is to give borrowers the honest, specific information he wished he had at the time.",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Marysville",
+            addressRegion: "WA",
+            addressCountry: "US",
+          },
         },
       ],
     },
@@ -299,7 +305,7 @@ export default function About() {
                 className="text-sm leading-relaxed"
                 style={{ color: "oklch(0.43 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}
               >
-                James has covered subprime auto lending and consumer finance for over 10 years. He reviews lender policies, rate data, and approval criteria to produce the editorial rankings and guides on Complete Auto Loans. His work focuses on giving borrowers the honest, specific information they need to make good decisions — not generic advice that ignores their actual situation.
+                James Mitchell has covered subprime auto lending and consumer finance for over 10 years. He came to this work after his own experience being turned down by traditional banks following a job loss in 2008 — and finding his way back through a specialty lender at 21.9% APR. He made every payment, refinanced out at 13.5%, and rebuilt his score above 680 within two years. His goal with every guide is to give borrowers the honest, specific information he wished he had at the time.
               </p>
             </div>
 

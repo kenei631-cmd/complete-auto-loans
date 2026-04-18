@@ -28,6 +28,14 @@ function buildArticleSchema(post: {
       name: "James Mitchell",
       jobTitle: "Auto Finance Editor",
       url: `${SITE_URL}/about`,
+      description:
+        "James Mitchell has covered subprime auto lending and consumer finance for over 10 years. He came to this work after his own experience being turned down by traditional banks following a job loss \u2014 and finding his way back through a specialty lender. His goal with every guide is to give borrowers the honest, specific information he wished he had at the time.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Marysville",
+        addressRegion: "WA",
+        addressCountry: "US",
+      },
     },
     publisher: {
       "@type": "Organization",
