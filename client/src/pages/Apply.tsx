@@ -218,6 +218,23 @@ export default function Apply() {
         state: stateFromZip,
         trustedFormCertUrl,
       });
+
+      // Fire browser-side Meta Pixel Lead event
+      // eventID matches the token sent to CAPI server-side → Meta deduplicates
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const _fbq = (window as any).fbq as Function | undefined;
+      if (typeof window !== "undefined" && typeof _fbq === "function") {
+        _fbq(
+          "track",
+          "Lead",
+          {
+            content_name: "Auto Loan Application",
+            content_category: "auto_loan",
+          },
+          { eventID: token }
+        );
+      }
+
       navigate(`/offers/${result.token}`);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Submission failed. Please try again.";

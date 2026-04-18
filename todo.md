@@ -43,3 +43,13 @@
 - [ ] Refinance Bad Credit national pillar + 10 city pages
 - [ ] Submit all URLs to Google Search Console + RapidURL Indexer
 - [ ] Sticky mobile CTA bar on Best-Of pages
+
+## Meta Ads & Tracking
+
+- [x] Meta Pixel base code added to index.html (Pixel ID: 26436395032721578, fires PageView on all pages)
+- [x] Meta CAPI server-side helper (server/metaCapi.ts) with SHA-256 PII hashing and deduplication
+- [x] CAPI Lead event fires on form submission (server-side + browser-side, deduplicated via token as eventID)
+- [x] META_PIXEL_ID and META_CAPI_ACCESS_TOKEN stored as environment secrets
+- [ ] Add CAPI Purchase event webhook endpoint (fires when lead is sold to lender — needed for value optimization)
+- [ ] Create Meta Ads campaign (Objective: Leads, Budget: $30-50/day, Advantage+ Audience)
+- [ ] Verify pixel events in Meta Events Manager (check PageView + Lead firing correctly)

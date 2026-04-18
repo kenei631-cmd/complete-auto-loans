@@ -14,6 +14,7 @@ import {
 import { runPingPost } from "../pingPost";
 import { nanoid } from "nanoid";
 import { notifyOwner } from "../_core/notification";
+import { sendCapiEvent } from "../metaCapi";
 
 const TCPA_CONSENT_TEXT =
   "By submitting this form, you agree to be contacted by Complete Auto Loans and its lending partners via phone, email, and SMS regarding your auto loan inquiry. Message and data rates may apply. You may opt out at any time. Your information is protected by 256-bit SSL encryption.";
@@ -157,6 +158,32 @@ export const leadsRouter = router({
         title: "New Lead Submitted",
         content: `${input.firstName} ${input.lastName} (${input.email}) submitted an application. Credit: ${updatedLead.creditScore}, Vehicle: ${updatedLead.vehicleType}, State: ${input.state}`,
       }).catch(() => {});
+
+      // Fire CAPI Lead event (server-side, deduplicated with browser pixel via eventId)
+      // The browser fires fbq('track', 'Lead', {}, { eventID: token }) on form submit
+      // We use the same token as eventId so Meta deduplicates correctly
+      sendCapiEvent({
+        eventName: "Lead",
+        eventId: input.token,
+        eventSourceUrl: `${process.env.VITE_APP_URL ?? "https://completeautoloans.com"}/apply`,
+        userData: {
+          email: input.email,
+          phone: input.phone,
+          firstName: input.firstName,
+          lastName: input.lastName,
+          state: input.state,
+          zip: input.zipCode,
+          clientIpAddress: ctx.req.headers["x-forwarded-for"] as string ?? ctx.req.socket?.remoteAddress,
+          clientUserAgent: ctx.req.headers["user-agent"],
+          fbp: ctx.req.cookies?.["_fbp"],
+          fbc: ctx.req.cookies?.["_fbc"],
+        },
+        customData: {
+          contentName: "Auto Loan Application",
+          contentCategory: "auto_loan",
+          leadType: updatedLead.creditScore ?? undefined,
+        },
+      }).catch((err) => console.error("[CAPI] Lead event error:", err));
 
       return { token: input.token };
     }),
