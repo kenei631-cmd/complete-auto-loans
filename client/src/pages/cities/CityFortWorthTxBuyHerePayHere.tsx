@@ -122,6 +122,8 @@ export default function CityFortWorthTxBuyHerePayHere() {
       dealerships={["Cowtown Auto Credit", "Fort Worth BHPH", "Tarrant Car Finance", "Lone Star Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="fort-worth-tx"
+      serviceSlug="buy-here-pay-here"
     />
   );
 }

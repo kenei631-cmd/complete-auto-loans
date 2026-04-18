@@ -122,6 +122,8 @@ export default function CityDetroitMiBadCreditAutoLoans() {
       dealerships={["Motor City Auto Credit", "Detroit BHPH", "Wayne County Car Finance", "Michigan Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="detroit-mi"
+      serviceSlug="bad-credit-auto-loans"
     />
   );
 }

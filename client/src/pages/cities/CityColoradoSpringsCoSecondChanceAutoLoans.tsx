@@ -122,6 +122,8 @@ export default function CityColoradoSpringsCoSecondChanceAutoLoans() {
       dealerships={["Pikes Peak Auto Credit", "Springs BHPH Motors", "Colorado Auto Approval", "Front Range Car Credit"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="colorado-springs-co"
+      serviceSlug="second-chance-auto-loans"
     />
   );
 }

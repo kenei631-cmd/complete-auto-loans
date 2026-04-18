@@ -122,6 +122,8 @@ export default function CityFortWorthTxSecondChanceAutoLoans() {
       dealerships={["Cowtown Auto Credit", "Fort Worth BHPH", "Tarrant Car Finance", "Lone Star Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="fort-worth-tx"
+      serviceSlug="second-chance-auto-loans"
     />
   );
 }

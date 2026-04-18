@@ -122,6 +122,8 @@ export default function CityChicagoIlBadCreditAutoLoans() {
       dealerships={["Windy City Auto Credit", "Chicago BHPH Motors", "Cook County Car Finance", "Illinois Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="chicago-il"
+      serviceSlug="bad-credit-auto-loans"
     />
   );
 }

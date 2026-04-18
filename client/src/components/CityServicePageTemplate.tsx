@@ -22,6 +22,7 @@ import {
   ChevronUp,
   ArrowRight,
   MapPin,
+  ChevronRight,
 } from "lucide-react";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -69,6 +70,10 @@ export interface CityServicePageProps {
   lenders: CityLender[];
   /** FAQ items */
   faqs: CityFAQ[];
+  /** City URL slug, e.g. "phoenix-az" */
+  citySlug: string;
+  /** Current service slug, e.g. "bad-credit-auto-loans" */
+  serviceSlug: string;
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -83,6 +88,8 @@ export default function CityServicePageTemplate({
   dealerships,
   lenders,
   faqs,
+  citySlug,
+  serviceSlug,
 }: CityServicePageProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -643,6 +650,61 @@ export default function CityServicePageTemplate({
                   These local {city} dealerships serve {county} and surrounding areas. Complete Auto
                   Loans connects you with the best financing option for your situation.
                 </p>
+              </div>
+
+              {/* Related City Services card */}
+              <div
+                className="rounded-2xl p-5"
+                style={{ background: "white", border: "1.5px solid oklch(0.90 0.005 80)" }}
+              >
+                <h4
+                  style={{
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: "0.72rem",
+                    fontWeight: 700,
+                    color: "oklch(0.578 0.098 186)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    marginBottom: "0.75rem",
+                  }}
+                >
+                  More in {city}
+                </h4>
+                <div className="flex flex-col gap-1.5">
+                  {[
+                    { label: "Bad Credit Auto Loans", slug: "bad-credit-auto-loans" },
+                    { label: "Buy Here Pay Here", slug: "buy-here-pay-here" },
+                    { label: "No Credit Check", slug: "no-credit-check-car-loans" },
+                    { label: "Guaranteed Approval", slug: "guaranteed-approval-auto-loans" },
+                    { label: "No Money Down", slug: "no-money-down-car-loans" },
+                    { label: "Second Chance", slug: "second-chance-auto-loans" },
+                    { label: "After Bankruptcy", slug: "car-loans-after-bankruptcy" },
+                    { label: "After Repossession", slug: "auto-loans-after-repossession" },
+                  ]
+                    .filter((s) => s.slug !== serviceSlug)
+                    .map((s) => (
+                      <Link
+                        key={s.slug}
+                        href={`/${citySlug}/${s.slug}`}
+                        className="flex items-center gap-2 text-xs font-medium py-1.5 transition-colors"
+                        style={{ color: "oklch(0.40 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}
+                        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "oklch(0.578 0.098 186)"; }}
+                        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "oklch(0.40 0.04 251)"; }}
+                      >
+                        <ChevronRight size={10} style={{ color: "oklch(0.65 0.085 186)", flexShrink: 0 }} />
+                        {s.label}
+                      </Link>
+                    ))}
+                </div>
+                <Link
+                  href={`/${citySlug}`}
+                  className="flex items-center gap-1 mt-3 text-xs font-bold transition-colors"
+                  style={{ color: "oklch(0.578 0.098 186)", fontFamily: "'DM Sans', sans-serif" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "oklch(0.42 0.085 186)"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "oklch(0.578 0.098 186)"; }}
+                >
+                  <MapPin size={10} /> All {city} Loan Options
+                </Link>
               </div>
             </div>
           </div>

@@ -122,6 +122,8 @@ export default function CityPhoenixAzCarLoansAfterBankruptcy() {
       dealerships={["Desert Auto Finance", "Valley BHPH Motors", "Sun State Car Credit", "Arizona Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="phoenix-az"
+      serviceSlug="car-loans-after-bankruptcy"
     />
   );
 }

@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Shield, Star, ArrowRight } from "lucide-react";
 
-const LOGO_URL = "/manus-storage/logo_white_text_35e3a1a6.png";
+const LOGO_URL = "/manus-storage/logo_white_text_b1a4b277.png";
 
 const bestOfLinks = [
   { label: "Bad Credit Auto Loans", href: "/best-bad-credit-auto-loans" },
@@ -81,7 +81,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
             <img
-              src="/manus-storage/logo_white_text_ab989572.png"
+              src="/manus-storage/logo_white_text_b1a4b277.png"
               alt="Complete Auto Loans"
               style={{ height: "56px", width: "auto", objectFit: "contain" }}
             />

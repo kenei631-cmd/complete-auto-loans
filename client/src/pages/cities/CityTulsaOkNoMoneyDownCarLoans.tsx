@@ -122,6 +122,8 @@ export default function CityTulsaOkNoMoneyDownCarLoans() {
       dealerships={["Green Country Auto Credit", "Tulsa BHPH Motors", "Oklahoma Car Finance", "Sooner Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="tulsa-ok"
+      serviceSlug="no-money-down-car-loans"
     />
   );
 }

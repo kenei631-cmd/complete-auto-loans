@@ -122,6 +122,8 @@ export default function CityDetroitMiBuyHerePayHere() {
       dealerships={["Motor City Auto Credit", "Detroit BHPH", "Wayne County Car Finance", "Michigan Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="detroit-mi"
+      serviceSlug="buy-here-pay-here"
     />
   );
 }

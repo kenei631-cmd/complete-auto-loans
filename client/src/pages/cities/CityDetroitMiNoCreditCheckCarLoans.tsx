@@ -122,6 +122,8 @@ export default function CityDetroitMiNoCreditCheckCarLoans() {
       dealerships={["Motor City Auto Credit", "Detroit BHPH", "Wayne County Car Finance", "Michigan Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="detroit-mi"
+      serviceSlug="no-credit-check-car-loans"
     />
   );
 }

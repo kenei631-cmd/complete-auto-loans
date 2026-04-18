@@ -122,6 +122,8 @@ export default function CitySanAntonioTxSecondChanceAutoLoans() {
       dealerships={["Alamo Auto Credit", "San Antonio BHPH", "Bexar County Car Finance", "Texas Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="san-antonio-tx"
+      serviceSlug="second-chance-auto-loans"
     />
   );
 }

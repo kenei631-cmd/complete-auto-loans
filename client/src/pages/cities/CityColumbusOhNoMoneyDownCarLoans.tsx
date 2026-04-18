@@ -122,6 +122,8 @@ export default function CityColumbusOhNoMoneyDownCarLoans() {
       dealerships={["Buckeye Auto Credit", "Columbus BHPH", "Franklin County Car Finance", "Ohio Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="columbus-oh"
+      serviceSlug="no-money-down-car-loans"
     />
   );
 }

@@ -122,6 +122,8 @@ export default function CityCharlotteNcSecondChanceAutoLoans() {
       dealerships={["Queen City Auto Credit", "Charlotte BHPH", "Mecklenburg Car Finance", "Carolina Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="charlotte-nc"
+      serviceSlug="second-chance-auto-loans"
     />
   );
 }

@@ -122,6 +122,8 @@ export default function CityColumbusOhAutoLoansAfterRepossession() {
       dealerships={["Buckeye Auto Credit", "Columbus BHPH", "Franklin County Car Finance", "Ohio Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="columbus-oh"
+      serviceSlug="auto-loans-after-repossession"
     />
   );
 }

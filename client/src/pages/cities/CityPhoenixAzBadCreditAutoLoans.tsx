@@ -122,6 +122,8 @@ export default function CityPhoenixAzBadCreditAutoLoans() {
       dealerships={["Desert Auto Finance", "Valley BHPH Motors", "Sun State Car Credit", "Arizona Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="phoenix-az"
+      serviceSlug="bad-credit-auto-loans"
     />
   );
 }

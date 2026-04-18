@@ -122,6 +122,8 @@ export default function CityDallasTxBuyHerePayHere() {
       dealerships={["Big D Auto Credit", "Dallas BHPH Motors", "Metroplex Car Finance", "Texas Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="dallas-tx"
+      serviceSlug="buy-here-pay-here"
     />
   );
 }

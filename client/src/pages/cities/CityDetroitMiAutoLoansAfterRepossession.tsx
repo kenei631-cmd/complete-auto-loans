@@ -122,6 +122,8 @@ export default function CityDetroitMiAutoLoansAfterRepossession() {
       dealerships={["Motor City Auto Credit", "Detroit BHPH", "Wayne County Car Finance", "Michigan Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="detroit-mi"
+      serviceSlug="auto-loans-after-repossession"
     />
   );
 }

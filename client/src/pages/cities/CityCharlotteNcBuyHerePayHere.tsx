@@ -122,6 +122,8 @@ export default function CityCharlotteNcBuyHerePayHere() {
       dealerships={["Queen City Auto Credit", "Charlotte BHPH", "Mecklenburg Car Finance", "Carolina Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="charlotte-nc"
+      serviceSlug="buy-here-pay-here"
     />
   );
 }

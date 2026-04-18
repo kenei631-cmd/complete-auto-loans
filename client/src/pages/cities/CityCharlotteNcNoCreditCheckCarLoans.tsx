@@ -122,6 +122,8 @@ export default function CityCharlotteNcNoCreditCheckCarLoans() {
       dealerships={["Queen City Auto Credit", "Charlotte BHPH", "Mecklenburg Car Finance", "Carolina Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="charlotte-nc"
+      serviceSlug="no-credit-check-car-loans"
     />
   );
 }

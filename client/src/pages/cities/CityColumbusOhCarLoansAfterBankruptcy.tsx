@@ -122,6 +122,8 @@ export default function CityColumbusOhCarLoansAfterBankruptcy() {
       dealerships={["Buckeye Auto Credit", "Columbus BHPH", "Franklin County Car Finance", "Ohio Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="columbus-oh"
+      serviceSlug="car-loans-after-bankruptcy"
     />
   );
 }

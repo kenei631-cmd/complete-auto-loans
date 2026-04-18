@@ -122,6 +122,8 @@ export default function CityDallasTxSecondChanceAutoLoans() {
       dealerships={["Big D Auto Credit", "Dallas BHPH Motors", "Metroplex Car Finance", "Texas Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="dallas-tx"
+      serviceSlug="second-chance-auto-loans"
     />
   );
 }

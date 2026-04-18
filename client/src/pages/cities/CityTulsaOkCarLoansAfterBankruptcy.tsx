@@ -122,6 +122,8 @@ export default function CityTulsaOkCarLoansAfterBankruptcy() {
       dealerships={["Green Country Auto Credit", "Tulsa BHPH Motors", "Oklahoma Car Finance", "Sooner Auto Approval"]}
       lenders={lenders}
       faqs={faqs}
+      citySlug="tulsa-ok"
+      serviceSlug="car-loans-after-bankruptcy"
     />
   );
 }
