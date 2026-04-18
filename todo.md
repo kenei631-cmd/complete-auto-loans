@@ -50,9 +50,9 @@
 - [x] Meta CAPI server-side helper (server/metaCapi.ts) with SHA-256 PII hashing and deduplication
 - [x] CAPI Lead event fires on form submission (server-side + browser-side, deduplicated via token as eventID)
 - [x] META_PIXEL_ID and META_CAPI_ACCESS_TOKEN stored as environment secrets
-- [ ] Add CAPI Purchase event webhook endpoint (fires when lead is sold to lender — needed for value optimization)
+- [x] Add CAPI Purchase event webhook endpoint (fires when lead is sold to lender — needed for value optimization)
 - [ ] Create Meta Ads campaign (Objective: Leads, Budget: $30-50/day, Advantage+ Audience)
 - [ ] Verify pixel events in Meta Events Manager (check PageView + Lead firing correctly)
-- [ ] Add leadSoldAt and saleValue columns to leads table schema
-- [ ] Build /api/webhooks/lead-purchased endpoint with HMAC verification and CAPI Purchase event
-- [ ] Write vitest tests for the webhook endpoint
+- [x] Add leadSoldAt and saleValue columns to leads table schema
+- [x] Build /api/webhooks/lead-purchased endpoint with HMAC verification and CAPI Purchase event
+- [x] Write vitest tests for the webhook endpoint (7 tests, all passing)

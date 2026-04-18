@@ -6,7 +6,7 @@
  * - Dropdown for Best-Of Guides
  * - Rich 4-column footer
  */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Shield, Star, ArrowRight } from "lucide-react";
 
@@ -51,6 +51,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [location] = useLocation();
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleMenuEnter = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setDropdownOpen(true);
+  };
+
+  const handleMenuLeave = () => {
+    closeTimer.current = setTimeout(() => setDropdownOpen(false), 120);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -109,8 +119,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <nav className="hidden lg:flex items-center gap-0.5">
             <div
               className="relative"
-              onMouseEnter={() => setDropdownOpen(true)}
-              onMouseLeave={() => setDropdownOpen(false)}
+              onMouseEnter={handleMenuEnter}
+              onMouseLeave={handleMenuLeave}
             >
               <button
                 className="flex items-center gap-1 px-3.5 py-2 rounded-md text-sm font-medium transition-all"
@@ -126,8 +136,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
               {dropdownOpen && (
                 <div
-                  className="absolute top-full left-0 mt-1.5 rounded-2xl z-50"
+                  className="absolute top-full left-0 rounded-2xl z-50"
+                  onMouseEnter={handleMenuEnter}
+                  onMouseLeave={handleMenuLeave}
                   style={{
+                    paddingTop: "8px",
                     background: "oklch(0.18 0.055 240)",
                     border: "1px solid rgba(255,255,255,0.09)",
                     boxShadow: "0 24px 80px oklch(0.08 0.05 240 / 0.75)",
