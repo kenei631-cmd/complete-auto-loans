@@ -6,8 +6,6 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
-import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
-
 
 const lenders: CityLender[] = [
   {
@@ -81,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Pikes Peak Credit Union Auto",
+    name: "Perkins Motors",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -89,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "El Paso County's top subprime lender",
+    highlight: "Low-to-no credit auto loans with quick approvals in Colorado Springs.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Colorado Auto Approval",
+    name: "Wilcoxson GMC",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -103,43 +101,10 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Local network serving Colorado Springs metro",
+    highlight: "Bad credit auto loans for various vehicles in the Colorado Springs area.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
-  }
-];
-
-const localDealers: LocalDealer[] = [
-  {
-    name: "CarHop of Colorado Springs",
-    area: "East Colorado Springs",
-    bestFor: "Best for bad credit or no credit",
-    creditMin: "No minimum",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: null,
-    keyFact: "18-month/18,000-mile limited warranty and money-back guarantee on every vehicle.",
-    website: "https://www.carhop.com/",
-  },
-  {
-    name: "DriveEasy Used Cars",
-    area: "Colorado Springs, CO",
-    bestFor: "Best for no credit check with bilingual service",
-    creditMin: "No minimum",
-    downPayment: "$500+",
-    reportsToBureaus: null,
-    keyFact: "Friendly bilingual (English/Spanish) service. Flexible in-house financing with no credit check.",
-    website: "https://www.idriveasy.com/",
-  },
-  {
-    name: "Byrider Colorado Springs",
-    area: "Colorado Springs, CO",
-    bestFor: "Best for flexible financing with vehicle inspection",
-    creditMin: "No minimum",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: null,
-    keyFact: "Vehicle inspection, warranty, optional service contract, and in-house auto repair service department.",
-    website: "https://www.byrider.com/",
   }
 ];
 
@@ -174,7 +139,6 @@ export default function CityColoradoSpringsCoBuyHerePayHere() {
   });
 
   return (
-    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Colorado Springs, CO (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Colorado Springs, CO"
@@ -183,7 +147,7 @@ export default function CityColoradoSpringsCoBuyHerePayHere() {
       city="Colorado Springs"
       state="CO"
       county="El Paso County"
-      dealerships={["Pikes Peak Auto Credit", "Springs BHPH Motors", "Colorado Auto Approval", "Front Range Car Credit"]}
+      dealerships={[{ name: "Perkins Motors", note: "Low-to-no credit auto loans with quick approvals in Colorado Springs.", website: "https://perkinsmotors.com/" }, { name: "Wilcoxson GMC", note: "Bad credit auto loans for various vehicles in the Colorado Springs area.", website: "https://www.wilcoxsonautos.com/" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="colorado-springs-co"
@@ -191,9 +155,5 @@ export default function CityColoradoSpringsCoBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
-    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
-      <LocalDealersSection dealers={localDealers} city="Colorado Springs" state="CO" />
-    </div>
-    </>
   );
 }

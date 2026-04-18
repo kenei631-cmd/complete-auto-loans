@@ -79,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Queen City Auto Finance",
+    name: "Blue Flame Credit Union",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -87,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Mecklenburg County's top bad credit lender",
+    highlight: "Secured auto loans to establish or rebuild credit with lower rates in Charlotte.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Carolina Auto Approval",
+    name: "Skyla Credit Union",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -101,7 +101,7 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Charlotte-area network for all credit situations",
+    highlight: "Auto loans and refinancing with flexible terms for various credit profiles.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
@@ -147,7 +147,7 @@ export default function CityCharlotteNcSecondChanceAutoLoans() {
       city="Charlotte"
       state="NC"
       county="Mecklenburg County"
-      dealerships={["Queen City Auto Credit", "Charlotte BHPH", "Mecklenburg Car Finance", "Carolina Auto Approval"]}
+      dealerships={[{ name: "Blue Flame Credit Union", note: "Secured auto loans to establish or rebuild credit with lower rates in Charlotte.", website: "https://www.blueflamecu.org/" }, { name: "Skyla Credit Union", note: "Auto loans and refinancing with flexible terms for various credit profiles.", website: "https://www.skylacu.com/" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="charlotte-nc"

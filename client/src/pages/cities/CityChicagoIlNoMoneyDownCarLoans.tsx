@@ -79,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Windy City Auto Finance",
+    name: "Zeigler Chrysler Dodge Jeep RAM",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -87,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Cook County's largest subprime lender network",
+    highlight: "Bad credit car loans with multiple lending sources in the Chicago area.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Illinois Auto Approval",
+    name: "Midway Dodge",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -101,7 +101,7 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Chicago-area specialist for bad credit auto loans",
+    highlight: "Bad credit auto loans working with various financial institutions in Chicago.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
@@ -147,7 +147,7 @@ export default function CityChicagoIlNoMoneyDownCarLoans() {
       city="Chicago"
       state="IL"
       county="Cook County"
-      dealerships={["Windy City Auto Credit", "Chicago BHPH Motors", "Cook County Car Finance", "Illinois Auto Approval"]}
+      dealerships={[{ name: "Zeigler Chrysler Dodge Jeep RAM", note: "Bad credit car loans with multiple lending sources in the Chicago area.", website: "https://www.zeiglerchryslerdodge.com/bad-credit-car-loan-in-chicago.htm" }, { name: "Midway Dodge", note: "Bad credit auto loans working with various financial institutions in Chicago.", website: "https://www.midwaydodge.com/bad-credit-auto-loans-chicago-il" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="chicago-il"

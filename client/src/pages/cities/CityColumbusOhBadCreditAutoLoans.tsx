@@ -79,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Buckeye Auto Finance",
+    name: "OUCU Financial",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -87,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Franklin County specialist for subprime loans",
+    highlight: "Flexible terms and competitive rates for low credit auto loans in Columbus.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Ohio Auto Approval",
+    name: "Ricart Chevrolet",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -101,7 +101,7 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Columbus-area lender network serving all credit types",
+    highlight: "Fresh Start Financing program for Columbus customers with less-than-perfect credit.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
@@ -147,7 +147,7 @@ export default function CityColumbusOhBadCreditAutoLoans() {
       city="Columbus"
       state="OH"
       county="Franklin County"
-      dealerships={["Buckeye Auto Credit", "Columbus BHPH", "Franklin County Car Finance", "Ohio Auto Approval"]}
+      dealerships={[{ name: "OUCU Financial", note: "Flexible terms and competitive rates for low credit auto loans in Columbus.", website: "https://www.oucu.org/borrow/vehicle-loans/auto-loans/low-credit-auto-loans" }, { name: "Ricart Chevrolet", note: "Fresh Start Financing program for Columbus customers with less-than-perfect credit.", website: "https://www.ricartchevrolet.com/fresh-start-financing" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="columbus-oh"

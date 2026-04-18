@@ -6,8 +6,6 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
-import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
-
 
 const lenders: CityLender[] = [
   {
@@ -81,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Buckeye Auto Finance",
+    name: "OUCU Financial",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -89,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Franklin County specialist for subprime loans",
+    highlight: "Flexible terms and competitive rates for low credit auto loans in Columbus.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Ohio Auto Approval",
+    name: "Ricart Chevrolet",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -103,43 +101,10 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Columbus-area lender network serving all credit types",
+    highlight: "Fresh Start Financing program for Columbus customers with less-than-perfect credit.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
-  }
-];
-
-const localDealers: LocalDealer[] = [
-  {
-    name: "Cars East",
-    area: "East Columbus / Whitehall",
-    bestFor: "Best for no credit checks and large inventory",
-    creditMin: "No credit checks",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: false,
-    keyFact: "Free layaway program and online payment portal. Does not run credit checks.",
-    website: "https://www.cars-east.com/",
-  },
-  {
-    name: "J.D. Byrider Columbus",
-    area: "Southeast Columbus",
-    bestFor: "Best for rebuilding credit with warranty",
-    creditMin: "No minimum — credit issues welcome",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: true,
-    keyFact: "Reports to all three credit bureaus. Bi-weekly payments as low as $150. On-site garage included.",
-    website: "https://www.byrider.com/",
-  },
-  {
-    name: "Best Buy Motors",
-    area: "Whitehall, OH (Columbus metro)",
-    bestFor: "Best for lease-to-own with low upfront costs",
-    creditMin: "No credit check",
-    downPayment: "$500–$1,000",
-    reportsToBureaus: false,
-    keyFact: "Lease-It-Own-It program: no obligation, no upfront sales tax, renewable 2-week lease. Oil changes included.",
-    website: "https://www.bestbuymotorsllc.com/",
   }
 ];
 
@@ -174,7 +139,6 @@ export default function CityColumbusOhBuyHerePayHere() {
   });
 
   return (
-    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Columbus, OH (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Columbus, OH"
@@ -183,7 +147,7 @@ export default function CityColumbusOhBuyHerePayHere() {
       city="Columbus"
       state="OH"
       county="Franklin County"
-      dealerships={["Buckeye Auto Credit", "Columbus BHPH", "Franklin County Car Finance", "Ohio Auto Approval"]}
+      dealerships={[{ name: "OUCU Financial", note: "Flexible terms and competitive rates for low credit auto loans in Columbus.", website: "https://www.oucu.org/borrow/vehicle-loans/auto-loans/low-credit-auto-loans" }, { name: "Ricart Chevrolet", note: "Fresh Start Financing program for Columbus customers with less-than-perfect credit.", website: "https://www.ricartchevrolet.com/fresh-start-financing" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="columbus-oh"
@@ -191,9 +155,5 @@ export default function CityColumbusOhBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
-    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
-      <LocalDealersSection dealers={localDealers} city="Columbus" state="OH" />
-    </div>
-    </>
   );
 }

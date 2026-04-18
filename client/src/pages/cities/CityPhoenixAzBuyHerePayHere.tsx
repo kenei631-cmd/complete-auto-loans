@@ -6,8 +6,6 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
-import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
-
 
 const lenders: CityLender[] = [
   {
@@ -81,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Desert Financial Auto Loans",
+    name: "Rocky's Auto Credit",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -89,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Phoenix-area credit union with strong subprime programs",
+    highlight: "Phoenix in-house financing for bad credit, no credit, and past repossessions.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Arizona Auto Approval",
+    name: "Courtesy Chevrolet",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -103,43 +101,10 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Local dealership network serving Maricopa County",
+    highlight: "Simple, fair auto loans for bad credit and no credit customers in Phoenix.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
-  }
-];
-
-const localDealers: LocalDealer[] = [
-  {
-    name: "Orozco Auto Sales",
-    area: "Van Buren St area, Phoenix",
-    bestFor: "Best for bad credit history",
-    creditMin: "No minimum",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: null,
-    keyFact: "In-house financing with flexible payment terms and a range of vehicle options. No minimum credit score required.",
-    website: "https://www.orozcoautosalesaz.com/",
-  },
-  {
-    name: "Bueno Used Cars of AZ",
-    area: "Near Mesa and Scottsdale, Phoenix metro",
-    bestFor: "Best for rebuilding credit",
-    creditMin: "Low credit scores accepted",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: true,
-    keyFact: "Over 30 years in business. Reports payments to credit bureaus, helping buyers rebuild their credit over time.",
-    website: "https://www.buenousedcars.com/",
-  },
-  {
-    name: "Cactus Jack's Auto — Bell Road",
-    area: "Bell Road area, North Phoenix",
-    bestFor: "Best for affordable down payment",
-    creditMin: "Bad credit accepted",
-    downPayment: "$500",
-    reportsToBureaus: null,
-    keyFact: "Large selection of used vehicles with affordable weekly specials. $500 down payment advertised.",
-    website: "https://www.cactusjacksauto.com/",
   }
 ];
 
@@ -174,7 +139,6 @@ export default function CityPhoenixAzBuyHerePayHere() {
   });
 
   return (
-    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Phoenix, AZ (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Phoenix, AZ"
@@ -183,7 +147,7 @@ export default function CityPhoenixAzBuyHerePayHere() {
       city="Phoenix"
       state="AZ"
       county="Maricopa County"
-      dealerships={["Desert Auto Finance", "Valley BHPH Motors", "Sun State Car Credit", "Arizona Auto Approval"]}
+      dealerships={[{ name: "Rocky's Auto Credit", note: "Phoenix in-house financing for bad credit, no credit, and past repossessions.", website: "https://www.rockysautocredit.com/" }, { name: "Courtesy Chevrolet", note: "Simple, fair auto loans for bad credit and no credit customers in Phoenix.", website: "https://www.courtesychev.com/bad-credit-no-credit-auto-loans-in-phoenix-az/" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="phoenix-az"
@@ -191,9 +155,5 @@ export default function CityPhoenixAzBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
-    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
-      <LocalDealersSection dealers={localDealers} city="Phoenix" state="AZ" />
-    </div>
-    </>
   );
 }

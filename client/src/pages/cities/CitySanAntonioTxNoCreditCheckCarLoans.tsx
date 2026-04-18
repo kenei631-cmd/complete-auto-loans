@@ -79,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Alamo Auto Finance",
+    name: "River City FCU",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -87,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Bexar County specialist for subprime borrowers",
+    highlight: "Secured auto loans for individuals with bad credit in San Antonio.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "San Antonio BHPH Network",
+    name: "Red McCombs Toyota",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -101,7 +101,7 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "In-house financing across 20+ SA dealerships",
+    highlight: "Bad credit auto loans through partnerships with subprime lenders in San Antonio.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
@@ -147,7 +147,7 @@ export default function CitySanAntonioTxNoCreditCheckCarLoans() {
       city="San Antonio"
       state="TX"
       county="Bexar County"
-      dealerships={["Alamo Auto Credit", "San Antonio BHPH", "Bexar County Car Finance", "Texas Auto Approval"]}
+      dealerships={[{ name: "River City FCU", note: "Secured auto loans for individuals with bad credit in San Antonio.", website: "https://www.rivercityfcu.org/bad-credit-auto-loan" }, { name: "Red McCombs Toyota", note: "Bad credit auto loans through partnerships with subprime lenders in San Antonio.", website: "https://www.redmccombstoyota.com/finance/low-credit-financing/" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="san-antonio-tx"

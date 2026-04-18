@@ -79,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Motor City Credit Union Auto",
+    name: "Jefferson Chevrolet",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -87,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Wayne County specialist for subprime auto",
+    highlight: "Subprime auto financing for those with past credit challenges near Dearborn.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Michigan Auto Approval",
+    name: "Roy O'Brien Ford",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -101,7 +101,7 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Detroit-area lender network for all credit types",
+    highlight: "Subprime auto loans for individuals with less-than-perfect credit history.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
@@ -147,7 +147,7 @@ export default function CityDetroitMiSecondChanceAutoLoans() {
       city="Detroit"
       state="MI"
       county="Wayne County"
-      dealerships={["Motor City Auto Credit", "Detroit BHPH", "Wayne County Car Finance", "Michigan Auto Approval"]}
+      dealerships={[{ name: "Jefferson Chevrolet", note: "Subprime auto financing for those with past credit challenges near Dearborn.", website: "https://www.jeffersonchevrolet.com/subprime-financing-near-dearborn-mi.html" }, { name: "Roy O'Brien Ford", note: "Subprime auto loans for individuals with less-than-perfect credit history.", website: "https://www.royobrien.net/subprime-auto-financing-st-clair-shores-mi.htm" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="detroit-mi"

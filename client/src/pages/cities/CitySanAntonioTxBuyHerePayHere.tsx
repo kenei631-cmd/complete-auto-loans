@@ -6,8 +6,6 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
-import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
-
 
 const lenders: CityLender[] = [
   {
@@ -81,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Alamo Auto Finance",
+    name: "River City FCU",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -89,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Bexar County specialist for subprime borrowers",
+    highlight: "Secured auto loans for individuals with bad credit in San Antonio.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "San Antonio BHPH Network",
+    name: "Red McCombs Toyota",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -103,43 +101,10 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "In-house financing across 20+ SA dealerships",
+    highlight: "Bad credit auto loans through partnerships with subprime lenders in San Antonio.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
-  }
-];
-
-const localDealers: LocalDealer[] = [
-  {
-    name: "Race Auto Sales",
-    area: "North Central and East San Antonio",
-    bestFor: "Best for rebuilding credit",
-    creditMin: "No minimum",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: true,
-    keyFact: "Quick and straightforward approval process. Reports to credit bureaus. Drive away same day.",
-    website: "https://www.myraceautos.com/",
-  },
-  {
-    name: "Texas Auto Dealer",
-    area: "San Antonio, TX",
-    bestFor: "Best for credit building with warranty",
-    creditMin: "No minimum",
-    downPayment: "$1,000+",
-    reportsToBureaus: true,
-    keyFact: "30-day limited warranty on in-house financed vehicles. Reports to bureaus. $200 referral program.",
-    website: "https://txautodealer.com/",
-  },
-  {
-    name: "Bill's Auto & Truck Sales",
-    area: "Southwest San Antonio",
-    bestFor: "Best for flexible financing and large inventory",
-    creditMin: "No minimum",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: null,
-    keyFact: "Huge inventory with in-house financing. Streamlined process designed to minimize time at the dealership.",
-    website: "https://www.buyherepayheresanantonio.com/",
   }
 ];
 
@@ -174,7 +139,6 @@ export default function CitySanAntonioTxBuyHerePayHere() {
   });
 
   return (
-    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in San Antonio, TX (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in San Antonio, TX"
@@ -183,7 +147,7 @@ export default function CitySanAntonioTxBuyHerePayHere() {
       city="San Antonio"
       state="TX"
       county="Bexar County"
-      dealerships={["Alamo Auto Credit", "San Antonio BHPH", "Bexar County Car Finance", "Texas Auto Approval"]}
+      dealerships={[{ name: "River City FCU", note: "Secured auto loans for individuals with bad credit in San Antonio.", website: "https://www.rivercityfcu.org/bad-credit-auto-loan" }, { name: "Red McCombs Toyota", note: "Bad credit auto loans through partnerships with subprime lenders in San Antonio.", website: "https://www.redmccombstoyota.com/finance/low-credit-financing/" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="san-antonio-tx"
@@ -191,9 +155,5 @@ export default function CitySanAntonioTxBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
-    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
-      <LocalDealersSection dealers={localDealers} city="San Antonio" state="TX" />
-    </div>
-    </>
   );
 }

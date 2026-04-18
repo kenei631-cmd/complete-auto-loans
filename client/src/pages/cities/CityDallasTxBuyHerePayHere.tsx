@@ -6,8 +6,6 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
-import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
-
 
 const lenders: CityLender[] = [
   {
@@ -81,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Metroplex Auto Finance",
+    name: "Auto City Credit",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -89,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "DFW-area lender specializing in bad credit",
+    highlight: "In-house financing for bad or no credit, focused on income and stability.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Big D Auto Credit",
+    name: "Rusty Wallis Honda",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -103,53 +101,10 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Dallas County's top BHPH network",
+    highlight: "Sub-prime financing for low credit scores, no credit, and discharged bankruptcy.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
-  }
-];
-
-const localDealers: LocalDealer[] = [
-  {
-    name: "Auto City Credit",
-    area: "DFW area, Dallas",
-    bestFor: "Best for bad credit or no credit",
-    creditMin: "No minimum",
-    downPayment: "As low as $500",
-    reportsToBureaus: true,
-    keyFact: "Serving Dallas since 1958. 24-month/24,000-mile limited warranty and 3-day money-back guarantee on every vehicle.",
-    website: "https://www.autocitycredit.com/",
-  },
-  {
-    name: "Auto Cave",
-    area: "Dallas, TX",
-    bestFor: "Best for buyers without SSN",
-    creditMin: "No minimum — passport accepted",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: true,
-    keyFact: "Accepts passport-only buyers (ITIN-friendly). 3-year limited warranty on every vehicle. Reports to credit bureaus.",
-    website: "https://theautocave.com/",
-  },
-  {
-    name: "YouDrive Auto",
-    area: "Oak Cliff area, Dallas",
-    bestFor: "Best for rebuilding credit",
-    creditMin: "No minimum",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: true,
-    keyFact: "Reports to all three credit bureaus. Includes limited warranty and complimentary oil changes.",
-    website: "https://youdriveauto.com/",
-  },
-  {
-    name: "Auto Liquidators Plus",
-    area: "DFW area — 3 locations",
-    bestFor: "Best for less-than-perfect credit",
-    creditMin: "Less-than-perfect credit accepted",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: null,
-    keyFact: "3-year/36,000-mile warranty included on every vehicle. Three convenient DFW locations.",
-    website: "https://www.autoliquidatorsplus.com/",
   }
 ];
 
@@ -184,7 +139,6 @@ export default function CityDallasTxBuyHerePayHere() {
   });
 
   return (
-    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Dallas, TX (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Dallas, TX"
@@ -193,7 +147,7 @@ export default function CityDallasTxBuyHerePayHere() {
       city="Dallas"
       state="TX"
       county="Dallas County"
-      dealerships={["Big D Auto Credit", "Dallas BHPH Motors", "Metroplex Car Finance", "Texas Auto Approval"]}
+      dealerships={[{ name: "Auto City Credit", note: "In-house financing for bad or no credit, focused on income and stability.", website: "https://www.autocitycredit.com/" }, { name: "Rusty Wallis Honda", note: "Sub-prime financing for low credit scores, no credit, and discharged bankruptcy.", website: "https://www.rustywallishonda.com/bad-credit-car-loans.htm" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="dallas-tx"
@@ -201,9 +155,5 @@ export default function CityDallasTxBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
-    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
-      <LocalDealersSection dealers={localDealers} city="Dallas" state="TX" />
-    </div>
-    </>
   );
 }

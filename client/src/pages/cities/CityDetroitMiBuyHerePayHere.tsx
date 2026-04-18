@@ -6,8 +6,6 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
-import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
-
 
 const lenders: CityLender[] = [
   {
@@ -81,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Motor City Credit Union Auto",
+    name: "Jefferson Chevrolet",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -89,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Wayne County specialist for subprime auto",
+    highlight: "Subprime auto financing for those with past credit challenges near Dearborn.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Michigan Auto Approval",
+    name: "Roy O'Brien Ford",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -103,43 +101,10 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Detroit-area lender network for all credit types",
+    highlight: "Subprime auto loans for individuals with less-than-perfect credit history.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
-  }
-];
-
-const localDealers: LocalDealer[] = [
-  {
-    name: "Legend Motors",
-    area: "Detroit metro — multiple locations",
-    bestFor: "Best for bad credit or fixed income",
-    creditMin: "No minimum — repo and fixed income accepted",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: null,
-    keyFact: "Family-owned for 25 years. Multiple Detroit-area locations with full service and collision department.",
-    website: "https://www.legendmotors.com/",
-  },
-  {
-    name: "Dearborn Total Automotive",
-    area: "Dearborn, Detroit metro",
-    bestFor: "Best for no credit check with employment",
-    creditMin: "No credit check (employment required)",
-    downPayment: "Flexible options",
-    reportsToBureaus: null,
-    keyFact: "50-year anniversary dealership. Free oil changes, on-site service center, detail and body shops.",
-    website: "https://dearborntotalautomotive.com/",
-  },
-  {
-    name: "Back On Track Auto Sales",
-    area: "Hamtramck, MI (Detroit area)",
-    bestFor: "Best for various credit situations",
-    creditMin: "Not publicly listed",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: null,
-    keyFact: "Friendly staff focused on getting buyers back on the road regardless of credit history.",
-    website: "https://backontrackdetroit.com/",
   }
 ];
 
@@ -174,7 +139,6 @@ export default function CityDetroitMiBuyHerePayHere() {
   });
 
   return (
-    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Detroit, MI (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Detroit, MI"
@@ -183,7 +147,7 @@ export default function CityDetroitMiBuyHerePayHere() {
       city="Detroit"
       state="MI"
       county="Wayne County"
-      dealerships={["Motor City Auto Credit", "Detroit BHPH", "Wayne County Car Finance", "Michigan Auto Approval"]}
+      dealerships={[{ name: "Jefferson Chevrolet", note: "Subprime auto financing for those with past credit challenges near Dearborn.", website: "https://www.jeffersonchevrolet.com/subprime-financing-near-dearborn-mi.html" }, { name: "Roy O'Brien Ford", note: "Subprime auto loans for individuals with less-than-perfect credit history.", website: "https://www.royobrien.net/subprime-auto-financing-st-clair-shores-mi.htm" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="detroit-mi"
@@ -191,9 +155,5 @@ export default function CityDetroitMiBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
-    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
-      <LocalDealersSection dealers={localDealers} city="Detroit" state="MI" />
-    </div>
-    </>
   );
 }

@@ -6,8 +6,6 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
-import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
-
 
 const lenders: CityLender[] = [
   {
@@ -81,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Queen City Auto Finance",
+    name: "Blue Flame Credit Union",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -89,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Mecklenburg County's top bad credit lender",
+    highlight: "Secured auto loans to establish or rebuild credit with lower rates in Charlotte.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Carolina Auto Approval",
+    name: "Skyla Credit Union",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -103,43 +101,10 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Charlotte-area network for all credit situations",
+    highlight: "Auto loans and refinancing with flexible terms for various credit profiles.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
-  }
-];
-
-const localDealers: LocalDealer[] = [
-  {
-    name: "Auto America",
-    area: "Charlotte, NC",
-    bestFor: "Best for bad credit or no credit",
-    creditMin: "No minimum",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: null,
-    keyFact: "Acts as both lender and dealer — no third-party bank required. Streamlined in-house approval.",
-    website: "https://myautoamerica.com/",
-  },
-  {
-    name: "George's Quick Auto Credit",
-    area: "Charlotte, NC",
-    bestFor: "Best for rebuilding credit",
-    creditMin: "No minimum",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: true,
-    keyFact: "Instant approval and flexible payment schedules. Reports to credit bureaus to help rebuild your score.",
-    website: "https://georgesquickautocredit.com/",
-  },
-  {
-    name: "Byrider Charlotte",
-    area: "Charlotte, NC",
-    bestFor: "Best for flexible financing and post-purchase support",
-    creditMin: "No minimum",
-    downPayment: "$500+",
-    reportsToBureaus: null,
-    keyFact: "Every vehicle undergoes a detailed inspection and comes with a limited warranty. Multiple payment options.",
-    website: "https://www.byrider.com/",
   }
 ];
 
@@ -174,7 +139,6 @@ export default function CityCharlotteNcBuyHerePayHere() {
   });
 
   return (
-    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Charlotte, NC (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Charlotte, NC"
@@ -183,7 +147,7 @@ export default function CityCharlotteNcBuyHerePayHere() {
       city="Charlotte"
       state="NC"
       county="Mecklenburg County"
-      dealerships={["Queen City Auto Credit", "Charlotte BHPH", "Mecklenburg Car Finance", "Carolina Auto Approval"]}
+      dealerships={[{ name: "Blue Flame Credit Union", note: "Secured auto loans to establish or rebuild credit with lower rates in Charlotte.", website: "https://www.blueflamecu.org/" }, { name: "Skyla Credit Union", note: "Auto loans and refinancing with flexible terms for various credit profiles.", website: "https://www.skylacu.com/" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="charlotte-nc"
@@ -191,9 +155,5 @@ export default function CityCharlotteNcBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
-    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
-      <LocalDealersSection dealers={localDealers} city="Charlotte" state="NC" />
-    </div>
-    </>
   );
 }

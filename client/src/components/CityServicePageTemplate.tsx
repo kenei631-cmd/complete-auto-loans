@@ -64,8 +64,8 @@ export interface CityServicePageProps {
   state: string;
   /** County / region for sidebar copy, e.g. "Maricopa County" */
   county: string;
-  /** 3–5 local dealership names for sidebar */
-  dealerships: string[];
+  /** 2–4 local dealerships/lenders for sidebar — must be real, verified businesses */
+  dealerships: { name: string; note?: string; website?: string }[];
   /** Ranked lender objects */
   lenders: CityLender[];
   /** FAQ items */
@@ -676,24 +676,57 @@ export default function CityServicePageTemplate({
                 <div className="flex flex-col gap-2">
                   {dealerships.map((d) => (
                     <div
-                      key={d}
-                      className="flex items-center gap-2 p-2.5 rounded-lg"
+                      key={d.name}
+                      className="flex flex-col gap-0.5 p-2.5 rounded-lg"
                       style={{ background: "oklch(0.97 0.004 80)" }}
                     >
-                      <MapPin
-                        size={11}
-                        style={{ color: "oklch(0.578 0.098 186)", flexShrink: 0 }}
-                      />
-                      <span
-                        style={{
-                          fontFamily: "'DM Sans', sans-serif",
-                          fontSize: "0.78rem",
-                          color: "oklch(0.32 0.04 251)",
-                          fontWeight: 500,
-                        }}
-                      >
-                        {d}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <MapPin
+                          size={11}
+                          style={{ color: "oklch(0.578 0.098 186)", flexShrink: 0 }}
+                        />
+                        {d.website ? (
+                          <a
+                            href={d.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                              fontFamily: "'DM Sans', sans-serif",
+                              fontSize: "0.78rem",
+                              color: "oklch(0.38 0.09 251)",
+                              fontWeight: 600,
+                              textDecoration: "underline",
+                              textDecorationColor: "oklch(0.578 0.098 186 / 0.4)",
+                            }}
+                          >
+                            {d.name}
+                          </a>
+                        ) : (
+                          <span
+                            style={{
+                              fontFamily: "'DM Sans', sans-serif",
+                              fontSize: "0.78rem",
+                              color: "oklch(0.32 0.04 251)",
+                              fontWeight: 600,
+                            }}
+                          >
+                            {d.name}
+                          </span>
+                        )}
+                      </div>
+                      {d.note && (
+                        <p
+                          style={{
+                            fontFamily: "'DM Sans', sans-serif",
+                            fontSize: "0.70rem",
+                            color: "oklch(0.52 0.03 251)",
+                            lineHeight: 1.4,
+                            paddingLeft: "1.1rem",
+                          }}
+                        >
+                          {d.note}
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>

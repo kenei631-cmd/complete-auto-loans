@@ -79,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Lone Star Auto Finance",
+    name: "Fort Worth City Credit Union",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -87,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Tarrant County specialist for subprime borrowers",
+    highlight: "First-Time Auto Buyer program for members with limited credit history.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Cowtown Auto Credit",
+    name: "Tarrant County's Credit Union",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -101,7 +101,7 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Fort Worth's largest in-house financing dealer",
+    highlight: "Easy auto loans with a Payment Saver program for lower monthly payments.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
@@ -147,7 +147,7 @@ export default function CityFortWorthTxNoCreditCheckCarLoans() {
       city="Fort Worth"
       state="TX"
       county="Tarrant County"
-      dealerships={["Cowtown Auto Credit", "Fort Worth BHPH", "Tarrant Car Finance", "Lone Star Auto Approval"]}
+      dealerships={[{ name: "Fort Worth City Credit Union", note: "First-Time Auto Buyer program for members with limited credit history.", website: "https://fwccu.org/vehicle-loans" }, { name: "Tarrant County's Credit Union", note: "Easy auto loans with a Payment Saver program for lower monthly payments.", website: "https://tccu-tx.com/" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="fort-worth-tx"

@@ -12,21 +12,39 @@ import { Menu, X, ChevronDown, Shield, Star, ArrowRight } from "lucide-react";
 
 const LOGO_URL = "/manus-storage/logo_white_text_b1a4b277.png";
 
-const bestOfLinks = [
-  { label: "Bad Credit Auto Loans", href: "/best-bad-credit-auto-loans" },
-  { label: "Buy Here Pay Here", href: "/best-buy-here-pay-here-dealerships" },
-  { label: "No Money Down", href: "/best-no-money-down-car-loans-bad-credit" },
-  { label: "Guaranteed Approval", href: "/best-guaranteed-approval-auto-loans" },
-  { label: "No Credit Check", href: "/best-no-credit-check-car-loans" },
-  { label: "Pre-Approved Loans", href: "/best-pre-approved-car-loans-bad-credit" },
-  { label: "First-Time Buyers", href: "/best-first-time-car-buyer-loans-no-credit" },
-  { label: "After Bankruptcy", href: "/best-car-loans-after-bankruptcy" },
-  { label: "After Repossession", href: "/best-auto-loans-after-repossession" },
-  { label: "Second Chance", href: "/best-second-chance-auto-loans" },
-  { label: "ITIN Auto Loans", href: "/best-itin-auto-loans" },
-  { label: "Refinance Bad Credit", href: "/best-auto-refinance-bad-credit" },
-  { label: "Low Income Buyers", href: "/best-car-loans-low-income" },
+// Mega menu: 3 columns grouped by borrower situation
+const megaMenuColumns = [
+  {
+    heading: "Credit Challenges",
+    links: [
+      { label: "Bad Credit Auto Loans", href: "/best-bad-credit-auto-loans/", desc: "Scores 300–600 approved" },
+      { label: "No Credit Check", href: "/best-no-credit-check-car-loans/", desc: "No hard inquiry required" },
+      { label: "Second Chance Loans", href: "/best-second-chance-auto-loans/", desc: "Fresh start financing" },
+      { label: "Low Income Buyers", href: "/best-car-loans-low-income/", desc: "Income-based approval" },
+      { label: "Buy Here Pay Here", href: "/best-buy-here-pay-here-dealerships/", desc: "In-house dealer financing" },
+    ],
+  },
+  {
+    heading: "Special Situations",
+    links: [
+      { label: "After Bankruptcy", href: "/best-car-loans-after-bankruptcy/", desc: "Ch. 7 & Ch. 13 welcome" },
+      { label: "After Repossession", href: "/best-auto-loans-after-repossession/", desc: "Repo on record? Still approved" },
+      { label: "First-Time Buyers", href: "/best-first-time-car-buyer-loans-no-credit/", desc: "No credit history needed" },
+      { label: "ITIN Auto Loans", href: "/best-itin-auto-loans/", desc: "No SSN required" },
+      { label: "Refinance Bad Credit", href: "/best-auto-refinance-bad-credit/", desc: "Lower your current rate" },
+    ],
+  },
+  {
+    heading: "Loan Type",
+    links: [
+      { label: "No Money Down", href: "/best-no-money-down-car-loans-bad-credit/", desc: "$0 down options available" },
+      { label: "Guaranteed Approval", href: "/best-guaranteed-approval-auto-loans/", desc: "Near-guaranteed programs" },
+    ],
+  },
 ];
+
+// Flat list for mobile accordion (keep existing mobile behavior)
+const bestOfLinks = megaMenuColumns.flatMap((col) => col.links);
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -108,35 +126,144 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
               {dropdownOpen && (
                 <div
-                  className="absolute top-full left-0 mt-1.5 rounded-xl overflow-hidden z-50"
+                  className="absolute top-full left-0 mt-1.5 rounded-2xl z-50"
                   style={{
-                    background: "oklch(0.20 0.055 240)",
+                    background: "oklch(0.18 0.055 240)",
                     border: "1px solid rgba(255,255,255,0.09)",
-                    boxShadow: "0 20px 60px oklch(0.10 0.05 240 / 0.7)",
-                    width: "230px",
+                    boxShadow: "0 24px 80px oklch(0.08 0.05 240 / 0.75)",
+                    width: "680px",
+                    maxWidth: "calc(100vw - 2rem)",
                   }}
                 >
-                  <div className="p-1.5">
-                    {bestOfLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all"
-                        style={{ color: "rgba(255,255,255,0.72)", fontFamily: "'DM Sans', sans-serif" }}
-                        onMouseEnter={(e) => {
-                          const el = e.currentTarget as HTMLElement;
-                          el.style.background = "rgba(255,255,255,0.06)";
-                          el.style.color = "oklch(0.70 0.075 186)";
-                        }}
-                        onMouseLeave={(e) => {
-                          const el = e.currentTarget as HTMLElement;
-                          el.style.background = "transparent";
-                          el.style.color = "rgba(255,255,255,0.72)";
+                  {/* Mega menu header */}
+                  <div
+                    className="px-6 py-3 flex items-center justify-between"
+                    style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "'DM Sans', sans-serif",
+                        fontSize: "0.68rem",
+                        fontWeight: 700,
+                        color: "oklch(0.65 0.085 186)",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      Best-Of Guides — 13 Loan Types Reviewed
+                    </span>
+                    <Link
+                      href="/locations/"
+                      style={{
+                        fontFamily: "'DM Sans', sans-serif",
+                        fontSize: "0.72rem",
+                        color: "oklch(0.65 0.085 186)",
+                        fontWeight: 600,
+                        textDecoration: "underline",
+                        textDecorationColor: "oklch(0.65 0.085 186 / 0.4)",
+                      }}
+                    >
+                      View All Cities
+                    </Link>
+                  </div>
+
+                  {/* 3-column grid */}
+                  <div className="grid grid-cols-3 gap-0 p-4">
+                    {megaMenuColumns.map((col, colIdx) => (
+                      <div
+                        key={col.heading}
+                        className="px-2"
+                        style={{
+                          borderRight: colIdx < megaMenuColumns.length - 1
+                            ? "1px solid rgba(255,255,255,0.06)"
+                            : "none",
                         }}
                       >
-                        {link.label}
-                      </Link>
+                        <p
+                          className="px-2 pb-2"
+                          style={{
+                            fontFamily: "'DM Sans', sans-serif",
+                            fontSize: "0.65rem",
+                            fontWeight: 700,
+                            color: "oklch(0.55 0.06 186)",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.09em",
+                          }}
+                        >
+                          {col.heading}
+                        </p>
+                        <div className="flex flex-col gap-0.5">
+                          {col.links.map((link) => (
+                            <Link
+                              key={link.href}
+                              href={link.href}
+                              className="flex flex-col px-2 py-2 rounded-lg transition-all"
+                              style={{ color: "rgba(255,255,255,0.80)" }}
+                              onMouseEnter={(e) => {
+                                const el = e.currentTarget as HTMLElement;
+                                el.style.background = "rgba(255,255,255,0.05)";
+                              }}
+                              onMouseLeave={(e) => {
+                                const el = e.currentTarget as HTMLElement;
+                                el.style.background = "transparent";
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: "'DM Sans', sans-serif",
+                                  fontSize: "0.80rem",
+                                  fontWeight: 600,
+                                  color: "rgba(255,255,255,0.88)",
+                                  lineHeight: 1.3,
+                                }}
+                              >
+                                {link.label}
+                              </span>
+                              <span
+                                style={{
+                                  fontFamily: "'DM Sans', sans-serif",
+                                  fontSize: "0.68rem",
+                                  color: "rgba(255,255,255,0.40)",
+                                  lineHeight: 1.3,
+                                  marginTop: "1px",
+                                }}
+                              >
+                                {link.desc}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     ))}
+                  </div>
+
+                  {/* Bottom CTA bar */}
+                  <div
+                    className="px-6 py-3 flex items-center justify-between rounded-b-2xl"
+                    style={{ background: "oklch(0.14 0.05 240)", borderTop: "1px solid rgba(255,255,255,0.07)" }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "'DM Sans', sans-serif",
+                        fontSize: "0.75rem",
+                        color: "rgba(255,255,255,0.45)",
+                      }}
+                    >
+                      Not sure which loan type fits your situation?
+                    </span>
+                    <Link href="/apply/">
+                      <button
+                        className="flex items-center gap-1.5 px-4 py-1.5 rounded-md text-xs font-bold transition-all"
+                        style={{
+                          background: "oklch(0.76 0.16 75)",
+                          color: "oklch(0.15 0.04 251)",
+                          fontFamily: "'DM Sans', sans-serif",
+                        }}
+                      >
+                        Get Matched Free
+                        <ArrowRight size={11} />
+                      </button>
+                    </Link>
                   </div>
                 </div>
               )}

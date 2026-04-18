@@ -6,8 +6,6 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
-import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
-
 
 const lenders: CityLender[] = [
   {
@@ -81,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Lone Star Auto Finance",
+    name: "Fort Worth City Credit Union",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -89,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Tarrant County specialist for subprime borrowers",
+    highlight: "First-Time Auto Buyer program for members with limited credit history.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Cowtown Auto Credit",
+    name: "Tarrant County's Credit Union",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -103,43 +101,10 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Fort Worth's largest in-house financing dealer",
+    highlight: "Easy auto loans with a Payment Saver program for lower monthly payments.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
-  }
-];
-
-const localDealers: LocalDealer[] = [
-  {
-    name: "Russell Smith Auto",
-    area: "McCart Avenue, Fort Worth",
-    bestFor: "Best for bad credit or no credit",
-    creditMin: "No minimum",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: null,
-    keyFact: "Family-owned, 19 years in business. In-house financing with same-day approvals.",
-    website: "https://www.russellsmithauto.com/",
-  },
-  {
-    name: "Drive Casa",
-    area: "Alta Mere Dr, Fort Worth",
-    bestFor: "Best for rebuilding credit",
-    creditMin: "No minimum",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: true,
-    keyFact: "Reports to credit bureaus. 6-month/6,000-mile limited warranty and complimentary oil changes included.",
-    website: "https://www.drivecasa.com/",
-  },
-  {
-    name: "Luxury Auto Inc",
-    area: "E Lancaster Ave — 2 locations, Fort Worth",
-    bestFor: "Best for quick approval",
-    creditMin: "No minimum",
-    downPayment: "Low down payments",
-    reportsToBureaus: null,
-    keyFact: "35+ years in business. Most customers approved in under 30 minutes. Two Fort Worth locations.",
-    website: "https://luxuryautoinc.com/",
   }
 ];
 
@@ -174,7 +139,6 @@ export default function CityFortWorthTxBuyHerePayHere() {
   });
 
   return (
-    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Fort Worth, TX (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Fort Worth, TX"
@@ -183,7 +147,7 @@ export default function CityFortWorthTxBuyHerePayHere() {
       city="Fort Worth"
       state="TX"
       county="Tarrant County"
-      dealerships={["Cowtown Auto Credit", "Fort Worth BHPH", "Tarrant Car Finance", "Lone Star Auto Approval"]}
+      dealerships={[{ name: "Fort Worth City Credit Union", note: "First-Time Auto Buyer program for members with limited credit history.", website: "https://fwccu.org/vehicle-loans" }, { name: "Tarrant County's Credit Union", note: "Easy auto loans with a Payment Saver program for lower monthly payments.", website: "https://tccu-tx.com/" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="fort-worth-tx"
@@ -191,9 +155,5 @@ export default function CityFortWorthTxBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
-    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
-      <LocalDealersSection dealers={localDealers} city="Fort Worth" state="TX" />
-    </div>
-    </>
   );
 }

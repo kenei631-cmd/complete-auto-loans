@@ -6,8 +6,6 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
-import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
-
 
 const lenders: CityLender[] = [
   {
@@ -81,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Green Country Auto Finance",
+    name: "Red Crown Credit Union",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -89,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Tulsa County's leading subprime lender",
+    highlight: "Drive Forward program offers low credit auto loans to help members improve credit.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Sooner Auto Approval",
+    name: "Keystone Chevrolet",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -103,53 +101,10 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Oklahoma-based network for bad credit borrowers",
+    highlight: "Finance Center provides bad credit car loan services to Tulsa-area customers.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
-  }
-];
-
-const localDealers: LocalDealer[] = [
-  {
-    name: "Express Credit Auto Tulsa",
-    area: "S Memorial Dr, Tulsa",
-    bestFor: "Best for high approval rate",
-    creditMin: "No minimum",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: true,
-    keyFact: "Large selection of high-quality used cars. Reports to credit bureaus to help rebuild your score.",
-    website: "https://www.expresscreditauto.com/",
-  },
-  {
-    name: "Regal Car Sales and Credit",
-    area: "S Memorial Dr, Tulsa",
-    bestFor: "Best for no credit check with warranty",
-    creditMin: "No credit check",
-    downPayment: "Not publicly listed",
-    reportsToBureaus: null,
-    keyFact: "12-month used car warranty on every vehicle sold. No credit check required.",
-    website: "https://regalcars.com/tulsa/",
-  },
-  {
-    name: "Liberty Auto Finance",
-    area: "S Memorial Drive, Tulsa",
-    bestFor: "Best for flexible financing options",
-    creditMin: "No credit or low credit accepted",
-    downPayment: "$500 (per customer reviews)",
-    reportsToBureaus: null,
-    keyFact: "12-month/12,000-mile limited powertrain warranty and 48-hour no-hassle exchange policy.",
-    website: "https://libertyautofinance.com/",
-  },
-  {
-    name: "Scissortail Auto Sales",
-    area: "Broken Arrow, OK (Tulsa metro)",
-    bestFor: "Best for building credit",
-    creditMin: "No minimum",
-    downPayment: "$500+",
-    reportsToBureaus: true,
-    keyFact: "Reports to credit bureaus. Requires 2 paystubs, proof of residency, insurance, and state ID.",
-    website: "https://www.scissortailautosales.com/",
   }
 ];
 
@@ -184,7 +139,6 @@ export default function CityTulsaOkBuyHerePayHere() {
   });
 
   return (
-    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Tulsa, OK (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Tulsa, OK"
@@ -193,7 +147,7 @@ export default function CityTulsaOkBuyHerePayHere() {
       city="Tulsa"
       state="OK"
       county="Tulsa County"
-      dealerships={["Green Country Auto Credit", "Tulsa BHPH Motors", "Oklahoma Car Finance", "Sooner Auto Approval"]}
+      dealerships={[{ name: "Red Crown Credit Union", note: "Drive Forward program offers low credit auto loans to help members improve credit.", website: "https://redcrowncu.org/driveforward/" }, { name: "Keystone Chevrolet", note: "Finance Center provides bad credit car loan services to Tulsa-area customers.", website: "https://www.keystonechevrolet.com/bad-credit-car-loan-dealer-tulsa-ok/" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="tulsa-ok"
@@ -201,9 +155,5 @@ export default function CityTulsaOkBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
-    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
-      <LocalDealersSection dealers={localDealers} city="Tulsa" state="OK" />
-    </div>
-    </>
   );
 }

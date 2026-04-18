@@ -79,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Pikes Peak Credit Union Auto",
+    name: "Perkins Motors",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -87,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "El Paso County's top subprime lender",
+    highlight: "Low-to-no credit auto loans with quick approvals in Colorado Springs.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Colorado Auto Approval",
+    name: "Wilcoxson GMC",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -101,7 +101,7 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Local network serving Colorado Springs metro",
+    highlight: "Bad credit auto loans for various vehicles in the Colorado Springs area.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
@@ -147,7 +147,7 @@ export default function CityColoradoSpringsCoBadCreditAutoLoans() {
       city="Colorado Springs"
       state="CO"
       county="El Paso County"
-      dealerships={["Pikes Peak Auto Credit", "Springs BHPH Motors", "Colorado Auto Approval", "Front Range Car Credit"]}
+      dealerships={[{ name: "Perkins Motors", note: "Low-to-no credit auto loans with quick approvals in Colorado Springs.", website: "https://perkinsmotors.com/" }, { name: "Wilcoxson GMC", note: "Bad credit auto loans for various vehicles in the Colorado Springs area.", website: "https://www.wilcoxsonautos.com/" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="colorado-springs-co"

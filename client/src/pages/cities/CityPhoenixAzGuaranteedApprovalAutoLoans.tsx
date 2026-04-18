@@ -79,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Desert Financial Auto Loans",
+    name: "Rocky's Auto Credit",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -87,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Phoenix-area credit union with strong subprime programs",
+    highlight: "Phoenix in-house financing for bad credit, no credit, and past repossessions.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Arizona Auto Approval",
+    name: "Courtesy Chevrolet",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -101,7 +101,7 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Local dealership network serving Maricopa County",
+    highlight: "Simple, fair auto loans for bad credit and no credit customers in Phoenix.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
@@ -147,7 +147,7 @@ export default function CityPhoenixAzGuaranteedApprovalAutoLoans() {
       city="Phoenix"
       state="AZ"
       county="Maricopa County"
-      dealerships={["Desert Auto Finance", "Valley BHPH Motors", "Sun State Car Credit", "Arizona Auto Approval"]}
+      dealerships={[{ name: "Rocky's Auto Credit", note: "Phoenix in-house financing for bad credit, no credit, and past repossessions.", website: "https://www.rockysautocredit.com/" }, { name: "Courtesy Chevrolet", note: "Simple, fair auto loans for bad credit and no credit customers in Phoenix.", website: "https://www.courtesychev.com/bad-credit-no-credit-auto-loans-in-phoenix-az/" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="phoenix-az"

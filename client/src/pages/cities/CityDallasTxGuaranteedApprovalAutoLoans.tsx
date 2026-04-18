@@ -79,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Metroplex Auto Finance",
+    name: "Auto City Credit",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -87,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "DFW-area lender specializing in bad credit",
+    highlight: "In-house financing for bad or no credit, focused on income and stability.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Big D Auto Credit",
+    name: "Rusty Wallis Honda",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -101,7 +101,7 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Dallas County's top BHPH network",
+    highlight: "Sub-prime financing for low credit scores, no credit, and discharged bankruptcy.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
@@ -147,7 +147,7 @@ export default function CityDallasTxGuaranteedApprovalAutoLoans() {
       city="Dallas"
       state="TX"
       county="Dallas County"
-      dealerships={["Big D Auto Credit", "Dallas BHPH Motors", "Metroplex Car Finance", "Texas Auto Approval"]}
+      dealerships={[{ name: "Auto City Credit", note: "In-house financing for bad or no credit, focused on income and stability.", website: "https://www.autocitycredit.com/" }, { name: "Rusty Wallis Honda", note: "Sub-prime financing for low credit scores, no credit, and discharged bankruptcy.", website: "https://www.rustywallishonda.com/bad-credit-car-loans.htm" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="dallas-tx"

@@ -79,7 +79,7 @@ const lenders: CityLender[] = [
     isTop: false,
   },
   {
-    name: "Green Country Auto Finance",
+    name: "Red Crown Credit Union",
     badge: null,
     rating: 4.2,
     reviews: 180,
@@ -87,13 +87,13 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Tulsa County's leading subprime lender",
+    highlight: "Drive Forward program offers low credit auto loans to help members improve credit.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
   },
   {
-    name: "Sooner Auto Approval",
+    name: "Keystone Chevrolet",
     badge: null,
     rating: 4.2,
     reviews: 225,
@@ -101,7 +101,7 @@ const lenders: CityLender[] = [
     aprRange: "8.9% – 34.9%",
     down: "$500+",
     approval: "78%",
-    highlight: "Oklahoma-based network for bad credit borrowers",
+    highlight: "Finance Center provides bad credit car loan services to Tulsa-area customers.",
     pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
     href: "/apply",
     isTop: false,
@@ -147,7 +147,7 @@ export default function CityTulsaOkCarLoansAfterBankruptcy() {
       city="Tulsa"
       state="OK"
       county="Tulsa County"
-      dealerships={["Green Country Auto Credit", "Tulsa BHPH Motors", "Oklahoma Car Finance", "Sooner Auto Approval"]}
+      dealerships={[{ name: "Red Crown Credit Union", note: "Drive Forward program offers low credit auto loans to help members improve credit.", website: "https://redcrowncu.org/driveforward/" }, { name: "Keystone Chevrolet", note: "Finance Center provides bad credit car loan services to Tulsa-area customers.", website: "https://www.keystonechevrolet.com/bad-credit-car-loan-dealer-tulsa-ok/" }]}
       lenders={lenders}
       faqs={faqs}
       citySlug="tulsa-ok"
