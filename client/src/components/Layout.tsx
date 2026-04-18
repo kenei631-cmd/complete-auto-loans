@@ -79,9 +79,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
             <img
-              src="/manus-storage/logo_final_95e47a06.png"
+              src="/manus-storage/logo_white_text_ab989572.png"
               alt="Complete Auto Loans"
-              style={{ height: "52px", width: "auto", objectFit: "contain", filter: "brightness(1.15) drop-shadow(0 0 8px oklch(0.578 0.098 186 / 0.35))" }}
+              style={{ height: "56px", width: "auto", objectFit: "contain" }}
             />
           </Link>
 
