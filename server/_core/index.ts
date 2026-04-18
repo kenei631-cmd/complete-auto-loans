@@ -35,6 +35,10 @@ async function startServer() {
   const app = express();
   const server = createServer(app);
 
+  // Trust the reverse proxy (Manus hosting layer) so express-rate-limit reads
+  // the real client IP from X-Forwarded-For without throwing ERR_ERL_UNEXPECTED_X_FORWARDED_FOR
+  app.set("trust proxy", 1);
+
   // ── Security headers (Helmet) ──────────────────────────────────────────────
   // Skip Content-Security-Policy in development to allow Vite HMR
   app.use(

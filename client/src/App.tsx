@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useAuth } from "./_core/hooks/useAuth";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import TrailingSlashRedirect from "./components/TrailingSlashRedirect";
+import ScrollToTop from "./components/ScrollToTop";
 import { buildOrganizationSchema, buildWebSiteSchema } from "./lib/schema";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
@@ -160,6 +161,7 @@ function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <>
+      <ScrollToTop />
       <TrailingSlashRedirect />
       <Switch>
       <Route path="/" component={Home} />

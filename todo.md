@@ -83,3 +83,7 @@
 ## Review Count Update
 
 - [x] Replace all "11 Google Reviews" / "11 reviews" references with "238 Facebook Reviews" (5.0 rating) across all pages, schema, and components
+
+## UX Fixes
+
+- [x] Fix SPA scroll-to-top: page does not scroll to top on route change
