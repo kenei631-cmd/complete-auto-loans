@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Motor City Credit Union Auto",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Wayne County specialist for subprime auto",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Michigan Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Detroit-area lender network for all credit types",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDetroitMiCarLoansAfterBankruptcy() {
   useSEO({
     title: "Best Car Loans After Bankruptcy in Detroit, MI (2026) | Complete Auto Loans",
     description: "Find car loans after bankruptcy in Detroit, MI. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
-    canonical: "/detroit-mi/car-loans-after-bankruptcy",
+    canonical: "/detroit-mi/car-loans-after-bankruptcy/",
     schema: [
       buildLocalBusinessSchema({
         city: "Detroit",
         state: "MI",
         serviceType: "Car Loans After Bankruptcy",
-        url: "/detroit-mi/car-loans-after-bankruptcy",
+        url: "/detroit-mi/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Detroit, MI. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Detroit, MI", path: "/detroit-mi" },
-        { name: "Car Loans After Bankruptcy in Detroit, MI", path: "/detroit-mi/car-loans-after-bankruptcy" },
+        { name: "Detroit, MI", path: "/detroit-mi/" },
+        { name: "Car Loans After Bankruptcy in Detroit, MI", path: "/detroit-mi/car-loans-after-bankruptcy/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDetroitMiCarLoansAfterBankruptcy() {
       faqs={faqs}
       citySlug="detroit-mi"
       serviceSlug="car-loans-after-bankruptcy"
+      nationalGuideHref="/best-car-loans-after-bankruptcy/"
+      nationalGuideLabel="Best Car Loans After Bankruptcy of 2026"
     />
   );
 }

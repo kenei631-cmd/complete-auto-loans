@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Pikes Peak Credit Union Auto",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "El Paso County's top subprime lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Colorado Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Local network serving Colorado Springs metro",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColoradoSpringsCoGuaranteedApprovalAutoLoans() {
   useSEO({
     title: "Best Guaranteed Approval Auto Loans in Colorado Springs, CO (2026) | Complete Auto Loans",
     description: "Find guaranteed approval auto loans in Colorado Springs, CO. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
-    canonical: "/colorado-springs-co/guaranteed-approval-auto-loans",
+    canonical: "/colorado-springs-co/guaranteed-approval-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Colorado Springs",
         state: "CO",
         serviceType: "Guaranteed Approval Auto Loans",
-        url: "/colorado-springs-co/guaranteed-approval-auto-loans",
+        url: "/colorado-springs-co/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in Colorado Springs, CO. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Colorado Springs, CO", path: "/colorado-springs-co" },
-        { name: "Guaranteed Approval Auto Loans in Colorado Springs, CO", path: "/colorado-springs-co/guaranteed-approval-auto-loans" },
+        { name: "Colorado Springs, CO", path: "/colorado-springs-co/" },
+        { name: "Guaranteed Approval Auto Loans in Colorado Springs, CO", path: "/colorado-springs-co/guaranteed-approval-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColoradoSpringsCoGuaranteedApprovalAutoLoans() {
       faqs={faqs}
       citySlug="colorado-springs-co"
       serviceSlug="guaranteed-approval-auto-loans"
+      nationalGuideHref="/best-guaranteed-approval-auto-loans/"
+      nationalGuideLabel="Best Guaranteed Approval Auto Loans of 2026"
     />
   );
 }

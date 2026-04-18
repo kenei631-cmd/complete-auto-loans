@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Metroplex Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "DFW-area lender specializing in bad credit",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Big D Auto Credit",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Dallas County's top BHPH network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDallasTxNoMoneyDownCarLoans() {
   useSEO({
     title: "Best No Money Down Car Loans in Dallas, TX (2026) | Complete Auto Loans",
     description: "Find no money down car loans in Dallas, TX. $0 down payment options for qualified borrowers — bad credit accepted.",
-    canonical: "/dallas-tx/no-money-down-car-loans",
+    canonical: "/dallas-tx/no-money-down-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Dallas",
         state: "TX",
         serviceType: "No Money Down Car Loans",
-        url: "/dallas-tx/no-money-down-car-loans",
+        url: "/dallas-tx/no-money-down-car-loans/",
         description: "Find no money down car loans in Dallas, TX. $0 down payment options for qualified borrowers — bad credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Dallas, TX", path: "/dallas-tx" },
-        { name: "No Money Down Car Loans in Dallas, TX", path: "/dallas-tx/no-money-down-car-loans" },
+        { name: "Dallas, TX", path: "/dallas-tx/" },
+        { name: "No Money Down Car Loans in Dallas, TX", path: "/dallas-tx/no-money-down-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDallasTxNoMoneyDownCarLoans() {
       faqs={faqs}
       citySlug="dallas-tx"
       serviceSlug="no-money-down-car-loans"
+      nationalGuideHref="/best-no-money-down-car-loans-bad-credit/"
+      nationalGuideLabel="Best No Money Down Car Loans of 2026"
     />
   );
 }

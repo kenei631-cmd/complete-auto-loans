@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Windy City Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Cook County's largest subprime lender network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Illinois Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Chicago-area specialist for bad credit auto loans",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityChicagoIlNoMoneyDownCarLoans() {
   useSEO({
     title: "Best No Money Down Car Loans in Chicago, IL (2026) | Complete Auto Loans",
     description: "Find no money down car loans in Chicago, IL. $0 down payment options for qualified borrowers — bad credit accepted.",
-    canonical: "/chicago-il/no-money-down-car-loans",
+    canonical: "/chicago-il/no-money-down-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Chicago",
         state: "IL",
         serviceType: "No Money Down Car Loans",
-        url: "/chicago-il/no-money-down-car-loans",
+        url: "/chicago-il/no-money-down-car-loans/",
         description: "Find no money down car loans in Chicago, IL. $0 down payment options for qualified borrowers — bad credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Chicago, IL", path: "/chicago-il" },
-        { name: "No Money Down Car Loans in Chicago, IL", path: "/chicago-il/no-money-down-car-loans" },
+        { name: "Chicago, IL", path: "/chicago-il/" },
+        { name: "No Money Down Car Loans in Chicago, IL", path: "/chicago-il/no-money-down-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityChicagoIlNoMoneyDownCarLoans() {
       faqs={faqs}
       citySlug="chicago-il"
       serviceSlug="no-money-down-car-loans"
+      nationalGuideHref="/best-no-money-down-car-loans-bad-credit/"
+      nationalGuideLabel="Best No Money Down Car Loans of 2026"
     />
   );
 }

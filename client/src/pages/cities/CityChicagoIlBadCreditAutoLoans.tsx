@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Windy City Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Cook County's largest subprime lender network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Illinois Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Chicago-area specialist for bad credit auto loans",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityChicagoIlBadCreditAutoLoans() {
   useSEO({
     title: "Best Bad Credit Auto Loans in Chicago, IL (2026) | Complete Auto Loans",
     description: "Compare the best bad credit auto loans in Chicago, IL. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
-    canonical: "/chicago-il/bad-credit-auto-loans",
+    canonical: "/chicago-il/bad-credit-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Chicago",
         state: "IL",
         serviceType: "Bad Credit Auto Loans",
-        url: "/chicago-il/bad-credit-auto-loans",
+        url: "/chicago-il/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Chicago, IL. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Chicago, IL", path: "/chicago-il" },
-        { name: "Bad Credit Auto Loans in Chicago, IL", path: "/chicago-il/bad-credit-auto-loans" },
+        { name: "Chicago, IL", path: "/chicago-il/" },
+        { name: "Bad Credit Auto Loans in Chicago, IL", path: "/chicago-il/bad-credit-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityChicagoIlBadCreditAutoLoans() {
       faqs={faqs}
       citySlug="chicago-il"
       serviceSlug="bad-credit-auto-loans"
+      nationalGuideHref="/best-bad-credit-auto-loans/"
+      nationalGuideLabel="Best Bad Credit Auto Loans of 2026"
     />
   );
 }

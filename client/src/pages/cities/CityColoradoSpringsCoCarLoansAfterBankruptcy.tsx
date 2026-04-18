@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Pikes Peak Credit Union Auto",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "El Paso County's top subprime lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Colorado Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Local network serving Colorado Springs metro",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColoradoSpringsCoCarLoansAfterBankruptcy() {
   useSEO({
     title: "Best Car Loans After Bankruptcy in Colorado Springs, CO (2026) | Complete Auto Loans",
     description: "Find car loans after bankruptcy in Colorado Springs, CO. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
-    canonical: "/colorado-springs-co/car-loans-after-bankruptcy",
+    canonical: "/colorado-springs-co/car-loans-after-bankruptcy/",
     schema: [
       buildLocalBusinessSchema({
         city: "Colorado Springs",
         state: "CO",
         serviceType: "Car Loans After Bankruptcy",
-        url: "/colorado-springs-co/car-loans-after-bankruptcy",
+        url: "/colorado-springs-co/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Colorado Springs, CO. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Colorado Springs, CO", path: "/colorado-springs-co" },
-        { name: "Car Loans After Bankruptcy in Colorado Springs, CO", path: "/colorado-springs-co/car-loans-after-bankruptcy" },
+        { name: "Colorado Springs, CO", path: "/colorado-springs-co/" },
+        { name: "Car Loans After Bankruptcy in Colorado Springs, CO", path: "/colorado-springs-co/car-loans-after-bankruptcy/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColoradoSpringsCoCarLoansAfterBankruptcy() {
       faqs={faqs}
       citySlug="colorado-springs-co"
       serviceSlug="car-loans-after-bankruptcy"
+      nationalGuideHref="/best-car-loans-after-bankruptcy/"
+      nationalGuideLabel="Best Car Loans After Bankruptcy of 2026"
     />
   );
 }

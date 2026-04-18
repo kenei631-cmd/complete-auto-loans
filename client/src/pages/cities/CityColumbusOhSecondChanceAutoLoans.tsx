@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Buckeye Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Franklin County specialist for subprime loans",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Ohio Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Columbus-area lender network serving all credit types",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColumbusOhSecondChanceAutoLoans() {
   useSEO({
     title: "Best Second Chance Auto Loans in Columbus, OH (2026) | Complete Auto Loans",
     description: "Find second chance auto loans in Columbus, OH. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
-    canonical: "/columbus-oh/second-chance-auto-loans",
+    canonical: "/columbus-oh/second-chance-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Columbus",
         state: "OH",
         serviceType: "Second Chance Auto Loans",
-        url: "/columbus-oh/second-chance-auto-loans",
+        url: "/columbus-oh/second-chance-auto-loans/",
         description: "Find second chance auto loans in Columbus, OH. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Columbus, OH", path: "/columbus-oh" },
-        { name: "Second Chance Auto Loans in Columbus, OH", path: "/columbus-oh/second-chance-auto-loans" },
+        { name: "Columbus, OH", path: "/columbus-oh/" },
+        { name: "Second Chance Auto Loans in Columbus, OH", path: "/columbus-oh/second-chance-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColumbusOhSecondChanceAutoLoans() {
       faqs={faqs}
       citySlug="columbus-oh"
       serviceSlug="second-chance-auto-loans"
+      nationalGuideHref="/best-second-chance-auto-loans/"
+      nationalGuideLabel="Best Second Chance Auto Loans of 2026"
     />
   );
 }

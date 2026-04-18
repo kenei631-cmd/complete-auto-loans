@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Metroplex Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "DFW-area lender specializing in bad credit",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Big D Auto Credit",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Dallas County's top BHPH network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDallasTxAutoLoansAfterRepossession() {
   useSEO({
     title: "Best Auto Loans After Repossession in Dallas, TX (2026) | Complete Auto Loans",
     description: "Find auto loans after repossession in Dallas, TX. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
-    canonical: "/dallas-tx/auto-loans-after-repossession",
+    canonical: "/dallas-tx/auto-loans-after-repossession/",
     schema: [
       buildLocalBusinessSchema({
         city: "Dallas",
         state: "TX",
         serviceType: "Auto Loans After Repossession",
-        url: "/dallas-tx/auto-loans-after-repossession",
+        url: "/dallas-tx/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Dallas, TX. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Dallas, TX", path: "/dallas-tx" },
-        { name: "Auto Loans After Repossession in Dallas, TX", path: "/dallas-tx/auto-loans-after-repossession" },
+        { name: "Dallas, TX", path: "/dallas-tx/" },
+        { name: "Auto Loans After Repossession in Dallas, TX", path: "/dallas-tx/auto-loans-after-repossession/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDallasTxAutoLoansAfterRepossession() {
       faqs={faqs}
       citySlug="dallas-tx"
       serviceSlug="auto-loans-after-repossession"
+      nationalGuideHref="/best-auto-loans-after-repossession/"
+      nationalGuideLabel="Best Auto Loans After Repossession of 2026"
     />
   );
 }

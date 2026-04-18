@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Metroplex Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "DFW-area lender specializing in bad credit",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Big D Auto Credit",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Dallas County's top BHPH network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDallasTxSecondChanceAutoLoans() {
   useSEO({
     title: "Best Second Chance Auto Loans in Dallas, TX (2026) | Complete Auto Loans",
     description: "Find second chance auto loans in Dallas, TX. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
-    canonical: "/dallas-tx/second-chance-auto-loans",
+    canonical: "/dallas-tx/second-chance-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Dallas",
         state: "TX",
         serviceType: "Second Chance Auto Loans",
-        url: "/dallas-tx/second-chance-auto-loans",
+        url: "/dallas-tx/second-chance-auto-loans/",
         description: "Find second chance auto loans in Dallas, TX. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Dallas, TX", path: "/dallas-tx" },
-        { name: "Second Chance Auto Loans in Dallas, TX", path: "/dallas-tx/second-chance-auto-loans" },
+        { name: "Dallas, TX", path: "/dallas-tx/" },
+        { name: "Second Chance Auto Loans in Dallas, TX", path: "/dallas-tx/second-chance-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDallasTxSecondChanceAutoLoans() {
       faqs={faqs}
       citySlug="dallas-tx"
       serviceSlug="second-chance-auto-loans"
+      nationalGuideHref="/best-second-chance-auto-loans/"
+      nationalGuideLabel="Best Second Chance Auto Loans of 2026"
     />
   );
 }

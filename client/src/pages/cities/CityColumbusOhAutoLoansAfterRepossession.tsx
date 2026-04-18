@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Buckeye Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Franklin County specialist for subprime loans",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Ohio Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Columbus-area lender network serving all credit types",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColumbusOhAutoLoansAfterRepossession() {
   useSEO({
     title: "Best Auto Loans After Repossession in Columbus, OH (2026) | Complete Auto Loans",
     description: "Find auto loans after repossession in Columbus, OH. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
-    canonical: "/columbus-oh/auto-loans-after-repossession",
+    canonical: "/columbus-oh/auto-loans-after-repossession/",
     schema: [
       buildLocalBusinessSchema({
         city: "Columbus",
         state: "OH",
         serviceType: "Auto Loans After Repossession",
-        url: "/columbus-oh/auto-loans-after-repossession",
+        url: "/columbus-oh/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Columbus, OH. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Columbus, OH", path: "/columbus-oh" },
-        { name: "Auto Loans After Repossession in Columbus, OH", path: "/columbus-oh/auto-loans-after-repossession" },
+        { name: "Columbus, OH", path: "/columbus-oh/" },
+        { name: "Auto Loans After Repossession in Columbus, OH", path: "/columbus-oh/auto-loans-after-repossession/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColumbusOhAutoLoansAfterRepossession() {
       faqs={faqs}
       citySlug="columbus-oh"
       serviceSlug="auto-loans-after-repossession"
+      nationalGuideHref="/best-auto-loans-after-repossession/"
+      nationalGuideLabel="Best Auto Loans After Repossession of 2026"
     />
   );
 }

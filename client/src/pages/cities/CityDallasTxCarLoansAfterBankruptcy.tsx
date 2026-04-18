@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Metroplex Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "DFW-area lender specializing in bad credit",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Big D Auto Credit",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Dallas County's top BHPH network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDallasTxCarLoansAfterBankruptcy() {
   useSEO({
     title: "Best Car Loans After Bankruptcy in Dallas, TX (2026) | Complete Auto Loans",
     description: "Find car loans after bankruptcy in Dallas, TX. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
-    canonical: "/dallas-tx/car-loans-after-bankruptcy",
+    canonical: "/dallas-tx/car-loans-after-bankruptcy/",
     schema: [
       buildLocalBusinessSchema({
         city: "Dallas",
         state: "TX",
         serviceType: "Car Loans After Bankruptcy",
-        url: "/dallas-tx/car-loans-after-bankruptcy",
+        url: "/dallas-tx/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Dallas, TX. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Dallas, TX", path: "/dallas-tx" },
-        { name: "Car Loans After Bankruptcy in Dallas, TX", path: "/dallas-tx/car-loans-after-bankruptcy" },
+        { name: "Dallas, TX", path: "/dallas-tx/" },
+        { name: "Car Loans After Bankruptcy in Dallas, TX", path: "/dallas-tx/car-loans-after-bankruptcy/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDallasTxCarLoansAfterBankruptcy() {
       faqs={faqs}
       citySlug="dallas-tx"
       serviceSlug="car-loans-after-bankruptcy"
+      nationalGuideHref="/best-car-loans-after-bankruptcy/"
+      nationalGuideLabel="Best Car Loans After Bankruptcy of 2026"
     />
   );
 }

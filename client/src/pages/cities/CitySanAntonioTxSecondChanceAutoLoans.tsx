@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Alamo Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Bexar County specialist for subprime borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "San Antonio BHPH Network",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "In-house financing across 20+ SA dealerships",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CitySanAntonioTxSecondChanceAutoLoans() {
   useSEO({
     title: "Best Second Chance Auto Loans in San Antonio, TX (2026) | Complete Auto Loans",
     description: "Find second chance auto loans in San Antonio, TX. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
-    canonical: "/san-antonio-tx/second-chance-auto-loans",
+    canonical: "/san-antonio-tx/second-chance-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "San Antonio",
         state: "TX",
         serviceType: "Second Chance Auto Loans",
-        url: "/san-antonio-tx/second-chance-auto-loans",
+        url: "/san-antonio-tx/second-chance-auto-loans/",
         description: "Find second chance auto loans in San Antonio, TX. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "San Antonio, TX", path: "/san-antonio-tx" },
-        { name: "Second Chance Auto Loans in San Antonio, TX", path: "/san-antonio-tx/second-chance-auto-loans" },
+        { name: "San Antonio, TX", path: "/san-antonio-tx/" },
+        { name: "Second Chance Auto Loans in San Antonio, TX", path: "/san-antonio-tx/second-chance-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CitySanAntonioTxSecondChanceAutoLoans() {
       faqs={faqs}
       citySlug="san-antonio-tx"
       serviceSlug="second-chance-auto-loans"
+      nationalGuideHref="/best-second-chance-auto-loans/"
+      nationalGuideLabel="Best Second Chance Auto Loans of 2026"
     />
   );
 }

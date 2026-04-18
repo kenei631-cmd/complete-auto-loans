@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Pikes Peak Credit Union Auto",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "El Paso County's top subprime lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Colorado Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Local network serving Colorado Springs metro",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColoradoSpringsCoBuyHerePayHere() {
   useSEO({
     title: "Best Buy Here Pay Here Dealerships in Colorado Springs, CO (2026) | Complete Auto Loans",
     description: "Find the best buy here pay here dealerships in Colorado Springs, CO. In-house financing with no credit check required — drive today.",
-    canonical: "/colorado-springs-co/buy-here-pay-here",
+    canonical: "/colorado-springs-co/buy-here-pay-here/",
     schema: [
       buildLocalBusinessSchema({
         city: "Colorado Springs",
         state: "CO",
         serviceType: "Buy Here Pay Here",
-        url: "/colorado-springs-co/buy-here-pay-here",
+        url: "/colorado-springs-co/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Colorado Springs, CO. In-house financing with no credit check required — drive today.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Colorado Springs, CO", path: "/colorado-springs-co" },
-        { name: "Buy Here Pay Here Dealerships in Colorado Springs, CO", path: "/colorado-springs-co/buy-here-pay-here" },
+        { name: "Colorado Springs, CO", path: "/colorado-springs-co/" },
+        { name: "Buy Here Pay Here Dealerships in Colorado Springs, CO", path: "/colorado-springs-co/buy-here-pay-here/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColoradoSpringsCoBuyHerePayHere() {
       faqs={faqs}
       citySlug="colorado-springs-co"
       serviceSlug="buy-here-pay-here"
+      nationalGuideHref="/best-buy-here-pay-here-dealerships/"
+      nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
   );
 }

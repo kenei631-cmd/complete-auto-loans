@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Alamo Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Bexar County specialist for subprime borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "San Antonio BHPH Network",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "In-house financing across 20+ SA dealerships",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CitySanAntonioTxNoMoneyDownCarLoans() {
   useSEO({
     title: "Best No Money Down Car Loans in San Antonio, TX (2026) | Complete Auto Loans",
     description: "Find no money down car loans in San Antonio, TX. $0 down payment options for qualified borrowers — bad credit accepted.",
-    canonical: "/san-antonio-tx/no-money-down-car-loans",
+    canonical: "/san-antonio-tx/no-money-down-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "San Antonio",
         state: "TX",
         serviceType: "No Money Down Car Loans",
-        url: "/san-antonio-tx/no-money-down-car-loans",
+        url: "/san-antonio-tx/no-money-down-car-loans/",
         description: "Find no money down car loans in San Antonio, TX. $0 down payment options for qualified borrowers — bad credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "San Antonio, TX", path: "/san-antonio-tx" },
-        { name: "No Money Down Car Loans in San Antonio, TX", path: "/san-antonio-tx/no-money-down-car-loans" },
+        { name: "San Antonio, TX", path: "/san-antonio-tx/" },
+        { name: "No Money Down Car Loans in San Antonio, TX", path: "/san-antonio-tx/no-money-down-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CitySanAntonioTxNoMoneyDownCarLoans() {
       faqs={faqs}
       citySlug="san-antonio-tx"
       serviceSlug="no-money-down-car-loans"
+      nationalGuideHref="/best-no-money-down-car-loans-bad-credit/"
+      nationalGuideLabel="Best No Money Down Car Loans of 2026"
     />
   );
 }

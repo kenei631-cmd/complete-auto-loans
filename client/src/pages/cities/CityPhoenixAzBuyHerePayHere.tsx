@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Desert Financial Auto Loans",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Phoenix-area credit union with strong subprime programs",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Arizona Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Local dealership network serving Maricopa County",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityPhoenixAzBuyHerePayHere() {
   useSEO({
     title: "Best Buy Here Pay Here Dealerships in Phoenix, AZ (2026) | Complete Auto Loans",
     description: "Find the best buy here pay here dealerships in Phoenix, AZ. In-house financing with no credit check required — drive today.",
-    canonical: "/phoenix-az/buy-here-pay-here",
+    canonical: "/phoenix-az/buy-here-pay-here/",
     schema: [
       buildLocalBusinessSchema({
         city: "Phoenix",
         state: "AZ",
         serviceType: "Buy Here Pay Here",
-        url: "/phoenix-az/buy-here-pay-here",
+        url: "/phoenix-az/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Phoenix, AZ. In-house financing with no credit check required — drive today.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Phoenix, AZ", path: "/phoenix-az" },
-        { name: "Buy Here Pay Here Dealerships in Phoenix, AZ", path: "/phoenix-az/buy-here-pay-here" },
+        { name: "Phoenix, AZ", path: "/phoenix-az/" },
+        { name: "Buy Here Pay Here Dealerships in Phoenix, AZ", path: "/phoenix-az/buy-here-pay-here/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityPhoenixAzBuyHerePayHere() {
       faqs={faqs}
       citySlug="phoenix-az"
       serviceSlug="buy-here-pay-here"
+      nationalGuideHref="/best-buy-here-pay-here-dealerships/"
+      nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
   );
 }

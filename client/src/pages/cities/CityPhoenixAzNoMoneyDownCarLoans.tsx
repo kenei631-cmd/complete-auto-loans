@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Desert Financial Auto Loans",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Phoenix-area credit union with strong subprime programs",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Arizona Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Local dealership network serving Maricopa County",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityPhoenixAzNoMoneyDownCarLoans() {
   useSEO({
     title: "Best No Money Down Car Loans in Phoenix, AZ (2026) | Complete Auto Loans",
     description: "Find no money down car loans in Phoenix, AZ. $0 down payment options for qualified borrowers — bad credit accepted.",
-    canonical: "/phoenix-az/no-money-down-car-loans",
+    canonical: "/phoenix-az/no-money-down-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Phoenix",
         state: "AZ",
         serviceType: "No Money Down Car Loans",
-        url: "/phoenix-az/no-money-down-car-loans",
+        url: "/phoenix-az/no-money-down-car-loans/",
         description: "Find no money down car loans in Phoenix, AZ. $0 down payment options for qualified borrowers — bad credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Phoenix, AZ", path: "/phoenix-az" },
-        { name: "No Money Down Car Loans in Phoenix, AZ", path: "/phoenix-az/no-money-down-car-loans" },
+        { name: "Phoenix, AZ", path: "/phoenix-az/" },
+        { name: "No Money Down Car Loans in Phoenix, AZ", path: "/phoenix-az/no-money-down-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityPhoenixAzNoMoneyDownCarLoans() {
       faqs={faqs}
       citySlug="phoenix-az"
       serviceSlug="no-money-down-car-loans"
+      nationalGuideHref="/best-no-money-down-car-loans-bad-credit/"
+      nationalGuideLabel="Best No Money Down Car Loans of 2026"
     />
   );
 }

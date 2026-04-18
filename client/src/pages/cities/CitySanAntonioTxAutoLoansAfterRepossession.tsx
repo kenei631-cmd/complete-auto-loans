@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Alamo Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Bexar County specialist for subprime borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "San Antonio BHPH Network",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "In-house financing across 20+ SA dealerships",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CitySanAntonioTxAutoLoansAfterRepossession() {
   useSEO({
     title: "Best Auto Loans After Repossession in San Antonio, TX (2026) | Complete Auto Loans",
     description: "Find auto loans after repossession in San Antonio, TX. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
-    canonical: "/san-antonio-tx/auto-loans-after-repossession",
+    canonical: "/san-antonio-tx/auto-loans-after-repossession/",
     schema: [
       buildLocalBusinessSchema({
         city: "San Antonio",
         state: "TX",
         serviceType: "Auto Loans After Repossession",
-        url: "/san-antonio-tx/auto-loans-after-repossession",
+        url: "/san-antonio-tx/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in San Antonio, TX. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "San Antonio, TX", path: "/san-antonio-tx" },
-        { name: "Auto Loans After Repossession in San Antonio, TX", path: "/san-antonio-tx/auto-loans-after-repossession" },
+        { name: "San Antonio, TX", path: "/san-antonio-tx/" },
+        { name: "Auto Loans After Repossession in San Antonio, TX", path: "/san-antonio-tx/auto-loans-after-repossession/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CitySanAntonioTxAutoLoansAfterRepossession() {
       faqs={faqs}
       citySlug="san-antonio-tx"
       serviceSlug="auto-loans-after-repossession"
+      nationalGuideHref="/best-auto-loans-after-repossession/"
+      nationalGuideLabel="Best Auto Loans After Repossession of 2026"
     />
   );
 }

@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Desert Financial Auto Loans",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Phoenix-area credit union with strong subprime programs",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Arizona Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Local dealership network serving Maricopa County",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityPhoenixAzAutoLoansAfterRepossession() {
   useSEO({
     title: "Best Auto Loans After Repossession in Phoenix, AZ (2026) | Complete Auto Loans",
     description: "Find auto loans after repossession in Phoenix, AZ. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
-    canonical: "/phoenix-az/auto-loans-after-repossession",
+    canonical: "/phoenix-az/auto-loans-after-repossession/",
     schema: [
       buildLocalBusinessSchema({
         city: "Phoenix",
         state: "AZ",
         serviceType: "Auto Loans After Repossession",
-        url: "/phoenix-az/auto-loans-after-repossession",
+        url: "/phoenix-az/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Phoenix, AZ. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Phoenix, AZ", path: "/phoenix-az" },
-        { name: "Auto Loans After Repossession in Phoenix, AZ", path: "/phoenix-az/auto-loans-after-repossession" },
+        { name: "Phoenix, AZ", path: "/phoenix-az/" },
+        { name: "Auto Loans After Repossession in Phoenix, AZ", path: "/phoenix-az/auto-loans-after-repossession/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityPhoenixAzAutoLoansAfterRepossession() {
       faqs={faqs}
       citySlug="phoenix-az"
       serviceSlug="auto-loans-after-repossession"
+      nationalGuideHref="/best-auto-loans-after-repossession/"
+      nationalGuideLabel="Best Auto Loans After Repossession of 2026"
     />
   );
 }

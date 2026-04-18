@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Motor City Credit Union Auto",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Wayne County specialist for subprime auto",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Michigan Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Detroit-area lender network for all credit types",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDetroitMiBadCreditAutoLoans() {
   useSEO({
     title: "Best Bad Credit Auto Loans in Detroit, MI (2026) | Complete Auto Loans",
     description: "Compare the best bad credit auto loans in Detroit, MI. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
-    canonical: "/detroit-mi/bad-credit-auto-loans",
+    canonical: "/detroit-mi/bad-credit-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Detroit",
         state: "MI",
         serviceType: "Bad Credit Auto Loans",
-        url: "/detroit-mi/bad-credit-auto-loans",
+        url: "/detroit-mi/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Detroit, MI. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Detroit, MI", path: "/detroit-mi" },
-        { name: "Bad Credit Auto Loans in Detroit, MI", path: "/detroit-mi/bad-credit-auto-loans" },
+        { name: "Detroit, MI", path: "/detroit-mi/" },
+        { name: "Bad Credit Auto Loans in Detroit, MI", path: "/detroit-mi/bad-credit-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDetroitMiBadCreditAutoLoans() {
       faqs={faqs}
       citySlug="detroit-mi"
       serviceSlug="bad-credit-auto-loans"
+      nationalGuideHref="/best-bad-credit-auto-loans/"
+      nationalGuideLabel="Best Bad Credit Auto Loans of 2026"
     />
   );
 }

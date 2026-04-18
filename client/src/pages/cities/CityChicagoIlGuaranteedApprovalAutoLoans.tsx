@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Windy City Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Cook County's largest subprime lender network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Illinois Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Chicago-area specialist for bad credit auto loans",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityChicagoIlGuaranteedApprovalAutoLoans() {
   useSEO({
     title: "Best Guaranteed Approval Auto Loans in Chicago, IL (2026) | Complete Auto Loans",
     description: "Find guaranteed approval auto loans in Chicago, IL. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
-    canonical: "/chicago-il/guaranteed-approval-auto-loans",
+    canonical: "/chicago-il/guaranteed-approval-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Chicago",
         state: "IL",
         serviceType: "Guaranteed Approval Auto Loans",
-        url: "/chicago-il/guaranteed-approval-auto-loans",
+        url: "/chicago-il/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in Chicago, IL. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Chicago, IL", path: "/chicago-il" },
-        { name: "Guaranteed Approval Auto Loans in Chicago, IL", path: "/chicago-il/guaranteed-approval-auto-loans" },
+        { name: "Chicago, IL", path: "/chicago-il/" },
+        { name: "Guaranteed Approval Auto Loans in Chicago, IL", path: "/chicago-il/guaranteed-approval-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityChicagoIlGuaranteedApprovalAutoLoans() {
       faqs={faqs}
       citySlug="chicago-il"
       serviceSlug="guaranteed-approval-auto-loans"
+      nationalGuideHref="/best-guaranteed-approval-auto-loans/"
+      nationalGuideLabel="Best Guaranteed Approval Auto Loans of 2026"
     />
   );
 }

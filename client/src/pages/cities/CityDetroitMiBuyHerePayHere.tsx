@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Motor City Credit Union Auto",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Wayne County specialist for subprime auto",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Michigan Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Detroit-area lender network for all credit types",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDetroitMiBuyHerePayHere() {
   useSEO({
     title: "Best Buy Here Pay Here Dealerships in Detroit, MI (2026) | Complete Auto Loans",
     description: "Find the best buy here pay here dealerships in Detroit, MI. In-house financing with no credit check required — drive today.",
-    canonical: "/detroit-mi/buy-here-pay-here",
+    canonical: "/detroit-mi/buy-here-pay-here/",
     schema: [
       buildLocalBusinessSchema({
         city: "Detroit",
         state: "MI",
         serviceType: "Buy Here Pay Here",
-        url: "/detroit-mi/buy-here-pay-here",
+        url: "/detroit-mi/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Detroit, MI. In-house financing with no credit check required — drive today.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Detroit, MI", path: "/detroit-mi" },
-        { name: "Buy Here Pay Here Dealerships in Detroit, MI", path: "/detroit-mi/buy-here-pay-here" },
+        { name: "Detroit, MI", path: "/detroit-mi/" },
+        { name: "Buy Here Pay Here Dealerships in Detroit, MI", path: "/detroit-mi/buy-here-pay-here/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDetroitMiBuyHerePayHere() {
       faqs={faqs}
       citySlug="detroit-mi"
       serviceSlug="buy-here-pay-here"
+      nationalGuideHref="/best-buy-here-pay-here-dealerships/"
+      nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
   );
 }

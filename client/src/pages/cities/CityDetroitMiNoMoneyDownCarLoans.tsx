@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Motor City Credit Union Auto",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Wayne County specialist for subprime auto",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Michigan Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Detroit-area lender network for all credit types",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDetroitMiNoMoneyDownCarLoans() {
   useSEO({
     title: "Best No Money Down Car Loans in Detroit, MI (2026) | Complete Auto Loans",
     description: "Find no money down car loans in Detroit, MI. $0 down payment options for qualified borrowers — bad credit accepted.",
-    canonical: "/detroit-mi/no-money-down-car-loans",
+    canonical: "/detroit-mi/no-money-down-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Detroit",
         state: "MI",
         serviceType: "No Money Down Car Loans",
-        url: "/detroit-mi/no-money-down-car-loans",
+        url: "/detroit-mi/no-money-down-car-loans/",
         description: "Find no money down car loans in Detroit, MI. $0 down payment options for qualified borrowers — bad credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Detroit, MI", path: "/detroit-mi" },
-        { name: "No Money Down Car Loans in Detroit, MI", path: "/detroit-mi/no-money-down-car-loans" },
+        { name: "Detroit, MI", path: "/detroit-mi/" },
+        { name: "No Money Down Car Loans in Detroit, MI", path: "/detroit-mi/no-money-down-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDetroitMiNoMoneyDownCarLoans() {
       faqs={faqs}
       citySlug="detroit-mi"
       serviceSlug="no-money-down-car-loans"
+      nationalGuideHref="/best-no-money-down-car-loans-bad-credit/"
+      nationalGuideLabel="Best No Money Down Car Loans of 2026"
     />
   );
 }

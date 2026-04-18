@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Green Country Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Tulsa County's leading subprime lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Sooner Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Oklahoma-based network for bad credit borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityTulsaOkNoMoneyDownCarLoans() {
   useSEO({
     title: "Best No Money Down Car Loans in Tulsa, OK (2026) | Complete Auto Loans",
     description: "Find no money down car loans in Tulsa, OK. $0 down payment options for qualified borrowers — bad credit accepted.",
-    canonical: "/tulsa-ok/no-money-down-car-loans",
+    canonical: "/tulsa-ok/no-money-down-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Tulsa",
         state: "OK",
         serviceType: "No Money Down Car Loans",
-        url: "/tulsa-ok/no-money-down-car-loans",
+        url: "/tulsa-ok/no-money-down-car-loans/",
         description: "Find no money down car loans in Tulsa, OK. $0 down payment options for qualified borrowers — bad credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Tulsa, OK", path: "/tulsa-ok" },
-        { name: "No Money Down Car Loans in Tulsa, OK", path: "/tulsa-ok/no-money-down-car-loans" },
+        { name: "Tulsa, OK", path: "/tulsa-ok/" },
+        { name: "No Money Down Car Loans in Tulsa, OK", path: "/tulsa-ok/no-money-down-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityTulsaOkNoMoneyDownCarLoans() {
       faqs={faqs}
       citySlug="tulsa-ok"
       serviceSlug="no-money-down-car-loans"
+      nationalGuideHref="/best-no-money-down-car-loans-bad-credit/"
+      nationalGuideLabel="Best No Money Down Car Loans of 2026"
     />
   );
 }

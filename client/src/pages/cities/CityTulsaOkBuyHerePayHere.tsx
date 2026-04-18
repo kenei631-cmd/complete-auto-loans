@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Green Country Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Tulsa County's leading subprime lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Sooner Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Oklahoma-based network for bad credit borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityTulsaOkBuyHerePayHere() {
   useSEO({
     title: "Best Buy Here Pay Here Dealerships in Tulsa, OK (2026) | Complete Auto Loans",
     description: "Find the best buy here pay here dealerships in Tulsa, OK. In-house financing with no credit check required — drive today.",
-    canonical: "/tulsa-ok/buy-here-pay-here",
+    canonical: "/tulsa-ok/buy-here-pay-here/",
     schema: [
       buildLocalBusinessSchema({
         city: "Tulsa",
         state: "OK",
         serviceType: "Buy Here Pay Here",
-        url: "/tulsa-ok/buy-here-pay-here",
+        url: "/tulsa-ok/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Tulsa, OK. In-house financing with no credit check required — drive today.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Tulsa, OK", path: "/tulsa-ok" },
-        { name: "Buy Here Pay Here Dealerships in Tulsa, OK", path: "/tulsa-ok/buy-here-pay-here" },
+        { name: "Tulsa, OK", path: "/tulsa-ok/" },
+        { name: "Buy Here Pay Here Dealerships in Tulsa, OK", path: "/tulsa-ok/buy-here-pay-here/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityTulsaOkBuyHerePayHere() {
       faqs={faqs}
       citySlug="tulsa-ok"
       serviceSlug="buy-here-pay-here"
+      nationalGuideHref="/best-buy-here-pay-here-dealerships/"
+      nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
   );
 }

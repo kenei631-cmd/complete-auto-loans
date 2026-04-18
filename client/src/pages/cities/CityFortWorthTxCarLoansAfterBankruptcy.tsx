@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Lone Star Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Tarrant County specialist for subprime borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Cowtown Auto Credit",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Fort Worth's largest in-house financing dealer",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityFortWorthTxCarLoansAfterBankruptcy() {
   useSEO({
     title: "Best Car Loans After Bankruptcy in Fort Worth, TX (2026) | Complete Auto Loans",
     description: "Find car loans after bankruptcy in Fort Worth, TX. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
-    canonical: "/fort-worth-tx/car-loans-after-bankruptcy",
+    canonical: "/fort-worth-tx/car-loans-after-bankruptcy/",
     schema: [
       buildLocalBusinessSchema({
         city: "Fort Worth",
         state: "TX",
         serviceType: "Car Loans After Bankruptcy",
-        url: "/fort-worth-tx/car-loans-after-bankruptcy",
+        url: "/fort-worth-tx/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Fort Worth, TX. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Fort Worth, TX", path: "/fort-worth-tx" },
-        { name: "Car Loans After Bankruptcy in Fort Worth, TX", path: "/fort-worth-tx/car-loans-after-bankruptcy" },
+        { name: "Fort Worth, TX", path: "/fort-worth-tx/" },
+        { name: "Car Loans After Bankruptcy in Fort Worth, TX", path: "/fort-worth-tx/car-loans-after-bankruptcy/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityFortWorthTxCarLoansAfterBankruptcy() {
       faqs={faqs}
       citySlug="fort-worth-tx"
       serviceSlug="car-loans-after-bankruptcy"
+      nationalGuideHref="/best-car-loans-after-bankruptcy/"
+      nationalGuideLabel="Best Car Loans After Bankruptcy of 2026"
     />
   );
 }

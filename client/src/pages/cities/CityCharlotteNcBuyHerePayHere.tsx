@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Queen City Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Mecklenburg County's top bad credit lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Carolina Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Charlotte-area network for all credit situations",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityCharlotteNcBuyHerePayHere() {
   useSEO({
     title: "Best Buy Here Pay Here Dealerships in Charlotte, NC (2026) | Complete Auto Loans",
     description: "Find the best buy here pay here dealerships in Charlotte, NC. In-house financing with no credit check required — drive today.",
-    canonical: "/charlotte-nc/buy-here-pay-here",
+    canonical: "/charlotte-nc/buy-here-pay-here/",
     schema: [
       buildLocalBusinessSchema({
         city: "Charlotte",
         state: "NC",
         serviceType: "Buy Here Pay Here",
-        url: "/charlotte-nc/buy-here-pay-here",
+        url: "/charlotte-nc/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Charlotte, NC. In-house financing with no credit check required — drive today.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Charlotte, NC", path: "/charlotte-nc" },
-        { name: "Buy Here Pay Here Dealerships in Charlotte, NC", path: "/charlotte-nc/buy-here-pay-here" },
+        { name: "Charlotte, NC", path: "/charlotte-nc/" },
+        { name: "Buy Here Pay Here Dealerships in Charlotte, NC", path: "/charlotte-nc/buy-here-pay-here/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityCharlotteNcBuyHerePayHere() {
       faqs={faqs}
       citySlug="charlotte-nc"
       serviceSlug="buy-here-pay-here"
+      nationalGuideHref="/best-buy-here-pay-here-dealerships/"
+      nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
   );
 }

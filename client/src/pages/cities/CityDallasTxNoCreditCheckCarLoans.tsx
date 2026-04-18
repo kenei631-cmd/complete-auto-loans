@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Metroplex Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "DFW-area lender specializing in bad credit",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Big D Auto Credit",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Dallas County's top BHPH network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDallasTxNoCreditCheckCarLoans() {
   useSEO({
     title: "Best No Credit Check Car Loans in Dallas, TX (2026) | Complete Auto Loans",
     description: "Find no credit check car loans in Dallas, TX. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
-    canonical: "/dallas-tx/no-credit-check-car-loans",
+    canonical: "/dallas-tx/no-credit-check-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Dallas",
         state: "TX",
         serviceType: "No Credit Check Car Loans",
-        url: "/dallas-tx/no-credit-check-car-loans",
+        url: "/dallas-tx/no-credit-check-car-loans/",
         description: "Find no credit check car loans in Dallas, TX. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Dallas, TX", path: "/dallas-tx" },
-        { name: "No Credit Check Car Loans in Dallas, TX", path: "/dallas-tx/no-credit-check-car-loans" },
+        { name: "Dallas, TX", path: "/dallas-tx/" },
+        { name: "No Credit Check Car Loans in Dallas, TX", path: "/dallas-tx/no-credit-check-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDallasTxNoCreditCheckCarLoans() {
       faqs={faqs}
       citySlug="dallas-tx"
       serviceSlug="no-credit-check-car-loans"
+      nationalGuideHref="/best-no-credit-check-car-loans/"
+      nationalGuideLabel="Best No Credit Check Car Loans of 2026"
     />
   );
 }

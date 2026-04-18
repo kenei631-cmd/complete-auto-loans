@@ -45,6 +45,8 @@ interface BestOfPageProps {
   seoTitle?: string;
   seoDescription?: string;
   canonicalPath?: string;
+  /** Service slug for direct city+service links, e.g. "bad-credit-auto-loans" */
+  cityServiceSlug?: string;
 }
 
 export default function BestOfPageTemplate({
@@ -60,6 +62,7 @@ export default function BestOfPageTemplate({
   seoTitle,
   seoDescription,
   canonicalPath,
+  cityServiceSlug,
 }: BestOfPageProps) {
   const schemas = [
     buildFinancialProductSchema({
@@ -395,7 +398,7 @@ export default function BestOfPageTemplate({
           </div>
         </div>
       </div>
-      {/* ── Cities We Serve ── */}
+      {/* ── Find a Local Lender ── */}
       <div
         className="py-14"
         style={{ background: "oklch(0.311 0.065 251)" }}
@@ -406,52 +409,67 @@ export default function BestOfPageTemplate({
               className="text-white mb-2"
               style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.75rem", fontWeight: 700 }}
             >
-              Cities We Serve
+              Find a Local Lender
             </h2>
             <p style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem" }}>
-              Find local lenders and dealerships in your city
+              {cityServiceSlug
+                ? "See lenders and local rates in your city"
+                : "Find local lenders and dealerships in your city"}
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
             {[
-              { city: "Phoenix, AZ", href: "/phoenix-az" },
-              { city: "Dallas, TX", href: "/dallas-tx" },
-              { city: "Fort Worth, TX", href: "/fort-worth-tx" },
-              { city: "Chicago, IL", href: "/chicago-il" },
-              { city: "Charlotte, NC", href: "/charlotte-nc" },
-              { city: "Columbus, OH", href: "/columbus-oh" },
-              { city: "San Antonio, TX", href: "/san-antonio-tx" },
-              { city: "Detroit, MI", href: "/detroit-mi" },
-              { city: "Tulsa, OK", href: "/tulsa-ok" },
-              { city: "Colorado Springs, CO", href: "/colorado-springs-co" },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block rounded-xl p-4 text-center transition-all"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.10)",
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "0.82rem",
-                  fontWeight: 600,
-                  color: "rgba(255,255,255,0.75)",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.12)";
-                  (e.currentTarget as HTMLElement).style.color = "white";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)";
-                  (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.75)";
-                }}
-              >
-                {item.city}
-              </Link>
-            ))}
+              { city: "Phoenix, AZ", slug: "phoenix-az" },
+              { city: "Dallas, TX", slug: "dallas-tx" },
+              { city: "Fort Worth, TX", slug: "fort-worth-tx" },
+              { city: "Chicago, IL", slug: "chicago-il" },
+              { city: "Charlotte, NC", slug: "charlotte-nc" },
+              { city: "Columbus, OH", slug: "columbus-oh" },
+              { city: "San Antonio, TX", slug: "san-antonio-tx" },
+              { city: "Detroit, MI", slug: "detroit-mi" },
+              { city: "Tulsa, OK", slug: "tulsa-ok" },
+              { city: "Colorado Springs, CO", slug: "colorado-springs-co" },
+            ].map((item) => {
+              const href = cityServiceSlug
+                ? `/${item.slug}/${cityServiceSlug}/`
+                : `/${item.slug}/`;
+              return (
+                <Link
+                  key={item.slug}
+                  href={href}
+                  className="block rounded-xl p-4 text-center transition-all"
+                  style={{
+                    background: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.10)",
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: "0.82rem",
+                    fontWeight: 600,
+                    color: "rgba(255,255,255,0.75)",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.12)";
+                    (e.currentTarget as HTMLElement).style.color = "white";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)";
+                    (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.75)";
+                  }}
+                >
+                  {item.city}
+                  {cityServiceSlug && (
+                    <span
+                      className="block mt-0.5"
+                      style={{ fontSize: "0.68rem", color: "oklch(0.65 0.085 186)", fontWeight: 400 }}
+                    >
+                      Local rates →
+                    </span>
+                  )}
+                </Link>
+              );
+            })}
           </div>
           <div className="text-center mt-8">
-            <Link href="/locations">
+            <Link href="/locations/">
               <button
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all"
                 style={{

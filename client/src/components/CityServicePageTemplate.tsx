@@ -74,6 +74,10 @@ export interface CityServicePageProps {
   citySlug: string;
   /** Current service slug, e.g. "bad-credit-auto-loans" */
   serviceSlug: string;
+  /** URL of the corresponding national pillar page */
+  nationalGuideHref: string;
+  /** Label for the national guide link, e.g. "Best Bad Credit Auto Loans" */
+  nationalGuideLabel: string;
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -90,6 +94,8 @@ export default function CityServicePageTemplate({
   faqs,
   citySlug,
   serviceSlug,
+  nationalGuideHref,
+  nationalGuideLabel,
 }: CityServicePageProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -118,22 +124,46 @@ export default function CityServicePageTemplate({
         />
 
         <div className="relative container">
-          {/* City badge */}
-          <div className="flex items-center gap-2 mb-4">
-            <MapPin size={12} style={{ color: "oklch(0.65 0.085 186)" }} />
-            <span
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "0.78rem",
-                color: "oklch(0.65 0.085 186)",
-                fontWeight: 600,
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-              }}
-            >
-              {city}, {state}
+          {/* Breadcrumb trail */}
+          <nav className="flex flex-wrap items-center gap-1 mb-5" aria-label="Breadcrumb">
+            {[
+              { label: "Home", href: "/" },
+              { label: "Locations", href: "/locations" },
+              { label: `${city}, ${state}`, href: `/${citySlug}` },
+            ].map((crumb, i) => (
+              <span key={i} className="flex items-center gap-1">
+                {i > 0 && (
+                  <ChevronRight size={9} style={{ color: "rgba(255,255,255,0.25)", flexShrink: 0 }} />
+                )}
+                <Link
+                  href={crumb.href}
+                  style={{
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: "0.70rem",
+                    color: i === 2 ? "oklch(0.65 0.085 186)" : "rgba(255,255,255,0.38)",
+                    fontWeight: 500,
+                    textDecoration: "none",
+                  }}
+                >
+                  {crumb.label}
+                </Link>
+              </span>
+            ))}
+            <span className="flex items-center gap-1">
+              <ChevronRight size={9} style={{ color: "rgba(255,255,255,0.25)", flexShrink: 0 }} />
+              <span
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: "0.70rem",
+                  color: "rgba(255,255,255,0.60)",
+                  fontWeight: 600,
+                }}
+                aria-current="page"
+              >
+                {h1}
+              </span>
             </span>
-          </div>
+          </nav>
 
           {/* H1 */}
           <h1
@@ -215,6 +245,34 @@ export default function CityServicePageTemplate({
               >
                 {intro}
               </p>
+
+              {/* National Guide contextual link */}
+              <div
+                className="flex items-start gap-3 p-4 rounded-xl mb-6"
+                style={{
+                  background: "oklch(0.311 0.065 251 / 0.04)",
+                  border: "1px solid oklch(0.311 0.065 251 / 0.12)",
+                }}
+              >
+                <Shield size={14} style={{ color: "oklch(0.578 0.098 186)", flexShrink: 0, marginTop: "2px" }} />
+                <p
+                  style={{
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: "0.82rem",
+                    color: "oklch(0.38 0.04 251)",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Want a national comparison?{" "}
+                  <Link
+                    href={nationalGuideHref}
+                    style={{ color: "oklch(0.578 0.098 186)", fontWeight: 600, textDecoration: "underline" }}
+                  >
+                    {nationalGuideLabel}
+                  </Link>
+                  {" "}— we reviewed 40+ lenders to rank the best options across all 50 states.
+                </p>
+              </div>
 
               {/* Editorial note */}
               <div

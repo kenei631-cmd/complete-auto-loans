@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Metroplex Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "DFW-area lender specializing in bad credit",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Big D Auto Credit",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Dallas County's top BHPH network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDallasTxGuaranteedApprovalAutoLoans() {
   useSEO({
     title: "Best Guaranteed Approval Auto Loans in Dallas, TX (2026) | Complete Auto Loans",
     description: "Find guaranteed approval auto loans in Dallas, TX. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
-    canonical: "/dallas-tx/guaranteed-approval-auto-loans",
+    canonical: "/dallas-tx/guaranteed-approval-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Dallas",
         state: "TX",
         serviceType: "Guaranteed Approval Auto Loans",
-        url: "/dallas-tx/guaranteed-approval-auto-loans",
+        url: "/dallas-tx/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in Dallas, TX. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Dallas, TX", path: "/dallas-tx" },
-        { name: "Guaranteed Approval Auto Loans in Dallas, TX", path: "/dallas-tx/guaranteed-approval-auto-loans" },
+        { name: "Dallas, TX", path: "/dallas-tx/" },
+        { name: "Guaranteed Approval Auto Loans in Dallas, TX", path: "/dallas-tx/guaranteed-approval-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDallasTxGuaranteedApprovalAutoLoans() {
       faqs={faqs}
       citySlug="dallas-tx"
       serviceSlug="guaranteed-approval-auto-loans"
+      nationalGuideHref="/best-guaranteed-approval-auto-loans/"
+      nationalGuideLabel="Best Guaranteed Approval Auto Loans of 2026"
     />
   );
 }

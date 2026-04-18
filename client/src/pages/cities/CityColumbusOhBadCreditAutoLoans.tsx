@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Buckeye Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Franklin County specialist for subprime loans",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Ohio Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Columbus-area lender network serving all credit types",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColumbusOhBadCreditAutoLoans() {
   useSEO({
     title: "Best Bad Credit Auto Loans in Columbus, OH (2026) | Complete Auto Loans",
     description: "Compare the best bad credit auto loans in Columbus, OH. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
-    canonical: "/columbus-oh/bad-credit-auto-loans",
+    canonical: "/columbus-oh/bad-credit-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Columbus",
         state: "OH",
         serviceType: "Bad Credit Auto Loans",
-        url: "/columbus-oh/bad-credit-auto-loans",
+        url: "/columbus-oh/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Columbus, OH. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Columbus, OH", path: "/columbus-oh" },
-        { name: "Bad Credit Auto Loans in Columbus, OH", path: "/columbus-oh/bad-credit-auto-loans" },
+        { name: "Columbus, OH", path: "/columbus-oh/" },
+        { name: "Bad Credit Auto Loans in Columbus, OH", path: "/columbus-oh/bad-credit-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColumbusOhBadCreditAutoLoans() {
       faqs={faqs}
       citySlug="columbus-oh"
       serviceSlug="bad-credit-auto-loans"
+      nationalGuideHref="/best-bad-credit-auto-loans/"
+      nationalGuideLabel="Best Bad Credit Auto Loans of 2026"
     />
   );
 }

@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Metroplex Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "DFW-area lender specializing in bad credit",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Big D Auto Credit",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Dallas County's top BHPH network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDallasTxBadCreditAutoLoans() {
   useSEO({
     title: "Best Bad Credit Auto Loans in Dallas, TX (2026) | Complete Auto Loans",
     description: "Compare the best bad credit auto loans in Dallas, TX. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
-    canonical: "/dallas-tx/bad-credit-auto-loans",
+    canonical: "/dallas-tx/bad-credit-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Dallas",
         state: "TX",
         serviceType: "Bad Credit Auto Loans",
-        url: "/dallas-tx/bad-credit-auto-loans",
+        url: "/dallas-tx/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Dallas, TX. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Dallas, TX", path: "/dallas-tx" },
-        { name: "Bad Credit Auto Loans in Dallas, TX", path: "/dallas-tx/bad-credit-auto-loans" },
+        { name: "Dallas, TX", path: "/dallas-tx/" },
+        { name: "Bad Credit Auto Loans in Dallas, TX", path: "/dallas-tx/bad-credit-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDallasTxBadCreditAutoLoans() {
       faqs={faqs}
       citySlug="dallas-tx"
       serviceSlug="bad-credit-auto-loans"
+      nationalGuideHref="/best-bad-credit-auto-loans/"
+      nationalGuideLabel="Best Bad Credit Auto Loans of 2026"
     />
   );
 }

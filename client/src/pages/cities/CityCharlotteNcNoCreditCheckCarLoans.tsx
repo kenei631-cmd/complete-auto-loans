@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Queen City Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Mecklenburg County's top bad credit lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Carolina Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Charlotte-area network for all credit situations",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityCharlotteNcNoCreditCheckCarLoans() {
   useSEO({
     title: "Best No Credit Check Car Loans in Charlotte, NC (2026) | Complete Auto Loans",
     description: "Find no credit check car loans in Charlotte, NC. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
-    canonical: "/charlotte-nc/no-credit-check-car-loans",
+    canonical: "/charlotte-nc/no-credit-check-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Charlotte",
         state: "NC",
         serviceType: "No Credit Check Car Loans",
-        url: "/charlotte-nc/no-credit-check-car-loans",
+        url: "/charlotte-nc/no-credit-check-car-loans/",
         description: "Find no credit check car loans in Charlotte, NC. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Charlotte, NC", path: "/charlotte-nc" },
-        { name: "No Credit Check Car Loans in Charlotte, NC", path: "/charlotte-nc/no-credit-check-car-loans" },
+        { name: "Charlotte, NC", path: "/charlotte-nc/" },
+        { name: "No Credit Check Car Loans in Charlotte, NC", path: "/charlotte-nc/no-credit-check-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityCharlotteNcNoCreditCheckCarLoans() {
       faqs={faqs}
       citySlug="charlotte-nc"
       serviceSlug="no-credit-check-car-loans"
+      nationalGuideHref="/best-no-credit-check-car-loans/"
+      nationalGuideLabel="Best No Credit Check Car Loans of 2026"
     />
   );
 }

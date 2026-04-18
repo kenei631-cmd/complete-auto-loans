@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Windy City Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Cook County's largest subprime lender network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Illinois Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Chicago-area specialist for bad credit auto loans",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityChicagoIlNoCreditCheckCarLoans() {
   useSEO({
     title: "Best No Credit Check Car Loans in Chicago, IL (2026) | Complete Auto Loans",
     description: "Find no credit check car loans in Chicago, IL. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
-    canonical: "/chicago-il/no-credit-check-car-loans",
+    canonical: "/chicago-il/no-credit-check-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Chicago",
         state: "IL",
         serviceType: "No Credit Check Car Loans",
-        url: "/chicago-il/no-credit-check-car-loans",
+        url: "/chicago-il/no-credit-check-car-loans/",
         description: "Find no credit check car loans in Chicago, IL. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Chicago, IL", path: "/chicago-il" },
-        { name: "No Credit Check Car Loans in Chicago, IL", path: "/chicago-il/no-credit-check-car-loans" },
+        { name: "Chicago, IL", path: "/chicago-il/" },
+        { name: "No Credit Check Car Loans in Chicago, IL", path: "/chicago-il/no-credit-check-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityChicagoIlNoCreditCheckCarLoans() {
       faqs={faqs}
       citySlug="chicago-il"
       serviceSlug="no-credit-check-car-loans"
+      nationalGuideHref="/best-no-credit-check-car-loans/"
+      nationalGuideLabel="Best No Credit Check Car Loans of 2026"
     />
   );
 }

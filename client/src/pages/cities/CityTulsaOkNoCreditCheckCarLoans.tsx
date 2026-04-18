@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Green Country Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Tulsa County's leading subprime lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Sooner Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Oklahoma-based network for bad credit borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityTulsaOkNoCreditCheckCarLoans() {
   useSEO({
     title: "Best No Credit Check Car Loans in Tulsa, OK (2026) | Complete Auto Loans",
     description: "Find no credit check car loans in Tulsa, OK. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
-    canonical: "/tulsa-ok/no-credit-check-car-loans",
+    canonical: "/tulsa-ok/no-credit-check-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Tulsa",
         state: "OK",
         serviceType: "No Credit Check Car Loans",
-        url: "/tulsa-ok/no-credit-check-car-loans",
+        url: "/tulsa-ok/no-credit-check-car-loans/",
         description: "Find no credit check car loans in Tulsa, OK. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Tulsa, OK", path: "/tulsa-ok" },
-        { name: "No Credit Check Car Loans in Tulsa, OK", path: "/tulsa-ok/no-credit-check-car-loans" },
+        { name: "Tulsa, OK", path: "/tulsa-ok/" },
+        { name: "No Credit Check Car Loans in Tulsa, OK", path: "/tulsa-ok/no-credit-check-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityTulsaOkNoCreditCheckCarLoans() {
       faqs={faqs}
       citySlug="tulsa-ok"
       serviceSlug="no-credit-check-car-loans"
+      nationalGuideHref="/best-no-credit-check-car-loans/"
+      nationalGuideLabel="Best No Credit Check Car Loans of 2026"
     />
   );
 }

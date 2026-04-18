@@ -9,6 +9,7 @@ export default function BestNoCheckLoans() {
       seoTitle="Best No Credit Check Car Loans of 2026 — Reviewed & Ranked"
       seoDescription="Compare the best no credit check car loans of 2026. Get approved without a hard credit inquiry. Ideal for rebuilding credit or first-time buyers."
       canonicalPath="/best-no-credit-check-car-loans"
+      cityServiceSlug="no-credit-check-car-loans"
       title="Best No Credit Check Car Loans of 2026"
       subtitle="Some lenders skip the credit check entirely and approve based on income alone. Here's who they are."
       intro="No credit check auto loans use income verification instead of credit scores to make approval decisions. These are typically BHPH dealers or specialized subprime lenders who prioritize your ability to pay over your credit history."

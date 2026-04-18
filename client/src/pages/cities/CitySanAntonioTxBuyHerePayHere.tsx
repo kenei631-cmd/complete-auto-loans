@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Alamo Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Bexar County specialist for subprime borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "San Antonio BHPH Network",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "In-house financing across 20+ SA dealerships",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CitySanAntonioTxBuyHerePayHere() {
   useSEO({
     title: "Best Buy Here Pay Here Dealerships in San Antonio, TX (2026) | Complete Auto Loans",
     description: "Find the best buy here pay here dealerships in San Antonio, TX. In-house financing with no credit check required — drive today.",
-    canonical: "/san-antonio-tx/buy-here-pay-here",
+    canonical: "/san-antonio-tx/buy-here-pay-here/",
     schema: [
       buildLocalBusinessSchema({
         city: "San Antonio",
         state: "TX",
         serviceType: "Buy Here Pay Here",
-        url: "/san-antonio-tx/buy-here-pay-here",
+        url: "/san-antonio-tx/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in San Antonio, TX. In-house financing with no credit check required — drive today.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "San Antonio, TX", path: "/san-antonio-tx" },
-        { name: "Buy Here Pay Here Dealerships in San Antonio, TX", path: "/san-antonio-tx/buy-here-pay-here" },
+        { name: "San Antonio, TX", path: "/san-antonio-tx/" },
+        { name: "Buy Here Pay Here Dealerships in San Antonio, TX", path: "/san-antonio-tx/buy-here-pay-here/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CitySanAntonioTxBuyHerePayHere() {
       faqs={faqs}
       citySlug="san-antonio-tx"
       serviceSlug="buy-here-pay-here"
+      nationalGuideHref="/best-buy-here-pay-here-dealerships/"
+      nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
   );
 }

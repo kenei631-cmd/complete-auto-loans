@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Buckeye Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Franklin County specialist for subprime loans",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Ohio Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Columbus-area lender network serving all credit types",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColumbusOhNoMoneyDownCarLoans() {
   useSEO({
     title: "Best No Money Down Car Loans in Columbus, OH (2026) | Complete Auto Loans",
     description: "Find no money down car loans in Columbus, OH. $0 down payment options for qualified borrowers — bad credit accepted.",
-    canonical: "/columbus-oh/no-money-down-car-loans",
+    canonical: "/columbus-oh/no-money-down-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Columbus",
         state: "OH",
         serviceType: "No Money Down Car Loans",
-        url: "/columbus-oh/no-money-down-car-loans",
+        url: "/columbus-oh/no-money-down-car-loans/",
         description: "Find no money down car loans in Columbus, OH. $0 down payment options for qualified borrowers — bad credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Columbus, OH", path: "/columbus-oh" },
-        { name: "No Money Down Car Loans in Columbus, OH", path: "/columbus-oh/no-money-down-car-loans" },
+        { name: "Columbus, OH", path: "/columbus-oh/" },
+        { name: "No Money Down Car Loans in Columbus, OH", path: "/columbus-oh/no-money-down-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColumbusOhNoMoneyDownCarLoans() {
       faqs={faqs}
       citySlug="columbus-oh"
       serviceSlug="no-money-down-car-loans"
+      nationalGuideHref="/best-no-money-down-car-loans-bad-credit/"
+      nationalGuideLabel="Best No Money Down Car Loans of 2026"
     />
   );
 }

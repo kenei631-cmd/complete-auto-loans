@@ -9,6 +9,7 @@ export default function BestPreApproved() {
       seoTitle="Best Pre-Approved Car Loans for Bad Credit (2026) — Reviewed"
       seoDescription="Get pre-approved for a car loan with bad credit in 2026. Compare lenders offering soft-pull pre-approval with no impact to your credit score."
       canonicalPath="/best-pre-approved-car-loans-bad-credit"
+      cityServiceSlug="bad-credit-auto-loans"
       title="Best Pre-Approved Car Loans for Bad Credit (2026)"
       subtitle="Get pre-approved before you visit a dealership. Know your budget, your rate, and your power before you walk in the door."
       intro="Pre-approval gives you the power of a cash buyer at the dealership. Even with bad credit, getting pre-approved online before visiting a dealer protects you from dealer markups and high-pressure financing tactics."

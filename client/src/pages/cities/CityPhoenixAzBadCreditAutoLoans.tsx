@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Desert Financial Auto Loans",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Phoenix-area credit union with strong subprime programs",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Arizona Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Local dealership network serving Maricopa County",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityPhoenixAzBadCreditAutoLoans() {
   useSEO({
     title: "Best Bad Credit Auto Loans in Phoenix, AZ (2026) | Complete Auto Loans",
     description: "Compare the best bad credit auto loans in Phoenix, AZ. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
-    canonical: "/phoenix-az/bad-credit-auto-loans",
+    canonical: "/phoenix-az/bad-credit-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Phoenix",
         state: "AZ",
         serviceType: "Bad Credit Auto Loans",
-        url: "/phoenix-az/bad-credit-auto-loans",
+        url: "/phoenix-az/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Phoenix, AZ. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Phoenix, AZ", path: "/phoenix-az" },
-        { name: "Bad Credit Auto Loans in Phoenix, AZ", path: "/phoenix-az/bad-credit-auto-loans" },
+        { name: "Phoenix, AZ", path: "/phoenix-az/" },
+        { name: "Bad Credit Auto Loans in Phoenix, AZ", path: "/phoenix-az/bad-credit-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityPhoenixAzBadCreditAutoLoans() {
       faqs={faqs}
       citySlug="phoenix-az"
       serviceSlug="bad-credit-auto-loans"
+      nationalGuideHref="/best-bad-credit-auto-loans/"
+      nationalGuideLabel="Best Bad Credit Auto Loans of 2026"
     />
   );
 }

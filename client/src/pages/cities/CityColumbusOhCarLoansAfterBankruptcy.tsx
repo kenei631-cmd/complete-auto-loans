@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Buckeye Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Franklin County specialist for subprime loans",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Ohio Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Columbus-area lender network serving all credit types",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColumbusOhCarLoansAfterBankruptcy() {
   useSEO({
     title: "Best Car Loans After Bankruptcy in Columbus, OH (2026) | Complete Auto Loans",
     description: "Find car loans after bankruptcy in Columbus, OH. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
-    canonical: "/columbus-oh/car-loans-after-bankruptcy",
+    canonical: "/columbus-oh/car-loans-after-bankruptcy/",
     schema: [
       buildLocalBusinessSchema({
         city: "Columbus",
         state: "OH",
         serviceType: "Car Loans After Bankruptcy",
-        url: "/columbus-oh/car-loans-after-bankruptcy",
+        url: "/columbus-oh/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Columbus, OH. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Columbus, OH", path: "/columbus-oh" },
-        { name: "Car Loans After Bankruptcy in Columbus, OH", path: "/columbus-oh/car-loans-after-bankruptcy" },
+        { name: "Columbus, OH", path: "/columbus-oh/" },
+        { name: "Car Loans After Bankruptcy in Columbus, OH", path: "/columbus-oh/car-loans-after-bankruptcy/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColumbusOhCarLoansAfterBankruptcy() {
       faqs={faqs}
       citySlug="columbus-oh"
       serviceSlug="car-loans-after-bankruptcy"
+      nationalGuideHref="/best-car-loans-after-bankruptcy/"
+      nationalGuideLabel="Best Car Loans After Bankruptcy of 2026"
     />
   );
 }

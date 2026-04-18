@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Pikes Peak Credit Union Auto",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "El Paso County's top subprime lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Colorado Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Local network serving Colorado Springs metro",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColoradoSpringsCoBadCreditAutoLoans() {
   useSEO({
     title: "Best Bad Credit Auto Loans in Colorado Springs, CO (2026) | Complete Auto Loans",
     description: "Compare the best bad credit auto loans in Colorado Springs, CO. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
-    canonical: "/colorado-springs-co/bad-credit-auto-loans",
+    canonical: "/colorado-springs-co/bad-credit-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Colorado Springs",
         state: "CO",
         serviceType: "Bad Credit Auto Loans",
-        url: "/colorado-springs-co/bad-credit-auto-loans",
+        url: "/colorado-springs-co/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Colorado Springs, CO. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Colorado Springs, CO", path: "/colorado-springs-co" },
-        { name: "Bad Credit Auto Loans in Colorado Springs, CO", path: "/colorado-springs-co/bad-credit-auto-loans" },
+        { name: "Colorado Springs, CO", path: "/colorado-springs-co/" },
+        { name: "Bad Credit Auto Loans in Colorado Springs, CO", path: "/colorado-springs-co/bad-credit-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColoradoSpringsCoBadCreditAutoLoans() {
       faqs={faqs}
       citySlug="colorado-springs-co"
       serviceSlug="bad-credit-auto-loans"
+      nationalGuideHref="/best-bad-credit-auto-loans/"
+      nationalGuideLabel="Best Bad Credit Auto Loans of 2026"
     />
   );
 }

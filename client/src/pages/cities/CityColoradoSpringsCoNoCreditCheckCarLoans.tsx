@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Pikes Peak Credit Union Auto",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "El Paso County's top subprime lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Colorado Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Local network serving Colorado Springs metro",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColoradoSpringsCoNoCreditCheckCarLoans() {
   useSEO({
     title: "Best No Credit Check Car Loans in Colorado Springs, CO (2026) | Complete Auto Loans",
     description: "Find no credit check car loans in Colorado Springs, CO. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
-    canonical: "/colorado-springs-co/no-credit-check-car-loans",
+    canonical: "/colorado-springs-co/no-credit-check-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Colorado Springs",
         state: "CO",
         serviceType: "No Credit Check Car Loans",
-        url: "/colorado-springs-co/no-credit-check-car-loans",
+        url: "/colorado-springs-co/no-credit-check-car-loans/",
         description: "Find no credit check car loans in Colorado Springs, CO. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Colorado Springs, CO", path: "/colorado-springs-co" },
-        { name: "No Credit Check Car Loans in Colorado Springs, CO", path: "/colorado-springs-co/no-credit-check-car-loans" },
+        { name: "Colorado Springs, CO", path: "/colorado-springs-co/" },
+        { name: "No Credit Check Car Loans in Colorado Springs, CO", path: "/colorado-springs-co/no-credit-check-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColoradoSpringsCoNoCreditCheckCarLoans() {
       faqs={faqs}
       citySlug="colorado-springs-co"
       serviceSlug="no-credit-check-car-loans"
+      nationalGuideHref="/best-no-credit-check-car-loans/"
+      nationalGuideLabel="Best No Credit Check Car Loans of 2026"
     />
   );
 }

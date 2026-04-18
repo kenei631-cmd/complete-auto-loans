@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Buckeye Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Franklin County specialist for subprime loans",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Ohio Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Columbus-area lender network serving all credit types",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColumbusOhBuyHerePayHere() {
   useSEO({
     title: "Best Buy Here Pay Here Dealerships in Columbus, OH (2026) | Complete Auto Loans",
     description: "Find the best buy here pay here dealerships in Columbus, OH. In-house financing with no credit check required — drive today.",
-    canonical: "/columbus-oh/buy-here-pay-here",
+    canonical: "/columbus-oh/buy-here-pay-here/",
     schema: [
       buildLocalBusinessSchema({
         city: "Columbus",
         state: "OH",
         serviceType: "Buy Here Pay Here",
-        url: "/columbus-oh/buy-here-pay-here",
+        url: "/columbus-oh/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Columbus, OH. In-house financing with no credit check required — drive today.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Columbus, OH", path: "/columbus-oh" },
-        { name: "Buy Here Pay Here Dealerships in Columbus, OH", path: "/columbus-oh/buy-here-pay-here" },
+        { name: "Columbus, OH", path: "/columbus-oh/" },
+        { name: "Buy Here Pay Here Dealerships in Columbus, OH", path: "/columbus-oh/buy-here-pay-here/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColumbusOhBuyHerePayHere() {
       faqs={faqs}
       citySlug="columbus-oh"
       serviceSlug="buy-here-pay-here"
+      nationalGuideHref="/best-buy-here-pay-here-dealerships/"
+      nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
   );
 }

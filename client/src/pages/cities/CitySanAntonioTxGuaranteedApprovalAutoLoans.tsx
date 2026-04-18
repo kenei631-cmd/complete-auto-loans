@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Alamo Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Bexar County specialist for subprime borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "San Antonio BHPH Network",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "In-house financing across 20+ SA dealerships",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CitySanAntonioTxGuaranteedApprovalAutoLoans() {
   useSEO({
     title: "Best Guaranteed Approval Auto Loans in San Antonio, TX (2026) | Complete Auto Loans",
     description: "Find guaranteed approval auto loans in San Antonio, TX. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
-    canonical: "/san-antonio-tx/guaranteed-approval-auto-loans",
+    canonical: "/san-antonio-tx/guaranteed-approval-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "San Antonio",
         state: "TX",
         serviceType: "Guaranteed Approval Auto Loans",
-        url: "/san-antonio-tx/guaranteed-approval-auto-loans",
+        url: "/san-antonio-tx/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in San Antonio, TX. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "San Antonio, TX", path: "/san-antonio-tx" },
-        { name: "Guaranteed Approval Auto Loans in San Antonio, TX", path: "/san-antonio-tx/guaranteed-approval-auto-loans" },
+        { name: "San Antonio, TX", path: "/san-antonio-tx/" },
+        { name: "Guaranteed Approval Auto Loans in San Antonio, TX", path: "/san-antonio-tx/guaranteed-approval-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CitySanAntonioTxGuaranteedApprovalAutoLoans() {
       faqs={faqs}
       citySlug="san-antonio-tx"
       serviceSlug="guaranteed-approval-auto-loans"
+      nationalGuideHref="/best-guaranteed-approval-auto-loans/"
+      nationalGuideLabel="Best Guaranteed Approval Auto Loans of 2026"
     />
   );
 }

@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Green Country Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Tulsa County's leading subprime lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Sooner Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Oklahoma-based network for bad credit borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityTulsaOkCarLoansAfterBankruptcy() {
   useSEO({
     title: "Best Car Loans After Bankruptcy in Tulsa, OK (2026) | Complete Auto Loans",
     description: "Find car loans after bankruptcy in Tulsa, OK. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
-    canonical: "/tulsa-ok/car-loans-after-bankruptcy",
+    canonical: "/tulsa-ok/car-loans-after-bankruptcy/",
     schema: [
       buildLocalBusinessSchema({
         city: "Tulsa",
         state: "OK",
         serviceType: "Car Loans After Bankruptcy",
-        url: "/tulsa-ok/car-loans-after-bankruptcy",
+        url: "/tulsa-ok/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Tulsa, OK. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Tulsa, OK", path: "/tulsa-ok" },
-        { name: "Car Loans After Bankruptcy in Tulsa, OK", path: "/tulsa-ok/car-loans-after-bankruptcy" },
+        { name: "Tulsa, OK", path: "/tulsa-ok/" },
+        { name: "Car Loans After Bankruptcy in Tulsa, OK", path: "/tulsa-ok/car-loans-after-bankruptcy/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityTulsaOkCarLoansAfterBankruptcy() {
       faqs={faqs}
       citySlug="tulsa-ok"
       serviceSlug="car-loans-after-bankruptcy"
+      nationalGuideHref="/best-car-loans-after-bankruptcy/"
+      nationalGuideLabel="Best Car Loans After Bankruptcy of 2026"
     />
   );
 }

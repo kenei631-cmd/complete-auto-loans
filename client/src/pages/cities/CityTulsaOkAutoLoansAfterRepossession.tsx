@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Green Country Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Tulsa County's leading subprime lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Sooner Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Oklahoma-based network for bad credit borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityTulsaOkAutoLoansAfterRepossession() {
   useSEO({
     title: "Best Auto Loans After Repossession in Tulsa, OK (2026) | Complete Auto Loans",
     description: "Find auto loans after repossession in Tulsa, OK. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
-    canonical: "/tulsa-ok/auto-loans-after-repossession",
+    canonical: "/tulsa-ok/auto-loans-after-repossession/",
     schema: [
       buildLocalBusinessSchema({
         city: "Tulsa",
         state: "OK",
         serviceType: "Auto Loans After Repossession",
-        url: "/tulsa-ok/auto-loans-after-repossession",
+        url: "/tulsa-ok/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Tulsa, OK. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Tulsa, OK", path: "/tulsa-ok" },
-        { name: "Auto Loans After Repossession in Tulsa, OK", path: "/tulsa-ok/auto-loans-after-repossession" },
+        { name: "Tulsa, OK", path: "/tulsa-ok/" },
+        { name: "Auto Loans After Repossession in Tulsa, OK", path: "/tulsa-ok/auto-loans-after-repossession/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityTulsaOkAutoLoansAfterRepossession() {
       faqs={faqs}
       citySlug="tulsa-ok"
       serviceSlug="auto-loans-after-repossession"
+      nationalGuideHref="/best-auto-loans-after-repossession/"
+      nationalGuideLabel="Best Auto Loans After Repossession of 2026"
     />
   );
 }

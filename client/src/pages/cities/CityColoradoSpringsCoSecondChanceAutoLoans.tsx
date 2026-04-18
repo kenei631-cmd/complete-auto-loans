@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Pikes Peak Credit Union Auto",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "El Paso County's top subprime lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Colorado Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Local network serving Colorado Springs metro",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColoradoSpringsCoSecondChanceAutoLoans() {
   useSEO({
     title: "Best Second Chance Auto Loans in Colorado Springs, CO (2026) | Complete Auto Loans",
     description: "Find second chance auto loans in Colorado Springs, CO. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
-    canonical: "/colorado-springs-co/second-chance-auto-loans",
+    canonical: "/colorado-springs-co/second-chance-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Colorado Springs",
         state: "CO",
         serviceType: "Second Chance Auto Loans",
-        url: "/colorado-springs-co/second-chance-auto-loans",
+        url: "/colorado-springs-co/second-chance-auto-loans/",
         description: "Find second chance auto loans in Colorado Springs, CO. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Colorado Springs, CO", path: "/colorado-springs-co" },
-        { name: "Second Chance Auto Loans in Colorado Springs, CO", path: "/colorado-springs-co/second-chance-auto-loans" },
+        { name: "Colorado Springs, CO", path: "/colorado-springs-co/" },
+        { name: "Second Chance Auto Loans in Colorado Springs, CO", path: "/colorado-springs-co/second-chance-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColoradoSpringsCoSecondChanceAutoLoans() {
       faqs={faqs}
       citySlug="colorado-springs-co"
       serviceSlug="second-chance-auto-loans"
+      nationalGuideHref="/best-second-chance-auto-loans/"
+      nationalGuideLabel="Best Second Chance Auto Loans of 2026"
     />
   );
 }

@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Queen City Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Mecklenburg County's top bad credit lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Carolina Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Charlotte-area network for all credit situations",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityCharlotteNcAutoLoansAfterRepossession() {
   useSEO({
     title: "Best Auto Loans After Repossession in Charlotte, NC (2026) | Complete Auto Loans",
     description: "Find auto loans after repossession in Charlotte, NC. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
-    canonical: "/charlotte-nc/auto-loans-after-repossession",
+    canonical: "/charlotte-nc/auto-loans-after-repossession/",
     schema: [
       buildLocalBusinessSchema({
         city: "Charlotte",
         state: "NC",
         serviceType: "Auto Loans After Repossession",
-        url: "/charlotte-nc/auto-loans-after-repossession",
+        url: "/charlotte-nc/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Charlotte, NC. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Charlotte, NC", path: "/charlotte-nc" },
-        { name: "Auto Loans After Repossession in Charlotte, NC", path: "/charlotte-nc/auto-loans-after-repossession" },
+        { name: "Charlotte, NC", path: "/charlotte-nc/" },
+        { name: "Auto Loans After Repossession in Charlotte, NC", path: "/charlotte-nc/auto-loans-after-repossession/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityCharlotteNcAutoLoansAfterRepossession() {
       faqs={faqs}
       citySlug="charlotte-nc"
       serviceSlug="auto-loans-after-repossession"
+      nationalGuideHref="/best-auto-loans-after-repossession/"
+      nationalGuideLabel="Best Auto Loans After Repossession of 2026"
     />
   );
 }

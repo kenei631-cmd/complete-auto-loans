@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Pikes Peak Credit Union Auto",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "El Paso County's top subprime lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Colorado Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Local network serving Colorado Springs metro",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColoradoSpringsCoAutoLoansAfterRepossession() {
   useSEO({
     title: "Best Auto Loans After Repossession in Colorado Springs, CO (2026) | Complete Auto Loans",
     description: "Find auto loans after repossession in Colorado Springs, CO. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
-    canonical: "/colorado-springs-co/auto-loans-after-repossession",
+    canonical: "/colorado-springs-co/auto-loans-after-repossession/",
     schema: [
       buildLocalBusinessSchema({
         city: "Colorado Springs",
         state: "CO",
         serviceType: "Auto Loans After Repossession",
-        url: "/colorado-springs-co/auto-loans-after-repossession",
+        url: "/colorado-springs-co/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Colorado Springs, CO. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Colorado Springs, CO", path: "/colorado-springs-co" },
-        { name: "Auto Loans After Repossession in Colorado Springs, CO", path: "/colorado-springs-co/auto-loans-after-repossession" },
+        { name: "Colorado Springs, CO", path: "/colorado-springs-co/" },
+        { name: "Auto Loans After Repossession in Colorado Springs, CO", path: "/colorado-springs-co/auto-loans-after-repossession/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColoradoSpringsCoAutoLoansAfterRepossession() {
       faqs={faqs}
       citySlug="colorado-springs-co"
       serviceSlug="auto-loans-after-repossession"
+      nationalGuideHref="/best-auto-loans-after-repossession/"
+      nationalGuideLabel="Best Auto Loans After Repossession of 2026"
     />
   );
 }

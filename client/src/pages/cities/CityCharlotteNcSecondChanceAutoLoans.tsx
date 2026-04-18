@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Queen City Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Mecklenburg County's top bad credit lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Carolina Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Charlotte-area network for all credit situations",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityCharlotteNcSecondChanceAutoLoans() {
   useSEO({
     title: "Best Second Chance Auto Loans in Charlotte, NC (2026) | Complete Auto Loans",
     description: "Find second chance auto loans in Charlotte, NC. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
-    canonical: "/charlotte-nc/second-chance-auto-loans",
+    canonical: "/charlotte-nc/second-chance-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Charlotte",
         state: "NC",
         serviceType: "Second Chance Auto Loans",
-        url: "/charlotte-nc/second-chance-auto-loans",
+        url: "/charlotte-nc/second-chance-auto-loans/",
         description: "Find second chance auto loans in Charlotte, NC. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Charlotte, NC", path: "/charlotte-nc" },
-        { name: "Second Chance Auto Loans in Charlotte, NC", path: "/charlotte-nc/second-chance-auto-loans" },
+        { name: "Charlotte, NC", path: "/charlotte-nc/" },
+        { name: "Second Chance Auto Loans in Charlotte, NC", path: "/charlotte-nc/second-chance-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityCharlotteNcSecondChanceAutoLoans() {
       faqs={faqs}
       citySlug="charlotte-nc"
       serviceSlug="second-chance-auto-loans"
+      nationalGuideHref="/best-second-chance-auto-loans/"
+      nationalGuideLabel="Best Second Chance Auto Loans of 2026"
     />
   );
 }

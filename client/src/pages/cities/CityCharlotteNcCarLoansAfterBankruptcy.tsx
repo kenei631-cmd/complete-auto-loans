@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Queen City Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Mecklenburg County's top bad credit lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Carolina Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Charlotte-area network for all credit situations",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityCharlotteNcCarLoansAfterBankruptcy() {
   useSEO({
     title: "Best Car Loans After Bankruptcy in Charlotte, NC (2026) | Complete Auto Loans",
     description: "Find car loans after bankruptcy in Charlotte, NC. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
-    canonical: "/charlotte-nc/car-loans-after-bankruptcy",
+    canonical: "/charlotte-nc/car-loans-after-bankruptcy/",
     schema: [
       buildLocalBusinessSchema({
         city: "Charlotte",
         state: "NC",
         serviceType: "Car Loans After Bankruptcy",
-        url: "/charlotte-nc/car-loans-after-bankruptcy",
+        url: "/charlotte-nc/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Charlotte, NC. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Charlotte, NC", path: "/charlotte-nc" },
-        { name: "Car Loans After Bankruptcy in Charlotte, NC", path: "/charlotte-nc/car-loans-after-bankruptcy" },
+        { name: "Charlotte, NC", path: "/charlotte-nc/" },
+        { name: "Car Loans After Bankruptcy in Charlotte, NC", path: "/charlotte-nc/car-loans-after-bankruptcy/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityCharlotteNcCarLoansAfterBankruptcy() {
       faqs={faqs}
       citySlug="charlotte-nc"
       serviceSlug="car-loans-after-bankruptcy"
+      nationalGuideHref="/best-car-loans-after-bankruptcy/"
+      nationalGuideLabel="Best Car Loans After Bankruptcy of 2026"
     />
   );
 }

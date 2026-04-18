@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Motor City Credit Union Auto",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Wayne County specialist for subprime auto",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Michigan Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Detroit-area lender network for all credit types",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDetroitMiGuaranteedApprovalAutoLoans() {
   useSEO({
     title: "Best Guaranteed Approval Auto Loans in Detroit, MI (2026) | Complete Auto Loans",
     description: "Find guaranteed approval auto loans in Detroit, MI. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
-    canonical: "/detroit-mi/guaranteed-approval-auto-loans",
+    canonical: "/detroit-mi/guaranteed-approval-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Detroit",
         state: "MI",
         serviceType: "Guaranteed Approval Auto Loans",
-        url: "/detroit-mi/guaranteed-approval-auto-loans",
+        url: "/detroit-mi/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in Detroit, MI. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Detroit, MI", path: "/detroit-mi" },
-        { name: "Guaranteed Approval Auto Loans in Detroit, MI", path: "/detroit-mi/guaranteed-approval-auto-loans" },
+        { name: "Detroit, MI", path: "/detroit-mi/" },
+        { name: "Guaranteed Approval Auto Loans in Detroit, MI", path: "/detroit-mi/guaranteed-approval-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDetroitMiGuaranteedApprovalAutoLoans() {
       faqs={faqs}
       citySlug="detroit-mi"
       serviceSlug="guaranteed-approval-auto-loans"
+      nationalGuideHref="/best-guaranteed-approval-auto-loans/"
+      nationalGuideLabel="Best Guaranteed Approval Auto Loans of 2026"
     />
   );
 }

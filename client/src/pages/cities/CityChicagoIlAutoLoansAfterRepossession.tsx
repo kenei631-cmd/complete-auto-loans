@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Windy City Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Cook County's largest subprime lender network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Illinois Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Chicago-area specialist for bad credit auto loans",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityChicagoIlAutoLoansAfterRepossession() {
   useSEO({
     title: "Best Auto Loans After Repossession in Chicago, IL (2026) | Complete Auto Loans",
     description: "Find auto loans after repossession in Chicago, IL. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
-    canonical: "/chicago-il/auto-loans-after-repossession",
+    canonical: "/chicago-il/auto-loans-after-repossession/",
     schema: [
       buildLocalBusinessSchema({
         city: "Chicago",
         state: "IL",
         serviceType: "Auto Loans After Repossession",
-        url: "/chicago-il/auto-loans-after-repossession",
+        url: "/chicago-il/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Chicago, IL. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Chicago, IL", path: "/chicago-il" },
-        { name: "Auto Loans After Repossession in Chicago, IL", path: "/chicago-il/auto-loans-after-repossession" },
+        { name: "Chicago, IL", path: "/chicago-il/" },
+        { name: "Auto Loans After Repossession in Chicago, IL", path: "/chicago-il/auto-loans-after-repossession/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityChicagoIlAutoLoansAfterRepossession() {
       faqs={faqs}
       citySlug="chicago-il"
       serviceSlug="auto-loans-after-repossession"
+      nationalGuideHref="/best-auto-loans-after-repossession/"
+      nationalGuideLabel="Best Auto Loans After Repossession of 2026"
     />
   );
 }

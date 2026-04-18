@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Metroplex Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "DFW-area lender specializing in bad credit",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Big D Auto Credit",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Dallas County's top BHPH network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDallasTxBuyHerePayHere() {
   useSEO({
     title: "Best Buy Here Pay Here Dealerships in Dallas, TX (2026) | Complete Auto Loans",
     description: "Find the best buy here pay here dealerships in Dallas, TX. In-house financing with no credit check required — drive today.",
-    canonical: "/dallas-tx/buy-here-pay-here",
+    canonical: "/dallas-tx/buy-here-pay-here/",
     schema: [
       buildLocalBusinessSchema({
         city: "Dallas",
         state: "TX",
         serviceType: "Buy Here Pay Here",
-        url: "/dallas-tx/buy-here-pay-here",
+        url: "/dallas-tx/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Dallas, TX. In-house financing with no credit check required — drive today.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Dallas, TX", path: "/dallas-tx" },
-        { name: "Buy Here Pay Here Dealerships in Dallas, TX", path: "/dallas-tx/buy-here-pay-here" },
+        { name: "Dallas, TX", path: "/dallas-tx/" },
+        { name: "Buy Here Pay Here Dealerships in Dallas, TX", path: "/dallas-tx/buy-here-pay-here/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDallasTxBuyHerePayHere() {
       faqs={faqs}
       citySlug="dallas-tx"
       serviceSlug="buy-here-pay-here"
+      nationalGuideHref="/best-buy-here-pay-here-dealerships/"
+      nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
   );
 }

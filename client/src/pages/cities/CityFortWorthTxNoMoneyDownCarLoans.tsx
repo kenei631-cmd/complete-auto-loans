@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Lone Star Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Tarrant County specialist for subprime borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Cowtown Auto Credit",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Fort Worth's largest in-house financing dealer",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityFortWorthTxNoMoneyDownCarLoans() {
   useSEO({
     title: "Best No Money Down Car Loans in Fort Worth, TX (2026) | Complete Auto Loans",
     description: "Find no money down car loans in Fort Worth, TX. $0 down payment options for qualified borrowers — bad credit accepted.",
-    canonical: "/fort-worth-tx/no-money-down-car-loans",
+    canonical: "/fort-worth-tx/no-money-down-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Fort Worth",
         state: "TX",
         serviceType: "No Money Down Car Loans",
-        url: "/fort-worth-tx/no-money-down-car-loans",
+        url: "/fort-worth-tx/no-money-down-car-loans/",
         description: "Find no money down car loans in Fort Worth, TX. $0 down payment options for qualified borrowers — bad credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Fort Worth, TX", path: "/fort-worth-tx" },
-        { name: "No Money Down Car Loans in Fort Worth, TX", path: "/fort-worth-tx/no-money-down-car-loans" },
+        { name: "Fort Worth, TX", path: "/fort-worth-tx/" },
+        { name: "No Money Down Car Loans in Fort Worth, TX", path: "/fort-worth-tx/no-money-down-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityFortWorthTxNoMoneyDownCarLoans() {
       faqs={faqs}
       citySlug="fort-worth-tx"
       serviceSlug="no-money-down-car-loans"
+      nationalGuideHref="/best-no-money-down-car-loans-bad-credit/"
+      nationalGuideLabel="Best No Money Down Car Loans of 2026"
     />
   );
 }

@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Lone Star Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Tarrant County specialist for subprime borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Cowtown Auto Credit",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Fort Worth's largest in-house financing dealer",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityFortWorthTxSecondChanceAutoLoans() {
   useSEO({
     title: "Best Second Chance Auto Loans in Fort Worth, TX (2026) | Complete Auto Loans",
     description: "Find second chance auto loans in Fort Worth, TX. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
-    canonical: "/fort-worth-tx/second-chance-auto-loans",
+    canonical: "/fort-worth-tx/second-chance-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Fort Worth",
         state: "TX",
         serviceType: "Second Chance Auto Loans",
-        url: "/fort-worth-tx/second-chance-auto-loans",
+        url: "/fort-worth-tx/second-chance-auto-loans/",
         description: "Find second chance auto loans in Fort Worth, TX. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Fort Worth, TX", path: "/fort-worth-tx" },
-        { name: "Second Chance Auto Loans in Fort Worth, TX", path: "/fort-worth-tx/second-chance-auto-loans" },
+        { name: "Fort Worth, TX", path: "/fort-worth-tx/" },
+        { name: "Second Chance Auto Loans in Fort Worth, TX", path: "/fort-worth-tx/second-chance-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityFortWorthTxSecondChanceAutoLoans() {
       faqs={faqs}
       citySlug="fort-worth-tx"
       serviceSlug="second-chance-auto-loans"
+      nationalGuideHref="/best-second-chance-auto-loans/"
+      nationalGuideLabel="Best Second Chance Auto Loans of 2026"
     />
   );
 }

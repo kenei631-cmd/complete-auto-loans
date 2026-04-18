@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Alamo Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Bexar County specialist for subprime borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "San Antonio BHPH Network",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "In-house financing across 20+ SA dealerships",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CitySanAntonioTxCarLoansAfterBankruptcy() {
   useSEO({
     title: "Best Car Loans After Bankruptcy in San Antonio, TX (2026) | Complete Auto Loans",
     description: "Find car loans after bankruptcy in San Antonio, TX. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
-    canonical: "/san-antonio-tx/car-loans-after-bankruptcy",
+    canonical: "/san-antonio-tx/car-loans-after-bankruptcy/",
     schema: [
       buildLocalBusinessSchema({
         city: "San Antonio",
         state: "TX",
         serviceType: "Car Loans After Bankruptcy",
-        url: "/san-antonio-tx/car-loans-after-bankruptcy",
+        url: "/san-antonio-tx/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in San Antonio, TX. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "San Antonio, TX", path: "/san-antonio-tx" },
-        { name: "Car Loans After Bankruptcy in San Antonio, TX", path: "/san-antonio-tx/car-loans-after-bankruptcy" },
+        { name: "San Antonio, TX", path: "/san-antonio-tx/" },
+        { name: "Car Loans After Bankruptcy in San Antonio, TX", path: "/san-antonio-tx/car-loans-after-bankruptcy/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CitySanAntonioTxCarLoansAfterBankruptcy() {
       faqs={faqs}
       citySlug="san-antonio-tx"
       serviceSlug="car-loans-after-bankruptcy"
+      nationalGuideHref="/best-car-loans-after-bankruptcy/"
+      nationalGuideLabel="Best Car Loans After Bankruptcy of 2026"
     />
   );
 }

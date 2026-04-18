@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Desert Financial Auto Loans",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Phoenix-area credit union with strong subprime programs",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Arizona Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Local dealership network serving Maricopa County",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityPhoenixAzCarLoansAfterBankruptcy() {
   useSEO({
     title: "Best Car Loans After Bankruptcy in Phoenix, AZ (2026) | Complete Auto Loans",
     description: "Find car loans after bankruptcy in Phoenix, AZ. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
-    canonical: "/phoenix-az/car-loans-after-bankruptcy",
+    canonical: "/phoenix-az/car-loans-after-bankruptcy/",
     schema: [
       buildLocalBusinessSchema({
         city: "Phoenix",
         state: "AZ",
         serviceType: "Car Loans After Bankruptcy",
-        url: "/phoenix-az/car-loans-after-bankruptcy",
+        url: "/phoenix-az/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Phoenix, AZ. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Phoenix, AZ", path: "/phoenix-az" },
-        { name: "Car Loans After Bankruptcy in Phoenix, AZ", path: "/phoenix-az/car-loans-after-bankruptcy" },
+        { name: "Phoenix, AZ", path: "/phoenix-az/" },
+        { name: "Car Loans After Bankruptcy in Phoenix, AZ", path: "/phoenix-az/car-loans-after-bankruptcy/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityPhoenixAzCarLoansAfterBankruptcy() {
       faqs={faqs}
       citySlug="phoenix-az"
       serviceSlug="car-loans-after-bankruptcy"
+      nationalGuideHref="/best-car-loans-after-bankruptcy/"
+      nationalGuideLabel="Best Car Loans After Bankruptcy of 2026"
     />
   );
 }

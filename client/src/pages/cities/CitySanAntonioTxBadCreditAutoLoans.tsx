@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Alamo Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Bexar County specialist for subprime borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "San Antonio BHPH Network",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "In-house financing across 20+ SA dealerships",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CitySanAntonioTxBadCreditAutoLoans() {
   useSEO({
     title: "Best Bad Credit Auto Loans in San Antonio, TX (2026) | Complete Auto Loans",
     description: "Compare the best bad credit auto loans in San Antonio, TX. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
-    canonical: "/san-antonio-tx/bad-credit-auto-loans",
+    canonical: "/san-antonio-tx/bad-credit-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "San Antonio",
         state: "TX",
         serviceType: "Bad Credit Auto Loans",
-        url: "/san-antonio-tx/bad-credit-auto-loans",
+        url: "/san-antonio-tx/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in San Antonio, TX. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "San Antonio, TX", path: "/san-antonio-tx" },
-        { name: "Bad Credit Auto Loans in San Antonio, TX", path: "/san-antonio-tx/bad-credit-auto-loans" },
+        { name: "San Antonio, TX", path: "/san-antonio-tx/" },
+        { name: "Bad Credit Auto Loans in San Antonio, TX", path: "/san-antonio-tx/bad-credit-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CitySanAntonioTxBadCreditAutoLoans() {
       faqs={faqs}
       citySlug="san-antonio-tx"
       serviceSlug="bad-credit-auto-loans"
+      nationalGuideHref="/best-bad-credit-auto-loans/"
+      nationalGuideLabel="Best Bad Credit Auto Loans of 2026"
     />
   );
 }

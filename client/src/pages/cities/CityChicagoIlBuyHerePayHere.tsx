@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Windy City Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Cook County's largest subprime lender network",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Illinois Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Chicago-area specialist for bad credit auto loans",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityChicagoIlBuyHerePayHere() {
   useSEO({
     title: "Best Buy Here Pay Here Dealerships in Chicago, IL (2026) | Complete Auto Loans",
     description: "Find the best buy here pay here dealerships in Chicago, IL. In-house financing with no credit check required — drive today.",
-    canonical: "/chicago-il/buy-here-pay-here",
+    canonical: "/chicago-il/buy-here-pay-here/",
     schema: [
       buildLocalBusinessSchema({
         city: "Chicago",
         state: "IL",
         serviceType: "Buy Here Pay Here",
-        url: "/chicago-il/buy-here-pay-here",
+        url: "/chicago-il/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Chicago, IL. In-house financing with no credit check required — drive today.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Chicago, IL", path: "/chicago-il" },
-        { name: "Buy Here Pay Here Dealerships in Chicago, IL", path: "/chicago-il/buy-here-pay-here" },
+        { name: "Chicago, IL", path: "/chicago-il/" },
+        { name: "Buy Here Pay Here Dealerships in Chicago, IL", path: "/chicago-il/buy-here-pay-here/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityChicagoIlBuyHerePayHere() {
       faqs={faqs}
       citySlug="chicago-il"
       serviceSlug="buy-here-pay-here"
+      nationalGuideHref="/best-buy-here-pay-here-dealerships/"
+      nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
   );
 }

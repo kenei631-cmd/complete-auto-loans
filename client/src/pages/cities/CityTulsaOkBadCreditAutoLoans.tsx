@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Green Country Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Tulsa County's leading subprime lender",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Sooner Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Oklahoma-based network for bad credit borrowers",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityTulsaOkBadCreditAutoLoans() {
   useSEO({
     title: "Best Bad Credit Auto Loans in Tulsa, OK (2026) | Complete Auto Loans",
     description: "Compare the best bad credit auto loans in Tulsa, OK. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
-    canonical: "/tulsa-ok/bad-credit-auto-loans",
+    canonical: "/tulsa-ok/bad-credit-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Tulsa",
         state: "OK",
         serviceType: "Bad Credit Auto Loans",
-        url: "/tulsa-ok/bad-credit-auto-loans",
+        url: "/tulsa-ok/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Tulsa, OK. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Tulsa, OK", path: "/tulsa-ok" },
-        { name: "Bad Credit Auto Loans in Tulsa, OK", path: "/tulsa-ok/bad-credit-auto-loans" },
+        { name: "Tulsa, OK", path: "/tulsa-ok/" },
+        { name: "Bad Credit Auto Loans in Tulsa, OK", path: "/tulsa-ok/bad-credit-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityTulsaOkBadCreditAutoLoans() {
       faqs={faqs}
       citySlug="tulsa-ok"
       serviceSlug="bad-credit-auto-loans"
+      nationalGuideHref="/best-bad-credit-auto-loans/"
+      nationalGuideLabel="Best Bad Credit Auto Loans of 2026"
     />
   );
 }

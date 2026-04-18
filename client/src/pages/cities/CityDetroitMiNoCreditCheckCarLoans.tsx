@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Motor City Credit Union Auto",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Wayne County specialist for subprime auto",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Michigan Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Detroit-area lender network for all credit types",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityDetroitMiNoCreditCheckCarLoans() {
   useSEO({
     title: "Best No Credit Check Car Loans in Detroit, MI (2026) | Complete Auto Loans",
     description: "Find no credit check car loans in Detroit, MI. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
-    canonical: "/detroit-mi/no-credit-check-car-loans",
+    canonical: "/detroit-mi/no-credit-check-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Detroit",
         state: "MI",
         serviceType: "No Credit Check Car Loans",
-        url: "/detroit-mi/no-credit-check-car-loans",
+        url: "/detroit-mi/no-credit-check-car-loans/",
         description: "Find no credit check car loans in Detroit, MI. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Detroit, MI", path: "/detroit-mi" },
-        { name: "No Credit Check Car Loans in Detroit, MI", path: "/detroit-mi/no-credit-check-car-loans" },
+        { name: "Detroit, MI", path: "/detroit-mi/" },
+        { name: "No Credit Check Car Loans in Detroit, MI", path: "/detroit-mi/no-credit-check-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityDetroitMiNoCreditCheckCarLoans() {
       faqs={faqs}
       citySlug="detroit-mi"
       serviceSlug="no-credit-check-car-loans"
+      nationalGuideHref="/best-no-credit-check-car-loans/"
+      nationalGuideLabel="Best No Credit Check Car Loans of 2026"
     />
   );
 }

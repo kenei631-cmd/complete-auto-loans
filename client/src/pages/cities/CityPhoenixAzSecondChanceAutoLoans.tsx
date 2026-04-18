@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Desert Financial Auto Loans",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Phoenix-area credit union with strong subprime programs",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Arizona Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Local dealership network serving Maricopa County",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityPhoenixAzSecondChanceAutoLoans() {
   useSEO({
     title: "Best Second Chance Auto Loans in Phoenix, AZ (2026) | Complete Auto Loans",
     description: "Find second chance auto loans in Phoenix, AZ. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
-    canonical: "/phoenix-az/second-chance-auto-loans",
+    canonical: "/phoenix-az/second-chance-auto-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Phoenix",
         state: "AZ",
         serviceType: "Second Chance Auto Loans",
-        url: "/phoenix-az/second-chance-auto-loans",
+        url: "/phoenix-az/second-chance-auto-loans/",
         description: "Find second chance auto loans in Phoenix, AZ. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Phoenix, AZ", path: "/phoenix-az" },
-        { name: "Second Chance Auto Loans in Phoenix, AZ", path: "/phoenix-az/second-chance-auto-loans" },
+        { name: "Phoenix, AZ", path: "/phoenix-az/" },
+        { name: "Second Chance Auto Loans in Phoenix, AZ", path: "/phoenix-az/second-chance-auto-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityPhoenixAzSecondChanceAutoLoans() {
       faqs={faqs}
       citySlug="phoenix-az"
       serviceSlug="second-chance-auto-loans"
+      nationalGuideHref="/best-second-chance-auto-loans/"
+      nationalGuideLabel="Best Second Chance Auto Loans of 2026"
     />
   );
 }

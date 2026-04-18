@@ -77,6 +77,34 @@ const lenders: CityLender[] = [
     pros: ["100% online", "7-day return policy", "No dealership pressure"],
     href: "#",
     isTop: false,
+  },
+  {
+    name: "Buckeye Auto Finance",
+    badge: null,
+    rating: 4.2,
+    reviews: 180,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Franklin County specialist for subprime loans",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
+  },
+  {
+    name: "Ohio Auto Approval",
+    badge: null,
+    rating: 4.2,
+    reviews: 225,
+    minScore: "300+",
+    aprRange: "8.9% – 34.9%",
+    down: "$500+",
+    approval: "78%",
+    highlight: "Columbus-area lender network serving all credit types",
+    pros: ["Local approval decisions", "Familiar with local market", "Fast same-day funding"],
+    href: "/apply",
+    isTop: false,
   }
 ];
 
@@ -92,19 +120,19 @@ export default function CityColumbusOhNoCreditCheckCarLoans() {
   useSEO({
     title: "Best No Credit Check Car Loans in Columbus, OH (2026) | Complete Auto Loans",
     description: "Find no credit check car loans in Columbus, OH. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
-    canonical: "/columbus-oh/no-credit-check-car-loans",
+    canonical: "/columbus-oh/no-credit-check-car-loans/",
     schema: [
       buildLocalBusinessSchema({
         city: "Columbus",
         state: "OH",
         serviceType: "No Credit Check Car Loans",
-        url: "/columbus-oh/no-credit-check-car-loans",
+        url: "/columbus-oh/no-credit-check-car-loans/",
         description: "Find no credit check car loans in Columbus, OH. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Columbus, OH", path: "/columbus-oh" },
-        { name: "No Credit Check Car Loans in Columbus, OH", path: "/columbus-oh/no-credit-check-car-loans" },
+        { name: "Columbus, OH", path: "/columbus-oh/" },
+        { name: "No Credit Check Car Loans in Columbus, OH", path: "/columbus-oh/no-credit-check-car-loans/" },
       ]),
       buildFAQSchema(faqs),
     ],
@@ -124,6 +152,8 @@ export default function CityColumbusOhNoCreditCheckCarLoans() {
       faqs={faqs}
       citySlug="columbus-oh"
       serviceSlug="no-credit-check-car-loans"
+      nationalGuideHref="/best-no-credit-check-car-loans/"
+      nationalGuideLabel="Best No Credit Check Car Loans of 2026"
     />
   );
 }
