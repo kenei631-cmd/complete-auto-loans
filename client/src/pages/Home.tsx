@@ -14,6 +14,7 @@
 import { Link } from "wouter";
 import { ArrowRight, CheckCircle2, Star, Shield, Zap, Clock, ChevronRight, Users, Award, TrendingUp } from "lucide-react";
 import Layout from "@/components/Layout";
+import CreditScoreWidget from "@/components/CreditScoreWidget";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/hero_premium-3w25pnkm7XPeSZaaGkqMXo.webp";
 const CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/cta_bg-PDasKWDRcQeYKLEiLA7yk9.webp";
@@ -210,32 +211,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Floating Stats Card */}
+          {/* Credit Score Estimator Widget — replaces static stats card */}
           <div
             className="absolute right-8 top-1/2 -translate-y-1/2 hidden xl:block"
-            style={{
-              background: "oklch(1 0 0 / 0.06)",
-              backdropFilter: "blur(20px)",
-              border: "1px solid rgba(255,255,255,0.12)",
-              borderRadius: "1.25rem",
-              padding: "1.75rem",
-              width: "220px",
-            }}
+            style={{ width: "340px" }}
           >
-            <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.70 0.075 186)", fontFamily: "'DM Sans', sans-serif" }}>
-              By the Numbers
-            </p>
-            {[
-              { value: "98%", label: "Approval Rate" },
-              { value: "2 min", label: "Application Time" },
-              { value: "$0", label: "Application Fee" },
-              { value: "500+", label: "Lender Network" },
-            ].map((s) => (
-              <div key={s.label} className="flex items-center justify-between py-2.5" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.78rem", color: "rgba(255,255,255,0.55)" }}>{s.label}</span>
-                <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.25rem", fontWeight: 700, color: "white" }}>{s.value}</span>
-              </div>
-            ))}
+            <CreditScoreWidget />
           </div>
         </div>
       </section>
@@ -260,6 +241,26 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* ══════════════════════════════════════════
+          CREDIT SCORE WIDGET — Mobile only (xl shows it in hero)
+      ══════════════════════════════════════════ */}
+      <section className="xl:hidden py-12" style={{ background: "oklch(0.98 0.005 80)" }}>
+        <div className="container">
+          <div className="max-w-md mx-auto">
+            <div className="text-center mb-6">
+              <div className="section-label mb-2">Find Your Best Option</div>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.75rem", fontWeight: 700, color: "oklch(0.15 0.04 251)", lineHeight: 1.2 }}>
+                What's Your Credit Score?
+              </h2>
+              <p className="mt-2 text-sm" style={{ color: "oklch(0.50 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
+                Move the slider — we'll show your best loan options instantly.
+              </p>
+            </div>
+            <CreditScoreWidget />
+          </div>
+        </div>
+      </section>
 
       {/* ══════════════════════════════════════════
           BEST-OF EDITORIAL GRID
