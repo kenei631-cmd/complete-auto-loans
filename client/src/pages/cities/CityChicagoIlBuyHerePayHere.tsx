@@ -6,6 +6,8 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
+import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
+
 
 const lenders: CityLender[] = [
   {
@@ -108,6 +110,39 @@ const lenders: CityLender[] = [
   }
 ];
 
+const localDealers: LocalDealer[] = [
+  {
+    name: "Wheels of Chicago",
+    area: "West Ridge, Chicago (Western Ave)",
+    bestFor: "Best for quick approval — drive in 30 minutes",
+    creditMin: "No minimum",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: null,
+    keyFact: "Proof of job, insurance, and address is all you need. Most customers drive away in under 30 minutes.",
+    website: "https://www.wheelsofchicago.com/",
+  },
+  {
+    name: "Car Credit Center",
+    area: "South Chicago (7600 S Western Ave)",
+    bestFor: "Best for guaranteed approval",
+    creditMin: "No minimum",
+    downPayment: "Low down payments",
+    reportsToBureaus: null,
+    keyFact: "Family-owned and operated since 1948. One of Chicago's longest-running BHPH dealerships.",
+    website: "https://www.carcredit7600.com/",
+  },
+  {
+    name: "Alvizo Auto Sales",
+    area: "Auburn Gresham, Chicago (9000 S Ashland Ave)",
+    bestFor: "Best for honest service and auto repair",
+    creditMin: "Not publicly listed",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: null,
+    keyFact: "Family-owned. Specializes in fast, honest auto repair alongside reliable used vehicle sales.",
+    website: "#",
+  }
+];
+
 const faqs: CityFAQ[] = [
   { question: "What is buy here pay here in Chicago?", answer: "Buy here pay here (BHPH) means the dealership finances the vehicle directly — no bank or credit union involved. Chicago BHPH dealers approve buyers based on income, not credit score." },
   { question: "Do BHPH dealerships in Chicago check credit?", answer: "Most BHPH dealerships in Chicago, IL do not run a traditional credit check. They focus on your current income and ability to make weekly or biweekly payments." },
@@ -139,6 +174,7 @@ export default function CityChicagoIlBuyHerePayHere() {
   });
 
   return (
+    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Chicago, IL (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Chicago, IL"
@@ -155,5 +191,9 @@ export default function CityChicagoIlBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
+    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
+      <LocalDealersSection dealers={localDealers} city="Chicago" state="IL" />
+    </div>
+    </>
   );
 }

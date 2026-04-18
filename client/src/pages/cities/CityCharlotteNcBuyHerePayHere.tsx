@@ -6,6 +6,8 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
+import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
+
 
 const lenders: CityLender[] = [
   {
@@ -108,6 +110,39 @@ const lenders: CityLender[] = [
   }
 ];
 
+const localDealers: LocalDealer[] = [
+  {
+    name: "Auto America",
+    area: "Charlotte, NC",
+    bestFor: "Best for bad credit or no credit",
+    creditMin: "No minimum",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: null,
+    keyFact: "Acts as both lender and dealer — no third-party bank required. Streamlined in-house approval.",
+    website: "https://myautoamerica.com/",
+  },
+  {
+    name: "George's Quick Auto Credit",
+    area: "Charlotte, NC",
+    bestFor: "Best for rebuilding credit",
+    creditMin: "No minimum",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: true,
+    keyFact: "Instant approval and flexible payment schedules. Reports to credit bureaus to help rebuild your score.",
+    website: "https://georgesquickautocredit.com/",
+  },
+  {
+    name: "Byrider Charlotte",
+    area: "Charlotte, NC",
+    bestFor: "Best for flexible financing and post-purchase support",
+    creditMin: "No minimum",
+    downPayment: "$500+",
+    reportsToBureaus: null,
+    keyFact: "Every vehicle undergoes a detailed inspection and comes with a limited warranty. Multiple payment options.",
+    website: "https://www.byrider.com/",
+  }
+];
+
 const faqs: CityFAQ[] = [
   { question: "What is buy here pay here in Charlotte?", answer: "Buy here pay here (BHPH) means the dealership finances the vehicle directly — no bank or credit union involved. Charlotte BHPH dealers approve buyers based on income, not credit score." },
   { question: "Do BHPH dealerships in Charlotte check credit?", answer: "Most BHPH dealerships in Charlotte, NC do not run a traditional credit check. They focus on your current income and ability to make weekly or biweekly payments." },
@@ -139,6 +174,7 @@ export default function CityCharlotteNcBuyHerePayHere() {
   });
 
   return (
+    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Charlotte, NC (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Charlotte, NC"
@@ -155,5 +191,9 @@ export default function CityCharlotteNcBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
+    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
+      <LocalDealersSection dealers={localDealers} city="Charlotte" state="NC" />
+    </div>
+    </>
   );
 }

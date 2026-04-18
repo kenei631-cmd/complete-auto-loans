@@ -6,6 +6,8 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
+import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
+
 
 const lenders: CityLender[] = [
   {
@@ -108,6 +110,39 @@ const lenders: CityLender[] = [
   }
 ];
 
+const localDealers: LocalDealer[] = [
+  {
+    name: "Legend Motors",
+    area: "Detroit metro — multiple locations",
+    bestFor: "Best for bad credit or fixed income",
+    creditMin: "No minimum — repo and fixed income accepted",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: null,
+    keyFact: "Family-owned for 25 years. Multiple Detroit-area locations with full service and collision department.",
+    website: "https://www.legendmotors.com/",
+  },
+  {
+    name: "Dearborn Total Automotive",
+    area: "Dearborn, Detroit metro",
+    bestFor: "Best for no credit check with employment",
+    creditMin: "No credit check (employment required)",
+    downPayment: "Flexible options",
+    reportsToBureaus: null,
+    keyFact: "50-year anniversary dealership. Free oil changes, on-site service center, detail and body shops.",
+    website: "https://dearborntotalautomotive.com/",
+  },
+  {
+    name: "Back On Track Auto Sales",
+    area: "Hamtramck, MI (Detroit area)",
+    bestFor: "Best for various credit situations",
+    creditMin: "Not publicly listed",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: null,
+    keyFact: "Friendly staff focused on getting buyers back on the road regardless of credit history.",
+    website: "https://backontrackdetroit.com/",
+  }
+];
+
 const faqs: CityFAQ[] = [
   { question: "What is buy here pay here in Detroit?", answer: "Buy here pay here (BHPH) means the dealership finances the vehicle directly — no bank or credit union involved. Detroit BHPH dealers approve buyers based on income, not credit score." },
   { question: "Do BHPH dealerships in Detroit check credit?", answer: "Most BHPH dealerships in Detroit, MI do not run a traditional credit check. They focus on your current income and ability to make weekly or biweekly payments." },
@@ -139,6 +174,7 @@ export default function CityDetroitMiBuyHerePayHere() {
   });
 
   return (
+    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Detroit, MI (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Detroit, MI"
@@ -155,5 +191,9 @@ export default function CityDetroitMiBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
+    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
+      <LocalDealersSection dealers={localDealers} city="Detroit" state="MI" />
+    </div>
+    </>
   );
 }

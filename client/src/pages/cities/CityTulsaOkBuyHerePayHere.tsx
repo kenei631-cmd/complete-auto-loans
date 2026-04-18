@@ -6,6 +6,8 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
+import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
+
 
 const lenders: CityLender[] = [
   {
@@ -108,6 +110,49 @@ const lenders: CityLender[] = [
   }
 ];
 
+const localDealers: LocalDealer[] = [
+  {
+    name: "Express Credit Auto Tulsa",
+    area: "S Memorial Dr, Tulsa",
+    bestFor: "Best for high approval rate",
+    creditMin: "No minimum",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: true,
+    keyFact: "Large selection of high-quality used cars. Reports to credit bureaus to help rebuild your score.",
+    website: "https://www.expresscreditauto.com/",
+  },
+  {
+    name: "Regal Car Sales and Credit",
+    area: "S Memorial Dr, Tulsa",
+    bestFor: "Best for no credit check with warranty",
+    creditMin: "No credit check",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: null,
+    keyFact: "12-month used car warranty on every vehicle sold. No credit check required.",
+    website: "https://regalcars.com/tulsa/",
+  },
+  {
+    name: "Liberty Auto Finance",
+    area: "S Memorial Drive, Tulsa",
+    bestFor: "Best for flexible financing options",
+    creditMin: "No credit or low credit accepted",
+    downPayment: "$500 (per customer reviews)",
+    reportsToBureaus: null,
+    keyFact: "12-month/12,000-mile limited powertrain warranty and 48-hour no-hassle exchange policy.",
+    website: "https://libertyautofinance.com/",
+  },
+  {
+    name: "Scissortail Auto Sales",
+    area: "Broken Arrow, OK (Tulsa metro)",
+    bestFor: "Best for building credit",
+    creditMin: "No minimum",
+    downPayment: "$500+",
+    reportsToBureaus: true,
+    keyFact: "Reports to credit bureaus. Requires 2 paystubs, proof of residency, insurance, and state ID.",
+    website: "https://www.scissortailautosales.com/",
+  }
+];
+
 const faqs: CityFAQ[] = [
   { question: "What is buy here pay here in Tulsa?", answer: "Buy here pay here (BHPH) means the dealership finances the vehicle directly — no bank or credit union involved. Tulsa BHPH dealers approve buyers based on income, not credit score." },
   { question: "Do BHPH dealerships in Tulsa check credit?", answer: "Most BHPH dealerships in Tulsa, OK do not run a traditional credit check. They focus on your current income and ability to make weekly or biweekly payments." },
@@ -139,6 +184,7 @@ export default function CityTulsaOkBuyHerePayHere() {
   });
 
   return (
+    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Tulsa, OK (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Tulsa, OK"
@@ -155,5 +201,9 @@ export default function CityTulsaOkBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
+    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
+      <LocalDealersSection dealers={localDealers} city="Tulsa" state="OK" />
+    </div>
+    </>
   );
 }

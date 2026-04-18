@@ -6,6 +6,8 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
+import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
+
 
 const lenders: CityLender[] = [
   {
@@ -108,6 +110,39 @@ const lenders: CityLender[] = [
   }
 ];
 
+const localDealers: LocalDealer[] = [
+  {
+    name: "CarHop of Colorado Springs",
+    area: "East Colorado Springs",
+    bestFor: "Best for bad credit or no credit",
+    creditMin: "No minimum",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: null,
+    keyFact: "18-month/18,000-mile limited warranty and money-back guarantee on every vehicle.",
+    website: "https://www.carhop.com/",
+  },
+  {
+    name: "DriveEasy Used Cars",
+    area: "Colorado Springs, CO",
+    bestFor: "Best for no credit check with bilingual service",
+    creditMin: "No minimum",
+    downPayment: "$500+",
+    reportsToBureaus: null,
+    keyFact: "Friendly bilingual (English/Spanish) service. Flexible in-house financing with no credit check.",
+    website: "https://www.idriveasy.com/",
+  },
+  {
+    name: "Byrider Colorado Springs",
+    area: "Colorado Springs, CO",
+    bestFor: "Best for flexible financing with vehicle inspection",
+    creditMin: "No minimum",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: null,
+    keyFact: "Vehicle inspection, warranty, optional service contract, and in-house auto repair service department.",
+    website: "https://www.byrider.com/",
+  }
+];
+
 const faqs: CityFAQ[] = [
   { question: "What is buy here pay here in Colorado Springs?", answer: "Buy here pay here (BHPH) means the dealership finances the vehicle directly — no bank or credit union involved. Colorado Springs BHPH dealers approve buyers based on income, not credit score." },
   { question: "Do BHPH dealerships in Colorado Springs check credit?", answer: "Most BHPH dealerships in Colorado Springs, CO do not run a traditional credit check. They focus on your current income and ability to make weekly or biweekly payments." },
@@ -139,6 +174,7 @@ export default function CityColoradoSpringsCoBuyHerePayHere() {
   });
 
   return (
+    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Colorado Springs, CO (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Colorado Springs, CO"
@@ -155,5 +191,9 @@ export default function CityColoradoSpringsCoBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
+    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
+      <LocalDealersSection dealers={localDealers} city="Colorado Springs" state="CO" />
+    </div>
+    </>
   );
 }

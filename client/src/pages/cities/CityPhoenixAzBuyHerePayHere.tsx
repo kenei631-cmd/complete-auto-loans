@@ -6,6 +6,8 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
+import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
+
 
 const lenders: CityLender[] = [
   {
@@ -108,6 +110,39 @@ const lenders: CityLender[] = [
   }
 ];
 
+const localDealers: LocalDealer[] = [
+  {
+    name: "Orozco Auto Sales",
+    area: "Van Buren St area, Phoenix",
+    bestFor: "Best for bad credit history",
+    creditMin: "No minimum",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: null,
+    keyFact: "In-house financing with flexible payment terms and a range of vehicle options. No minimum credit score required.",
+    website: "https://www.orozcoautosalesaz.com/",
+  },
+  {
+    name: "Bueno Used Cars of AZ",
+    area: "Near Mesa and Scottsdale, Phoenix metro",
+    bestFor: "Best for rebuilding credit",
+    creditMin: "Low credit scores accepted",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: true,
+    keyFact: "Over 30 years in business. Reports payments to credit bureaus, helping buyers rebuild their credit over time.",
+    website: "https://www.buenousedcars.com/",
+  },
+  {
+    name: "Cactus Jack's Auto — Bell Road",
+    area: "Bell Road area, North Phoenix",
+    bestFor: "Best for affordable down payment",
+    creditMin: "Bad credit accepted",
+    downPayment: "$500",
+    reportsToBureaus: null,
+    keyFact: "Large selection of used vehicles with affordable weekly specials. $500 down payment advertised.",
+    website: "https://www.cactusjacksauto.com/",
+  }
+];
+
 const faqs: CityFAQ[] = [
   { question: "What is buy here pay here in Phoenix?", answer: "Buy here pay here (BHPH) means the dealership finances the vehicle directly — no bank or credit union involved. Phoenix BHPH dealers approve buyers based on income, not credit score." },
   { question: "Do BHPH dealerships in Phoenix check credit?", answer: "Most BHPH dealerships in Phoenix, AZ do not run a traditional credit check. They focus on your current income and ability to make weekly or biweekly payments." },
@@ -139,6 +174,7 @@ export default function CityPhoenixAzBuyHerePayHere() {
   });
 
   return (
+    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Phoenix, AZ (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Phoenix, AZ"
@@ -155,5 +191,9 @@ export default function CityPhoenixAzBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
+    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
+      <LocalDealersSection dealers={localDealers} city="Phoenix" state="AZ" />
+    </div>
+    </>
   );
 }

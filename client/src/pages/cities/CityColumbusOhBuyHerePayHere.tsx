@@ -6,6 +6,8 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
+import { LocalDealersSection, LocalDealer } from "@/components/LocalDealerCard";
+
 
 const lenders: CityLender[] = [
   {
@@ -108,6 +110,39 @@ const lenders: CityLender[] = [
   }
 ];
 
+const localDealers: LocalDealer[] = [
+  {
+    name: "Cars East",
+    area: "East Columbus / Whitehall",
+    bestFor: "Best for no credit checks and large inventory",
+    creditMin: "No credit checks",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: false,
+    keyFact: "Free layaway program and online payment portal. Does not run credit checks.",
+    website: "https://www.cars-east.com/",
+  },
+  {
+    name: "J.D. Byrider Columbus",
+    area: "Southeast Columbus",
+    bestFor: "Best for rebuilding credit with warranty",
+    creditMin: "No minimum — credit issues welcome",
+    downPayment: "Not publicly listed",
+    reportsToBureaus: true,
+    keyFact: "Reports to all three credit bureaus. Bi-weekly payments as low as $150. On-site garage included.",
+    website: "https://www.byrider.com/",
+  },
+  {
+    name: "Best Buy Motors",
+    area: "Whitehall, OH (Columbus metro)",
+    bestFor: "Best for lease-to-own with low upfront costs",
+    creditMin: "No credit check",
+    downPayment: "$500–$1,000",
+    reportsToBureaus: false,
+    keyFact: "Lease-It-Own-It program: no obligation, no upfront sales tax, renewable 2-week lease. Oil changes included.",
+    website: "https://www.bestbuymotorsllc.com/",
+  }
+];
+
 const faqs: CityFAQ[] = [
   { question: "What is buy here pay here in Columbus?", answer: "Buy here pay here (BHPH) means the dealership finances the vehicle directly — no bank or credit union involved. Columbus BHPH dealers approve buyers based on income, not credit score." },
   { question: "Do BHPH dealerships in Columbus check credit?", answer: "Most BHPH dealerships in Columbus, OH do not run a traditional credit check. They focus on your current income and ability to make weekly or biweekly payments." },
@@ -139,6 +174,7 @@ export default function CityColumbusOhBuyHerePayHere() {
   });
 
   return (
+    <>
     <CityServicePageTemplate
       title="Best Buy Here Pay Here Dealerships in Columbus, OH (2026) | Complete Auto Loans"
       h1="Best Buy Here Pay Here Dealerships in Columbus, OH"
@@ -155,5 +191,9 @@ export default function CityColumbusOhBuyHerePayHere() {
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
     />
+    <div className="container" style={{ maxWidth: "860px", margin: "0 auto", padding: "0 1.5rem" }}>
+      <LocalDealersSection dealers={localDealers} city="Columbus" state="OH" />
+    </div>
+    </>
   );
 }
