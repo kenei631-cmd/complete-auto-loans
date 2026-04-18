@@ -16,6 +16,12 @@ const BASE_URL = "https://completeautoloans.com";
 const ORG_NAME = "Complete Auto Loans";
 const LOGO_URL = "https://completeautoloans.com/logo.png";
 
+// Real GBP data — verified April 2026
+export const GBP_RATING = 5.0;
+export const GBP_REVIEW_COUNT = 11;
+export const GBP_ADDRESS = "2911 Hewitt Ave, Ste 5, Everett, WA 98201";
+export const GBP_PHONE = "(617) 420-2172";
+
 // ── Organization ──────────────────────────────────────────────────────────────
 export function buildOrganizationSchema() {
   return {
@@ -24,14 +30,31 @@ export function buildOrganizationSchema() {
     name: ORG_NAME,
     url: BASE_URL,
     logo: LOGO_URL,
+    telephone: GBP_PHONE,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "2911 Hewitt Ave, Ste 5",
+      addressLocality: "Everett",
+      addressRegion: "WA",
+      postalCode: "98201",
+      addressCountry: "US",
+    },
     sameAs: [
       "https://www.facebook.com/completeautoloans",
       "https://twitter.com/completeautoloans",
     ],
     contactPoint: {
       "@type": "ContactPoint",
+      telephone: GBP_PHONE,
       contactType: "customer service",
       availableLanguage: "English",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: GBP_RATING,
+      reviewCount: GBP_REVIEW_COUNT,
+      bestRating: 5,
+      worstRating: 1,
     },
     description:
       "Complete Auto Loans matches bad credit, no credit, and subprime borrowers with auto loan lenders across the United States. No minimum credit score required.",
@@ -212,8 +235,8 @@ export function buildWebPageSchema({
 // ── Review / AggregateRating ──────────────────────────────────────────────────
 export function buildAggregateRatingSchema({
   itemName,
-  ratingValue = 4.8,
-  reviewCount = 2400,
+  ratingValue = GBP_RATING,
+  reviewCount = GBP_REVIEW_COUNT,
 }: {
   itemName: string;
   ratingValue?: number;
@@ -221,7 +244,7 @@ export function buildAggregateRatingSchema({
 }) {
   return {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "FinancialService",
     name: itemName,
     aggregateRating: {
       "@type": "AggregateRating",
@@ -229,6 +252,78 @@ export function buildAggregateRatingSchema({
       reviewCount,
       bestRating: 5,
       worstRating: 1,
+    },
+  };
+}
+
+// ── HowTo ─────────────────────────────────────────────────────────────────────
+export function buildHowToSchema({
+  name,
+  description,
+  steps,
+}: {
+  name: string;
+  description: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    description,
+    step: steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  };
+}
+
+// ── ItemList (for directory/index pages) ──────────────────────────────────────
+export function buildItemListSchema(items: { name: string; url: string; description?: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      url: `${BASE_URL}${item.url}/`,
+      ...(item.description ? { description: item.description } : {}),
+    })),
+  };
+}
+
+// ── Service (for lead-gen / apply pages) ─────────────────────────────────────
+export function buildServiceSchema({
+  name,
+  description,
+  url,
+}: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    url: `${BASE_URL}${url}/`,
+    provider: {
+      "@type": "Organization",
+      name: ORG_NAME,
+      url: BASE_URL,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "United States",
+    },
+    serviceType: "Auto Loan Matching",
+    audience: {
+      "@type": "Audience",
+      audienceType: "Subprime and bad credit auto loan borrowers",
     },
   };
 }

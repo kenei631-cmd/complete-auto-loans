@@ -801,6 +801,55 @@ export default function CityServicePageTemplate({
           </div>
         </div>
       </section>
+
+      {/* ── Sticky Mobile CTA Bar ── */}
+      <div
+        className="lg:hidden"
+        style={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          background: "oklch(0.311 0.065 251)",
+          borderTop: "1px solid rgba(255,255,255,0.12)",
+          padding: "0.75rem 1rem",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.75rem",
+          boxShadow: "0 -4px 24px oklch(0.311 0.065 251 / 0.40)",
+        }}
+      >
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.7rem", color: "rgba(255,255,255,0.50)", margin: 0 }}>
+            <Shield size={9} style={{ display: "inline", marginRight: "3px", verticalAlign: "middle" }} />
+            Soft pull only — won’t affect your score
+          </p>
+        </div>
+        <Link href="/apply">
+          <button
+            style={{
+              background: "oklch(0.76 0.16 75)",
+              color: "oklch(0.12 0.04 251)",
+              fontFamily: "'DM Sans', sans-serif",
+              fontWeight: 700,
+              fontSize: "0.875rem",
+              padding: "0.625rem 1.25rem",
+              borderRadius: "0.75rem",
+              border: "none",
+              cursor: "pointer",
+              whiteSpace: "nowrap",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.375rem",
+              boxShadow: "0 4px 14px oklch(0.76 0.16 75 / 0.45)",
+              flexShrink: 0,
+            }}
+          >
+            Get Pre-Approved <ArrowRight size={13} />
+          </button>
+        </Link>
+      </div>
     </Layout>
   );
 }

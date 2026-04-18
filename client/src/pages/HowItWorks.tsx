@@ -6,7 +6,7 @@ import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { Zap, Users, Award, ChevronRight, Shield, CheckCircle2 } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
-import { buildWebPageSchema, buildBreadcrumbSchema } from "@/lib/schema";
+import { buildWebPageSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/schema";
 
 const steps = [
   {
@@ -74,6 +74,20 @@ export default function HowItWorks() {
         { name: "Home", path: "/" },
         { name: "How It Works", path: "/how-it-works" },
       ]),
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name: "How to Get a Bad Credit Auto Loan",
+        description: "Get matched with a bad credit auto loan lender in 3 simple steps. No hard credit pull, no application fee.",
+        totalTime: "PT2M",
+        step: steps.map((s, i) => ({
+          "@type": "HowToStep",
+          position: i + 1,
+          name: s.title,
+          text: s.desc,
+        })),
+      },
+      buildFAQSchema(faqs.map((f) => ({ question: f.q, answer: f.a }))),
     ],
   });
 

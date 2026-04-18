@@ -7,7 +7,7 @@ import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { MapPin, ChevronRight, ArrowRight } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
-import { buildWebPageSchema, buildBreadcrumbSchema } from "@/lib/schema";
+import { buildWebPageSchema, buildBreadcrumbSchema, buildItemListSchema } from "@/lib/schema";
 
 const cities = [
   {
@@ -177,6 +177,13 @@ export default function Locations() {
         { name: "Home", path: "/" },
         { name: "Locations", path: "/locations" },
       ]),
+      buildItemListSchema(
+        cities.map((c) => ({
+          name: `Bad Credit Auto Loans in ${c.name}, ${c.state}`,
+          url: `/${c.slug}/`,
+          description: c.desc,
+        }))
+      ),
     ],
   });
 

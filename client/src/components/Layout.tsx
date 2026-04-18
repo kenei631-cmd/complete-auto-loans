@@ -81,7 +81,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
           <div className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "oklch(0.65 0.085 186)" }}>
             <Star size={10} fill="currentColor" />
-            <span style={{ color: "rgba(255,255,255,0.55)" }}>4.8/5 from 2,400+ reviews</span>
+            <span style={{ color: "rgba(255,255,255,0.55)" }}>5.0/5 · 11 Google Reviews</span>
           </div>
         </div>
       </div>

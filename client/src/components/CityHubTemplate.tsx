@@ -11,6 +11,8 @@
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { MapPin, ChevronRight, ArrowRight, Star, Users, Zap } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
+import { buildLocalBusinessSchema, buildBreadcrumbSchema } from "@/lib/schema";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -39,14 +41,49 @@ export interface CityHubProps {
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
+// National pillar pages for the "Explore Loan Types" section
+const NATIONAL_PILLARS = [
+  { label: "Bad Credit Auto Loans", href: "/best-bad-credit-auto-loans/" },
+  { label: "Buy Here Pay Here", href: "/best-buy-here-pay-here-dealerships/" },
+  { label: "No Money Down", href: "/best-no-money-down-car-loans-bad-credit/" },
+  { label: "Guaranteed Approval", href: "/best-guaranteed-approval-auto-loans/" },
+  { label: "No Credit Check", href: "/best-no-credit-check-car-loans/" },
+  { label: "After Bankruptcy", href: "/best-car-loans-after-bankruptcy/" },
+  { label: "After Repossession", href: "/best-auto-loans-after-repossession/" },
+  { label: "Second Chance Loans", href: "/best-second-chance-auto-loans/" },
+  { label: "Refinance Bad Credit", href: "/best-auto-refinance-bad-credit/" },
+  { label: "First-Time Buyers", href: "/best-first-time-car-buyer-loans-no-credit/" },
+];
+
 export default function CityHubTemplate({
   city,
   state,
+  slug,
   monthlySearches,
   description,
   lenderNote,
   services,
 }: CityHubProps) {
+  useSEO({
+    title: `Bad Credit Auto Loans in ${city}, ${state} | Complete Auto Loans`,
+    description: `Find bad credit auto loans, buy here pay here dealerships, and no credit check financing in ${city}, ${state}. Get matched with local lenders in 2 minutes.`,
+    canonical: `/${slug}/`,
+    schema: [
+      buildLocalBusinessSchema({
+        city,
+        state,
+        serviceType: "Auto Loan Matching Service",
+        url: `/${slug}/`,
+        description: `Complete Auto Loans connects ${city}, ${state} borrowers with bad credit auto loan lenders. No minimum credit score required.`,
+      }),
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Locations", path: "/locations/" },
+        { name: `${city}, ${state}`, path: `/${slug}/` },
+      ]),
+    ],
+  });
+
   return (
     <Layout>
       {/* ── Dark Hero ── */}
@@ -157,7 +194,7 @@ export default function CityHubTemplate({
           >
             {[
               { icon: <Users size={14} />, value: "50K+", label: "People Matched" },
-              { icon: <Star size={14} fill="currentColor" />, value: "4.8/5", label: "Avg Rating" },
+              { icon: <Star size={14} fill="currentColor" />, value: "5.0/5", label: "Google Rating" },
               { icon: <Zap size={14} />, value: "2 min", label: "Application" },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-2">
@@ -260,6 +297,42 @@ export default function CityHubTemplate({
               </span>
             </Link>
           ))}
+        </div>
+
+        {/* ── National Guides Section ── */}
+        <div className="mt-12 pt-10" style={{ borderTop: "1px solid oklch(0.90 0.006 80)" }}>
+          <h2
+            className="mb-2"
+            style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.25rem", fontWeight: 700, color: "oklch(0.18 0.04 251)" }}
+          >
+            Explore Loan Types — National Guides
+          </h2>
+          <p className="mb-5" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", color: "oklch(0.50 0.04 251)" }}>
+            Not sure which loan type fits your situation? Our national guides compare 40+ lenders by credit score, down payment, and approval rate.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {NATIONAL_PILLARS.map((p) => (
+              <Link
+                key={p.href}
+                href={p.href}
+                className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all"
+                style={{
+                  background: "oklch(0.578 0.098 186 / 0.08)",
+                  color: "oklch(0.42 0.085 186)",
+                  border: "1px solid oklch(0.578 0.098 186 / 0.20)",
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "oklch(0.578 0.098 186 / 0.15)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "oklch(0.578 0.098 186 / 0.08)";
+                }}
+              >
+                {p.label} <ChevronRight size={10} />
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* ── Bottom CTA Banner ── */}

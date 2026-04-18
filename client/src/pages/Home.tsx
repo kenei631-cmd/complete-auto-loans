@@ -16,7 +16,7 @@ import { ArrowRight, CheckCircle2, Star, Shield, Zap, Clock, ChevronRight, Users
 import Layout from "@/components/Layout";
 import CreditScoreWidget from "@/components/CreditScoreWidget";
 import { useSEO } from "@/hooks/useSEO";
-import { buildWebPageSchema, buildBreadcrumbSchema } from "@/lib/schema";
+import { buildWebPageSchema, buildBreadcrumbSchema, buildAggregateRatingSchema } from "@/lib/schema";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/hero_premium-3w25pnkm7XPeSZaaGkqMXo.webp";
 const CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/cta_bg-PDasKWDRcQeYKLEiLA7yk9.webp";
@@ -124,6 +124,7 @@ export default function Home() {
         url: "/",
       }),
       buildBreadcrumbSchema([{ name: "Home", path: "/" }]),
+      buildAggregateRatingSchema({ itemName: "Complete Auto Loans" }),
     ],
   });
 
@@ -245,7 +246,7 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-center gap-8">
             {[
               { icon: <TrendingUp size={14} />, text: "50,000+ People Matched" },
-              { icon: <Star size={14} fill="currentColor" />, text: "4.8/5 Rating · 2,400+ Reviews" },
+              { icon: <Star size={14} fill="currentColor" />, text: "5.0/5 Rating · 11 Google Reviews" },
               { icon: <Shield size={14} />, text: "256-bit SSL Encrypted" },
               { icon: <CheckCircle2 size={14} />, text: "Independent Editorial Rankings" },
             ].map((t) => (
@@ -473,7 +474,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-1.5 sm:mb-1">
               {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="oklch(0.76 0.16 75)" style={{ color: "oklch(0.76 0.16 75)" }} />)}
-              <span className="text-sm font-semibold ml-2" style={{ color: "oklch(0.32 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>4.8/5 · 2,400+ reviews</span>
+              <span className="text-sm font-semibold ml-2" style={{ color: "oklch(0.32 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>5.0/5 · 11 Google Reviews</span>
             </div>
           </div>
 

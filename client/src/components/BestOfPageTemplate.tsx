@@ -15,6 +15,7 @@ import {
   buildFinancialProductSchema,
   buildFAQSchema,
   buildBreadcrumbSchema,
+  buildAggregateRatingSchema,
 } from "@/lib/schema";
 
 interface RealStory {
@@ -70,6 +71,7 @@ export default function BestOfPageTemplate({
       description: seoDescription ?? subtitle,
       url: canonicalPath ?? "/",
     }),
+    buildAggregateRatingSchema({ itemName: seoTitle ?? title }),
     ...(faqs.length > 0 ? [buildFAQSchema(faqs)] : []),
     buildBreadcrumbSchema([
       { name: "Home", path: "/" },
@@ -193,11 +195,55 @@ export default function BestOfPageTemplate({
               Our Top Picks for 2026
             </h2>
 
-            <div className="flex flex-col gap-5 mb-12">
+            <div className="flex flex-col gap-5 mb-8">
               {lenders.map((lender) => (
                 <LenderCard key={lender.rank} lender={lender} />
               ))}
             </div>
+
+            {/* Quick Comparison Table */}
+            {lenders.length > 0 && (
+              <div className="mb-12">
+                <h2 className="mb-4" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.25rem", fontWeight: 700, color: "oklch(0.18 0.04 251)" }}>
+                  Quick Comparison
+                </h2>
+                <div className="overflow-x-auto rounded-2xl border" style={{ border: "1px solid oklch(0.90 0.006 80)" }}>
+                  <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: "'DM Sans', sans-serif", fontSize: "0.8125rem" }}>
+                    <thead>
+                      <tr style={{ background: "oklch(0.311 0.065 251)", color: "white" }}>
+                        {["Lender", "Best For", "Min. Credit", "Down Payment", "Approval Rate"].map((h) => (
+                          <th key={h} style={{ padding: "0.75rem 1rem", textAlign: "left", fontWeight: 600, whiteSpace: "nowrap", fontSize: "0.75rem", letterSpacing: "0.04em", textTransform: "uppercase" }}>{h}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {lenders.map((l, i) => (
+                        <tr
+                          key={l.rank}
+                          style={{
+                            background: i % 2 === 0 ? "white" : "oklch(0.97 0.004 80)",
+                            borderBottom: "1px solid oklch(0.92 0.005 80)",
+                          }}
+                        >
+                          <td style={{ padding: "0.75rem 1rem", fontWeight: 700, color: "oklch(0.18 0.04 251)" }}>
+                            {l.rank === 1 && <span style={{ fontSize: "0.65rem", background: "oklch(0.578 0.098 186)", color: "white", borderRadius: "4px", padding: "1px 5px", marginRight: "6px", fontWeight: 700 }}>#1</span>}
+                            {l.name}
+                          </td>
+                          <td style={{ padding: "0.75rem 1rem", color: "oklch(0.40 0.04 251)" }}>{l.bestFor}</td>
+                          <td style={{ padding: "0.75rem 1rem", color: "oklch(0.40 0.04 251)" }}>{l.minCreditScore}</td>
+                          <td style={{ padding: "0.75rem 1rem", color: "oklch(0.40 0.04 251)" }}>{l.downPayment}</td>
+                          <td style={{ padding: "0.75rem 1rem" }}>
+                            <span style={{ background: "oklch(0.578 0.098 186 / 0.10)", color: "oklch(0.38 0.12 185)", borderRadius: "999px", padding: "2px 10px", fontWeight: 600, fontSize: "0.75rem" }}>
+                              {l.approvalRate}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
 
             {/* Real Stories */}
             {realStories.length > 0 && (
