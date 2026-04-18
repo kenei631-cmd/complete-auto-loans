@@ -2,7 +2,7 @@
  * lenders.ts — tRPC router for lender config management (admin only)
  */
 import { z } from "zod";
-import { protectedProcedure, router } from "../_core/trpc";
+import { adminProcedure, router } from "../_core/trpc";
 import {
   createLender,
   deleteLender,
@@ -26,29 +26,22 @@ const lenderInput = z.object({
   notes: z.string().optional().nullable(),
 });
 
-function adminOnly(role: string) {
-  if (role !== "admin") throw new Error("Forbidden: admin access required");
-}
-
 export const lendersRouter = router({
-  list: protectedProcedure.query(async ({ ctx }) => {
-    adminOnly(ctx.user.role);
+  list: adminProcedure.query(async () => {
     return listAllLenders();
   }),
 
-  get: protectedProcedure
+  get: adminProcedure
     .input(z.object({ id: z.number() }))
-    .query(async ({ ctx, input }) => {
-      adminOnly(ctx.user.role);
+    .query(async ({ input }) => {
       const lender = await getLenderById(input.id);
       if (!lender) throw new Error("Lender not found");
       return lender;
     }),
 
-  create: protectedProcedure
+  create: adminProcedure
     .input(lenderInput)
-    .mutation(async ({ ctx, input }) => {
-      adminOnly(ctx.user.role);
+    .mutation(async ({ input }) => {
       return createLender({
         ...input,
         pingFieldMap: input.pingFieldMap ?? null,
@@ -57,26 +50,23 @@ export const lendersRouter = router({
       });
     }),
 
-  update: protectedProcedure
+  update: adminProcedure
     .input(z.object({ id: z.number(), data: lenderInput.partial() }))
-    .mutation(async ({ ctx, input }) => {
-      adminOnly(ctx.user.role);
+    .mutation(async ({ input }) => {
       await updateLender(input.id, input.data);
       return getLenderById(input.id);
     }),
 
-  toggleActive: protectedProcedure
+  toggleActive: adminProcedure
     .input(z.object({ id: z.number(), isActive: z.boolean() }))
-    .mutation(async ({ ctx, input }) => {
-      adminOnly(ctx.user.role);
+    .mutation(async ({ input }) => {
       await updateLender(input.id, { isActive: input.isActive });
       return { success: true };
     }),
 
-  delete: protectedProcedure
+  delete: adminProcedure
     .input(z.object({ id: z.number() }))
-    .mutation(async ({ ctx, input }) => {
-      adminOnly(ctx.user.role);
+    .mutation(async ({ input }) => {
       await deleteLender(input.id);
       return { success: true };
     }),
@@ -86,7 +76,7 @@ export const lendersRouter = router({
    * Does NOT create a real lead in the database.
    * Returns the raw HTTP response, bid amount, and acceptance status.
    */
-  testPing: protectedProcedure
+  testPing: adminProcedure
     .input(
       z.object({
         lenderId: z.number(),
@@ -99,8 +89,7 @@ export const lendersRouter = router({
         hasRepossession: z.boolean().default(false),
       })
     )
-    .mutation(async ({ ctx, input }) => {
-      adminOnly(ctx.user.role);
+    .mutation(async ({ input }) => {
       const lender = await getLenderById(input.lenderId);
       if (!lender) throw new Error("Lender not found");
 
@@ -222,8 +211,7 @@ export const lendersRouter = router({
    * Seed mock lenders for demo/testing purposes.
    * Only works when no lenders exist yet.
    */
-  seedMock: protectedProcedure.mutation(async ({ ctx }) => {
-    adminOnly(ctx.user.role);
+  seedMock: adminProcedure.mutation(async () => {
     const existing = await listAllLenders();
     if (existing.length > 0) return { seeded: 0, message: "Lenders already exist" };
 

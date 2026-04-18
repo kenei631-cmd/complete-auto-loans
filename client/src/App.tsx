@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { useAuth } from "./_core/hooks/useAuth";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import TrailingSlashRedirect from "./components/TrailingSlashRedirect";
 import { buildOrganizationSchema, buildWebSiteSchema } from "./lib/schema";
@@ -138,6 +139,23 @@ function SiteSchemas() {
   }, []);
   return null;
 }
+/**
+ * Route-level guard for admin-only pages.
+ * Redirects to home if the user is not authenticated or not an admin.
+ * This is a defense-in-depth layer — the backend enforces admin checks independently.
+ */
+function ProtectedAdminRoute({ component: Component }: { component: React.ComponentType }) {
+  const { user, loading } = useAuth();
+  useEffect(() => {
+    if (!loading && (!user || user.role !== "admin")) {
+      window.location.replace("/");
+    }
+  }, [loading, user]);
+  // Show nothing while loading or if not authorized (redirect is in-flight)
+  if (loading || !user || user.role !== "admin") return null;
+  return <Component />;
+}
+
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -253,8 +271,8 @@ function Router() {
       <Route path="/chicago-il" component={CityHubChicagoIl} />
       {/* Offer Results — post-form submission */}
       <Route path="/offers/:token" component={OfferResults} />
-      {/* Admin Panel */}
-      <Route path="/admin" component={AdminPanel} />
+      {/* Admin Panel — route-level guard prevents non-admins from even loading the component */}
+      <Route path="/admin">{() => <ProtectedAdminRoute component={AdminPanel} />}</Route>
       {/* Blog */}
       <Route path="/blog" component={BlogIndex} />
       <Route path="/blog/:slug" component={BlogPost} />

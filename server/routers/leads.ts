@@ -2,7 +2,7 @@
  * leads.ts — tRPC router for lead submission and offer retrieval
  */
 import { z } from "zod";
-import { publicProcedure, protectedProcedure, router } from "../_core/trpc";
+import { publicProcedure, protectedProcedure, adminProcedure, router } from "../_core/trpc";
 import {
   createLead,
   deleteLead,
@@ -29,9 +29,9 @@ export const leadsRouter = router({
   savePartial: publicProcedure
     .input(
       z.object({
-        token: z.string().optional(),
+        token: z.string().max(64).optional(),
         vehicleType: z.enum(["new", "used", "refinance", "unsure"]),
-        estimatedPrice: z.number().optional(),
+        estimatedPrice: z.number().min(0).max(500000).optional(),
         creditScore: z.enum([
           "no_credit", "below_500", "500_549", "550_599",
           "600_649", "650_699", "700_plus",
@@ -39,12 +39,12 @@ export const leadsRouter = router({
         hasBankruptcy: z.boolean().optional(),
         hasRepossession: z.boolean().optional(),
         employmentStatus: z.enum(["employed", "self_employed", "retired", "disability", "other"]).optional(),
-        monthlyIncome: z.number().optional(),
-        abandonedAtStep: z.number().optional(),
-        utmSource: z.string().optional(),
-        utmMedium: z.string().optional(),
-        utmCampaign: z.string().optional(),
-        landingPage: z.string().optional(),
+        monthlyIncome: z.number().min(0).max(1000000).optional(),
+        abandonedAtStep: z.number().min(1).max(10).optional(),
+        utmSource: z.string().max(128).optional(),
+        utmMedium: z.string().max(128).optional(),
+        utmCampaign: z.string().max(256).optional(),
+        landingPage: z.string().max(2048).optional(),
       })
     )
     .mutation(async ({ input, ctx }) => {
@@ -117,14 +117,14 @@ export const leadsRouter = router({
   submit: publicProcedure
     .input(
       z.object({
-        token: z.string(),
-        firstName: z.string().min(1),
-        lastName: z.string().min(1),
-        email: z.string().email(),
-        phone: z.string().min(10),
-        zipCode: z.string().min(5),
+        token: z.string().max(64),
+        firstName: z.string().min(1).max(64),
+        lastName: z.string().min(1).max(64),
+        email: z.string().email().max(320),
+        phone: z.string().min(10).max(20),
+        zipCode: z.string().min(5).max(10),
         state: z.string().length(2),
-        trustedFormCertUrl: z.string().optional(),
+        trustedFormCertUrl: z.string().url().max(2048).optional(),
       })
     )
     .mutation(async ({ input, ctx }) => {
@@ -237,32 +237,26 @@ export const leadsRouter = router({
   /**
    * Admin: mark a lead as test (won't appear in real analytics)
    */
-  markAsTest: protectedProcedure
+  markAsTest: adminProcedure
     .input(z.object({ id: z.number(), isTest: z.boolean() }))
-    .mutation(async ({ ctx, input }) => {
-      if (ctx.user.role !== "admin") throw new Error("Forbidden");
+    .mutation(async ({ input }) => {
       await updateLead(input.id, { isTest: input.isTest });
       return { success: true };
     }),
 
-  /**
-   * Admin: delete a lead (and its associated offers)
-   */
-  deleteLead: protectedProcedure
+  deleteLead: adminProcedure
     .input(z.object({ id: z.number() }))
-    .mutation(async ({ ctx, input }) => {
-      if (ctx.user.role !== "admin") throw new Error("Forbidden");
+    .mutation(async ({ input }) => {
       await deleteLead(input.id);
       return { success: true };
     }),
 
   /**
-   * Admin: list all leads (protected — admin only)
+   * Admin: list all leads (protected — admin only, max 200 per page)
    */
-  adminList: protectedProcedure
-    .input(z.object({ limit: z.number().default(50), offset: z.number().default(0) }))
-    .query(async ({ ctx, input }) => {
-      if (ctx.user.role !== "admin") throw new Error("Forbidden");
+  adminList: adminProcedure
+    .input(z.object({ limit: z.number().min(1).max(200).default(50), offset: z.number().min(0).default(0) }))
+    .query(async ({ input }) => {
       return listLeads(input.limit, input.offset);
     }),
 });

@@ -63,3 +63,13 @@
 - [x] Lead management: Mark as Test + Delete buttons on leads in admin panel
 - [x] isTest column added to leads schema (DB migrated)
 - [x] Mega menu hover gap bug fix (useRef timer + paddingTop bridge in Layout.tsx)
+
+## Security Hardening
+
+- [x] Add express-rate-limit to public lead submission and webhook endpoints
+- [x] Reduce body parser limit from 50 MB to 1 MB (API) / 20 MB (storage proxy)
+- [x] Add Helmet middleware for HTTP security headers
+- [x] Migrate all admin procedures from manual adminOnly() to adminProcedure middleware
+- [x] Add .max() length limits to all public Zod string inputs
+- [x] Add ProtectedAdminRoute wrapper in App.tsx for route-level guard
+- [x] Cap adminList pagination at 200 rows max

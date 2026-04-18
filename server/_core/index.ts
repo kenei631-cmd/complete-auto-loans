@@ -2,6 +2,8 @@ import "dotenv/config";
 import express from "express";
 import { createServer } from "http";
 import net from "net";
+import helmet from "helmet";
+import { rateLimit } from "express-rate-limit";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { registerOAuthRoutes } from "./oauth";
 import { registerStorageProxy } from "./storageProxy";
@@ -32,13 +34,71 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   const app = express();
   const server = createServer(app);
-  // Configure body parser with larger size limit for file uploads
-  app.use(express.json({ limit: "50mb" }));
-  app.use(express.urlencoded({ limit: "50mb", extended: true }));
+
+  // ── Security headers (Helmet) ──────────────────────────────────────────────
+  // Skip Content-Security-Policy in development to allow Vite HMR
+  app.use(
+    helmet({
+      contentSecurityPolicy: process.env.NODE_ENV === "production",
+      crossOriginEmbedderPolicy: false, // Required for Meta Pixel iframes
+    })
+  );
+
+  // ── Body parsers — keep limits tight ──────────────────────────────────────
+  // Storage proxy needs larger limit for file uploads; everything else is small
+  app.use("/manus-storage", express.raw({ limit: "20mb" }));
+  app.use(express.json({ limit: "1mb" }));
+  app.use(express.urlencoded({ limit: "1mb", extended: true }));
+
+  // ── Rate limiting ──────────────────────────────────────────────────────────
+  // General API rate limit: 120 requests per minute per IP
+  const apiLimiter = rateLimit({
+    windowMs: 60 * 1000,
+    max: 120,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { error: "Too many requests, please try again later." },
+    skip: () => process.env.NODE_ENV === "test",
+  });
+
+  // Strict rate limit for lead submission: 10 per 10 minutes per IP
+  // Prevents spam submissions without blocking normal browsing
+  const leadSubmitLimiter = rateLimit({
+    windowMs: 10 * 60 * 1000,
+    max: 10,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { error: "Too many submissions, please wait a few minutes." },
+    skip: () => process.env.NODE_ENV === "test",
+  });
+
+  // Webhook rate limit: 60 per minute per IP
+  const webhookLimiter = rateLimit({
+    windowMs: 60 * 1000,
+    max: 60,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { error: "Too many webhook requests." },
+    skip: () => process.env.NODE_ENV === "test",
+  });
+
+  // Apply general rate limit to all API routes
+  app.use("/api", apiLimiter);
+
+  // Apply strict rate limit specifically to lead mutation endpoints
+  // tRPC batches mutations as POST to /api/trpc/leads.savePartial and /api/trpc/leads.submit
+  app.use("/api/trpc/leads.savePartial", leadSubmitLimiter);
+  app.use("/api/trpc/leads.submit", leadSubmitLimiter);
+
+  // Apply webhook rate limit
+  app.use("/api/webhooks", webhookLimiter);
+
   registerStorageProxy(app);
   registerOAuthRoutes(app);
+
   // Lender webhooks
   app.use("/api/webhooks", webhookRouter);
+
   // tRPC API
   app.use(
     "/api/trpc",
@@ -47,6 +107,7 @@ async function startServer() {
       createContext,
     })
   );
+
   // development mode uses Vite, production mode uses static files
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
