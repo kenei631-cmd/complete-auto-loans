@@ -73,3 +73,9 @@
 - [x] Add .max() length limits to all public Zod string inputs
 - [x] Add ProtectedAdminRoute wrapper in App.tsx for route-level guard
 - [x] Cap adminList pagination at 200 rows max
+
+## Admin URL Security
+
+- [x] Rename /admin route to non-guessable URL with random suffix (/portal-avs6pzsw)
+- [x] Update ProtectedAdminRoute reference in App.tsx
+- [x] Save new admin URL to ADMIN_URL.md for reference

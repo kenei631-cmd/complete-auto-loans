@@ -271,8 +271,8 @@ function Router() {
       <Route path="/chicago-il" component={CityHubChicagoIl} />
       {/* Offer Results — post-form submission */}
       <Route path="/offers/:token" component={OfferResults} />
-      {/* Admin Panel — route-level guard prevents non-admins from even loading the component */}
-      <Route path="/admin">{() => <ProtectedAdminRoute component={AdminPanel} />}</Route>
+      {/* Admin Panel — non-guessable URL prevents bot probing; auth wall enforced by ProtectedAdminRoute + backend adminProcedure */}
+      <Route path="/portal-avs6pzsw">{() => <ProtectedAdminRoute component={AdminPanel} />}</Route>
       {/* Blog */}
       <Route path="/blog" component={BlogIndex} />
       <Route path="/blog/:slug" component={BlogPost} />
