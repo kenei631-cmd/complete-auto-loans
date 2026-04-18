@@ -121,6 +121,7 @@ export default function CityDallasTxSecondChanceAutoLoans() {
         serviceType: "Second Chance Auto Loans",
         url: "/dallas-tx/second-chance-auto-loans/",
         description: "Find second chance auto loans in Dallas, TX. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
+        geo: { latitude: 32.7767, longitude: -96.797 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

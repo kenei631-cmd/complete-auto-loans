@@ -49,6 +49,8 @@ export default function CityHubChicagoIl() {
       description="Chicago is the Midwest's largest city with a diverse economy and population. While public transit is available downtown, the vast suburban areas require personal vehicles — creating strong demand for subprime auto financing across all neighborhoods."
       lenderNote="Chicago-area lenders serve one of the most diverse borrower pools in the country, with programs for every credit situation."
       services={services}
+
+      geo={{ latitude: 41.8781, longitude: -87.6298 }}
     />
   );
 }

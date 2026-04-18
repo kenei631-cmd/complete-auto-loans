@@ -121,6 +121,7 @@ export default function CityPhoenixAzGuaranteedApprovalAutoLoans() {
         serviceType: "Guaranteed Approval Auto Loans",
         url: "/phoenix-az/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in Phoenix, AZ. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
+        geo: { latitude: 33.4484, longitude: -112.074 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

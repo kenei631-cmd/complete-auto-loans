@@ -121,6 +121,7 @@ export default function CityDallasTxAutoLoansAfterRepossession() {
         serviceType: "Auto Loans After Repossession",
         url: "/dallas-tx/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Dallas, TX. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
+        geo: { latitude: 32.7767, longitude: -96.797 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

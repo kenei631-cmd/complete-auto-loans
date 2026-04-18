@@ -121,6 +121,7 @@ export default function CitySanAntonioTxNoCreditCheckCarLoans() {
         serviceType: "No Credit Check Car Loans",
         url: "/san-antonio-tx/no-credit-check-car-loans/",
         description: "Find no credit check car loans in San Antonio, TX. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
+        geo: { latitude: 29.4241, longitude: -98.4936 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

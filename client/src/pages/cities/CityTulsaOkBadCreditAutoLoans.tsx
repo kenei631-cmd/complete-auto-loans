@@ -121,6 +121,7 @@ export default function CityTulsaOkBadCreditAutoLoans() {
         serviceType: "Bad Credit Auto Loans",
         url: "/tulsa-ok/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Tulsa, OK. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
+        geo: { latitude: 36.154, longitude: -95.9928 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

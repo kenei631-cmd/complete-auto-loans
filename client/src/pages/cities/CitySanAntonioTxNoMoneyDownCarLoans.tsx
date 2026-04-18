@@ -121,6 +121,7 @@ export default function CitySanAntonioTxNoMoneyDownCarLoans() {
         serviceType: "No Money Down Car Loans",
         url: "/san-antonio-tx/no-money-down-car-loans/",
         description: "Find no money down car loans in San Antonio, TX. $0 down payment options for qualified borrowers — bad credit accepted.",
+        geo: { latitude: 29.4241, longitude: -98.4936 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

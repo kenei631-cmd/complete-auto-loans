@@ -121,6 +121,7 @@ export default function CityColoradoSpringsCoGuaranteedApprovalAutoLoans() {
         serviceType: "Guaranteed Approval Auto Loans",
         url: "/colorado-springs-co/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in Colorado Springs, CO. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
+        geo: { latitude: 38.8339, longitude: -104.8214 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityPhoenixAzNoMoneyDownCarLoans() {
         serviceType: "No Money Down Car Loans",
         url: "/phoenix-az/no-money-down-car-loans/",
         description: "Find no money down car loans in Phoenix, AZ. $0 down payment options for qualified borrowers — bad credit accepted.",
+        geo: { latitude: 33.4484, longitude: -112.074 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityFortWorthTxAutoLoansAfterRepossession() {
         serviceType: "Auto Loans After Repossession",
         url: "/fort-worth-tx/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Fort Worth, TX. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
+        geo: { latitude: 32.7555, longitude: -97.3308 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

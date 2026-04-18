@@ -121,6 +121,7 @@ export default function CityChicagoIlBuyHerePayHere() {
         serviceType: "Buy Here Pay Here",
         url: "/chicago-il/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Chicago, IL. In-house financing with no credit check required — drive today.",
+        geo: { latitude: 41.8781, longitude: -87.6298 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

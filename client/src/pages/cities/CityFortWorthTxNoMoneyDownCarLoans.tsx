@@ -121,6 +121,7 @@ export default function CityFortWorthTxNoMoneyDownCarLoans() {
         serviceType: "No Money Down Car Loans",
         url: "/fort-worth-tx/no-money-down-car-loans/",
         description: "Find no money down car loans in Fort Worth, TX. $0 down payment options for qualified borrowers — bad credit accepted.",
+        geo: { latitude: 32.7555, longitude: -97.3308 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

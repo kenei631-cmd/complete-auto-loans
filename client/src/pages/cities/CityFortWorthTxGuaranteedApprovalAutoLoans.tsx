@@ -121,6 +121,7 @@ export default function CityFortWorthTxGuaranteedApprovalAutoLoans() {
         serviceType: "Guaranteed Approval Auto Loans",
         url: "/fort-worth-tx/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in Fort Worth, TX. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
+        geo: { latitude: 32.7555, longitude: -97.3308 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

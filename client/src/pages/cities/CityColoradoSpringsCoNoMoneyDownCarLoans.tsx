@@ -121,6 +121,7 @@ export default function CityColoradoSpringsCoNoMoneyDownCarLoans() {
         serviceType: "No Money Down Car Loans",
         url: "/colorado-springs-co/no-money-down-car-loans/",
         description: "Find no money down car loans in Colorado Springs, CO. $0 down payment options for qualified borrowers — bad credit accepted.",
+        geo: { latitude: 38.8339, longitude: -104.8214 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

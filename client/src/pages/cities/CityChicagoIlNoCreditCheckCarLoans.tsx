@@ -121,6 +121,7 @@ export default function CityChicagoIlNoCreditCheckCarLoans() {
         serviceType: "No Credit Check Car Loans",
         url: "/chicago-il/no-credit-check-car-loans/",
         description: "Find no credit check car loans in Chicago, IL. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
+        geo: { latitude: 41.8781, longitude: -87.6298 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityTulsaOkCarLoansAfterBankruptcy() {
         serviceType: "Car Loans After Bankruptcy",
         url: "/tulsa-ok/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Tulsa, OK. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
+        geo: { latitude: 36.154, longitude: -95.9928 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityColumbusOhSecondChanceAutoLoans() {
         serviceType: "Second Chance Auto Loans",
         url: "/columbus-oh/second-chance-auto-loans/",
         description: "Find second chance auto loans in Columbus, OH. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
+        geo: { latitude: 39.9612, longitude: -82.9988 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

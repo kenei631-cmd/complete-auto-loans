@@ -121,6 +121,7 @@ export default function CitySanAntonioTxBadCreditAutoLoans() {
         serviceType: "Bad Credit Auto Loans",
         url: "/san-antonio-tx/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in San Antonio, TX. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
+        geo: { latitude: 29.4241, longitude: -98.4936 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

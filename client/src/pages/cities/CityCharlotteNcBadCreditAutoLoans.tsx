@@ -121,6 +121,7 @@ export default function CityCharlotteNcBadCreditAutoLoans() {
         serviceType: "Bad Credit Auto Loans",
         url: "/charlotte-nc/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Charlotte, NC. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
+        geo: { latitude: 35.2271, longitude: -80.8431 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

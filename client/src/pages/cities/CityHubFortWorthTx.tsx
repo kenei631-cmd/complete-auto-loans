@@ -49,6 +49,8 @@ export default function CityHubFortWorthTx() {
       description="Fort Worth anchors the western half of the Dallas-Fort Worth Metroplex. The city has a strong blue-collar workforce in manufacturing, logistics, and energy — industries where workers often need a reliable vehicle but may carry subprime credit."
       lenderNote="Fort Worth has one of the highest concentrations of Buy Here Pay Here dealerships in Texas."
       services={services}
+
+      geo={{ latitude: 32.7555, longitude: -97.3308 }}
     />
   );
 }

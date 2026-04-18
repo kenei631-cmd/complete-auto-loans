@@ -121,6 +121,7 @@ export default function CitySanAntonioTxGuaranteedApprovalAutoLoans() {
         serviceType: "Guaranteed Approval Auto Loans",
         url: "/san-antonio-tx/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in San Antonio, TX. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
+        geo: { latitude: 29.4241, longitude: -98.4936 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

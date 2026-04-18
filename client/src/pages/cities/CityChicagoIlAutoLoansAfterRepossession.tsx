@@ -121,6 +121,7 @@ export default function CityChicagoIlAutoLoansAfterRepossession() {
         serviceType: "Auto Loans After Repossession",
         url: "/chicago-il/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Chicago, IL. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
+        geo: { latitude: 41.8781, longitude: -87.6298 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

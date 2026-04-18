@@ -121,6 +121,7 @@ export default function CityColumbusOhAutoLoansAfterRepossession() {
         serviceType: "Auto Loans After Repossession",
         url: "/columbus-oh/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Columbus, OH. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
+        geo: { latitude: 39.9612, longitude: -82.9988 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

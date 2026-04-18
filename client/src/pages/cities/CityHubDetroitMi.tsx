@@ -49,6 +49,8 @@ export default function CityHubDetroitMi() {
       description="Detroit's automotive heritage runs deep, but the city's economic challenges mean many residents carry damaged credit. The metro area has a dense network of BHPH dealerships and subprime lenders ready to work with all credit situations."
       lenderNote="Detroit-area lenders are among the most experienced in the country at approving borrowers after bankruptcy or repossession."
       services={services}
+
+      geo={{ latitude: 42.3314, longitude: -83.0458 }}
     />
   );
 }

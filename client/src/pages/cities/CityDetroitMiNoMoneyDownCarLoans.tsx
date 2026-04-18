@@ -121,6 +121,7 @@ export default function CityDetroitMiNoMoneyDownCarLoans() {
         serviceType: "No Money Down Car Loans",
         url: "/detroit-mi/no-money-down-car-loans/",
         description: "Find no money down car loans in Detroit, MI. $0 down payment options for qualified borrowers — bad credit accepted.",
+        geo: { latitude: 42.3314, longitude: -83.0458 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

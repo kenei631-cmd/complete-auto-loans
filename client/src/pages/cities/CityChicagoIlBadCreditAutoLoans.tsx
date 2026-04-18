@@ -121,6 +121,7 @@ export default function CityChicagoIlBadCreditAutoLoans() {
         serviceType: "Bad Credit Auto Loans",
         url: "/chicago-il/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Chicago, IL. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
+        geo: { latitude: 41.8781, longitude: -87.6298 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

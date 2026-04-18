@@ -121,6 +121,7 @@ export default function CityColumbusOhBuyHerePayHere() {
         serviceType: "Buy Here Pay Here",
         url: "/columbus-oh/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Columbus, OH. In-house financing with no credit check required — drive today.",
+        geo: { latitude: 39.9612, longitude: -82.9988 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

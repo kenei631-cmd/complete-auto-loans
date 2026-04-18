@@ -121,6 +121,7 @@ export default function CityCharlotteNcSecondChanceAutoLoans() {
         serviceType: "Second Chance Auto Loans",
         url: "/charlotte-nc/second-chance-auto-loans/",
         description: "Find second chance auto loans in Charlotte, NC. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
+        geo: { latitude: 35.2271, longitude: -80.8431 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

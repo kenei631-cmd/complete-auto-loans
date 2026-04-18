@@ -121,6 +121,7 @@ export default function CityDallasTxBuyHerePayHere() {
         serviceType: "Buy Here Pay Here",
         url: "/dallas-tx/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Dallas, TX. In-house financing with no credit check required — drive today.",
+        geo: { latitude: 32.7767, longitude: -96.797 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

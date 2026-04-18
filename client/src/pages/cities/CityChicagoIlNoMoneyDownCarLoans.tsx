@@ -121,6 +121,7 @@ export default function CityChicagoIlNoMoneyDownCarLoans() {
         serviceType: "No Money Down Car Loans",
         url: "/chicago-il/no-money-down-car-loans/",
         description: "Find no money down car loans in Chicago, IL. $0 down payment options for qualified borrowers — bad credit accepted.",
+        geo: { latitude: 41.8781, longitude: -87.6298 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

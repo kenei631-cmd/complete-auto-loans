@@ -49,6 +49,8 @@ export default function CityHubTulsaOk() {
       description="Tulsa is Oklahoma's second-largest city with a strong energy and manufacturing economy. Car ownership is essential in this spread-out metro, and local lenders offer competitive rates for borrowers with all types of credit histories."
       lenderNote="Tulsa has relatively low keyword competition, making it easier to rank for local subprime auto loan searches."
       services={services}
+
+      geo={{ latitude: 36.154, longitude: -95.9928 }}
     />
   );
 }

@@ -121,6 +121,7 @@ export default function CitySanAntonioTxSecondChanceAutoLoans() {
         serviceType: "Second Chance Auto Loans",
         url: "/san-antonio-tx/second-chance-auto-loans/",
         description: "Find second chance auto loans in San Antonio, TX. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
+        geo: { latitude: 29.4241, longitude: -98.4936 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

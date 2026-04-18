@@ -121,6 +121,7 @@ export default function CityColumbusOhNoMoneyDownCarLoans() {
         serviceType: "No Money Down Car Loans",
         url: "/columbus-oh/no-money-down-car-loans/",
         description: "Find no money down car loans in Columbus, OH. $0 down payment options for qualified borrowers — bad credit accepted.",
+        geo: { latitude: 39.9612, longitude: -82.9988 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

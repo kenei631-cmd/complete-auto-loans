@@ -121,6 +121,7 @@ export default function CityDetroitMiGuaranteedApprovalAutoLoans() {
         serviceType: "Guaranteed Approval Auto Loans",
         url: "/detroit-mi/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in Detroit, MI. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
+        geo: { latitude: 42.3314, longitude: -83.0458 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityFortWorthTxCarLoansAfterBankruptcy() {
         serviceType: "Car Loans After Bankruptcy",
         url: "/fort-worth-tx/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Fort Worth, TX. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
+        geo: { latitude: 32.7555, longitude: -97.3308 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

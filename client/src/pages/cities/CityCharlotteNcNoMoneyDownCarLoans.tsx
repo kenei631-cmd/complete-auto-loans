@@ -121,6 +121,7 @@ export default function CityCharlotteNcNoMoneyDownCarLoans() {
         serviceType: "No Money Down Car Loans",
         url: "/charlotte-nc/no-money-down-car-loans/",
         description: "Find no money down car loans in Charlotte, NC. $0 down payment options for qualified borrowers — bad credit accepted.",
+        geo: { latitude: 35.2271, longitude: -80.8431 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

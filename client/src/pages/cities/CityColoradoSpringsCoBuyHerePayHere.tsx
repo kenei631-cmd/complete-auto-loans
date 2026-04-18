@@ -121,6 +121,7 @@ export default function CityColoradoSpringsCoBuyHerePayHere() {
         serviceType: "Buy Here Pay Here",
         url: "/colorado-springs-co/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Colorado Springs, CO. In-house financing with no credit check required — drive today.",
+        geo: { latitude: 38.8339, longitude: -104.8214 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityTulsaOkGuaranteedApprovalAutoLoans() {
         serviceType: "Guaranteed Approval Auto Loans",
         url: "/tulsa-ok/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in Tulsa, OK. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
+        geo: { latitude: 36.154, longitude: -95.9928 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

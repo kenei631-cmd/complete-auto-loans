@@ -121,6 +121,7 @@ export default function CityColoradoSpringsCoAutoLoansAfterRepossession() {
         serviceType: "Auto Loans After Repossession",
         url: "/colorado-springs-co/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Colorado Springs, CO. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
+        geo: { latitude: 38.8339, longitude: -104.8214 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityDetroitMiBadCreditAutoLoans() {
         serviceType: "Bad Credit Auto Loans",
         url: "/detroit-mi/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Detroit, MI. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
+        geo: { latitude: 42.3314, longitude: -83.0458 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

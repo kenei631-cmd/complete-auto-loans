@@ -121,6 +121,7 @@ export default function CityTulsaOkNoMoneyDownCarLoans() {
         serviceType: "No Money Down Car Loans",
         url: "/tulsa-ok/no-money-down-car-loans/",
         description: "Find no money down car loans in Tulsa, OK. $0 down payment options for qualified borrowers — bad credit accepted.",
+        geo: { latitude: 36.154, longitude: -95.9928 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

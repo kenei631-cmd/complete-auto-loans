@@ -121,6 +121,7 @@ export default function CityDetroitMiCarLoansAfterBankruptcy() {
         serviceType: "Car Loans After Bankruptcy",
         url: "/detroit-mi/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Detroit, MI. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
+        geo: { latitude: 42.3314, longitude: -83.0458 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityCharlotteNcCarLoansAfterBankruptcy() {
         serviceType: "Car Loans After Bankruptcy",
         url: "/charlotte-nc/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Charlotte, NC. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
+        geo: { latitude: 35.2271, longitude: -80.8431 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

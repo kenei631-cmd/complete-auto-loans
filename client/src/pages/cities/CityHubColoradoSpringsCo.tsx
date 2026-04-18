@@ -49,6 +49,8 @@ export default function CityHubColoradoSpringsCo() {
       description="Colorado Springs is home to a large military and veteran population, many of whom face credit challenges after deployment or financial hardship. The city's sprawling layout makes a personal vehicle essential for daily life."
       lenderNote="Many Colorado Springs lenders offer special programs for military personnel and veterans with imperfect credit."
       services={services}
+
+      geo={{ latitude: 38.8339, longitude: -104.8214 }}
     />
   );
 }

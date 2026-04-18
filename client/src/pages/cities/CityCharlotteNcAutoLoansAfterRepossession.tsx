@@ -121,6 +121,7 @@ export default function CityCharlotteNcAutoLoansAfterRepossession() {
         serviceType: "Auto Loans After Repossession",
         url: "/charlotte-nc/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Charlotte, NC. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
+        geo: { latitude: 35.2271, longitude: -80.8431 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

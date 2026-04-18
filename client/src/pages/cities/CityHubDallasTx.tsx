@@ -49,6 +49,8 @@ export default function CityHubDallasTx() {
       description="Dallas is a major financial and commercial hub, but its sprawling highway network means nearly every resident needs a car. A large and diverse population creates strong demand for all types of subprime auto financing."
       lenderNote="Dallas lenders compete aggressively for subprime borrowers, often offering same-day approval decisions."
       services={services}
+
+      geo={{ latitude: 32.7767, longitude: -96.797 }}
     />
   );
 }

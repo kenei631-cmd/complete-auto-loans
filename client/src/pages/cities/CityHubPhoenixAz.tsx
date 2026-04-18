@@ -49,6 +49,8 @@ export default function CityHubPhoenixAz() {
       description="Phoenix is the fifth-largest city in the U.S. and one of the fastest-growing metros in the country. With a car-dependent layout and a large working-class population, demand for subprime auto financing is among the highest in the nation."
       lenderNote="Phoenix lenders are accustomed to approving borrowers with credit scores as low as 450."
       services={services}
+
+      geo={{ latitude: 33.4484, longitude: -112.074 }}
     />
   );
 }

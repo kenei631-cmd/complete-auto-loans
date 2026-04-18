@@ -121,6 +121,7 @@ export default function CityCharlotteNcBuyHerePayHere() {
         serviceType: "Buy Here Pay Here",
         url: "/charlotte-nc/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Charlotte, NC. In-house financing with no credit check required — drive today.",
+        geo: { latitude: 35.2271, longitude: -80.8431 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

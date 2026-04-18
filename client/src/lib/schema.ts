@@ -40,8 +40,7 @@ export function buildOrganizationSchema() {
       addressCountry: "US",
     },
     sameAs: [
-      "https://www.facebook.com/completeautoloans",
-      "https://twitter.com/completeautoloans",
+      "https://www.facebook.com/completeautoloans/",
     ],
     contactPoint: {
       "@type": "ContactPoint",
@@ -156,12 +155,15 @@ export function buildLocalBusinessSchema({
   serviceType,
   url,
   description,
+  geo,
 }: {
   city: string;
   state: string;
   serviceType: string;
   url: string;
   description: string;
+  /** City center coordinates for geographic relevance signal */
+  geo?: { latitude: number; longitude: number };
 }) {
   return {
     "@context": "https://schema.org",
@@ -169,6 +171,20 @@ export function buildLocalBusinessSchema({
     name: `${ORG_NAME} — ${city}, ${state}`,
     description,
     url: `${BASE_URL}${url}/`,
+    ...(geo ? {
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: geo.latitude,
+        longitude: geo.longitude,
+      },
+    } : {}),
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: GBP_RATING,
+      reviewCount: GBP_REVIEW_COUNT,
+      bestRating: 5,
+      worstRating: 1,
+    },
     areaServed: {
       "@type": "City",
       name: city,

@@ -49,6 +49,8 @@ export default function CityHubSanAntonioTx() {
       description="San Antonio is Texas's second-largest city with a large military, tourism, and healthcare workforce. The city has a significant ITIN borrower population and strong demand for no-credit-check and second chance auto financing."
       lenderNote="San Antonio lenders offer ITIN auto loans and accept applicants without a Social Security number."
       services={services}
+
+      geo={{ latitude: 29.4241, longitude: -98.4936 }}
     />
   );
 }

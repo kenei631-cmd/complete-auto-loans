@@ -121,6 +121,7 @@ export default function CityTulsaOkNoCreditCheckCarLoans() {
         serviceType: "No Credit Check Car Loans",
         url: "/tulsa-ok/no-credit-check-car-loans/",
         description: "Find no credit check car loans in Tulsa, OK. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
+        geo: { latitude: 36.154, longitude: -95.9928 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

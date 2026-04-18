@@ -121,6 +121,7 @@ export default function CityDetroitMiAutoLoansAfterRepossession() {
         serviceType: "Auto Loans After Repossession",
         url: "/detroit-mi/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Detroit, MI. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
+        geo: { latitude: 42.3314, longitude: -83.0458 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

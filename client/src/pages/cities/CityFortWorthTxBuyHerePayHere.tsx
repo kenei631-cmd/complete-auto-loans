@@ -121,6 +121,7 @@ export default function CityFortWorthTxBuyHerePayHere() {
         serviceType: "Buy Here Pay Here",
         url: "/fort-worth-tx/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Fort Worth, TX. In-house financing with no credit check required — drive today.",
+        geo: { latitude: 32.7555, longitude: -97.3308 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityTulsaOkBuyHerePayHere() {
         serviceType: "Buy Here Pay Here",
         url: "/tulsa-ok/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Tulsa, OK. In-house financing with no credit check required — drive today.",
+        geo: { latitude: 36.154, longitude: -95.9928 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

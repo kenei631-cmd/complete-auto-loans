@@ -121,6 +121,7 @@ export default function CityColumbusOhCarLoansAfterBankruptcy() {
         serviceType: "Car Loans After Bankruptcy",
         url: "/columbus-oh/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Columbus, OH. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
+        geo: { latitude: 39.9612, longitude: -82.9988 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CitySanAntonioTxCarLoansAfterBankruptcy() {
         serviceType: "Car Loans After Bankruptcy",
         url: "/san-antonio-tx/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in San Antonio, TX. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
+        geo: { latitude: 29.4241, longitude: -98.4936 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

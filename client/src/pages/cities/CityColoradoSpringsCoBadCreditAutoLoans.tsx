@@ -121,6 +121,7 @@ export default function CityColoradoSpringsCoBadCreditAutoLoans() {
         serviceType: "Bad Credit Auto Loans",
         url: "/colorado-springs-co/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Colorado Springs, CO. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
+        geo: { latitude: 38.8339, longitude: -104.8214 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

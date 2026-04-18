@@ -121,6 +121,7 @@ export default function CityTulsaOkSecondChanceAutoLoans() {
         serviceType: "Second Chance Auto Loans",
         url: "/tulsa-ok/second-chance-auto-loans/",
         description: "Find second chance auto loans in Tulsa, OK. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
+        geo: { latitude: 36.154, longitude: -95.9928 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

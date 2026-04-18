@@ -121,6 +121,7 @@ export default function CityColoradoSpringsCoNoCreditCheckCarLoans() {
         serviceType: "No Credit Check Car Loans",
         url: "/colorado-springs-co/no-credit-check-car-loans/",
         description: "Find no credit check car loans in Colorado Springs, CO. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
+        geo: { latitude: 38.8339, longitude: -104.8214 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -37,6 +37,8 @@ export interface CityHubProps {
   lenderNote: string;
   /** The 8 sub-service links for this city */
   services: CityService[];
+  /** City center coordinates for LocalBusiness geo schema */
+  geo?: { latitude: number; longitude: number };
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -63,6 +65,7 @@ export default function CityHubTemplate({
   description,
   lenderNote,
   services,
+  geo,
 }: CityHubProps) {
   useSEO({
     title: `Bad Credit Auto Loans in ${city}, ${state} | Complete Auto Loans`,
@@ -75,6 +78,7 @@ export default function CityHubTemplate({
         serviceType: "Auto Loan Matching Service",
         url: `/${slug}/`,
         description: `Complete Auto Loans connects ${city}, ${state} borrowers with bad credit auto loan lenders. No minimum credit score required.`,
+        ...(geo ? { geo } : {}),
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

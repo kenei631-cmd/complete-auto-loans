@@ -121,6 +121,7 @@ export default function CityDetroitMiSecondChanceAutoLoans() {
         serviceType: "Second Chance Auto Loans",
         url: "/detroit-mi/second-chance-auto-loans/",
         description: "Find second chance auto loans in Detroit, MI. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
+        geo: { latitude: 42.3314, longitude: -83.0458 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

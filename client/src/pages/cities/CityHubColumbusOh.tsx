@@ -49,6 +49,8 @@ export default function CityHubColumbusOh() {
       description="Columbus is Ohio's capital and largest city, home to a large university population and a growing tech sector. Despite the economic growth, many residents still carry subprime credit and need flexible auto financing options."
       lenderNote="Columbus lenders frequently approve first-time buyers and recent graduates with thin or no credit history."
       services={services}
+
+      geo={{ latitude: 39.9612, longitude: -82.9988 }}
     />
   );
 }

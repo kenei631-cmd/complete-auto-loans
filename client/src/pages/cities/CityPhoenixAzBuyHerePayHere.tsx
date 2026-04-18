@@ -121,6 +121,7 @@ export default function CityPhoenixAzBuyHerePayHere() {
         serviceType: "Buy Here Pay Here",
         url: "/phoenix-az/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Phoenix, AZ. In-house financing with no credit check required — drive today.",
+        geo: { latitude: 33.4484, longitude: -112.074 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

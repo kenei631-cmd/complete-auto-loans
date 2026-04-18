@@ -121,6 +121,7 @@ export default function CityDallasTxGuaranteedApprovalAutoLoans() {
         serviceType: "Guaranteed Approval Auto Loans",
         url: "/dallas-tx/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in Dallas, TX. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
+        geo: { latitude: 32.7767, longitude: -96.797 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

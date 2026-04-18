@@ -121,6 +121,7 @@ export default function CityFortWorthTxNoCreditCheckCarLoans() {
         serviceType: "No Credit Check Car Loans",
         url: "/fort-worth-tx/no-credit-check-car-loans/",
         description: "Find no credit check car loans in Fort Worth, TX. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
+        geo: { latitude: 32.7555, longitude: -97.3308 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

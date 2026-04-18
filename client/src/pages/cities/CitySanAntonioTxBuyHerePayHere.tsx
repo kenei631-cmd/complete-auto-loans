@@ -121,6 +121,7 @@ export default function CitySanAntonioTxBuyHerePayHere() {
         serviceType: "Buy Here Pay Here",
         url: "/san-antonio-tx/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in San Antonio, TX. In-house financing with no credit check required — drive today.",
+        geo: { latitude: 29.4241, longitude: -98.4936 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

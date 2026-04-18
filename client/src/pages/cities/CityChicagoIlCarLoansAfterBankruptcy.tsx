@@ -121,6 +121,7 @@ export default function CityChicagoIlCarLoansAfterBankruptcy() {
         serviceType: "Car Loans After Bankruptcy",
         url: "/chicago-il/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Chicago, IL. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
+        geo: { latitude: 41.8781, longitude: -87.6298 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

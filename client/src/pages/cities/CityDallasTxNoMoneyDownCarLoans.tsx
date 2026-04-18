@@ -121,6 +121,7 @@ export default function CityDallasTxNoMoneyDownCarLoans() {
         serviceType: "No Money Down Car Loans",
         url: "/dallas-tx/no-money-down-car-loans/",
         description: "Find no money down car loans in Dallas, TX. $0 down payment options for qualified borrowers — bad credit accepted.",
+        geo: { latitude: 32.7767, longitude: -96.797 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

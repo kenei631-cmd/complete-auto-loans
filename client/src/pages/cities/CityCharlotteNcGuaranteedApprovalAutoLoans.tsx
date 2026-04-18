@@ -121,6 +121,7 @@ export default function CityCharlotteNcGuaranteedApprovalAutoLoans() {
         serviceType: "Guaranteed Approval Auto Loans",
         url: "/charlotte-nc/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in Charlotte, NC. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
+        geo: { latitude: 35.2271, longitude: -80.8431 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

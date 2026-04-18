@@ -121,6 +121,7 @@ export default function CityCharlotteNcNoCreditCheckCarLoans() {
         serviceType: "No Credit Check Car Loans",
         url: "/charlotte-nc/no-credit-check-car-loans/",
         description: "Find no credit check car loans in Charlotte, NC. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
+        geo: { latitude: 35.2271, longitude: -80.8431 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityTulsaOkAutoLoansAfterRepossession() {
         serviceType: "Auto Loans After Repossession",
         url: "/tulsa-ok/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in Tulsa, OK. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
+        geo: { latitude: 36.154, longitude: -95.9928 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

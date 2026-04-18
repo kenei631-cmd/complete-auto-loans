@@ -121,6 +121,7 @@ export default function CityPhoenixAzBadCreditAutoLoans() {
         serviceType: "Bad Credit Auto Loans",
         url: "/phoenix-az/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Phoenix, AZ. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
+        geo: { latitude: 33.4484, longitude: -112.074 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

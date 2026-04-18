@@ -49,6 +49,8 @@ export default function CityHubCharlotteNc() {
       description="Charlotte is one of the fastest-growing cities in the Southeast and a major banking hub. Despite the financial industry presence, a large portion of residents carry subprime credit scores and need alternative auto financing."
       lenderNote="Charlotte's growing population creates strong demand for no-money-down and guaranteed approval auto loans."
       services={services}
+
+      geo={{ latitude: 35.2271, longitude: -80.8431 }}
     />
   );
 }

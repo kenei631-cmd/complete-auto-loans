@@ -121,6 +121,7 @@ export default function CityColoradoSpringsCoCarLoansAfterBankruptcy() {
         serviceType: "Car Loans After Bankruptcy",
         url: "/colorado-springs-co/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Colorado Springs, CO. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
+        geo: { latitude: 38.8339, longitude: -104.8214 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

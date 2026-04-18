@@ -121,6 +121,7 @@ export default function CityColumbusOhBadCreditAutoLoans() {
         serviceType: "Bad Credit Auto Loans",
         url: "/columbus-oh/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Columbus, OH. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
+        geo: { latitude: 39.9612, longitude: -82.9988 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityDallasTxBadCreditAutoLoans() {
         serviceType: "Bad Credit Auto Loans",
         url: "/dallas-tx/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Dallas, TX. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
+        geo: { latitude: 32.7767, longitude: -96.797 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

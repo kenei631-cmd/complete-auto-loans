@@ -121,6 +121,7 @@ export default function CityDetroitMiBuyHerePayHere() {
         serviceType: "Buy Here Pay Here",
         url: "/detroit-mi/buy-here-pay-here/",
         description: "Find the best buy here pay here dealerships in Detroit, MI. In-house financing with no credit check required — drive today.",
+        geo: { latitude: 42.3314, longitude: -83.0458 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityFortWorthTxBadCreditAutoLoans() {
         serviceType: "Bad Credit Auto Loans",
         url: "/fort-worth-tx/bad-credit-auto-loans/",
         description: "Compare the best bad credit auto loans in Fort Worth, TX. Lenders that approve credit scores 300–600 with $500 down and proof of income.",
+        geo: { latitude: 32.7555, longitude: -97.3308 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

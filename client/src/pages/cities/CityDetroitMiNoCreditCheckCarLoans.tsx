@@ -121,6 +121,7 @@ export default function CityDetroitMiNoCreditCheckCarLoans() {
         serviceType: "No Credit Check Car Loans",
         url: "/detroit-mi/no-credit-check-car-loans/",
         description: "Find no credit check car loans in Detroit, MI. Approval based on income, not credit score. Get matched with lenders in 2 minutes.",
+        geo: { latitude: 42.3314, longitude: -83.0458 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

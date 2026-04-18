@@ -121,6 +121,7 @@ export default function CityPhoenixAzSecondChanceAutoLoans() {
         serviceType: "Second Chance Auto Loans",
         url: "/phoenix-az/second-chance-auto-loans/",
         description: "Find second chance auto loans in Phoenix, AZ. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
+        geo: { latitude: 33.4484, longitude: -112.074 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityColumbusOhGuaranteedApprovalAutoLoans() {
         serviceType: "Guaranteed Approval Auto Loans",
         url: "/columbus-oh/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in Columbus, OH. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
+        geo: { latitude: 39.9612, longitude: -82.9988 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

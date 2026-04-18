@@ -121,6 +121,7 @@ export default function CitySanAntonioTxAutoLoansAfterRepossession() {
         serviceType: "Auto Loans After Repossession",
         url: "/san-antonio-tx/auto-loans-after-repossession/",
         description: "Find auto loans after repossession in San Antonio, TX. Rebuild your credit with a new loan — lenders who approve post-repo borrowers.",
+        geo: { latitude: 29.4241, longitude: -98.4936 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

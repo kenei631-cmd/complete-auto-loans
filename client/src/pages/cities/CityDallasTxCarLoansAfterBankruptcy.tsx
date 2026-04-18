@@ -121,6 +121,7 @@ export default function CityDallasTxCarLoansAfterBankruptcy() {
         serviceType: "Car Loans After Bankruptcy",
         url: "/dallas-tx/car-loans-after-bankruptcy/",
         description: "Find car loans after bankruptcy in Dallas, TX. Chapter 7 or Chapter 13 — lenders who approve discharged borrowers. Get matched in 2 minutes.",
+        geo: { latitude: 32.7767, longitude: -96.797 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

@@ -121,6 +121,7 @@ export default function CityColoradoSpringsCoSecondChanceAutoLoans() {
         serviceType: "Second Chance Auto Loans",
         url: "/colorado-springs-co/second-chance-auto-loans/",
         description: "Find second chance auto loans in Colorado Springs, CO. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
+        geo: { latitude: 38.8339, longitude: -104.8214 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

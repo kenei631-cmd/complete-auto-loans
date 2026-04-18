@@ -121,6 +121,7 @@ export default function CityChicagoIlSecondChanceAutoLoans() {
         serviceType: "Second Chance Auto Loans",
         url: "/chicago-il/second-chance-auto-loans/",
         description: "Find second chance auto loans in Chicago, IL. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
+        geo: { latitude: 41.8781, longitude: -87.6298 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

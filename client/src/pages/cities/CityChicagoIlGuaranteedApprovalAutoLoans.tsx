@@ -121,6 +121,7 @@ export default function CityChicagoIlGuaranteedApprovalAutoLoans() {
         serviceType: "Guaranteed Approval Auto Loans",
         url: "/chicago-il/guaranteed-approval-auto-loans/",
         description: "Find guaranteed approval auto loans in Chicago, IL. Near-guaranteed approval with proof of income — bad credit, no credit, bankruptcy accepted.",
+        geo: { latitude: 41.8781, longitude: -87.6298 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

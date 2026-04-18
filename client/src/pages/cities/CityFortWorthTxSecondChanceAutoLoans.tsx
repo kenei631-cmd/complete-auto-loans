@@ -121,6 +121,7 @@ export default function CityFortWorthTxSecondChanceAutoLoans() {
         serviceType: "Second Chance Auto Loans",
         url: "/fort-worth-tx/second-chance-auto-loans/",
         description: "Find second chance auto loans in Fort Worth, TX. Fresh start financing after bankruptcy, repossession, or collections — all credit accepted.",
+        geo: { latitude: 32.7555, longitude: -97.3308 },
       }),
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
