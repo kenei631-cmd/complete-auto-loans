@@ -15,12 +15,17 @@ const steps = [
   { id: 4, label: "Contact", title: "Where should we send your approval?" },
 ];
 
+const SEDAN_IMG = "/manus-storage/vehicle_sedan_35e3a1a6.png";
+const SUV_IMG = "/manus-storage/vehicle_suv_a78330df.png";
+const TRUCK_IMG = "/manus-storage/vehicle_truck_fdb294ea.png";
+const VAN_IMG = "/manus-storage/vehicle_van_db3e3453.png";
+
 const vehicleOptions = [
-  { value: "sedan", label: "Sedan / Car", icon: "🚗" },
-  { value: "suv", label: "SUV / Crossover", icon: "🚙" },
-  { value: "truck", label: "Truck / Pickup", icon: "🛻" },
-  { value: "van", label: "Van / Minivan", icon: "🚐" },
-  { value: "not_sure", label: "Not Sure Yet", icon: "🤔" },
+  { value: "sedan", label: "Sedan / Car", img: SEDAN_IMG },
+  { value: "suv", label: "SUV / Crossover", img: SUV_IMG },
+  { value: "truck", label: "Truck / Pickup", img: TRUCK_IMG },
+  { value: "van", label: "Van / Minivan", img: VAN_IMG },
+  { value: "not_sure", label: "Not Sure Yet", img: null },
 ];
 
 const creditOptions = [
@@ -210,6 +215,24 @@ export default function Apply() {
             </div>
           </div>
 
+          {/* What You'll Need Checklist */}
+          <div className="p-4 rounded-xl mb-6" style={{ background: "oklch(0.22 0.06 240)", border: "1px solid rgba(255,255,255,0.07)" }}>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.7rem", fontWeight: 700, color: "oklch(0.65 0.085 186)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.6rem" }}>What You'll Need</p>
+            <div className="flex flex-col gap-1.5">
+              {[
+                "Valid government-issued ID",
+                "Proof of income (pay stub or bank statement)",
+                "$500–$1,000 for a down payment",
+                "A working phone number",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <CheckCircle2 size={11} style={{ color: "oklch(0.578 0.098 186)", flexShrink: 0 }} />
+                  <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.78rem", color: "rgba(255,255,255,0.65)" }}>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Trust Signals */}
           <div className="flex flex-col gap-2 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
             {[
@@ -281,17 +304,23 @@ export default function Apply() {
                       <button
                         key={opt.value}
                         onClick={() => handleSelect("vehicle", opt.value)}
-                        className="p-4 rounded-xl text-center transition-all duration-200"
+                        className="rounded-xl text-center transition-all duration-200 overflow-hidden"
                         style={{
                           border: formData.vehicle === opt.value ? "2px solid oklch(0.578 0.098 186)" : "1.5px solid oklch(0.88 0.007 80)",
-                          background: formData.vehicle === opt.value ? "oklch(0.578 0.098 186 / 0.07)" : "white",
+                          background: formData.vehicle === opt.value ? "oklch(0.578 0.098 186 / 0.05)" : "white",
                           fontFamily: "'DM Sans', sans-serif",
                           transform: formData.vehicle === opt.value ? "scale(1.03)" : "scale(1)",
-                          boxShadow: formData.vehicle === opt.value ? "0 4px 16px oklch(0.578 0.098 186 / 0.15)" : "none",
+                          boxShadow: formData.vehicle === opt.value ? "0 4px 16px oklch(0.578 0.098 186 / 0.20)" : "0 1px 4px oklch(0.311 0.065 251 / 0.06)",
                         }}
                       >
-                        <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>{opt.icon}</div>
-                        <div style={{ fontSize: "0.82rem", fontWeight: 600, color: "oklch(0.18 0.04 251)" }}>{opt.label}</div>
+                        {opt.img ? (
+                          <div style={{ height: "80px", overflow: "hidden", background: "oklch(0.97 0.003 80)" }}>
+                            <img src={opt.img} alt={opt.label} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+                          </div>
+                        ) : (
+                          <div style={{ height: "80px", display: "flex", alignItems: "center", justifyContent: "center", background: "oklch(0.97 0.003 80)", fontSize: "2rem" }}>🤔</div>
+                        )}
+                        <div style={{ padding: "0.5rem", fontSize: "0.78rem", fontWeight: 600, color: formData.vehicle === opt.value ? "oklch(0.42 0.085 186)" : "oklch(0.25 0.04 251)" }}>{opt.label}</div>
                       </button>
                     ))}
                   </div>

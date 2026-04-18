@@ -8,7 +8,9 @@
  */
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Shield, Phone, Star } from "lucide-react";
+import { Menu, X, ChevronDown, Shield, Star, ArrowRight } from "lucide-react";
+
+const LOGO_URL = "/manus-storage/logo_white_text_35e3a1a6.png";
 
 const bestOfLinks = [
   { label: "Bad Credit Auto Loans", href: "/best-bad-credit-auto-loans" },
@@ -219,12 +221,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container py-14">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
             <div className="col-span-2 md:col-span-1">
-              <div className="flex items-center gap-2.5 mb-4">
-                <div className="flex items-center justify-center w-8 h-8 rounded-md font-bold text-xs" style={{ background: "linear-gradient(135deg, oklch(0.578 0.098 186), oklch(0.48 0.13 185))", color: "white", fontFamily: "'Playfair Display', serif" }}>CA</div>
-                <div className="flex flex-col leading-none">
-                  <span className="text-white font-bold text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>Complete Auto Loans</span>
-                  <span className="text-xs" style={{ color: "oklch(0.65 0.085 186)", fontFamily: "'DM Sans', sans-serif" }}>#1 Rated Bad Credit Network</span>
-                </div>
+              <div className="mb-4">
+                <img src={LOGO_URL} alt="Complete Auto Loans" style={{ height: "44px", width: "auto", objectFit: "contain" }} />
               </div>
               <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans', sans-serif" }}>
                 Helping real people get approved for auto loans regardless of their credit history since 2010.
@@ -294,6 +292,32 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </footer>
+
+      {/* ── Sticky Mobile CTA Bar ── */}
+      {/* ICP: 68% of subprime searches are mobile — keep CTA always visible */}
+      <div
+        className="fixed bottom-0 left-0 right-0 md:hidden z-50"
+        style={{ background: "oklch(0.311 0.065 251)", borderTop: "1px solid rgba(255,255,255,0.10)", boxShadow: "0 -4px 24px oklch(0.311 0.065 251 / 0.40)" }}
+      >
+        <div className="flex items-center justify-between px-4 py-3 gap-3">
+          <div>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", fontWeight: 700, color: "rgba(255,255,255,0.55)", textTransform: "uppercase", letterSpacing: "0.06em", lineHeight: 1 }}>No hard credit pull</p>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem", fontWeight: 600, color: "white", lineHeight: 1.2, marginTop: "0.2rem" }}>Check your approval odds</p>
+          </div>
+          <Link href="/apply">
+            <button
+              className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl font-bold text-sm whitespace-nowrap"
+              style={{ background: "oklch(0.76 0.16 75)", color: "oklch(0.12 0.04 251)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 16px oklch(0.76 0.16 75 / 0.45)" }}
+            >
+              Get Pre-Approved
+              <ArrowRight size={14} />
+            </button>
+          </Link>
+        </div>
+      </div>
+
+      {/* Bottom padding on mobile to prevent content being hidden behind sticky bar */}
+      <div className="md:hidden" style={{ height: "64px" }} />
     </div>
   );
 }

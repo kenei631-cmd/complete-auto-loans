@@ -19,18 +19,18 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxM
 const CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbTDNUnbn8uxYc8fXK/cta_bg-PDasKWDRcQeYKLEiLA7yk9.webp";
 
 const bestOfGuides = [
-  { emoji: "💳", label: "Bad Credit Auto Loans", volume: "39,700/mo", href: "/best-bad-credit-auto-loans", featured: true },
-  { emoji: "🏪", label: "Buy Here Pay Here", volume: "222,780/mo", href: "/best-buy-here-pay-here-dealerships", featured: true },
-  { emoji: "📋", label: "Pre-Approved Loans", volume: "62,240/mo", href: "/best-pre-approved-car-loans", featured: true },
-  { emoji: "✅", label: "Guaranteed Approval", volume: "9,630/mo", href: "/best-guaranteed-approval-auto-loans" },
-  { emoji: "🔍", label: "No Credit Check", volume: "11,470/mo", href: "/best-no-credit-check-car-loans" },
-  { emoji: "💰", label: "No Money Down", volume: "5,890/mo", href: "/best-no-money-down-car-loans" },
-  { emoji: "🎓", label: "First-Time Buyers", volume: "5,030/mo", href: "/best-first-time-car-buyer-loans" },
-  { emoji: "⚖️", label: "After Bankruptcy", volume: "840/mo", href: "/best-car-loans-after-bankruptcy" },
-  { emoji: "🔄", label: "After Repossession", volume: "480/mo", href: "/best-auto-loans-after-repossession" },
-  { emoji: "🌱", label: "Second Chance", volume: "2,550/mo", href: "/best-second-chance-auto-loans" },
-  { emoji: "📄", label: "ITIN Auto Loans", volume: "1,200/mo", href: "/best-itin-auto-loans" },
-  { emoji: "🏠", label: "Low Income Buyers", volume: "450/mo", href: "/best-low-income-car-loans" },
+  { emoji: "💳", label: "Bad Credit Auto Loans", sub: "Credit scores 300–600 welcome", href: "/best-bad-credit-auto-loans", featured: true },
+  { emoji: "🏪", label: "Buy Here Pay Here", sub: "No bank required, dealer finances", href: "/best-buy-here-pay-here-dealerships", featured: true },
+  { emoji: "📋", label: "Pre-Approved Loans", sub: "Know your offer before you shop", href: "/best-pre-approved-car-loans", featured: true },
+  { emoji: "✅", label: "Guaranteed Approval", sub: "For credit scores under 500", href: "/best-guaranteed-approval-auto-loans" },
+  { emoji: "🔍", label: "No Credit Check", sub: "Income-based approval only", href: "/best-no-credit-check-car-loans" },
+  { emoji: "💰", label: "No Money Down", sub: "Drive away with $0 down", href: "/best-no-money-down-car-loans" },
+  { emoji: "🎓", label: "First-Time Buyers", sub: "No credit history needed", href: "/best-first-time-car-buyer-loans" },
+  { emoji: "⚖️", label: "After Bankruptcy", sub: "Discharged 1 day ago? Still approved", href: "/best-car-loans-after-bankruptcy" },
+  { emoji: "🔄", label: "After Repossession", sub: "Previous repo on record? We help", href: "/best-auto-loans-after-repossession" },
+  { emoji: "🌱", label: "Second Chance", sub: "Fresh start financing specialists", href: "/best-second-chance-auto-loans" },
+  { emoji: "📄", label: "ITIN Auto Loans", sub: "No SSN required, ITIN accepted", href: "/best-itin-auto-loans" },
+  { emoji: "🏠", label: "Low Income Buyers", sub: "$1,500/mo income minimum", href: "/best-low-income-car-loans" },
 ];
 
 const personas = [
@@ -150,6 +150,17 @@ export default function Home() {
               <br />
               Not Your Past.
             </h1>
+
+            {/* Rejection acknowledgment — ICP: they've been turned down before */}
+            <div
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg mb-6"
+              style={{ background: "oklch(0.76 0.16 75 / 0.12)", border: "1px solid oklch(0.76 0.16 75 / 0.28)", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              <CheckCircle2 size={14} style={{ color: "oklch(0.76 0.16 75)", flexShrink: 0 }} />
+              <span style={{ color: "oklch(0.88 0.08 75)", fontSize: "0.875rem", fontWeight: 600 }}>
+                Already been turned down? That's exactly who we're built for.
+              </span>
+            </div>
 
             {/* Sub */}
             <p
@@ -305,7 +316,7 @@ export default function Home() {
                       {guide.label}
                     </p>
                     <p className="text-xs" style={{ color: guide.featured ? "oklch(0.65 0.085 186)" : "oklch(0.52 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
-                      {guide.volume} searches
+                      {guide.sub}
                     </p>
                   </div>
                   <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" style={{ color: guide.featured ? "oklch(0.65 0.085 186)" : "oklch(0.62 0.12 185)" }} />
@@ -450,38 +461,44 @@ export default function Home() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {testimonials.map((t) => (
+            {testimonials.map((t, idx) => (
               <div
                 key={t.name}
                 className="flex flex-col p-6 rounded-2xl transition-all duration-200"
-                style={{ background: "white", border: "1px solid oklch(0.88 0.008 80)", boxShadow: "0 4px 16px oklch(0.311 0.065 251 / 0.07)", borderTop: `3px solid ${t.color}` }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 14px 36px oklch(0.311 0.065 251 / 0.14)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 16px oklch(0.311 0.065 251 / 0.07)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
+                style={{
+                  background: idx === 0 ? "oklch(0.311 0.065 251)" : "white",
+                  border: idx === 0 ? "none" : "1px solid oklch(0.88 0.008 80)",
+                  boxShadow: idx === 0 ? "0 12px 40px oklch(0.311 0.065 251 / 0.28)" : "0 4px 16px oklch(0.311 0.065 251 / 0.07)",
+                  borderTop: idx === 0 ? "none" : `3px solid ${t.color}`,
+                  gridColumn: idx === 0 ? "span 1" : undefined,
+                }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = idx === 0 ? "0 20px 56px oklch(0.311 0.065 251 / 0.40)" : "0 14px 36px oklch(0.311 0.065 251 / 0.14)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = idx === 0 ? "0 12px 40px oklch(0.311 0.065 251 / 0.28)" : "0 4px 16px oklch(0.311 0.065 251 / 0.07)"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0" style={{ background: t.color, fontFamily: "'DM Sans', sans-serif" }}>
+                    <div className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0" style={{ background: idx === 0 ? "oklch(0.578 0.098 186)" : t.color, fontFamily: "'DM Sans', sans-serif" }}>
                       {t.initials}
                     </div>
                     <div>
-                      <p className="font-semibold text-sm" style={{ color: "oklch(0.18 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>{t.name}</p>
-                      <p className="text-xs" style={{ color: "oklch(0.52 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>{t.location}</p>
+                      <p className="font-semibold text-sm" style={{ color: idx === 0 ? "white" : "oklch(0.18 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>{t.name}</p>
+                      <p className="text-xs" style={{ color: idx === 0 ? "rgba(255,255,255,0.55)" : "oklch(0.52 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>{t.location}</p>
                     </div>
                   </div>
-                  <span className="text-xs font-bold px-2 py-0.5 rounded-full shrink-0" style={{ background: "oklch(0.578 0.098 186 / 0.10)", color: "oklch(0.42 0.085 186)", fontFamily: "'DM Sans', sans-serif" }}>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-full shrink-0" style={{ background: idx === 0 ? "oklch(0.578 0.098 186 / 0.25)" : "oklch(0.578 0.098 186 / 0.10)", color: idx === 0 ? "oklch(0.82 0.065 186)" : "oklch(0.42 0.085 186)", fontFamily: "'DM Sans', sans-serif" }}>
                     ✓ Approved
                   </span>
                 </div>
 
-                <div className="flex flex-wrap gap-1.5 mb-4 pb-4" style={{ borderBottom: "1px solid oklch(0.93 0.004 80)" }}>
+                <div className="flex flex-wrap gap-1.5 mb-4 pb-4" style={{ borderBottom: `1px solid ${idx === 0 ? "rgba(255,255,255,0.12)" : "oklch(0.93 0.004 80)"}` }}>
                   {[`Score: ${t.score}`, t.vehicle, t.down].map((tag) => (
-                    <span key={tag} className="text-xs px-2 py-0.5 rounded-md font-medium" style={{ background: "oklch(0.96 0.006 80)", color: "oklch(0.32 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
+                    <span key={tag} className="text-xs px-2 py-0.5 rounded-md font-medium" style={{ background: idx === 0 ? "oklch(0.24 0.05 251)" : "oklch(0.96 0.006 80)", color: idx === 0 ? "rgba(255,255,255,0.70)" : "oklch(0.32 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}>
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <blockquote className="text-sm leading-relaxed flex-1" style={{ color: "oklch(0.40 0.04 251)", fontFamily: "'DM Sans', sans-serif", fontStyle: "italic" }}>
+                <blockquote className="text-sm leading-relaxed flex-1" style={{ color: idx === 0 ? "rgba(255,255,255,0.75)" : "oklch(0.40 0.04 251)", fontFamily: "'DM Sans', sans-serif", fontStyle: "italic" }}>
                   "{t.quote}"
                 </blockquote>
 
