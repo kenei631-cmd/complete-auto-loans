@@ -91,3 +91,7 @@
 ## Header / Nav
 
 - [x] Increase logo size in main navigation header — 56px → 72px, header height 4.25rem → 5rem
+
+## Analytics / Tracking
+
+- [x] Add Google Tag Manager (GTM-WVRC2F7) head snippet and body noscript fallback to index.html
