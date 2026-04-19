@@ -105,13 +105,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           borderBottom: "1px solid rgba(255,255,255,0.07)",
         }}
       >
-        <div className="container flex items-center justify-between h-[4.25rem]">
+        <div className="container flex items-center justify-between h-[5rem]">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
             <img
               src="/manus-storage/logo_white_text_b1a4b277.png"
               alt="Complete Auto Loans"
-              style={{ height: "56px", width: "auto", objectFit: "contain" }}
+              style={{ height: "72px", width: "auto", objectFit: "contain" }}
             />
           </Link>
 

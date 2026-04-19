@@ -87,3 +87,7 @@
 ## UX Fixes
 
 - [x] Fix SPA scroll-to-top: page does not scroll to top on route change
+
+## Header / Nav
+
+- [x] Increase logo size in main navigation header — 56px → 72px, header height 4.25rem → 5rem
