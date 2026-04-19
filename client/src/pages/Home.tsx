@@ -24,16 +24,16 @@ const CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663327875635/4PVxMbT
 const bestOfGuides = [
   { emoji: "💳", label: "Bad Credit Auto Loans", sub: "Credit scores 300–600 welcome", href: "/best-bad-credit-auto-loans", featured: true },
   { emoji: "🏪", label: "Buy Here Pay Here", sub: "No bank required, dealer finances", href: "/best-buy-here-pay-here-dealerships", featured: true },
-  { emoji: "📋", label: "Pre-Approved Loans", sub: "Know your offer before you shop", href: "/best-pre-approved-car-loans", featured: true },
+  { emoji: "📋", label: "Pre-Approved Loans", sub: "Know your offer before you shop", href: "/best-pre-approved-car-loans-bad-credit", featured: true },
   { emoji: "✅", label: "Guaranteed Approval", sub: "For credit scores under 500", href: "/best-guaranteed-approval-auto-loans" },
   { emoji: "🔍", label: "No Credit Check", sub: "Income-based approval only", href: "/best-no-credit-check-car-loans" },
-  { emoji: "💰", label: "No Money Down", sub: "Drive away with $0 down", href: "/best-no-money-down-car-loans" },
-  { emoji: "🎓", label: "First-Time Buyers", sub: "No credit history needed", href: "/best-first-time-car-buyer-loans" },
+  { emoji: "💰", label: "No Money Down", sub: "Drive away with $0 down", href: "/best-no-money-down-car-loans-bad-credit" },
+  { emoji: "🎓", label: "First-Time Buyers", sub: "No credit history needed", href: "/best-first-time-car-buyer-loans-no-credit" },
   { emoji: "⚖️", label: "After Bankruptcy", sub: "Discharged 1 day ago? Still approved", href: "/best-car-loans-after-bankruptcy" },
   { emoji: "🔄", label: "After Repossession", sub: "Previous repo on record? We help", href: "/best-auto-loans-after-repossession" },
   { emoji: "🌱", label: "Second Chance", sub: "Fresh start financing specialists", href: "/best-second-chance-auto-loans" },
   { emoji: "📄", label: "ITIN Auto Loans", sub: "No SSN required, ITIN accepted", href: "/best-itin-auto-loans" },
-  { emoji: "🏠", label: "Low Income Buyers", sub: "$1,500/mo income minimum", href: "/best-low-income-car-loans" },
+  { emoji: "🏠", label: "Low Income Buyers", sub: "$1,500/mo income minimum", href: "/best-car-loans-low-income" },
 ];
 
 const personas = [
@@ -50,7 +50,7 @@ const personas = [
     title: "The First-Timer",
     desc: "No credit history, no co-signer, maybe a new job. Traditional banks say no. We match you with lenders who specialize in first-time buyers and look at your income, not just your score.",
     img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80",
-    href: "/best-first-time-car-buyer-loans",
+    href: "/best-first-time-car-buyer-loans-no-credit",
     accentColor: "oklch(0.76 0.16 75)",
   },
   {

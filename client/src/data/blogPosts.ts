@@ -148,7 +148,7 @@ export const blogPosts: BlogPost[] = [
     internalLinks: [
       { text: "bad credit auto loans", href: "/best-bad-credit-auto-loans" },
       { text: "guaranteed approval auto loans", href: "/best-guaranteed-approval-auto-loans" },
-      { text: "no money down car loans", href: "/best-no-money-down-car-loans" },
+      { text: "no money down car loans", href: "/best-no-money-down-car-loans-bad-credit" },
       { text: "apply now", href: "/apply" },
     ],
   },
@@ -238,7 +238,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     internalLinks: [
-      { text: "best first-time car buyer loans", href: "/best-first-time-car-buyer-loans" },
+      { text: "best first-time car buyer loans", href: "/best-first-time-car-buyer-loans-no-credit" },
       { text: "no credit check car loans", href: "/best-no-credit-check-car-loans" },
       { text: "guaranteed approval auto loans", href: "/best-guaranteed-approval-auto-loans" },
       { text: "check your options", href: "/apply" },
@@ -468,7 +468,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     internalLinks: [
-      { text: "no money down car loans", href: "/best-no-money-down-car-loans" },
+      { text: "no money down car loans", href: "/best-no-money-down-car-loans-bad-credit" },
       { text: "bad credit auto loans", href: "/best-bad-credit-auto-loans" },
       { text: "guaranteed approval auto loans", href: "/best-guaranteed-approval-auto-loans" },
       { text: "check your options", href: "/apply" },
