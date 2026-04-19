@@ -112,6 +112,25 @@ async function startServer() {
     })
   );
 
+  // ── Trailing slash redirect (301) ────────────────────────────────────────
+  // Redirect /path → /path/ for all non-API, non-file, non-root requests.
+  // This makes trailing-slash enforcement authoritative at the HTTP layer so
+  // Googlebot receives a proper 301 rather than relying on the client-side
+  // history.replaceState in useSEO.ts.
+  app.use((req, res, next) => {
+    const { pathname, search } = new URL(req.originalUrl, "http://x");
+    if (
+      pathname !== "/" &&
+      !pathname.endsWith("/") &&
+      !pathname.startsWith("/api") &&
+      !pathname.startsWith("/manus-storage") &&
+      !/\.[a-z0-9]+$/i.test(pathname) // skip static assets (.js, .css, .png, etc.)
+    ) {
+      return res.redirect(301, pathname + "/" + search);
+    }
+    next();
+  });
+
   // development mode uses Vite, production mode uses static files
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
