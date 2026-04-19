@@ -95,3 +95,32 @@
 ## Analytics / Tracking
 
 - [x] Add Google Tag Manager (GTM-WVRC2F7) head snippet and body noscript fallback to index.html
+
+## SEO Content Expansion
+
+### Blog — New Articles (2000+ words each)
+- [x] New blog: "How to Get a Car Loan with a 480 Credit Score" (/blog/car-loan-480-credit-score)
+- [x] New blog: "What Happens to Your Car Loan After Chapter 7 Bankruptcy" (/blog/chapter-7-bankruptcy-car-loan)
+- [x] New blog: "How to Refinance a Bad Credit Auto Loan" (/blog/how-to-refinance-bad-credit-auto-loan)
+- [x] New blog: "ITIN Auto Loans: How to Buy a Car Without a Social Security Number" (/blog/itin-auto-loans-no-ssn)
+- [x] New blog: "No Money Down Car Loan Guide" (/blog/no-money-down-car-loan-guide)
+- [x] Register all 5 new blog posts in blogPosts.ts and blogContent.ts
+- [x] Add all 8 missing blog URLs + editorial-standards to sitemap.xml (120 URLs total)
+
+### Blog — Expand Existing Posts (500 words → 2000+ words)
+- [x] Expand: "What Credit Score Do You Need to Buy a Car?" to 2000+ words
+- [x] Expand: "How to Get a Car Loan After Bankruptcy" to 2000+ words
+- [x] Expand: "Can I Get a Car Loan with a 500 Credit Score?" to 2000+ words
+- [x] Expand: "Buy Here Pay Here vs. Traditional Auto Loans" to 2000+ words
+- [x] Expand: "How to Get Approved for a Car Loan with No Credit History" to 2000+ words
+
+### City Pages — Unique Local Data
+- [x] Add state-specific auto loan laws, title fees, and average used car prices to all 80 city pages (cityLocalData.ts + CityServicePageTemplate update)
+- [x] 16 city entries covering all 10 cities (Phoenix AZ, Dallas TX, Chicago IL, San Antonio TX, Fort Worth TX, Charlotte NC, Colorado Springs CO, Columbus OH, Detroit MI, Tulsa OK)
+
+### E-E-A-T Signals
+- [x] Create /editorial-standards page with ranking methodology, data sources, and advertiser disclosure
+- [x] Add Editorial Standards link to footer
+- [x] Add editorial-standards to sitemap.xml
+- [ ] Add author bylines to all blog posts (name, title, credentials) — future enhancement
+- [ ] Add "Sources & Methodology" section to best-of pages — future enhancement

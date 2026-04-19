@@ -123,6 +123,7 @@ import AdminPanel from "@/pages/AdminPanel";
 import BlogIndex from "@/pages/BlogIndex";
 import BlogPost from "@/pages/BlogPost";
 import About from "@/pages/About";
+import EditorialStandards from "@/pages/EditorialStandards";
 
 function SiteSchemas() {
   useEffect(() => {
@@ -280,6 +281,7 @@ function Router() {
       <Route path="/blog/:slug" component={BlogPost} />
       {/* About */}
       <Route path="/about" component={About} />
+      <Route path="/editorial-standards" component={EditorialStandards} />
       {/* Utility Pages */}
       <Route path="/locations" component={Locations} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />

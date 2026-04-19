@@ -6,6 +6,7 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema , buildSpeakableSchema } from "@/lib/schema";
+import cityLocalData from "@/data/cityLocalData";
 
 const lenders: CityLender[] = [
   {
@@ -152,6 +153,7 @@ export default function CityPhoenixAzNoMoneyDownCarLoans() {
       serviceSlug="no-money-down-car-loans"
       nationalGuideHref="/best-no-money-down-car-loans-bad-credit/"
       nationalGuideLabel="Best No Money Down Car Loans of 2026"
+      localData={cityLocalData["phoenix-az"]}
     />
   );
 }

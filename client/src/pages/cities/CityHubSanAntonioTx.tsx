@@ -7,6 +7,8 @@ import CityHubTemplate from "@/components/CityHubTemplate";
 import type { CityService } from "@/components/CityHubTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema } from "@/lib/schema";
+import cityLocalData from "@/data/cityLocalData";
+
 
 const services: CityService[] = [
   { label: "Bad Credit Auto Loans", href: "/san-antonio-tx/bad-credit-auto-loans", desc: "For scores 300–579. Multiple lenders compete for your business." },
@@ -51,6 +53,7 @@ export default function CityHubSanAntonioTx() {
       services={services}
 
       geo={{ latitude: 29.4241, longitude: -98.4936 }}
-    />
+      localData={cityLocalData["san-antonio-tx"]}
+/>
   );
 }

@@ -1,7 +1,9 @@
 // Full HTML content for each blog article
 // Imported by blogPosts.ts to keep the data file manageable
+import { newArticleContent } from "./blogContentNew";
+import { expandedArticleContent } from "./blogContentExpanded";
 
-export const articleContent: Record<string, string> = {
+const baseArticleContent: Record<string, string> = {
   "what-credit-score-do-you-need-to-buy-a-car": `
 <p>There is no single answer to this question — and that is actually good news. Unlike a mortgage, which typically requires a 620+ score to even begin the process, auto loans are available at nearly every credit tier. The real question is not <em>whether</em> you can get approved, but what rate you will pay and which lenders will work with you.</p>
 
@@ -301,4 +303,11 @@ export const articleContent: Record<string, string> = {
 <h2>The Bottom Line</h2>
 <p>No credit history is a starting point, not a barrier. Lenders who specialize in first-time buyers evaluate your income, employment, and down payment rather than a score that does not exist yet. Apply through a matching network that connects you with these lenders, bring a down payment if you can, and treat the loan as the foundation of your credit future. The rate you pay today is not the rate you will pay in two years.</p>
 `,
+};
+
+// Merge: expandedArticleContent overrides baseArticleContent for the 5 original articles
+export const articleContent: Record<string, string> = {
+  ...baseArticleContent,
+  ...newArticleContent,
+  ...expandedArticleContent,
 };

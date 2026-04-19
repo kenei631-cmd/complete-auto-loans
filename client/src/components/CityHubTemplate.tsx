@@ -39,6 +39,8 @@ export interface CityHubProps {
   services: CityService[];
   /** City center coordinates for LocalBusiness geo schema */
   geo?: { latitude: number; longitude: number };
+  /** Optional unique local market data for SEO differentiation */
+  localData?: import("@/data/cityLocalData").CityLocalData;
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -66,6 +68,7 @@ export default function CityHubTemplate({
   lenderNote,
   services,
   geo,
+  localData,
 }: CityHubProps) {
   useSEO({
     title: `Bad Credit Auto Loans in ${city}, ${state} | Complete Auto Loans`,
@@ -338,6 +341,66 @@ export default function CityHubTemplate({
             ))}
           </div>
         </div>
+
+        {/* ── Local Market Facts ── */}
+        {localData && (
+          <div
+            className="mt-10 p-6 rounded-2xl"
+            style={{
+              background: "oklch(0.97 0.005 80)",
+              border: "1px solid oklch(0.88 0.008 80)",
+            }}
+          >
+            <h2
+              className="mb-2"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "1.375rem",
+                fontWeight: 700,
+                color: "oklch(0.15 0.04 251)",
+              }}
+            >
+              {city}, {state} Auto Loan Market Facts
+            </h2>
+            <p
+              className="text-sm mb-5 leading-relaxed"
+              style={{ color: "oklch(0.43 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              {localData.marketContext}
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-4">
+              {localData.facts.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="p-3 rounded-xl text-center"
+                  style={{
+                    background: "white",
+                    border: "1px solid oklch(0.90 0.006 80)",
+                  }}
+                >
+                  <p
+                    className="font-bold text-base mb-0.5"
+                    style={{ color: "oklch(0.578 0.098 186)", fontFamily: "'DM Sans', sans-serif" }}
+                  >
+                    {stat.value}
+                  </p>
+                  <p
+                    className="text-xs"
+                    style={{ color: "oklch(0.52 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}
+                  >
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p
+              className="text-xs leading-relaxed"
+              style={{ color: "oklch(0.55 0.04 251)", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              <strong>State Law Note:</strong> {localData.stateLawNote}
+            </p>
+          </div>
+        )}
 
         {/* ── Bottom CTA Banner ── */}
         <div

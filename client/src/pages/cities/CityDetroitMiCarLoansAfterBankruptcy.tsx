@@ -6,6 +6,7 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema , buildSpeakableSchema } from "@/lib/schema";
+import cityLocalData from "@/data/cityLocalData";
 
 const lenders: CityLender[] = [
   {
@@ -152,6 +153,7 @@ export default function CityDetroitMiCarLoansAfterBankruptcy() {
       serviceSlug="car-loans-after-bankruptcy"
       nationalGuideHref="/best-car-loans-after-bankruptcy/"
       nationalGuideLabel="Best Car Loans After Bankruptcy of 2026"
+      localData={cityLocalData["detroit-mi"]}
     />
   );
 }

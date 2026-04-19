@@ -6,6 +6,7 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema , buildSpeakableSchema } from "@/lib/schema";
+import cityLocalData from "@/data/cityLocalData";
 
 const lenders: CityLender[] = [
   {
@@ -152,6 +153,7 @@ export default function CityCharlotteNcGuaranteedApprovalAutoLoans() {
       serviceSlug="guaranteed-approval-auto-loans"
       nationalGuideHref="/best-guaranteed-approval-auto-loans/"
       nationalGuideLabel="Best Guaranteed Approval Auto Loans of 2026"
+      localData={cityLocalData["charlotte-nc"]}
     />
   );
 }

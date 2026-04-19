@@ -7,6 +7,8 @@ import CityHubTemplate from "@/components/CityHubTemplate";
 import type { CityService } from "@/components/CityHubTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema } from "@/lib/schema";
+import cityLocalData from "@/data/cityLocalData";
+
 
 const services: CityService[] = [
   { label: "Bad Credit Auto Loans", href: "/fort-worth-tx/bad-credit-auto-loans", desc: "For scores 300–579. Multiple lenders compete for your business." },
@@ -51,6 +53,7 @@ export default function CityHubFortWorthTx() {
       services={services}
 
       geo={{ latitude: 32.7555, longitude: -97.3308 }}
-    />
+      localData={cityLocalData["fort-worth-tx"]}
+/>
   );
 }

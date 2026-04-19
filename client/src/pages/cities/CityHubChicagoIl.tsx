@@ -7,6 +7,8 @@ import CityHubTemplate from "@/components/CityHubTemplate";
 import type { CityService } from "@/components/CityHubTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema } from "@/lib/schema";
+import cityLocalData from "@/data/cityLocalData";
+
 
 const services: CityService[] = [
   { label: "Bad Credit Auto Loans", href: "/chicago-il/bad-credit-auto-loans", desc: "For scores 300–579. Multiple lenders compete for your business." },
@@ -51,6 +53,7 @@ export default function CityHubChicagoIl() {
       services={services}
 
       geo={{ latitude: 41.8781, longitude: -87.6298 }}
-    />
+      localData={cityLocalData["chicago-il"]}
+/>
   );
 }

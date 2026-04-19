@@ -6,6 +6,7 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema , buildSpeakableSchema } from "@/lib/schema";
+import cityLocalData from "@/data/cityLocalData";
 
 const lenders: CityLender[] = [
   {
@@ -152,6 +153,7 @@ export default function CityPhoenixAzNoCreditCheckCarLoans() {
       serviceSlug="no-credit-check-car-loans"
       nationalGuideHref="/best-no-credit-check-car-loans/"
       nationalGuideLabel="Best No Credit Check Car Loans of 2026"
+      localData={cityLocalData["phoenix-az"]}
     />
   );
 }

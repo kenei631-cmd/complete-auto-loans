@@ -6,6 +6,7 @@ import CityServicePageTemplate from "@/components/CityServicePageTemplate";
 import type { CityLender, CityFAQ } from "@/components/CityServicePageTemplate";
 import { useSEO } from "@/hooks/useSEO";
 import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildFAQSchema , buildSpeakableSchema } from "@/lib/schema";
+import cityLocalData from "@/data/cityLocalData";
 
 const lenders: CityLender[] = [
   {
@@ -152,6 +153,7 @@ export default function CityDallasTxBuyHerePayHere() {
       serviceSlug="buy-here-pay-here"
       nationalGuideHref="/best-buy-here-pay-here-dealerships/"
       nationalGuideLabel="Best Buy Here Pay Here Dealerships of 2026"
+      localData={cityLocalData["dallas-tx"]}
     />
   );
 }

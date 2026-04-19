@@ -14,6 +14,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
+import type { CityLocalData } from "@/data/cityLocalData";
 import {
   Star,
   CheckCircle2,
@@ -77,6 +78,8 @@ export interface CityServicePageProps {
   nationalGuideHref: string;
   /** Label for the national guide link, e.g. "Best Bad Credit Auto Loans" */
   nationalGuideLabel: string;
+  /** Optional local market data for the city — renders a Local Market Facts section */
+  localData?: CityLocalData;
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -95,6 +98,7 @@ export default function CityServicePageTemplate({
   serviceSlug,
   nationalGuideHref,
   nationalGuideLabel,
+  localData,
 }: CityServicePageProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -485,6 +489,140 @@ export default function CityServicePageTemplate({
                   </div>
                 ))}
               </div>
+
+              {/* Local Market Facts Section */}
+              {localData && (
+                <div
+                  className="mt-14 rounded-2xl overflow-hidden"
+                  style={{ border: "1.5px solid oklch(0.90 0.005 80)" }}
+                >
+                  <div
+                    className="px-6 py-4"
+                    style={{ background: "oklch(0.311 0.065 251)" }}
+                  >
+                    <h2
+                      style={{
+                        fontFamily: "'Playfair Display', serif",
+                        color: "white",
+                        fontSize: "1.25rem",
+                        fontWeight: 700,
+                        margin: 0,
+                      }}
+                    >
+                      {localData.cityLabel} Auto Loan Market Facts
+                    </h2>
+                    <p
+                      style={{
+                        fontFamily: "'DM Sans', sans-serif",
+                        color: "rgba(255,255,255,0.55)",
+                        fontSize: "0.78rem",
+                        marginTop: "0.25rem",
+                      }}
+                    >
+                      Local data to help you understand the {localData.cityLabel} auto loan market
+                    </p>
+                  </div>
+                  <div className="p-6" style={{ background: "white" }}>
+                    <p
+                      className="mb-5 leading-relaxed text-sm"
+                      style={{
+                        fontFamily: "'DM Sans', sans-serif",
+                        color: "oklch(0.38 0.04 251)",
+                        lineHeight: 1.75,
+                      }}
+                    >
+                      {localData.marketContext}
+                    </p>
+
+                    {/* Stats grid */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+                      {localData.facts.map((fact) => (
+                        <div
+                          key={fact.label}
+                          className="rounded-xl p-3.5"
+                          style={{ background: "oklch(0.97 0.004 80)", border: "1px solid oklch(0.92 0.005 80)" }}
+                        >
+                          <p
+                            style={{
+                              fontFamily: "'DM Sans', sans-serif",
+                              fontSize: "0.68rem",
+                              color: "oklch(0.55 0.03 251)",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.05em",
+                              fontWeight: 600,
+                              marginBottom: "0.3rem",
+                            }}
+                          >
+                            {fact.label}
+                          </p>
+                          <p
+                            style={{
+                              fontFamily: "'DM Sans', sans-serif",
+                              fontSize: "0.95rem",
+                              fontWeight: 700,
+                              color: "oklch(0.18 0.04 251)",
+                              marginBottom: fact.note ? "0.2rem" : 0,
+                            }}
+                          >
+                            {fact.value}
+                          </p>
+                          {fact.note && (
+                            <p
+                              style={{
+                                fontFamily: "'DM Sans', sans-serif",
+                                fontSize: "0.65rem",
+                                color: "oklch(0.58 0.03 251)",
+                                lineHeight: 1.4,
+                              }}
+                            >
+                              {fact.note}
+                            </p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* State law note */}
+                    <div
+                      className="flex items-start gap-3 p-4 rounded-xl"
+                      style={{
+                        background: "oklch(0.578 0.098 186 / 0.06)",
+                        border: "1px solid oklch(0.578 0.098 186 / 0.18)",
+                      }}
+                    >
+                      <Shield
+                        size={14}
+                        style={{ color: "oklch(0.578 0.098 186)", flexShrink: 0, marginTop: "2px" }}
+                      />
+                      <div>
+                        <p
+                          style={{
+                            fontFamily: "'DM Sans', sans-serif",
+                            fontSize: "0.72rem",
+                            fontWeight: 700,
+                            color: "oklch(0.42 0.085 186)",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.06em",
+                            marginBottom: "0.35rem",
+                          }}
+                        >
+                          {localData.state} State Law — What Borrowers Should Know
+                        </p>
+                        <p
+                          style={{
+                            fontFamily: "'DM Sans', sans-serif",
+                            fontSize: "0.82rem",
+                            color: "oklch(0.35 0.06 186)",
+                            lineHeight: 1.65,
+                          }}
+                        >
+                          {localData.stateLawNote}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* FAQ Section */}
               <div className="mt-14">

@@ -244,6 +244,236 @@ export const blogPosts: BlogPost[] = [
       { text: "check your options", href: "/apply" },
     ],
   },
+  {
+    slug: "car-loan-480-credit-score",
+    title: "How to Get a Car Loan with a 480 Credit Score",
+    metaTitle: "Car Loan with a 480 Credit Score: What to Expect (2026 Guide)",
+    metaDescription:
+      "A 480 credit score can still get you approved for a car loan. Learn which lenders work with deep subprime borrowers, what rates to expect, and how to rebuild your credit.",
+    publishDate: "2026-04-18",
+    readingTime: 10,
+    category: "Credit & Financing",
+    excerpt:
+      "A 480 credit score puts you in the deep subprime range, but it does not mean you cannot get a car loan. Specialty lenders approve borrowers at this tier every day — here is exactly what to expect and how to maximize your odds.",
+    content: articleContent["car-loan-480-credit-score"],
+    faqs: [
+      {
+        question: "Can I get a car loan with a 480 credit score?",
+        answer:
+          "Yes. Deep subprime specialty lenders and buy here pay here dealers work with scores as low as 300. With a 480 score, expect APRs between 20–29.9% and a down payment request of $500–$2,500. Income stability and a down payment are the most important factors.",
+      },
+      {
+        question: "What interest rate will I get with a 480 credit score?",
+        answer:
+          "With a 480 credit score, expect APRs between 20–29.9% for a used vehicle. A $1,000+ down payment and stable income of $2,000+/month can help you get toward the lower end of that range.",
+      },
+      {
+        question: "How much down payment do I need with a 480 credit score?",
+        answer:
+          "Most lenders request $500–$2,500 down at a 480 score. A $1,000–$1,500 down payment significantly improves your approval odds and can lower your rate by 2–4 percentage points.",
+      },
+      {
+        question: "Can I refinance after getting a car loan with a 480 score?",
+        answer:
+          "Yes — this is the recommended strategy. After 12 months of on-time payments, most borrowers see a 40–80 point credit score improvement. At that point, refinancing at 16–20% APR is often possible, saving $50–$100/month.",
+      },
+      {
+        question: "Will a car loan help rebuild my credit from 480?",
+        answer:
+          "Yes. Auto loans are installment credit, which improves your credit mix. 12 months of on-time payments on a subprime auto loan typically raises a 480 score by 40–80 points — enough to refinance at a meaningfully better rate.",
+      },
+    ],
+    internalLinks: [
+      { text: "bad credit auto loans", href: "/best-bad-credit-auto-loans" },
+      { text: "guaranteed approval auto loans", href: "/best-guaranteed-approval-auto-loans" },
+      { text: "second chance auto loans", href: "/best-second-chance-auto-loans" },
+      { text: "check your approval odds", href: "/apply" },
+    ],
+  },
+  {
+    slug: "chapter-7-bankruptcy-car-loan",
+    title: "Getting a Car Loan After Chapter 7 Bankruptcy",
+    metaTitle: "Car Loan After Chapter 7 Bankruptcy: Complete 2026 Guide",
+    metaDescription:
+      "You can get a car loan the day your Chapter 7 bankruptcy is discharged. Learn which lenders approve post-bankruptcy borrowers, what rates to expect, and the credit-rebuilding strategy.",
+    publishDate: "2026-04-18",
+    readingTime: 11,
+    category: "Bankruptcy & Recovery",
+    excerpt:
+      "Chapter 7 bankruptcy discharges your debts and resets your financial slate — and some lenders will approve a car loan the same day your discharge is issued. Here is the complete guide to post-Chapter 7 auto financing.",
+    content: articleContent["chapter-7-bankruptcy-car-loan"],
+    faqs: [
+      {
+        question: "Can I get a car loan the day my Chapter 7 is discharged?",
+        answer:
+          "Yes. Some specialty lenders approve car loans the same day a Chapter 7 discharge is issued. There is no mandatory waiting period. The rate will be high (22–29.9% APR) immediately after discharge, but it improves significantly with 12 months of on-time payments.",
+      },
+      {
+        question: "How does Chapter 7 affect my car loan options?",
+        answer:
+          "Chapter 7 drops your credit score significantly (often 130–200 points) but also removes the ongoing negative pressure of delinquent accounts. Some lenders prefer post-Chapter 7 borrowers because you cannot file again for 8 years — giving them a long window of protection.",
+      },
+      {
+        question: "What do lenders look for after Chapter 7?",
+        answer:
+          "Stable income (12+ months at the same employer), a down payment of $500–$2,000, no new negative marks since discharge, and a reasonable payment request (under 15% of gross monthly income). A co-signer with good credit can also significantly improve your odds.",
+      },
+      {
+        question: "Should I wait before applying for a car loan after Chapter 7?",
+        answer:
+          "No — waiting is usually a mistake. Every month you wait is a month of credit-rebuilding opportunity you are missing. Apply as soon as you have stable income and a down payment, even if it is only weeks after discharge.",
+      },
+      {
+        question: "What is the difference between Chapter 7 and Chapter 13 for car loans?",
+        answer:
+          "Chapter 7 discharges debts in 3–6 months and you can apply for a car loan immediately after discharge. Chapter 13 is a 3–5 year repayment plan — you need court approval (from your bankruptcy trustee) to take on new debt, but many trustees approve car loan requests for reliable transportation.",
+      },
+    ],
+    internalLinks: [
+      { text: "best car loans after bankruptcy", href: "/best-car-loans-after-bankruptcy" },
+      { text: "second chance auto loans", href: "/best-second-chance-auto-loans" },
+      { text: "bad credit auto loans", href: "/best-bad-credit-auto-loans" },
+      { text: "check your approval odds", href: "/apply" },
+    ],
+  },
+  {
+    slug: "how-to-refinance-bad-credit-auto-loan",
+    title: "How to Refinance a Bad Credit Auto Loan",
+    metaTitle: "How to Refinance a Bad Credit Auto Loan and Save Money (2026)",
+    metaDescription:
+      "Refinancing a bad credit auto loan can save you $50–$150/month and thousands in total interest. Learn when to refinance, which lenders to use, and how the process works.",
+    publishDate: "2026-04-18",
+    readingTime: 10,
+    category: "Credit & Financing",
+    excerpt:
+      "If you took out a car loan with bad credit and have been making on-time payments for 12 months, you may be able to cut your rate significantly through refinancing. Here is exactly how to do it.",
+    content: articleContent["how-to-refinance-bad-credit-auto-loan"],
+    faqs: [
+      {
+        question: "When can I refinance a bad credit auto loan?",
+        answer:
+          "Most lenders want to see 12 months of on-time payments before refinancing. Some will consider it at 6 months. You also need positive equity (owe less than the car is worth) and at least 12 months remaining on the loan.",
+      },
+      {
+        question: "How much can I save by refinancing a bad credit auto loan?",
+        answer:
+          "It depends on your current rate and how much your credit has improved. A borrower who drops from 24% to 14% APR on a $12,000 remaining balance over 36 months saves $62/month and $2,232 total.",
+      },
+      {
+        question: "Where should I refinance a bad credit auto loan?",
+        answer:
+          "Credit unions are often the best source — they are not-for-profit and typically offer lower rates than banks. Online refinance specialists like OpenRoad Lending, RateGenius, and RefiJet also work with subprime borrowers. Apply to multiple lenders within a 14-day window to minimize credit score impact.",
+      },
+      {
+        question: "What credit score do I need to refinance?",
+        answer:
+          "There is no universal minimum. If your score has improved from its starting point — even by 30–50 points — you may qualify for a meaningfully better rate. Credit unions and subprime refinance specialists work with scores as low as 520–540.",
+      },
+      {
+        question: "What if I am upside down on my car loan?",
+        answer:
+          "If you owe more than the car is worth (negative equity), most refinance lenders will decline. Continue making payments to build equity, and try again in 6 months. Alternatively, some lenders will refinance with negative equity if the amount is small (under $1,000–$2,000).",
+      },
+    ],
+    internalLinks: [
+      { text: "bad credit auto loans", href: "/best-bad-credit-auto-loans" },
+      { text: "second chance auto loans", href: "/best-second-chance-auto-loans" },
+      { text: "car loans after bankruptcy", href: "/best-car-loans-after-bankruptcy" },
+      { text: "check your current options", href: "/apply" },
+    ],
+  },
+  {
+    slug: "itin-auto-loans-no-ssn",
+    title: "How to Get a Car Loan with an ITIN (No Social Security Number)",
+    metaTitle: "ITIN Auto Loans: Get a Car Loan Without a Social Security Number (2026)",
+    metaDescription:
+      "You can get a car loan with an ITIN instead of a Social Security number. Learn which lenders accept ITIN, what documents you need, and how to build U.S. credit as an ITIN holder.",
+    publishDate: "2026-04-18",
+    readingTime: 10,
+    category: "Special Situations",
+    excerpt:
+      "ITIN holders can get car loans in the United States — but you need to know which lenders accept ITIN and what documentation to bring. Here is the complete guide to ITIN auto financing.",
+    content: articleContent["itin-auto-loans-no-ssn"],
+    faqs: [
+      {
+        question: "Can I get a car loan with an ITIN instead of a Social Security number?",
+        answer:
+          "Yes. Community banks, credit unions, buy here pay here dealers, and some subprime specialty lenders accept ITIN for auto loan applications. You will need additional documentation including your ITIN letter, government-issued photo ID, proof of income, and proof of residence.",
+      },
+      {
+        question: "What documents do I need for an ITIN auto loan?",
+        answer:
+          "Typically: your IRS-issued ITIN letter (CP565), a government-issued photo ID (passport, consular ID, or state ID), two recent pay stubs or three months of bank statements, proof of residence (utility bill or lease), proof of insurance, and 2–3 personal references with U.S. phone numbers.",
+      },
+      {
+        question: "What interest rate will I get with an ITIN auto loan?",
+        answer:
+          "If you have an established U.S. credit history through your ITIN, expect 12–20% APR. With a thin or no U.S. credit file, expect 18–29.9% APR. A meaningful down payment ($1,000+) can help you get toward the lower end of the range.",
+      },
+      {
+        question: "Can ITIN holders build U.S. credit?",
+        answer:
+          "Yes. The credit bureaus accept ITIN as an identifier. ITIN-accepting secured credit cards and credit-builder loans at credit unions report payment history to all three bureaus, building your U.S. credit file just like SSN-based accounts.",
+      },
+      {
+        question: "Which states have the most ITIN auto loan options?",
+        answer:
+          "California, Texas, Florida, New York, Illinois, and Arizona have the most ITIN-friendly lenders due to larger immigrant communities. Community banks and credit unions in these states often have established ITIN programs.",
+      },
+    ],
+    internalLinks: [
+      { text: "ITIN auto loans", href: "/best-itin-auto-loans" },
+      { text: "no credit check car loans", href: "/best-no-credit-check-car-loans" },
+      { text: "bad credit auto loans", href: "/best-bad-credit-auto-loans" },
+      { text: "check your options", href: "/apply" },
+    ],
+  },
+  {
+    slug: "no-money-down-car-loan-guide",
+    title: "No Money Down Car Loans: What You Need to Know Before You Apply",
+    metaTitle: "No Money Down Car Loans: Complete Guide for 2026",
+    metaDescription:
+      "No-money-down car loans are real — but they cost more than loans with a down payment. Learn who qualifies, what the real costs are, and when a small down payment is worth finding.",
+    publishDate: "2026-04-18",
+    readingTime: 9,
+    category: "Loan Types",
+    excerpt:
+      "No-money-down car loans exist, but they come with higher rates, higher monthly payments, and immediate negative equity. Here is an honest guide to who qualifies, what they cost, and when they make sense.",
+    content: articleContent["no-money-down-car-loan-guide"],
+    faqs: [
+      {
+        question: "Can I really get a car loan with no money down?",
+        answer:
+          "Yes — but availability depends heavily on your credit score. Borrowers with 660+ credit can usually find no-down-payment loans at competitive rates. Borrowers with bad credit (below 600) will find fewer options and pay higher rates without a down payment.",
+      },
+      {
+        question: "What credit score do I need for a no-money-down car loan?",
+        answer:
+          "Good credit (660+) makes no-down-payment loans widely available. Fair credit (600–659) may qualify with conditions. Bad credit (below 600) makes no-down-payment loans harder to find and significantly more expensive.",
+      },
+      {
+        question: "What are the risks of a no-money-down car loan?",
+        answer:
+          "The main risks are: higher interest rate (lenders charge more for higher loan-to-value ratios), immediate negative equity (you owe more than the car is worth after depreciation), and higher monthly payments. If the car is totaled, your insurance payout may not cover the loan balance.",
+      },
+      {
+        question: "Is it better to put money down on a car loan?",
+        answer:
+          "Almost always yes, especially with bad credit. Even $500–$1,000 down can lower your rate by 2–4 percentage points, improve your approval odds, reduce your monthly payment, and prevent immediate negative equity. If you can wait 4–6 weeks to save a small down payment, it is usually worth it.",
+      },
+      {
+        question: "What counts as a down payment for a car loan?",
+        answer:
+          "Cash, a trade-in vehicle with equity, or a combination of both. A trade-in worth $2,000 with no money owed on it effectively functions as a $2,000 down payment — even if you are not writing a check.",
+      },
+    ],
+    internalLinks: [
+      { text: "no money down car loans", href: "/best-no-money-down-car-loans" },
+      { text: "bad credit auto loans", href: "/best-bad-credit-auto-loans" },
+      { text: "guaranteed approval auto loans", href: "/best-guaranteed-approval-auto-loans" },
+      { text: "check your options", href: "/apply" },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

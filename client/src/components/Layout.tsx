@@ -442,6 +442,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   ["How It Works", "/how-it-works"],
                   ["Get Pre-Approved", "/apply"],
                   ["Locations", "/locations"],
+                  ["About Us", "/about"],
+                  ["Editorial Standards", "/editorial-standards"],
                   ["Privacy Policy", "/privacy-policy"],
                   ["Terms of Service", "/terms-of-service"],
                 ].map(([label, href]) => (
