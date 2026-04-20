@@ -124,6 +124,9 @@ async function startServer() {
       !pathname.endsWith("/") &&
       !pathname.startsWith("/api") &&
       !pathname.startsWith("/manus-storage") &&
+      !pathname.startsWith("/@") && // Vite internal: /@vite/client, /@fs/, /@id/
+      !pathname.startsWith("/__vite") && // Vite HMR internals
+      !pathname.startsWith("/node_modules") && // Vite node_modules serving
       !/\.[a-z0-9]+$/i.test(pathname) // skip static assets (.js, .css, .png, etc.)
     ) {
       return res.redirect(301, pathname + "/" + search);
