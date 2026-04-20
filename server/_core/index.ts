@@ -5,8 +5,7 @@ import net from "net";
 import helmet from "helmet";
 import { rateLimit } from "express-rate-limit";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
-import { registerOAuthRoutes } from "./oauth";
-import { registerStorageProxy } from "./storageProxy";
+import { registerAuthRoutes } from "./auth";
 import { webhookRouter } from "../webhooks";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
@@ -78,7 +77,6 @@ async function startServer() {
 
   // ── Body parsers — keep limits tight ──────────────────────────────────────
   // Storage proxy needs larger limit for file uploads; everything else is small
-  app.use("/manus-storage", express.raw({ limit: "20mb" }));
   app.use(express.json({ limit: "1mb" }));
   app.use(express.urlencoded({ limit: "1mb", extended: true }));
 
@@ -147,8 +145,7 @@ async function startServer() {
   // Apply webhook rate limit
   app.use("/api/webhooks", webhookLimiter);
 
-  registerStorageProxy(app);
-  registerOAuthRoutes(app);
+  registerAuthRoutes(app);
 
   // Lender webhooks
   app.use("/api/webhooks", webhookRouter);

@@ -1,5 +1,6 @@
 import { eq, desc, and } from "drizzle-orm";
-import { drizzle } from "drizzle-orm/mysql2";
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
 import {
   InsertUser,
   users,
@@ -18,7 +19,8 @@ let _db: ReturnType<typeof drizzle> | null = null;
 export async function getDb() {
   if (!_db && process.env.DATABASE_URL) {
     try {
-      _db = drizzle(process.env.DATABASE_URL);
+      const client = postgres(process.env.DATABASE_URL, { ssl: "require" });
+      _db = drizzle(client);
     } catch (error) {
       console.warn("[Database] Failed to connect:", error);
       _db = null;
@@ -51,7 +53,10 @@ export async function upsertUser(user: InsertUser): Promise<void> {
     else if (user.openId === ENV.ownerOpenId) { values.role = "admin"; updateSet.role = "admin"; }
     if (!values.lastSignedIn) values.lastSignedIn = new Date();
     if (Object.keys(updateSet).length === 0) updateSet.lastSignedIn = new Date();
-    await db.insert(users).values(values).onDuplicateKeyUpdate({ set: updateSet });
+    await db.insert(users).values(values).onConflictDoUpdate({
+      target: users.openId,
+      set: updateSet,
+    });
   } catch (error) { console.error("[Database] Failed to upsert user:", error); throw error; }
 }
 
@@ -62,13 +67,19 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
+export async function getUserByEmail(email: string) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(users).where(eq(users.email, email)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
 // ── Leads ─────────────────────────────────────────────────────────────────────
 
 export async function createLead(data: InsertLead) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
-  await db.insert(leads).values(data);
-  const result = await db.select().from(leads).where(eq(leads.token, data.token!)).limit(1);
+  const result = await db.insert(leads).values(data).returning();
   return result[0]!;
 }
 
@@ -101,7 +112,6 @@ export async function updateLeadByToken(token: string, data: Partial<InsertLead>
 export async function deleteLead(id: number) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
-  // Delete associated offers first to avoid FK constraint issues
   await db.delete(lenderOffers).where(eq(lenderOffers.leadId, id));
   await db.delete(leads).where(eq(leads.id, id));
 }
@@ -117,8 +127,7 @@ export async function listLeads(limit = 50, offset = 0) {
 export async function createLender(data: InsertLender) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
-  await db.insert(lenders).values(data);
-  const result = await db.select().from(lenders).where(eq(lenders.slug, data.slug)).limit(1);
+  const result = await db.insert(lenders).values(data).returning();
   return result[0]!;
 }
 
@@ -158,12 +167,7 @@ export async function deleteLender(id: number) {
 export async function createLenderOffer(data: InsertLenderOffer) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
-  await db.insert(lenderOffers).values(data);
-  const result = await db
-    .select()
-    .from(lenderOffers)
-    .where(and(eq(lenderOffers.leadId, data.leadId), eq(lenderOffers.lenderId, data.lenderId)))
-    .limit(1);
+  const result = await db.insert(lenderOffers).values(data).returning();
   return result[0]!;
 }
 
