@@ -145,7 +145,33 @@ async function startServer() {
   // Apply webhook rate limit
   app.use("/api/webhooks", webhookLimiter);
 
-  registerAuthRoutes(app);
+   registerAuthRoutes(app);
+
+  // ── One-time migration endpoint ──────────────────────────────────────────────
+  // POST /api/admin/migrate?secret=<JWT_SECRET> — runs drizzle-kit migrate
+  // Only works when MIGRATION_SECRET env var matches the provided secret.
+  // Remove this endpoint after initial setup.
+  app.post("/api/admin/migrate", async (req, res) => {
+    const { secret } = req.query as { secret?: string };
+    const migrationSecret = process.env.JWT_SECRET;
+    if (!secret || secret !== migrationSecret) {
+      res.status(403).json({ error: "Forbidden" });
+      return;
+    }
+    try {
+      const { execSync } = await import("child_process");
+      const output = execSync("npx drizzle-kit migrate", {
+        cwd: process.cwd(),
+        env: { ...process.env },
+        timeout: 60000,
+        encoding: "utf8",
+      });
+      res.json({ success: true, output });
+    } catch (err: unknown) {
+      const e = err as { stdout?: string; stderr?: string; message?: string };
+      res.status(500).json({ error: "Migration failed", details: e.stderr || e.message || String(err) });
+    }
+  });
 
   // Lender webhooks
   app.use("/api/webhooks", webhookRouter);
