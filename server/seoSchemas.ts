@@ -241,7 +241,9 @@ export function injectSchemas(app: Express) {
     if (!fs.existsSync(indexPath)) return next();
 
     // Normalize path: strip trailing slash for lookup (except root)
-    let pathname = req.path;
+    // IMPORTANT: use req.originalUrl (not req.path) because app.use("*") sets
+    // req.path = "/" for all routes — originalUrl preserves the actual URL path.
+    let pathname = req.originalUrl.split("?")[0];
     if (pathname !== "/" && pathname.endsWith("/")) {
       pathname = pathname.slice(0, -1);
     }
