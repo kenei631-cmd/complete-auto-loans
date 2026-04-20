@@ -23,8 +23,15 @@ export interface Lender {
   ctaLabel?: string;
 }
 
+/** Returns true if the href is an external URL (starts with http/https) */
+function isExternal(href: string): boolean {
+  return href.startsWith("http://") || href.startsWith("https://");
+}
+
 export default function LenderCard({ lender }: { lender: Lender }) {
   const isFeatured = lender.featured || lender.rank === 1;
+  const href = lender.ctaHref || "/apply";
+  const external = isExternal(href);
 
   return (
     <div
@@ -166,10 +173,13 @@ export default function LenderCard({ lender }: { lender: Lender }) {
               ))}
             </div>
 
-            {/* CTA */}
+            {/* CTA — featured card (amber button) */}
             {isFeatured ? (
-              <Link href={lender.ctaHref || "/apply"}>
-                <button
+              external ? (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl font-bold text-sm transition-all"
                   style={{
                     background: "oklch(0.76 0.16 75)",
@@ -177,6 +187,7 @@ export default function LenderCard({ lender }: { lender: Lender }) {
                     fontFamily: "'DM Sans', sans-serif",
                     boxShadow: "0 4px 18px oklch(0.76 0.16 75 / 0.45)",
                     fontSize: "0.9375rem",
+                    textDecoration: "none",
                   }}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)";
@@ -191,31 +202,89 @@ export default function LenderCard({ lender }: { lender: Lender }) {
                 >
                   {lender.ctaLabel || "Get Pre-Approved"}
                   <ArrowRight size={15} />
-                </button>
-              </Link>
+                </a>
+              ) : (
+                <Link href={href}>
+                  <span
+                    className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl font-bold text-sm transition-all cursor-pointer"
+                    style={{
+                      background: "oklch(0.76 0.16 75)",
+                      color: "oklch(0.12 0.04 251)",
+                      fontFamily: "'DM Sans', sans-serif",
+                      boxShadow: "0 4px 18px oklch(0.76 0.16 75 / 0.45)",
+                      fontSize: "0.9375rem",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.background = "oklch(0.82 0.14 75)";
+                      (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+                      (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 28px oklch(0.76 0.16 75 / 0.55)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.background = "oklch(0.76 0.16 75)";
+                      (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                      (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 18px oklch(0.76 0.16 75 / 0.45)";
+                    }}
+                  >
+                    {lender.ctaLabel || "Get Pre-Approved"}
+                    <ArrowRight size={15} />
+                  </span>
+                </Link>
+              )
             ) : (
-              <button
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition-all"
-                style={{
-                  background: "transparent",
-                  color: "oklch(0.46 0.04 251)",
-                  border: "1px solid oklch(0.86 0.007 80)",
-                  fontFamily: "'DM Sans', sans-serif",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.578 0.098 186)";
-                  (e.currentTarget as HTMLElement).style.color = "oklch(0.42 0.085 186)";
-                  (e.currentTarget as HTMLElement).style.background = "oklch(0.58 0.13 185 / 0.05)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.86 0.007 80)";
-                  (e.currentTarget as HTMLElement).style.color = "oklch(0.46 0.04 251)";
-                  (e.currentTarget as HTMLElement).style.background = "transparent";
-                }}
-              >
-                <ExternalLink size={13} />
-                Visit website to apply
-              </button>
+              /* Non-featured card — "Visit website" link */
+              external ? (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition-all"
+                  style={{
+                    background: "transparent",
+                    color: "oklch(0.46 0.04 251)",
+                    border: "1px solid oklch(0.86 0.007 80)",
+                    fontFamily: "'DM Sans', sans-serif",
+                    textDecoration: "none",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.578 0.098 186)";
+                    (e.currentTarget as HTMLElement).style.color = "oklch(0.42 0.085 186)";
+                    (e.currentTarget as HTMLElement).style.background = "oklch(0.58 0.13 185 / 0.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.86 0.007 80)";
+                    (e.currentTarget as HTMLElement).style.color = "oklch(0.46 0.04 251)";
+                    (e.currentTarget as HTMLElement).style.background = "transparent";
+                  }}
+                >
+                  <ExternalLink size={13} />
+                  Visit website to apply
+                </a>
+              ) : (
+                <Link href={href}>
+                  <span
+                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition-all cursor-pointer"
+                    style={{
+                      background: "transparent",
+                      color: "oklch(0.46 0.04 251)",
+                      border: "1px solid oklch(0.86 0.007 80)",
+                      fontFamily: "'DM Sans', sans-serif",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.578 0.098 186)";
+                      (e.currentTarget as HTMLElement).style.color = "oklch(0.42 0.085 186)";
+                      (e.currentTarget as HTMLElement).style.background = "oklch(0.58 0.13 185 / 0.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.borderColor = "oklch(0.86 0.007 80)";
+                      (e.currentTarget as HTMLElement).style.color = "oklch(0.46 0.04 251)";
+                      (e.currentTarget as HTMLElement).style.background = "transparent";
+                    }}
+                  >
+                    <ArrowRight size={13} />
+                    {lender.ctaLabel || "Get Pre-Approved"}
+                  </span>
+                </Link>
+              )
             )}
           </div>
         </div>

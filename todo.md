@@ -124,3 +124,9 @@
 - [x] Add editorial-standards to sitemap.xml
 - [ ] Add author bylines to all blog posts (name, title, credentials) — future enhancement
 - [ ] Add "Sources & Methodology" section to best-of pages — future enhancement
+
+## Lender Link Fixes
+
+- [x] Fix all lender ctaHref URLs from /apply to real external lender websites (51 fixes across 13 best-of pages)
+- [x] Fix LenderCard.tsx to use <a target="_blank" rel="noopener noreferrer"> for external URLs
+- [x] Fix non-featured lender "Visit website" button — was a dead <button>, now a real clickable <a> link
