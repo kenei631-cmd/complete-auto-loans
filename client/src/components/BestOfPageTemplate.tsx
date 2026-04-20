@@ -48,6 +48,7 @@ interface BestOfPageProps {
   seoTitle?: string;
   seoDescription?: string;
   canonicalPath?: string;
+  ogImage?: string;
   /** Service slug for direct city+service links, e.g. "bad-credit-auto-loans" */
   cityServiceSlug?: string;
 }
@@ -65,6 +66,7 @@ export default function BestOfPageTemplate({
   seoTitle,
   seoDescription,
   canonicalPath,
+  ogImage,
   cityServiceSlug,
 }: BestOfPageProps) {
   const schemas = [
@@ -89,6 +91,7 @@ export default function BestOfPageTemplate({
     title: seoTitle ?? `${title} | Complete Auto Loans`,
     description: seoDescription ?? subtitle,
     canonical: canonicalPath,
+    ogImage,
     schema: schemas,
   });
 

@@ -9,6 +9,7 @@ export default function BestGuaranteedApproval() {
       seoTitle="Best Guaranteed Approval Auto Loans of 2026 — Reviewed & Ranked"
       seoDescription="Find the best guaranteed approval auto loans of 2026. Get pre-approved regardless of credit score. Compare lenders with near-100% approval rates."
       canonicalPath="/best-guaranteed-approval-auto-loans"
+      ogImage="/manus-storage/best-guaranteed-approval-auto-loans_og_5ceb9cd4.jpg"
       cityServiceSlug="guaranteed-approval-auto-loans"
       title="Best Guaranteed Approval Auto Loans of 2026"
       subtitle="Some lenders come as close to guaranteed approval as legally possible. Here's who they are and what they require."

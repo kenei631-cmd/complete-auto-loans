@@ -9,6 +9,7 @@ export default function BestRefinanceBadCredit() {
       seoTitle="Best Auto Refinance Loans for Bad Credit (2026) — Reviewed & Ranked"
       seoDescription="Find the best auto refinance options for bad credit in 2026. Lower your monthly payment or interest rate even with a score under 600."
       canonicalPath="/best-auto-refinance-bad-credit"
+      ogImage="/manus-storage/best-car-loans-for-uber-lyft-drivers_og_7fa9b8fb.jpg"
       cityServiceSlug="bad-credit-auto-loans"
       title="Best Auto Refinance Loans for Bad Credit (2026)"
       subtitle="Already have a high-rate car loan? These lenders can refinance it — even with bad credit."

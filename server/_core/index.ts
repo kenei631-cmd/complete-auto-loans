@@ -12,6 +12,7 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerRedirects } from "../redirects";
+import { injectSchemas } from "../seoSchemas";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -90,6 +91,13 @@ async function startServer() {
   // Apply general rate limit to all API routes
   app.use("/api", apiLimiter);
 
+  // ── X-Robots-Tag: noindex on all API routes ────────────────────────────────
+  // Prevents Googlebot from indexing API JSON responses if it ever crawls them
+  app.use("/api", (_req, res, next) => {
+    res.setHeader("X-Robots-Tag", "noindex, nofollow");
+    next();
+  });
+
   // Apply strict rate limit specifically to lead mutation endpoints
   // tRPC batches mutations as POST to /api/trpc/leads.savePartial and /api/trpc/leads.submit
   app.use("/api/trpc/leads.savePartial", leadSubmitLimiter);
@@ -120,6 +128,11 @@ async function startServer() {
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
   } else {
+    // ── Server-side JSON-LD injection — production only ───────────────────────
+    // Injects structured data into the raw HTML <head> so Googlebot sees it
+    // without needing to execute JavaScript. Must run before serveStatic.
+    injectSchemas(app);
+
     // ── Trailing slash redirect (301) — production only ──────────────────────
     // Redirect /path → /path/ for all non-API, non-file, non-root requests.
     // This makes trailing-slash enforcement authoritative at the HTTP layer so

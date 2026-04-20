@@ -9,6 +9,7 @@ export default function BestSecondChance() {
       seoTitle="Best Second Chance Auto Loans of 2026 — Reviewed & Ranked"
       seoDescription="Compare the best second chance auto loans of 2026. Designed for borrowers with past credit problems. Get a fresh start with lenders that look beyond your score."
       canonicalPath="/best-second-chance-auto-loans"
+      ogImage="/manus-storage/best-second-chance-auto-loans_og_4419a5ef.jpg"
       cityServiceSlug="second-chance-auto-loans"
       title="Best Second Chance Auto Loans of 2026"
       subtitle="Second chance lenders specialize in borrowers who have been rejected elsewhere. Here's who gives real second chances."

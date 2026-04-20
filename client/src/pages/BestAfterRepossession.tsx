@@ -9,6 +9,7 @@ export default function BestAfterRepossession() {
       seoTitle="Best Auto Loans After Repossession of 2026 — Reviewed & Ranked"
       seoDescription="Find the best auto loans after a repossession in 2026. Get approved even with a recent repo on your record. Compare lenders with second-chance programs."
       canonicalPath="/best-auto-loans-after-repossession"
+      ogImage="/manus-storage/best-auto-loans-after-repossession_og_73cf9d5b.jpg"
       cityServiceSlug="auto-loans-after-repossession"
       title="Best Auto Loans After Repossession (2026)"
       subtitle="A repossession on your record doesn't have to mean no car. These lenders work with repo borrowers every day."

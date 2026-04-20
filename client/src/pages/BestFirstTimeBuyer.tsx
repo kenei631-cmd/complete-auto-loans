@@ -9,6 +9,7 @@ export default function BestFirstTimeBuyer() {
       seoTitle="Best Car Loans for First-Time Buyers with No Credit (2026) — Reviewed"
       seoDescription="Find the best auto loans for first-time buyers with no credit history in 2026. No co-signer required. Compare lenders that specialize in new borrowers."
       canonicalPath="/best-first-time-car-buyer-loans-no-credit"
+      ogImage="/manus-storage/best-first-time-car-buyer-loans-no-credit_og_8de17c64.jpg"
       cityServiceSlug="bad-credit-auto-loans"
       title="Best Car Loans for First-Time Buyers with No Credit (2026)"
       subtitle="No credit history is different from bad credit. These lenders understand that and have programs built specifically for first-time buyers."

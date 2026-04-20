@@ -159,6 +159,7 @@ export default function BlogPost() {
     title: post.metaTitle,
     description: post.metaDescription,
     canonical: `/blog/${post.slug}`,
+    ogImage: post.ogImage,
     schema: [
       buildArticleSchema(post),
       buildFAQSchema(post.faqs),

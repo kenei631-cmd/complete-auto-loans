@@ -130,3 +130,11 @@
 - [x] Fix all lender ctaHref URLs from /apply to real external lender websites (51 fixes across 13 best-of pages)
 - [x] Fix LenderCard.tsx to use <a target="_blank" rel="noopener noreferrer"> for external URLs
 - [x] Fix non-featured lender "Visit website" button — was a dead <button>, now a real clickable <a> link
+
+## Technical SEO Fixes
+
+- [ ] Fix #1: Server-side JSON-LD injection per route (structured data in raw HTML for Googlebot)
+- [ ] Fix #2: HTML cache-control header (remove no-store, use no-cache only)
+- [ ] Fix #3: Per-page OG images for all best-of and blog pages
+- [ ] Fix #4: LCP hero image preload hint in index.html
+- [ ] Fix #5: X-Robots-Tag: noindex on all /api/* routes
