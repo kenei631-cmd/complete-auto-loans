@@ -43,6 +43,30 @@ async function startServer() {
   // the real client IP from X-Forwarded-For without throwing ERR_ERL_UNEXPECTED_X_FORWARDED_FOR
   app.set("trust proxy", 1);
 
+  // ── CORS — allow requests from Netlify frontend ───────────────────────────
+  // When the frontend runs on completeautoloans.com (Netlify) and the API runs
+  // on api.completeautoloans.com (Manus), cross-origin requests need CORS headers.
+  // In practice Netlify proxies /api/* so the browser sees same-origin requests,
+  // but we add CORS here as a safety net for direct API access.
+  const ALLOWED_ORIGINS = [
+    "https://completeautoloans.com",
+    "https://www.completeautoloans.com",
+    "https://autoloans-4pvxmbtd.manus.space", // Manus preview domain
+  ];
+  app.use((req, res, next) => {
+    const origin = req.headers.origin;
+    if (origin && ALLOWED_ORIGINS.includes(origin)) {
+      res.setHeader("Access-Control-Allow-Origin", origin);
+      res.setHeader("Access-Control-Allow-Credentials", "true");
+      res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+      res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    }
+    if (req.method === "OPTIONS") {
+      return res.sendStatus(204);
+    }
+    next();
+  });
+
   // ── Security headers (Helmet) ──────────────────────────────────────────────
   // Skip Content-Security-Policy in development to allow Vite HMR
   app.use(

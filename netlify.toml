@@ -1,0 +1,27 @@
+[build]
+  command = "pnpm build:netlify"
+  publish = "dist/public"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Proxy all /api/* requests to the Manus backend (database, tRPC, lead post)
+# This keeps everything on the same domain — the browser never sees api.completeautoloans.com
+[[redirects]]
+  from = "/api/*"
+  to = "https://api.completeautoloans.com/api/:splat"
+  status = 200
+  force = true
+
+# Proxy /manus-storage/* to Manus for file storage
+[[redirects]]
+  from = "/manus-storage/*"
+  to = "https://api.completeautoloans.com/manus-storage/:splat"
+  status = 200
+  force = true
+
+# SPA fallback — all other routes serve index.html (React handles routing client-side)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

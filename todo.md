@@ -140,3 +140,15 @@
 - [x] Fix #3: Per-page OG images for all best-of and blog pages (23 images generated, all 13 best-of pages + 10 blog posts wired)
 - [x] Fix #4: LCP hero image preload hint in index.html (fetchpriority=high)
 - [x] Fix #5: X-Robots-Tag: noindex on all /api/* routes
+
+## Netlify Deployment (SEO Fix)
+
+- [x] Create netlify.toml with /api/* proxy to api.completeautoloans.com and SPA fallback
+- [x] Add build:netlify script (vite build + inject-meta.mjs for per-page metadata)
+- [x] Add CORS headers to Express server for completeautoloans.com origin
+- [ ] Export project to GitHub (Settings → GitHub in Manus Management UI)
+- [ ] Create Netlify account and connect GitHub repo
+- [ ] Set environment variables in Netlify (VITE_* vars)
+- [ ] Add api.completeautoloans.com custom domain to Manus project
+- [ ] Update DNS: completeautoloans.com → Netlify, api.completeautoloans.com → Manus
+- [ ] Verify view-source:https://completeautoloans.com/best-bad-credit-auto-loans/ shows correct title
