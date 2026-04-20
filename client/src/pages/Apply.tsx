@@ -22,10 +22,10 @@ const steps = [
   { id: 4, label: "Contact", title: "Where should we send your approval?" },
 ];
 
-const SEDAN_IMG = "/manus-storage/vehicle_sedan_35e3a1a6.png";
-const SUV_IMG = "/manus-storage/vehicle_suv_a78330df.png";
-const TRUCK_IMG = "/manus-storage/vehicle_truck_fdb294ea.png";
-const VAN_IMG = "/manus-storage/vehicle_van_db3e3453.png";
+const SEDAN_IMG = "/manus-storage/vehicle_sedan_opt_689897c0.webp";
+const SUV_IMG = "/manus-storage/vehicle_suv_opt_b3f5ac82.webp";
+const TRUCK_IMG = "/manus-storage/vehicle_truck_opt_0ba24cff.webp";
+const VAN_IMG = "/manus-storage/vehicle_van_opt_df6bb12a.webp";
 
 const vehicleOptions = [
   { value: "sedan", label: "Sedan / Car", img: SEDAN_IMG },
