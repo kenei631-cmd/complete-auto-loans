@@ -133,8 +133,10 @@
 
 ## Technical SEO Fixes
 
-- [ ] Fix #1: Server-side JSON-LD injection per route (structured data in raw HTML for Googlebot)
-- [ ] Fix #2: HTML cache-control header (remove no-store, use no-cache only)
-- [ ] Fix #3: Per-page OG images for all best-of and blog pages
-- [ ] Fix #4: LCP hero image preload hint in index.html
-- [ ] Fix #5: X-Robots-Tag: noindex on all /api/* routes
+- [x] Server-side HTML metadata injection (seoMeta.ts) — rewrites title, meta description, canonical, og:* and twitter:* for all 122 pages before serving to Googlebot
+
+- [x] Fix #1: Server-side JSON-LD injection per route (structured data in raw HTML for Googlebot)
+- [x] Fix #2: HTML cache-control header (controlled by Manus platform proxy — cannot be changed in app code)
+- [x] Fix #3: Per-page OG images for all best-of and blog pages (23 images generated, all 13 best-of pages + 10 blog posts wired)
+- [x] Fix #4: LCP hero image preload hint in index.html (fetchpriority=high)
+- [x] Fix #5: X-Robots-Tag: noindex on all /api/* routes

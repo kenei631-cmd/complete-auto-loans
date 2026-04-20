@@ -13,6 +13,7 @@ import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerRedirects } from "../redirects";
 import { injectSchemas } from "../seoSchemas";
+import { injectMeta } from "../seoMeta";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -128,6 +129,12 @@ async function startServer() {
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
   } else {
+    // ── Server-side metadata injection — production only ─────────────────────
+    // Rewrites <title>, <meta description>, canonical, og:* and twitter:* tags
+    // in the raw HTML for every URL so Googlebot sees unique metadata without
+    // needing to execute JavaScript. Must run before injectSchemas and serveStatic.
+    injectMeta(app);
+
     // ── Server-side JSON-LD injection — production only ───────────────────────
     // Injects structured data into the raw HTML <head> so Googlebot sees it
     // without needing to execute JavaScript. Must run before serveStatic.
