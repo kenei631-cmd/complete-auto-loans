@@ -75,6 +75,8 @@ export function setupSSR(app: Express) {
 
   // Handle all HTML requests with SSR
   app.use("*", async (req: Request, res: Response, next: NextFunction) => {
+    // Skip API routes — they are handled by Express routers registered before SSR
+    if (req.originalUrl.startsWith("/api/") || req.originalUrl === "/api") return next();
     // Skip non-HTML requests — but allow */* (curl, some crawlers) and missing accept headers
     const accept = req.headers.accept ?? "";
     const wantsHtml = accept.includes("text/html") || accept.includes("*/*") || accept === "";
