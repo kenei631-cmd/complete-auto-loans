@@ -5,7 +5,8 @@ import net from "net";
 import helmet from "helmet";
 import { rateLimit } from "express-rate-limit";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
-import { registerAuthRoutes } from "./auth";
+import { registerOAuthRoutes } from "./oauth";
+import { registerStorageProxy } from "./storageProxy";
 import { webhookRouter } from "../webhooks";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
@@ -77,6 +78,7 @@ async function startServer() {
 
   // ── Body parsers — keep limits tight ──────────────────────────────────────
   // Storage proxy needs larger limit for file uploads; everything else is small
+  app.use("/manus-storage", express.raw({ limit: "20mb" }));
   app.use(express.json({ limit: "1mb" }));
   app.use(express.urlencoded({ limit: "1mb", extended: true }));
 
@@ -145,33 +147,8 @@ async function startServer() {
   // Apply webhook rate limit
   app.use("/api/webhooks", webhookLimiter);
 
-   registerAuthRoutes(app);
-
-  // ── One-time migration endpoint ──────────────────────────────────────────────
-  // POST /api/admin/migrate?secret=<JWT_SECRET> — runs drizzle-kit migrate
-  // Only works when MIGRATION_SECRET env var matches the provided secret.
-  // Remove this endpoint after initial setup.
-  app.post("/api/admin/migrate", async (req, res) => {
-    const { secret } = req.query as { secret?: string };
-    const migrationSecret = process.env.JWT_SECRET;
-    if (!secret || secret !== migrationSecret) {
-      res.status(403).json({ error: "Forbidden" });
-      return;
-    }
-    try {
-      const { execSync } = await import("child_process");
-      const output = execSync("npx drizzle-kit migrate", {
-        cwd: process.cwd(),
-        env: { ...process.env },
-        timeout: 60000,
-        encoding: "utf8",
-      });
-      res.json({ success: true, output });
-    } catch (err: unknown) {
-      const e = err as { stdout?: string; stderr?: string; message?: string };
-      res.status(500).json({ error: "Migration failed", details: e.stderr || e.message || String(err) });
-    }
-  });
+  registerStorageProxy(app);
+  registerOAuthRoutes(app);
 
   // Lender webhooks
   app.use("/api/webhooks", webhookRouter);

@@ -15,6 +15,7 @@ import {
 } from "../db";
 import { runPingPost } from "../pingPost";
 import { nanoid } from "nanoid";
+import { notifyOwner } from "../_core/notification";
 import { sendCapiEvent } from "../metaCapi";
 
 const TCPA_CONSENT_TEXT =
@@ -153,6 +154,12 @@ export const leadsRouter = router({
       runPingPost(updatedLead).catch((err) => {
         console.error("[PingPost] Error:", err);
       });
+
+      // Notify owner
+      notifyOwner({
+        title: "New Lead Submitted",
+        content: `${input.firstName} ${input.lastName} (${input.email}) submitted an application. Credit: ${updatedLead.creditScore}, Vehicle: ${updatedLead.vehicleType}, State: ${input.state}`,
+      }).catch(() => {});
 
       // Fire CAPI Lead event (server-side, deduplicated with browser pixel via eventId)
       // The browser fires fbq('track', 'Lead', {}, { eventID: token }) on form submit

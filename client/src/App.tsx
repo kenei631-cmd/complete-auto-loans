@@ -120,7 +120,6 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import OfferResults from "@/pages/OfferResults";
 import AdminPanel from "@/pages/AdminPanel";
-import Login from "@/pages/Login";
 import BlogIndex from "@/pages/BlogIndex";
 import BlogPost from "@/pages/BlogPost";
 import About from "@/pages/About";
@@ -276,7 +275,6 @@ function Router() {
       {/* Offer Results — post-form submission */}
       <Route path="/offers/:token" component={OfferResults} />
       {/* Admin Panel — non-guessable URL prevents bot probing; auth wall enforced by ProtectedAdminRoute + backend adminProcedure */}
-      <Route path="/login">{() => <Login />}</Route>
       <Route path="/portal-avs6pzsw">{() => <ProtectedAdminRoute component={AdminPanel} />}</Route>
       {/* Blog */}
       <Route path="/blog" component={BlogIndex} />

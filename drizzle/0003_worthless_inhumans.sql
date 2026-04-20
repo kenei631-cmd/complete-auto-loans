@@ -1,0 +1,1 @@
+ALTER TABLE `leads` ADD `isTest` boolean DEFAULT false NOT NULL;
