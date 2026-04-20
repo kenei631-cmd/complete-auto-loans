@@ -14,6 +14,7 @@ import { serveStatic, setupVite } from "./vite";
 import { registerRedirects } from "../redirects";
 import { injectSchemas } from "../seoSchemas";
 import { injectMeta } from "../seoMeta";
+import { setupSSR } from "../ssr";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -125,28 +126,11 @@ async function startServer() {
   // Register 301 redirects for old site URLs (runs in both dev and production)
   registerRedirects(app);
 
-  // development mode uses Vite, production mode uses static files
+  // development mode uses Vite, production mode uses SSR
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
   } else {
-    // ── Server-side metadata injection — production only ─────────────────────
-    // Rewrites <title>, <meta description>, canonical, og:* and twitter:* tags
-    // in the raw HTML for every URL so Googlebot sees unique metadata without
-    // needing to execute JavaScript. Must run before injectSchemas and serveStatic.
-    injectMeta(app);
-
-    // ── Server-side JSON-LD injection — production only ───────────────────────
-    // Injects structured data into the raw HTML <head> so Googlebot sees it
-    // without needing to execute JavaScript. Must run before serveStatic.
-    injectSchemas(app);
-
     // ── Trailing slash redirect (301) — production only ──────────────────────
-    // Redirect /path → /path/ for all non-API, non-file, non-root requests.
-    // This makes trailing-slash enforcement authoritative at the HTTP layer so
-    // Googlebot receives a proper 301 rather than relying on the client-side
-    // history.replaceState in useSEO.ts.
-    // Only runs in production — Vite dev server handles its own internal paths
-    // (/@vite/client, /@fs/, etc.) and must not be intercepted.
     app.use((req, res, next) => {
       const { pathname, search } = new URL(req.originalUrl, "http://x");
       if (
@@ -154,13 +138,18 @@ async function startServer() {
         !pathname.endsWith("/") &&
         !pathname.startsWith("/api") &&
         !pathname.startsWith("/manus-storage") &&
-        !/\.[a-z0-9]+$/i.test(pathname) // skip static assets (.js, .css, .png, etc.)
+        !/\.[a-z0-9]+$/i.test(pathname)
       ) {
         return res.redirect(301, pathname + "/" + search);
       }
       next();
     });
-    serveStatic(app);
+
+    // ── SSR + metadata injection — production only ────────────────────────────
+    // setupSSR serves static assets AND renders React to HTML string for HTML
+    // requests, injecting per-page title/description/canonical/OG tags before
+    // the response is sent. This replaces injectMeta + injectSchemas + serveStatic.
+    setupSSR(app);
   }
 
   const preferredPort = parseInt(process.env.PORT || "3000");

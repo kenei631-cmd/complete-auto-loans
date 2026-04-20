@@ -320,7 +320,7 @@ function buildMetaMap(): Record<string, PageMeta> {
   return map;
 }
 
-const META_MAP = buildMetaMap();
+export const META_MAP = buildMetaMap();
 
 // ── HTML rewriter ─────────────────────────────────────────────────────────────
 
@@ -332,7 +332,7 @@ function escapeAttr(str: string): string {
     .replace(/>/g, "&gt;");
 }
 
-function rewriteHtml(html: string, meta: PageMeta, canonicalUrl: string): string {
+export function rewriteHtml(html: string, meta: PageMeta, canonicalUrl: string): string {
   const { title, description, ogImage } = meta;
   const safeTitle = escapeAttr(title);
   const safeDesc = escapeAttr(description);
