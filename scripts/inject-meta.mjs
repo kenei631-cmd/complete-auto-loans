@@ -1,18 +1,19 @@
 /**
- * inject-meta.mjs — Post-build inline metadata injection
+ * inject-meta.mjs — Post-build per-route static HTML generation
  *
- * Since the Manus platform serves the root dist/public/index.html for ALL
- * routes (SPA fallback), per-route index.html files in subdirectories are
- * ignored. This script instead embeds a synchronous inline <script> at the
- * very top of <body> that immediately rewrites <title>, <meta description>,
- * <link canonical>, and all OG/Twitter tags based on window.location.pathname
- * before the React app renders.
+ * For Netlify static hosting: generates a separate index.html for each of the
+ * 122 routes with the correct title, meta description, canonical, and OG tags
+ * hardcoded directly in the <head>. No JavaScript required for crawlers.
  *
- * Googlebot executes JavaScript, so this approach works for both crawlers
- * and social sharing previews (which read the final DOM).
+ * Netlify serves dist/public/best-bad-credit-auto-loans/index.html directly
+ * when a crawler visits /best-bad-credit-auto-loans/ — the correct title is
+ * already in the raw HTML before any JS executes.
+ *
+ * The root dist/public/index.html also gets the homepage metadata hardcoded.
+ * A client-side fallback script is still included for any routes not in the map.
  *
  * Usage: node scripts/inject-meta.mjs
- * Called automatically by: pnpm build
+ * Called automatically by: pnpm build:netlify
  */
 
 import fs from "fs";
@@ -65,6 +66,10 @@ const META_MAP = {
   "/contact": {
     title: "Contact Us | Complete Auto Loans",
     description: "Contact Complete Auto Loans for questions about bad credit auto loans, our lender network, or your application status.",
+  },
+  "/editorial-standards": {
+    title: "Editorial Standards & Methodology | Complete Auto Loans",
+    description: "How Complete Auto Loans researches, ranks, and reviews auto loan lenders. Our editorial process, data sources, and advertiser disclosure.",
   },
 
   // Best-Of pages
@@ -252,65 +257,82 @@ for (const city of cities) {
   }
 }
 
-// ── Build the inline script ───────────────────────────────────────────────────
+// ── Helper: inject metadata into an HTML string ───────────────────────────────
 
-/**
- * Generates a compact JS object literal from the META_MAP.
- * Keys are URL paths (without trailing slash), values are {t, d, i} objects.
- */
-function buildMapLiteral() {
-  const entries = Object.entries(META_MAP).map(([k, v]) => {
-    const key = JSON.stringify(k);
-    const t = JSON.stringify(v.title);
-    const d = JSON.stringify(v.description);
-    const i = v.ogImage ? JSON.stringify(v.ogImage) : "null";
-    return `${key}:{t:${t},d:${d},i:${i}}`;
-  });
-  return `{${entries.join(",")}}`;
+function injectMetaIntoHtml(html, routePath, meta) {
+  const ogImage = meta.ogImage || DEFAULT_OG_IMAGE;
+  const canonical = `${BASE_URL}${routePath}${routePath === "/" ? "" : "/"}`;
+
+  // Replace <title>
+  html = html.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(meta.title)}</title>`);
+
+  // Replace or inject meta description
+  if (html.includes('name="description"')) {
+    html = html.replace(
+      /<meta\s+name="description"[^>]*>/,
+      `<meta name="description" content="${escapeHtml(meta.description)}" />`
+    );
+  } else {
+    html = html.replace("</head>", `  <meta name="description" content="${escapeHtml(meta.description)}" />\n</head>`);
+  }
+
+  // Replace or inject canonical
+  if (html.includes('rel="canonical"')) {
+    html = html.replace(/<link\s+rel="canonical"[^>]*>/, `<link rel="canonical" href="${canonical}" />`);
+  } else {
+    html = html.replace("</head>", `  <link rel="canonical" href="${canonical}" />\n</head>`);
+  }
+
+  // OG tags — replace or inject
+  const ogTags = [
+    ['og:title', escapeHtml(meta.title)],
+    ['og:description', escapeHtml(meta.description)],
+    ['og:url', canonical],
+    ['og:image', ogImage],
+    ['og:site_name', SITE_NAME],
+    ['og:type', 'website'],
+  ];
+
+  for (const [prop, content] of ogTags) {
+    const regex = new RegExp(`<meta\\s+property="${prop}"[^>]*>`);
+    const tag = `<meta property="${prop}" content="${content}" />`;
+    if (regex.test(html)) {
+      html = html.replace(regex, tag);
+    } else {
+      html = html.replace("</head>", `  ${tag}\n</head>`);
+    }
+  }
+
+  // Twitter tags
+  const twitterTags = [
+    ['twitter:card', 'summary_large_image'],
+    ['twitter:title', escapeHtml(meta.title)],
+    ['twitter:description', escapeHtml(meta.description)],
+    ['twitter:image', ogImage],
+  ];
+
+  for (const [name, content] of twitterTags) {
+    const regex = new RegExp(`<meta\\s+name="${name}"[^>]*>`);
+    const tag = `<meta name="${name}" content="${content}" />`;
+    if (regex.test(html)) {
+      html = html.replace(regex, tag);
+    } else {
+      html = html.replace("</head>", `  ${tag}\n</head>`);
+    }
+  }
+
+  return html;
 }
 
-const mapLiteral = buildMapLiteral();
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
 
-const inlineScript = `
-(function(){
-  var BASE='${BASE_URL}';
-  var SITE='${SITE_NAME}';
-  var DEFAULT_IMG='${DEFAULT_OG_IMAGE}';
-  var MAP=${mapLiteral};
-  var path=window.location.pathname.replace(/\\/+$/,'') || '/';
-  var meta=MAP[path];
-  if(!meta) return;
-  var title=meta.t;
-  var desc=meta.d;
-  var img=meta.i || DEFAULT_IMG;
-  var canonical=BASE+path+(path==='/'?'':'/');
-  // Update <title>
-  document.title=title;
-  // Helper: get or create a meta tag
-  function setMeta(sel,attr,val){
-    var el=document.querySelector(sel);
-    if(!el){el=document.createElement('meta');document.head.appendChild(el);}
-    el.setAttribute(attr,val);
-  }
-  function setLink(rel,href){
-    var el=document.querySelector('link[rel="'+rel+'"]');
-    if(!el){el=document.createElement('link');el.rel=rel;document.head.appendChild(el);}
-    el.href=href;
-  }
-  setMeta('meta[name="description"]','content',desc);
-  setLink('canonical',canonical);
-  setMeta('meta[property="og:title"]','content',title);
-  setMeta('meta[property="og:description"]','content',desc);
-  setMeta('meta[property="og:url"]','content',canonical);
-  setMeta('meta[property="og:image"]','content',img);
-  setMeta('meta[property="og:site_name"]','content',SITE);
-  setMeta('meta[name="twitter:title"]','content',title);
-  setMeta('meta[name="twitter:description"]','content',desc);
-  setMeta('meta[name="twitter:image"]','content',img);
-})();
-`.trim();
-
-// ── Inject into index.html ────────────────────────────────────────────────────
+// ── Main: generate per-route index.html files ─────────────────────────────────
 
 const indexPath = path.join(DIST, "index.html");
 if (!fs.existsSync(indexPath)) {
@@ -318,23 +340,26 @@ if (!fs.existsSync(indexPath)) {
   process.exit(1);
 }
 
-let html = fs.readFileSync(indexPath, "utf-8");
+const baseHtml = fs.readFileSync(indexPath, "utf-8");
 
-// Remove any previously injected meta-rewriter script
-html = html.replace(/<!-- meta-rewriter-start -->[\s\S]*?<!-- meta-rewriter-end -->\n?/g, "");
+let generated = 0;
 
-// Inject the script right after <body> (or before the first element in body)
-const scriptBlock = `<!-- meta-rewriter-start --><script>${inlineScript}</script><!-- meta-rewriter-end -->\n`;
+for (const [routePath, meta] of Object.entries(META_MAP)) {
+  const injected = injectMetaIntoHtml(baseHtml, routePath, meta);
 
-if (html.includes("<body>")) {
-  html = html.replace("<body>", `<body>\n${scriptBlock}`);
-} else if (html.includes("<body ")) {
-  html = html.replace(/<body [^>]*>/, (match) => `${match}\n${scriptBlock}`);
-} else {
-  // Fallback: inject before </head>
-  html = html.replace("</head>", `${scriptBlock}</head>`);
+  if (routePath === "/") {
+    // Overwrite the root index.html
+    fs.writeFileSync(indexPath, injected, "utf-8");
+  } else {
+    // Create a subdirectory with its own index.html
+    // e.g. /best-bad-credit-auto-loans → dist/public/best-bad-credit-auto-loans/index.html
+    const subDir = path.join(DIST, routePath.slice(1)); // remove leading slash
+    fs.mkdirSync(subDir, { recursive: true });
+    fs.writeFileSync(path.join(subDir, "index.html"), injected, "utf-8");
+  }
+
+  generated++;
 }
 
-fs.writeFileSync(indexPath, html, "utf-8");
-
-console.log(`✅ inject-meta: embedded inline metadata script covering ${Object.keys(META_MAP).length} routes into dist/public/index.html`);
+console.log(`✅ inject-meta: generated ${generated} route-specific index.html files with hardcoded metadata`);
+console.log(`   Routes covered: ${Object.keys(META_MAP).length} (home + ${Object.keys(META_MAP).length - 1} sub-routes)`);

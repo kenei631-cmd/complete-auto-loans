@@ -146,9 +146,9 @@
 - [x] Create netlify.toml with /api/* proxy to api.completeautoloans.com and SPA fallback
 - [x] Add build:netlify script (vite build + inject-meta.mjs for per-page metadata)
 - [x] Add CORS headers to Express server for completeautoloans.com origin
-- [ ] Export project to GitHub (Settings → GitHub in Manus Management UI)
-- [ ] Create Netlify account and connect GitHub repo
-- [ ] Set environment variables in Netlify (VITE_* vars)
-- [ ] Add api.completeautoloans.com custom domain to Manus project
-- [ ] Update DNS: completeautoloans.com → Netlify, api.completeautoloans.com → Manus
-- [ ] Verify view-source:https://completeautoloans.com/best-bad-credit-auto-loans/ shows correct title
+- [x] Deploy to Netlify via API (zip deploy, no GitHub required)
+- [x] Add api.completeautoloans.com custom domain to Manus project
+- [x] Update DNS: completeautoloans.com → Netlify, api.completeautoloans.com → Manus
+- [x] Verify completeautoloans.com/best-bad-credit-auto-loans/ shows correct title in raw HTML
+- [ ] SSL certificate provisioning (Netlify auto-provisions — in progress)
+- [ ] Set environment variables in Netlify (VITE_* vars — optional for static SEO)

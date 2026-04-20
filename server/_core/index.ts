@@ -124,6 +124,21 @@ async function startServer() {
     next();
   });
 
+  // ── X-Robots-Tag: noindex on non-production domains ──────────────────────
+  // Prevents Manus preview domain (autoloans-4pvxmbtd.manus.space) and
+  // api.completeautoloans.com from being indexed as duplicate content.
+  // Only completeautoloans.com and www.completeautoloans.com are indexable.
+  app.use((req, res, next) => {
+    const host = (req.headers.host || "").toLowerCase().split(":")[0];
+    const isProduction =
+      host === "completeautoloans.com" ||
+      host === "www.completeautoloans.com";
+    if (!isProduction && !req.path.startsWith("/api")) {
+      res.setHeader("X-Robots-Tag", "noindex, nofollow");
+    }
+    next();
+  });
+
   // Apply strict rate limit specifically to lead mutation endpoints
   // tRPC batches mutations as POST to /api/trpc/leads.savePartial and /api/trpc/leads.submit
   app.use("/api/trpc/leads.savePartial", leadSubmitLimiter);
