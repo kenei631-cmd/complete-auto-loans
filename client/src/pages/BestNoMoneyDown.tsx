@@ -9,7 +9,7 @@ export default function BestNoMoneyDown() {
       seoTitle="Best No Money Down Car Loans for Bad Credit (2026) — Reviewed"
       seoDescription="Compare the best $0 down car loans for bad credit in 2026. Get approved with no down payment even with a low credit score. 500+ lender network."
       canonicalPath="/best-no-money-down-car-loans-bad-credit"
-      ogImage="/manus-storage/best-no-money-down-car-loans-bad-credit_og_56188913.jpg"
+      ogImage="/images/best-no-money-down-car-loans-bad-credit_og_62bc97c6.jpg"
       cityServiceSlug="no-money-down-car-loans"
       title="Best No Money Down Car Loans for Bad Credit (2026)"
       subtitle="You don't always need a down payment to get approved. Here are the lenders most likely to approve you with $0 down."

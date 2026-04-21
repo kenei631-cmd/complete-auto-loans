@@ -9,7 +9,7 @@ export default function BestAfterBankruptcy() {
       seoTitle="Best Car Loans After Bankruptcy of 2026 — Reviewed & Ranked"
       seoDescription="Compare the best auto loans after bankruptcy in 2026. Get approved after Chapter 7 or Chapter 13. Lenders that work with discharged and active BK."
       canonicalPath="/best-car-loans-after-bankruptcy"
-      ogImage="/manus-storage/best-car-loans-after-bankruptcy_og_af0f7036.jpg"
+      ogImage="/images/best-car-loans-after-bankruptcy_og_904eda2b.jpg"
       cityServiceSlug="car-loans-after-bankruptcy"
       title="Best Car Loans After Bankruptcy (2026)"
       subtitle="Bankruptcy doesn't end your ability to get a car loan. These lenders specialize in post-bankruptcy financing."

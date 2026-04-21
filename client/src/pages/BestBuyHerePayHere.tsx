@@ -9,7 +9,7 @@ export default function BestBuyHerePayHere() {
       seoTitle="Best Buy Here Pay Here Dealerships of 2026 — Reviewed & Ranked"
       seoDescription="Find the best buy here pay here dealerships of 2026. In-house financing with guaranteed approval for deep subprime borrowers. No minimum credit score."
       canonicalPath="/best-buy-here-pay-here-dealerships"
-      ogImage="/manus-storage/best-buy-here-pay-here-dealerships_og_86eaec5d.jpg"
+      ogImage="/images/best-buy-here-pay-here-dealerships_og_7d35733b.jpg"
       cityServiceSlug="buy-here-pay-here"
       title="Best Buy Here Pay Here Dealerships of 2026"
       subtitle="BHPH dealerships offer in-house financing with no bank required — ideal for deep subprime borrowers who can't qualify anywhere else."

@@ -23,7 +23,7 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, "../dist/public");
 const BASE_URL = "https://completeautoloans.com";
-const DEFAULT_OG_IMAGE = `${BASE_URL}/manus-storage/og-default.jpg`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/images/best-bad-credit-auto-loans_og_60964dcb.jpg`;
 const SITE_NAME = "Complete Auto Loans";
 
 // ── Page metadata map ─────────────────────────────────────────────────────────
@@ -76,7 +76,7 @@ const META_MAP = {
   "/best-bad-credit-auto-loans": {
     title: "Best Bad Credit Auto Loans of 2026 — Reviewed & Ranked",
     description: "Compare the best bad credit auto loans of 2026. We reviewed 40+ lenders to find options for scores under 600. No minimum credit score required.",
-    ogImage: `${BASE_URL}/manus-storage/best-bad-credit-auto-loans_og_73f14a9e.jpg`,
+    ogImage: `${BASE_URL}/images/best-bad-credit-auto-loans_og_60964dcb.jpg`,
   },
   "/best-buy-here-pay-here-dealerships": {
     title: "Best Buy Here Pay Here Dealerships of 2026 — Reviewed & Ranked",

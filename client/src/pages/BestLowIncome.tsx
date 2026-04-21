@@ -9,7 +9,7 @@ export default function BestLowIncome() {
       seoTitle="Best Car Loans for Low Income Borrowers of 2026 — Reviewed"
       seoDescription="Compare the best car loans for low income borrowers in 2026. Get approved with income as low as $1,200/month. No minimum credit score required."
       canonicalPath="/best-car-loans-low-income"
-      ogImage="/manus-storage/best-car-loans-low-income_og_4fb6d3d6.jpg"
+      ogImage="/images/best-car-loans-low-income_og_0efd6ffe.jpg"
       cityServiceSlug="bad-credit-auto-loans"
       title="Best Car Loans for Low Income Buyers (2026)"
       subtitle="Lower income doesn't mean no options. These lenders have programs designed for borrowers earning $1,200-$2,500/month."

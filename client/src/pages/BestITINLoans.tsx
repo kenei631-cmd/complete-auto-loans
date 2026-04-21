@@ -9,7 +9,7 @@ export default function BestITINLoans() {
       seoTitle="Best ITIN Auto Loans of 2026 — Reviewed & Ranked"
       seoDescription="Compare the best ITIN auto loans of 2026. Get approved without a Social Security number using your Individual Taxpayer Identification Number."
       canonicalPath="/best-itin-auto-loans"
-      ogImage="/manus-storage/best-itin-auto-loans_og_8970266d.jpg"
+      ogImage="/images/best-itin-auto-loans_og_9d547952.jpg"
       cityServiceSlug="bad-credit-auto-loans"
       title="Best ITIN Auto Loans of 2026"
       subtitle="Don't have a Social Security number? These lenders accept ITIN numbers and approve borrowers without SSNs."

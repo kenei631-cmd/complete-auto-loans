@@ -10,7 +10,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Shield, Star, ArrowRight } from "lucide-react";
 
-const LOGO_URL = "/manus-storage/logo_white_text_b1a4b277.png";
+const LOGO_URL = "/images/logo.webp";
 
 // Mega menu: 3 columns grouped by borrower situation
 const megaMenuColumns = [
@@ -109,7 +109,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
             <img
-              src="/manus-storage/logo_white_text_b1a4b277.png"
+              src="/images/logo.webp"
               alt="Complete Auto Loans"
               style={{ height: "72px", width: "auto", objectFit: "contain" }}
             />

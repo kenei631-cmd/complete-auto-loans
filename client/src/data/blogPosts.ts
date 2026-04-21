@@ -61,7 +61,7 @@ export const blogPosts: BlogPost[] = [
       { text: "guaranteed approval auto loans", href: "/best-guaranteed-approval-auto-loans" },
       { text: "get pre-approved today", href: "/apply" },
     ],
-    ogImage: "/manus-storage/blog_bad-credit-auto-loans-complete-guide_og_31927a96.jpg",
+    ogImage: "/images/blog_bad-credit-auto-loans-complete-guide_og_70e83513.jpg",
   },
   {
     slug: "how-to-get-a-car-loan-after-bankruptcy",
@@ -107,7 +107,7 @@ export const blogPosts: BlogPost[] = [
       { text: "second chance auto loans", href: "/best-second-chance-auto-loans" },
       { text: "check your approval odds", href: "/apply" },
     ],
-    ogImage: "/manus-storage/blog_how-to-get-a-car-loan-after-bankruptcy_og_db81cd59.jpg",
+    ogImage: "/images/blog_how-to-get-a-car-loan-after-bankruptcy_og_569e4595.jpg",
   },
   {
     slug: "car-loan-with-500-credit-score",
@@ -154,7 +154,7 @@ export const blogPosts: BlogPost[] = [
       { text: "no money down car loans", href: "/best-no-money-down-car-loans-bad-credit" },
       { text: "apply now", href: "/apply" },
     ],
-    ogImage: "/manus-storage/blog_bad-credit-auto-loans-complete-guide_og_31927a96.jpg",
+    ogImage: "/images/blog_bad-credit-auto-loans-complete-guide_og_70e83513.jpg",
   },
   {
     slug: "buy-here-pay-here-vs-traditional-auto-loans",
@@ -201,7 +201,7 @@ export const blogPosts: BlogPost[] = [
       { text: "second chance auto loans", href: "/best-second-chance-auto-loans" },
       { text: "compare your options", href: "/apply" },
     ],
-    ogImage: "/manus-storage/blog_buy-here-pay-here-pros-cons_og_79f13d68.jpg",
+    ogImage: "/images/blog_buy-here-pay-here-pros-cons_og_db080789.jpg",
   },
   {
     slug: "car-loan-no-credit-history",
@@ -248,7 +248,7 @@ export const blogPosts: BlogPost[] = [
       { text: "guaranteed approval auto loans", href: "/best-guaranteed-approval-auto-loans" },
       { text: "check your options", href: "/apply" },
     ],
-    ogImage: "/manus-storage/blog_first-time-car-buyer-guide_og_0adc9c4e.jpg",
+    ogImage: "/images/blog_first-time-car-buyer-guide_og_6f6c6902.jpg",
   },
   {
     slug: "car-loan-480-credit-score",
@@ -295,7 +295,7 @@ export const blogPosts: BlogPost[] = [
       { text: "second chance auto loans", href: "/best-second-chance-auto-loans" },
       { text: "check your approval odds", href: "/apply" },
     ],
-    ogImage: "/manus-storage/blog_bad-credit-auto-loans-complete-guide_og_31927a96.jpg",
+    ogImage: "/images/blog_bad-credit-auto-loans-complete-guide_og_70e83513.jpg",
   },
   {
     slug: "chapter-7-bankruptcy-car-loan",
@@ -342,7 +342,7 @@ export const blogPosts: BlogPost[] = [
       { text: "bad credit auto loans", href: "/best-bad-credit-auto-loans" },
       { text: "check your approval odds", href: "/apply" },
     ],
-    ogImage: "/manus-storage/blog_how-to-get-a-car-loan-after-bankruptcy_og_db81cd59.jpg",
+    ogImage: "/images/blog_how-to-get-a-car-loan-after-bankruptcy_og_569e4595.jpg",
   },
   {
     slug: "how-to-refinance-bad-credit-auto-loan",
@@ -389,7 +389,7 @@ export const blogPosts: BlogPost[] = [
       { text: "car loans after bankruptcy", href: "/best-car-loans-after-bankruptcy" },
       { text: "check your current options", href: "/apply" },
     ],
-    ogImage: "/manus-storage/blog_how-to-refinance-a-bad-credit-auto-loan_og_48e71dbd.jpg",
+    ogImage: "/images/blog_how-to-refinance-a-bad-credit-auto-loan_og_55c9fe32.jpg",
   },
   {
     slug: "itin-auto-loans-no-ssn",
@@ -436,7 +436,7 @@ export const blogPosts: BlogPost[] = [
       { text: "bad credit auto loans", href: "/best-bad-credit-auto-loans" },
       { text: "check your options", href: "/apply" },
     ],
-    ogImage: "/manus-storage/blog_itin-auto-loans-guide_og_416b6cbd.jpg",
+    ogImage: "/images/blog_itin-auto-loans-guide_og_34fe4da1.jpg",
   },
   {
     slug: "no-money-down-car-loan-guide",
@@ -483,7 +483,7 @@ export const blogPosts: BlogPost[] = [
       { text: "guaranteed approval auto loans", href: "/best-guaranteed-approval-auto-loans" },
       { text: "check your options", href: "/apply" },
     ],
-    ogImage: "/manus-storage/blog_no-money-down-car-loan-guide_og_cca83f0c.jpg",
+    ogImage: "/images/blog_no-money-down-car-loan-guide_og_8e9bb344.jpg",
   },
 ];
 

@@ -9,7 +9,7 @@ export default function BestBadCreditAutoLoans() {
       seoTitle="Best Bad Credit Auto Loans of 2026 — Reviewed & Ranked"
       seoDescription="Compare the best bad credit auto loans of 2026. We reviewed 40+ lenders to find options for scores under 600. No minimum credit score required."
       canonicalPath="/best-bad-credit-auto-loans"
-      ogImage="/manus-storage/best-bad-credit-auto-loans_og_73f14a9e.jpg"
+      ogImage="/images/best-bad-credit-auto-loans_og_60964dcb.jpg"
       cityServiceSlug="bad-credit-auto-loans"
       title="Best Bad Credit Auto Loans of 2026"
       subtitle="We reviewed 40+ lenders to find the best auto loan options for borrowers with credit scores under 600."
